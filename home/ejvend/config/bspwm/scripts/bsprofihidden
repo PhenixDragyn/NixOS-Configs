@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+ # nodes=( $(bspc query -N -n .hidden ) ) && s=$(xtitle ${nodes[@]} | 
+ #         rofi -dmenu -i -format i -p "Hidden windows: ")
+ #
+ # c=n
+ #
+ #
+ # if [[ -n "$s" ]]; then
+ #     bspc query -N -n >/dev/null || c=d
+ #     bspc node "${nodes[$s]}" -${c} focused -g hidden=off -f
+ # notify-send "$s $c $nodes"
+ # fi
+
+ #   selection=`for id in $(bspc query -N -n .hidden); do
+ #                   #title=$(xprop -id "$id" WM_NAME | sed -nE 's,^WM_NAME[(]STRING[)] = "(.*)"$,\1,p')
+ #                   #title=$(xtitle $id)
+ #                   #options+="${title:-"$(bspc query -T -n "$id" | jq -r '.client | "\(.instanceName):\(.className)"')"}"$'\n'"
+ #                   title="$(bspc query -T -n "$id" | jq -r '.client | "\(.instanceName):\(.className)"')"
+ #                   [[ -z "$title" ]] && title="<unnamed>"
+ #                   echo $title - $id
+ #                   #notify-send "${id} ${title}"
+ #               done | rofi -window-thumbnail -dmenu -i -p "Hidden windows" | cut -f3 -d' '`
+ #    
+ #   [[ -z "$selection" ]] && exit 1
+ # 
+ #  notify-send "${selection}"
+ # 
+ #  bspc node ${selection} -g hidden=off
+
+ nodes=($(bspc query -N -n .hidden))
+ 
+ selection=`for id in ${nodes[@]}; do
+                    title="$(bspc query -T -n "$id" | jq -r '.client | "\(.instanceName):\(.className)"')"
+                    [[ -z "$title" ]] && title="<unnamed>"
+                    echo $title
+                done | rofi -window-thumbnail -dmenu -i -format i -p "Hidden windows"`
+                
+ c=n
+ 
+ if [[ -n "$selection" ]]; then
+      bspc query -N -n >/dev/null || c=d
+      bspc node "${nodes[$selection]}" -${c} focused -g hidden=off -f
+      #notify-send "$selection $c $nodes"
+ fi

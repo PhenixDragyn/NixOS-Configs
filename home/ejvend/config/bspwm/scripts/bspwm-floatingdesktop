@@ -1,0 +1,23 @@
+#!/bin/bash
+
+chkloc() {
+    [[ "$1" == "${FLOATING_MONITOR_ID}:${FLOATING_DESKTOP_ID}" ]] && {
+        bspc node "$2" -t floating
+        return 0
+    }
+}
+
+while read -ra line; do
+    case "${line[0]}" in
+        node_add)
+            chkloc "${line[1]}:${line[2]}" "${line[4]}"
+            ;;
+        node_swap)
+            chkloc "${line[1]}:${line[2]}" "${line[6]}" ||
+            chkloc "${line[4]}:${line[5]}" "${line[3]}"
+            ;;
+        node_transfer)
+            chkloc "${line[4]}:${line[5]}" "${line[3]}"
+            ;;
+    esac
+done < <(bspc subscribe node_add node_swap node_transfer)
