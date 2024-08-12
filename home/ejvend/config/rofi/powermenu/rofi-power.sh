@@ -14,7 +14,7 @@ chosen=$(printf '%s;%s;%s;%s;%s\n' \
 		"$suspend" \
 		"$log_out" \
 		| rofi \
-				-theme-str '@import "themes/power.rasi"' \
+				-theme-str '@import "power.rasi"' \
 				-hover-select \
 				-me-select-entry "" \
 				-me-accept-entry MousePrimary \
@@ -28,11 +28,11 @@ confirm () {
 
 case "$chosen" in
 		"$power_off")
-				confirm 'Shutdown?' && doas shutdown now
+				confirm 'Shutdown?' && doas systemctl suspend
 				;;
 
 		"$reboot")
-				confirm 'Reboot?' && doas reboot
+				confirm 'Reboot?' && doas systemctl reboot
 				;;
 
 		"$lock")

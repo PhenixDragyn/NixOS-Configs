@@ -5,11 +5,7 @@ configuration {
 	  sidebar-mode: 					false;
 }
 
-/* @import "colors.rasi" */
-
 * {
-    background-color:               @background;
-    text-color:                     @accent;
 }
 
 window {
@@ -31,19 +27,15 @@ listview {
 }
 
 mainbox {
-    background-color:               @background;
     children:                       [ listview ];
 }
 
 element {
-    background-color:               @background;
-    text-color:                     @accent;
     orientation:                    vertical;
     border-radius:                  3px;
 }
 
 element-text {
-	font:							"feather 20";
     expand:                         true;
     horizontal-align:               0.5;
     vertical-align:                 0;
@@ -52,31 +44,20 @@ element-text {
 
 element normal.urgent,
 element alternate.urgent {
-    background-color:               @urgent;
-    text-color:                     @foreground;
     border-radius:                  3px;
 }
 
 element normal.active,
 element alternate.active {
-    background-color:               @background-alt;
-    text-color:                     @foreground;
 }
 
 element selected {
-    background-color:               @accent;
-    text-color:                     @background;
     border:                  		0px;
     border-radius:                  3px;
-    border-color:                  	@border;
 }
 
 element selected.urgent {
-    background-color:               @urgent;
-    text-color:                     @foreground;
 }
 
 element selected.active {
-    background-color:               @background-alt;
-    color:                          @foreground;
 }

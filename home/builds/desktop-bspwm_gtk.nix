@@ -26,14 +26,17 @@
 
     file.".config/bspwm".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${userSettings.username}/config/bspwm";
     file.".config/sxhkd/sxhkdrc".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${userSettings.username}/config/sxhkd/sxhkdrc-bspwm_gtk";
+    file.".config/rofi/powermenu".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${userSettings.username}/config/rofi/powermenu";
 
-    file.".config/rofi/rofi-power.sh".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${userSettings.username}/config/rofi/rofi-power.sh";
-    file.".config/rofi/rofi-prompt.sh".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${userSettings.username}/config/rofi/rofi-prompt.sh";
+    #file.".config/rofi/powermenu" = {
+      #recursive = true;
+      #source = ../ejvend/config/rofi/powermenu;
+    #};
 
-		file.".config/rofi/themes" = {
-			recursive = true;
-			source = ../ejvend/config/rofi/themes;
-		};
+    #file.".config/rofi/themes" = {
+    #	recursive = true;
+    #	source = ../ejvend/config/rofi/themes;
+    #};
 
     #file.".config/autostart".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${userSettings.username}/config/autostart";
     #file.".config/featherpad".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${userSettings.username}/config/featherpad";
