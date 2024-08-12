@@ -74,6 +74,7 @@
   # SYSTEM PACKAGES 
   environment.systemPackages = with pkgs; [
     syncthingtray
+
     x2goclient
     xautolock
     xcbutilxrm

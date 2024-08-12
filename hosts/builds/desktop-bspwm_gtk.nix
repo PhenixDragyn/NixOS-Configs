@@ -80,6 +80,8 @@
   services.xserver.updateDbusEnvironment = true;
 
   # Enable BSPWM
+  services.xserver.desktopManager.runXdgAutostartIfNone = true;
+
   services.xserver.windowManager.bspwm.enable = true;
 
   #xdg.portal.config.common.default = "*"
@@ -98,6 +100,8 @@
     ];
     xdgOpenUsePortal = true;
   };
+
+  xdg.autostart.enable = true;
 
   # DBUS (GNOME)
   services.dbus = {
@@ -160,7 +164,7 @@
     fzf
     hsetroot
     i3lock-color
-    #keepassxc
+    keepassxc
     kitty
     libnotify
     lsd
