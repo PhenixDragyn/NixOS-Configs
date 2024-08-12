@@ -158,6 +158,9 @@ hsetroot -solid $BG_COLOR
 # Start nitrogen to set wallpaper
 #nitrogen --restore &
 
+# Call Autorandr
+autorandr -c
+
 # Start a terminal
 kitty &
 
