@@ -1,8 +1,5 @@
 { config, pkgs, ... }:
-let
 
-  rofi = config.home-manager.users.${config.user}.programs.rofi.finalPackage;
-in
 {
 
   # Adapted from:
@@ -23,7 +20,7 @@ in
           "$lock" \
           "$suspend" \
           "$log_out" \
-          | ${rofi}/bin/rofi \
+          | rofi \
               -theme-str '@import "power.rasi"' \
               -hover-select \
               -me-select-entry "" \
@@ -46,7 +43,7 @@ in
               ;;
 
           "$lock")
-              ${pkgs.betterlockscreen}/bin/betterlockscreen --lock --display 1 --blur 0.5 --span
+              i3lock-color
               ;;
 
           "$suspend")
