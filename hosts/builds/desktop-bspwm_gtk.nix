@@ -25,6 +25,8 @@
     #displayManager.sddm.enable = true;
   };
 
+  services.autorandr.enable = true;
+
   # Enable security services
   services.gnome.gnome-keyring.enable = true;
   security.polkit.enable = true;
@@ -95,6 +97,8 @@
   environment.systemPackages = with pkgs; [
     syncthingtray
 
+    autorandr
+
     x2goclient
     xautolock
     xcbutilxrm
@@ -128,12 +132,13 @@
     thunderbird
   
     nemo-with-extensions
-    geeqie
-    #gnome-monitor-config
+    
+    cheese
     dconf-editor
     file-roller
-    #gnome.nautilus
+    geeqie
     seahorse
+    snapshot
     #gnome-secrets
 
     numix-cursor-theme

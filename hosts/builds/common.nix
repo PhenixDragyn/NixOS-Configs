@@ -208,7 +208,7 @@
   environment.systemPackages = with pkgs; [
     alsa-utils
     arandr
-    autorandr
+    #autorandr
     bc
     blueman
     curl

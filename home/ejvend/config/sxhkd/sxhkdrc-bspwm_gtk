@@ -192,7 +192,7 @@ super + e
 
 # Start pcmanfm
 super + n
-	nautilus
+	nemo
   #pcmanfm-qt 
   #bspc rule -a pcmanfm-qt -o state=floating rectangle=875x540+100+100 && pcmanfm-qt
 
@@ -202,7 +202,7 @@ super + shift + n
 
 # Start Image Viewer
 super + i
-  loupe
+  geeqie
   #qimgv ~/Media/Pictures/Wallpapers/
 
 # Start Vimiv
