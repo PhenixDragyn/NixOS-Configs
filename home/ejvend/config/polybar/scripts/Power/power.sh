@@ -23,7 +23,7 @@ case $chosen in
         systemctl reboot
         ;;
     $lock)
-        i3lock
+        i3lock-color
         ;;
     $suspend)
         mpc -q pause
