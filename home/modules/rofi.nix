@@ -290,11 +290,6 @@ let
     };
 
   in {
-		home.file.".config/rofi/themes" = {
-			recursive = true;
-			source = ../ejvend/config/rofi/themes;
-		};
-
     programs.rofi = {
       enable = true;
       theme = nixos-theme;
