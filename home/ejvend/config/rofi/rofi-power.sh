@@ -44,7 +44,7 @@ case "$chosen" in
 				;;
 
 		"$log_out")
-				confirm 'Logout?' && i3-msg exit
+				confirm 'Logout?' && bspc quit
 				;;
 
 		*) exit 1 ;;
