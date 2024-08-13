@@ -30,6 +30,6 @@ case "$chosen" in
 	$POWER_OFF) sudo poweroff ;;
 	$REBOOT) sudo reboot ;;
 	$SUSPEND) sudo systemctl suspend ;;
-	$LOG_OUT) i3-msg exit ;;
+	$LOG_OUT) bspc quit ;;
 	*) exit 1 ;;
 esac
