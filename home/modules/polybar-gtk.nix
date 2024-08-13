@@ -692,7 +692,7 @@ fi
           format = "%{T2} %{T-}";
           format-foreground = "\${colors.orange}";
           format-padding=1;
-          click-left = "~/.config/polybar/scripts/Power/power-gtk.sh";
+          click-left = "~/.config/rofi/powermenu/power-gtk.sh";
         };
 
         "module/powermenu2" = {
