@@ -25,7 +25,10 @@
 				else 
 			  (if (systemSettings.build == "lxqt_bspwm" )
 			    then [ ../builds/desktop-lxqt_bspwm.nix ] 
-				else []));
+				else 
+			  (if (systemSettings.build == "xfce_bspwm" )
+			    then [ ../builds/desktop-xfce_bspwm.nix ] 
+				else [])));
 
   #networking.hostName = "nixos-test";
 
