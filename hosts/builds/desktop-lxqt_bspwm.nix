@@ -43,7 +43,7 @@
   #    naturalScrolling = true;
   #  };
   };
-
+  
   # Environment Variables
   environment.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "qt5ct";
