@@ -686,15 +686,6 @@ fi
           click-left = "systemctl poweroff";
         };
 
-        "module/power-gtk" = {
-          type = "custom/text";
-          format-spacing = 2;
-          format = "%{T2} %{T-}";
-          format-foreground = "\${colors.orange}";
-          format-padding=1;
-          click-left = "~/.config/rofi/powermenu/rofi-power.sh";
-        };
-
         "module/powermenu" = {
           type = "custom/menu";
 
