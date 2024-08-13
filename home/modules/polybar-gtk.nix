@@ -180,7 +180,7 @@ fi
           offset-x = "96.75%";
 	        offset-y = 3;
 
-          modules-center = "power";
+          modules-center = "powermenu";
         };
 
 	
@@ -241,7 +241,7 @@ fi
           offset-x = "98.25%";
           offset-y = 3;
 
-          modules-center = "power";
+          modules-center = "powermenu";
 	      };
 
 
@@ -687,6 +687,15 @@ fi
         };
 
         "module/powermenu" = {
+          type = "custom/text";
+          format-spacing = 2;
+          format = "%{T2} %{T-}";
+          format-foreground = "\${colors.orange}";
+          format-padding=1;
+          click-left = "~/.config/polybar/scripts/Power/power-gtk.sh";
+        };
+
+        "module/powermenu2" = {
           type = "custom/menu";
 
           format-spacing = "1";

@@ -5,7 +5,8 @@ REBOOT=" Reboot"
 SUSPEND=" Suspend"
 LOG_OUT=" Log out"
 
-chosen=`printf "%s\n%s\n%s\n%s" "$POWER_OFF" "$REBOOT" "$SUSPEND" "$LOG_OUT" | rofi -dmenu -i -p ""`
+chosen=`printf "%s\n%s\n%s\n%s" "$POWER_OFF" "$REBOOT" "$SUSPEND" "$LOG_OUT" | rofi -theme "$HOME"/.config/polybar/scripts/Power/power.rasi -dmenu -i -p ""`
+#chosen=`printf "%s\n%s\n%s\n%s" "$POWER_OFF" "$REBOOT" "$SUSPEND" "$LOG_OUT" | rofi -dmenu -i -p ""`
 
 case "$chosen" in
 	$POWER_OFF) action="power off" ;;
