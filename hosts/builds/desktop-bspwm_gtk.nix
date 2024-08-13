@@ -132,7 +132,7 @@
 
   # Environment Variables
   environment.sessionVariables = {
-    QT_QPA_PLATFORMTHEME = "qt5ct";
+    QT_QPA_PLATFORMTHEME = "gnome";
   };
 
   environment.variables = {
@@ -142,7 +142,7 @@
 
   # SYSTEM PACKAGES 
   environment.systemPackages = with pkgs; [
-    syncthingtray
+    syncthing-tray
 
     autorandr
 
