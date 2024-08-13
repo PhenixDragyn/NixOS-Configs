@@ -56,7 +56,9 @@
   # LXQT SETTINGS
   services.xserver.desktopManager.lxqt.enable = true;
 
-  # GNUPG
+  # SECURITY SERVICES - GNUPG
+  security.pam.services.lightdm.gnupg.enable = true;
+  
   programs.gnupg.agent = {
    enable = true;
    enableSSHSupport = true;
