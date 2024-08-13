@@ -66,9 +66,9 @@
     #ADW_DISABLE_PORTAL = 1;
   };
 
-  environment.variables = {
-    "QT_STYLE_OVERRIDE" = pkgs.lib.mkForce "adwaita-dark";
-  };
+  #environment.variables = {
+  #  "QT_STYLE_OVERRIDE" = pkgs.lib.mkForce "adwaita-dark";
+  #};
 
   # XFCE SETTINGS
   services.xserver.desktopManager.xfce.enable = true;
