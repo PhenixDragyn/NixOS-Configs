@@ -26,11 +26,21 @@
         enable = true;
         theme.name = "Zukitre-dark";
       };
+      defaultSession = "xfce+bspwm";
     };
   };
 
   # SECURITY SERVICES
   security.pam.services.lightdm.enableGnomeKeyring = true;
+
+  # Call dbus-update-activation-environment on login
+  services.xserver.updateDbusEnvironment = true;
+
+  # DBUS (GNOME)
+  services.dbus = {
+    enable = true;
+    packages = [ pkgs.dconf ];
+  };
 
   # X2GO SERVER AND XRDP
   #services.x2goserver.enable = true;
@@ -53,6 +63,7 @@
   # Environment Variables
   environment.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "qt5ct";
+    #ADW_DISABLE_PORTAL = 1;
   };
 
   environment.variables = {
@@ -62,6 +73,8 @@
   # XFCE SETTINGS
   services.xserver.desktopManager.xfce.enable = true;
   services.xserver.desktopManager.xfce.noDesktop = true;
+  services.xserver.desktopManager.xfce.enableXfwm = false;
+  services.xserver.windowManager.bspwm.enable = true;
 
   programs = {
     dconf.enable = true;
@@ -79,14 +92,17 @@
     };
   };
 
-  #xdg.portal = {
-  #  enable = true;
-  #  lxqt.enable = true;
-  #  extraPortals = [ pkgs.lxqt.xdg-desktop-portal-lxqt ];
-  #  xdgOpenUsePortal = true;
-  #};
+  # Is this needed??
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk];
+    xdgOpenUsePortal = true;
+    config.common.default = "*";
+  };
 
-  environment.xfce.excludePackages = [
+  environment.xfce.excludePackages = with pkgs; [
+    xfce.xfce4-appfinder
+    xfce.xfce4-terminal
   ];
 
   # SYSTEM PACKAGES 
@@ -99,6 +115,7 @@
     xclip
 		xdg-utils
     xdg-user-dirs
+    xdg-desktop-portal-gtk
     xdotool
     xorg.xbacklight
     wget
@@ -116,7 +133,7 @@
     firefox
     fzf
     hsetroot
-    i3lock-color
+    #i3lock-color
     keepassxc
     kitty
     libnotify

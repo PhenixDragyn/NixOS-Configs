@@ -4,7 +4,7 @@
   dconf = {
     settings = {
       "org/gnome/desktop/interface" = {
-        "gtk-theme" = lib.mkForce "pop-gtk";
+        "gtk-theme" = lib.mkForce "zukitre-dark";
         "gtk-color-scheme" = "prefer-dark";
       };
 
