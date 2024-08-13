@@ -152,11 +152,6 @@
     openFirewall = true;
   };    
 
-  programs.gnupg.agent = {
-   enable = true;
-   enableSSHSupport = true;
-  };
-
   programs.ssh.extraConfig = ''
       AddKeysToAgent yes
       Compression yes

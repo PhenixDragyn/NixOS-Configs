@@ -56,6 +56,13 @@
   # LXQT SETTINGS
   services.xserver.desktopManager.lxqt.enable = true;
 
+  # GNUPG
+  programs.gnupg.agent = {
+   enable = true;
+   enableSSHSupport = true;
+   pinentryPackage = pkgs.pinentry-qt;
+  };
+
   xdg.portal = {
     enable = true;
     lxqt.enable = true;
