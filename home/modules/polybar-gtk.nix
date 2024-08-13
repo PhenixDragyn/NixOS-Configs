@@ -180,7 +180,7 @@ fi
           offset-x = "96.75%";
 	        offset-y = 3;
 
-          modules-center = "power-gtk";
+          modules-center = "power";
         };
 
 	
@@ -241,7 +241,7 @@ fi
           offset-x = "98.25%";
           offset-y = 3;
 
-          modules-center = "power-gtk";
+          modules-center = "power";
 	      };
 
 
@@ -683,7 +683,7 @@ fi
           format = "%{T2} %{T-}";
           format-foreground = "\${colors.orange}";
           format-padding=1;
-          click-left = "lxqt-leave";
+          click-left = "systemctl poweroff";
         };
 
         "module/power-gtk" = {
