@@ -101,6 +101,7 @@
   };
 
   environment.xfce.excludePackages = with pkgs; [
+    xfce.ristretto
     xfce.xfce4-appfinder
     xfce.xfce4-terminal
   ];
@@ -147,6 +148,8 @@
     st
     termite
     thunderbird
+
+    nitrogen
 
     numix-cursor-theme
     papirus-icon-theme
