@@ -1,14 +1,14 @@
-@import "common.rasi"
+/*@import "common.rasi"*/
 
 * {
-  font: @prompt-text-font;
+  font:                     "Hack Nerd Font 18";
 }
 
 #window {
-  height: @prompt-window-height;
-  width: @prompt-window-width;
+  height: 120px;
+  width: 360px;
   children: [ inputbar, horibox ];
-  border: @prompt-window-border;
+  border: 2px;
 }
 
 #inputbar {
@@ -16,17 +16,16 @@
 }
 
 #prompt {
-  padding: @prompt-prompt-padding;
-  margin: @prompt-prompt-margin;
+  padding: 10px 15px;
+  margin: 8px;
 }
 
 #listview {
-  padding: @prompt-listview-padding;
-  spacing: @option-5-listview-spacing;
+  padding: 10px 15px;
+  spacing: 15px;
   lines: 2;
 }
 
 #element {
-  font: @prompt-text-font;
-  padding: @prompt-element-padding;
+  padding: 6px 9px 6px -18px;
 }

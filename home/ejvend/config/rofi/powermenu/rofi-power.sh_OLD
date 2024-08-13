@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+power_off=""
+reboot=""
+lock=""
+suspend="󰒲"
+log_out=""
+
+chosen=$(printf '%s;%s;%s;%s;%s\n' \
+		"$power_off" \
+		"$reboot" \
+		"$lock" \
+		"$suspend" \
+		"$log_out" \
+		| rofi \
+				-theme-str '@import "power.rasi"' \
+				-hover-select \
+				-me-select-entry "" \
+				-me-accept-entry MousePrimary \
+				-dmenu \
+				-sep ';' \
+				-selected-row 2)
+
+confirm () {
+		${builtins.readFile ./rofi-prompt.sh}
+}
+
+case "$chosen" in
+		"$power_off")
+				confirm 'Shutdown?' && doas systemctl suspend
+				;;
+
+		"$reboot")
+				confirm 'Reboot?' && doas systemctl reboot
+				;;
+
+		"$lock")
+				i3lock-color
+				;;
+
+		"$suspend")
+				systemctl suspend
+				;;
+
+		"$log_out")
+				confirm 'Logout?' && bspc quit
+				;;
+
+		*) exit 1 ;;
+esac

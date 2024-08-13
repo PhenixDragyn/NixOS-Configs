@@ -1,5 +1,6 @@
 * {
-  font:                                 "Hack Nerd Font 30";
+
+  /*font:                                 "Hack Nerd Font 30";*/
 
   /* option menus: i3-layout, music, power and screenshot
    *
@@ -33,6 +34,7 @@
 /**
  * Settings used in every rofi option menu:
  */
+/*
 #window {
   children: [ horibox ];
 }
@@ -52,3 +54,4 @@ element {
   spacing: 10px;
   lines: 5;
 }
+*/

@@ -1,51 +1,106 @@
 #!/usr/bin/env bash
 
+## Original Author : Aditya Shakya (adi1090x)
+#
+## Current Author : Jackson Novak (Oglo12)
+#
+## Github : @adi1090x
+#
+## Codeberg : @Oglo12
+#
+## Rofi   : Power Menu
+#
+## Available Styles
+#
+## style-1   style-2   style-3   style-4   style-5
+## style-6   style-7   style-8   style-9   style-10
 
-power_off=""
+# Current Theme
+dir="$HOME/.config/rofi/powermenu"
+theme='power'
+
+# CMDs
+uptime="`uptime -p | sed -e 's/up //g'`"
+host=`hostname`
+
+# Options
+shutdown=""
 reboot=""
 lock=""
 suspend="󰒲"
-log_out=""
+logout=""
 
-chosen=$(printf '%s;%s;%s;%s;%s\n' \
-		"$power_off" \
-		"$reboot" \
-		"$lock" \
-		"$suspend" \
-		"$log_out" \
-		| rofi \
-				-theme-str '@import "power.rasi"' \
-				-hover-select \
-				-me-select-entry "" \
-				-me-accept-entry MousePrimary \
-				-dmenu \
-				-sep ';' \
-				-selected-row 2)
+yes='Y'
+no='N'
 
-confirm () {
-		${builtins.readFile ./rofi-prompt.sh}
+# Rofi CMD
+rofi_cmd() {
+	rofi -dmenu \
+		-p "Uptime: $uptime" \
+		-mesg "Uptime: $uptime" \
+		-theme ${dir}/${theme}.rasi
 }
 
-case "$chosen" in
-		"$power_off")
-				confirm 'Shutdown?' && doas systemctl suspend
-				;;
+# Confirmation CMD
+confirm_cmd() {
+	rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 350px;}' \
+		-theme-str 'mainbox {children: [ "message", "listview" ];}' \
+		-theme-str 'listview {columns: 2; lines: 1;}' \
+		-theme-str 'element-text {horizontal-align: 0.5;}' \
+		-theme-str 'textbox {horizontal-align: 0.5;}' \
+		-dmenu \
+		-p 'Confirmation' \
+		-mesg 'Are you Sure?' \
+		-theme ${dir}/${theme}.rasi
+}
 
-		"$reboot")
-				confirm 'Reboot?' && doas systemctl reboot
-				;;
+# Ask for confirmation
+confirm_exit() {
+	echo -e "$yes\n$no" | confirm_cmd
+}
 
-		"$lock")
-				i3lock-color
-				;;
+# Pass variables to rofi dmenu
+run_rofi() {
+	echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi_cmd
+}
 
-		"$suspend")
-				systemctl suspend
-				;;
+# Execute Command
+run_cmd() {
+	selected="$yes"
+	if [[ "$selected" == "$yes" ]]; then
+		if [[ $1 == '--shutdown' ]]; then
+			poweroff
+		elif [[ $1 == '--reboot' ]]; then
+			reboot
+		elif [[ $1 == '--suspend' ]]; then
+			mpc -q pause
+			amixer set Master mute
+			systemctl suspend
+		elif [[ $1 == '--logout' ]]; then
+			pkill -KILL -u $USER
+		fi
+	else
+		exit 0
+	fi
+}
 
-		"$log_out")
-				confirm 'Logout?' && bspc quit
-				;;
-
-		*) exit 1 ;;
+# Actions
+chosen="$(run_rofi)"
+case ${chosen} in
+    $shutdown)
+		run_cmd --shutdown
+        ;;
+    $reboot)
+		run_cmd --reboot
+        ;;
+    $lock)
+		betterlockscreen -l
+        ;;
+    $suspend)
+		run_cmd --suspend
+        ;;
+    $logout)
+		run_cmd --logout
+        ;;
 esac
+

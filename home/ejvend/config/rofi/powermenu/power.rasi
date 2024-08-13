@@ -1,9 +1,9 @@
-@import "common.rasi"
+/*@import "common.rasi"*/
 
-window {
+/*window {
   width: 575px;
   height: 130px;
-}
+}*/
 
 * {
   font:                                 "Hack Nerd Font 30";
@@ -11,19 +11,26 @@ window {
 
 #window {
   children: [ horibox ];
+	width: 575px;
+	height: 130px;
 }
+
 #horibox {
   children: [ listview ];
 }
+
 #listview {
   layout: horizontal;
 }
+
 element {
   padding: 20px 40px 20px 0px;
 }
+
 #window {
   padding: 20px;
 }
+
 #listview {
   spacing: 10px;
   lines: 5;
