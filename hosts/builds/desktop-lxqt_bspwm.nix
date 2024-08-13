@@ -49,21 +49,21 @@
     QT_QPA_PLATFORMTHEME = "qt5ct";
   };
 
-  environment.variables = {
-    "QT_STYLE_OVERRIDE" = pkgs.lib.mkForce "adwaita-dark";
-  };
+  #environment.variables = {
+  #  "QT_STYLE_OVERRIDE" = pkgs.lib.mkForce "adwaita-dark";
+  #};
 
   # LXQT SETTINGS
   services.xserver.desktopManager.lxqt.enable = true;
 
   # SECURITY SERVICES - GNUPG
-  security.pam.services.lightdm.gnupg.enable = true;
+  #security.pam.services.lightdm.gnupg.enable = true;
   
-  programs.gnupg.agent = {
-   enable = true;
-   enableSSHSupport = true;
-   pinentryPackage = pkgs.pinentry-qt;
-  };
+  #programs.gnupg.agent = {
+  # enable = true;
+  # enableSSHSupport = true;
+  # pinentryPackage = pkgs.pinentry-qt;
+  #};
 
   xdg.portal = {
     enable = true;
@@ -130,7 +130,7 @@
     lxqt.qlipper
     nm-tray
     qimgv
-  
+
     numix-cursor-theme
     papirus-icon-theme
     pop-icon-theme
