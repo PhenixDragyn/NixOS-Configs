@@ -24,16 +24,13 @@
       lightdm.enable = true;
       lightdm.greeters.slick = {
         enable = true;
-        theme.name = "Zukitre-dark"
+        theme.name = "Zukitre-dark";
       };
     };
   };
 
   # SECURITY SERVICES
   security.pam.services.lightdm.enableGnomeKeyring = true;
-
-  programs.gpg.enable = true;
-  services.gpg-agent.enable = true;
 
   # X2GO SERVER AND XRDP
   #services.x2goserver.enable = true;
@@ -139,6 +136,7 @@
     pop-icon-theme
     pop-gtk-theme
     zafiro-icons
+    zuki-themes
 
     (python3Full.withPackages(ps: with ps; [ requests ]))
   ] ++ (if (systemSettings.system == "x86_64-linux")

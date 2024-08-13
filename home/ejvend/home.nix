@@ -16,7 +16,7 @@
 			    then [ ../builds/desktop-lxqt_bspwm.nix ] 
 				else 
 			  (if (systemSettings.build == "xfce_bspwm" )
-			    then [ ../builds/desktop-xfce.nix ] 
+			    then [ ../builds/desktop-xfce_bspwm.nix ] 
 				else [])));
 
    

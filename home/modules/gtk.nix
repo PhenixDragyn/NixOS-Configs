@@ -8,8 +8,8 @@
       package = pkgs.elementary-xfce-icon-theme;
     };
     theme = {
-      name = "zukitre-dark";
-      package = pkgs.zuki-themes;
+      name = lib.mkForce "zukitre-dark";
+      #package = pkgs.zuki-themes;
     };
     gtk3.extraConfig = {
       Settings = ''

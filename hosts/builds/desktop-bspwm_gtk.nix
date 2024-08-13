@@ -142,7 +142,7 @@
 
   # SYSTEM PACKAGES 
   environment.systemPackages = with pkgs; [
-    syncthing-tray
+    syncthingtray
 
     autorandr
 
