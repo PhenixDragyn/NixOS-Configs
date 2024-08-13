@@ -35,17 +35,17 @@
 
     # ----- SYSTEM SETTINGS ----- #
     systemSettings = {
-      #system = "x86_64-linux";
-      #hostname = "nixos-lt";
-      #build = "lxqt_bspwm";
+      system = "x86_64-linux";
+      hostname = "nixos-lt";
+      build = "lxqt_bspwm";
 
       #system = "aarch64-linux";
       #hostname = "nixos-mvm";
       #build = "lxqt_bspwm";
       
-      system = "aarch64-linux";
-      hostname = "nixos-test";
-      build = "bspwm_gtk"; 
+      #system = "aarch64-linux";
+      #hostname = "nixos-test";
+      #build = "bspwm_gtk"; 
     };
 
     # ----- USER SETTINGS ----- #

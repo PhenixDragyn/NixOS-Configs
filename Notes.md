@@ -36,8 +36,7 @@ nixos-rebuild switch. This error can be resolved by updating flake.lock using ni
 # Garbage collection
 sudo rm /nix/var/nix/profiles/system-profiles/<entries> (There will be two for each)
 sudo nix-collect-garbage -d
-sudo nixos-rebuild switch
-sudo rm /boot/loader/entries/<entry>
+sudo nixos-rebuild switch sudo rm /boot/loader/entries/<entry>
 shutdown -r now
 
 > nix-collect-garbage then nix-collect-garbage -d
@@ -101,3 +100,15 @@ shutdown -r now
     extraOpts.BrowserThemeColor = config.lib.stylix.colors.withHashtag.base00;
   };
 }
+
+
+# Git Commands
+> git clone git@github.com:PhenixDragyn/NixOS-Configs.git
+> git pull origin master
+> git add .
+> git status
+> git commit -m "Some comment"
+> git push -u origin master
+
+
+> 
