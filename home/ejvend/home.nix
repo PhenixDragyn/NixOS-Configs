@@ -75,7 +75,7 @@
       open="xdg-open";
 
       gs="git status";
-      ga="git add -A .";
+      ga="git add -A";
       gc="git commit -m";
       gpull="git pull origin";
       gpush="git push -m origin";
