@@ -32,29 +32,24 @@ nixos-rebuild switch. This error can be resolved by updating flake.lock using ni
 
 > nix flake update
 
-# Garbage collection
-sudo rm /nix/var/nix/profiles/system-profiles/<entries> (There will be two for each)
-sudo nix-collect-garbage -d
-sudo nixos-rebuild switch sudo rm /boot/loader/entries/<entry>
-shutdown -r now
+------
 
-> nix-collect-garbage then nix-collect-garbage -d
+# Garbage collection with flakes
+
+> sduo nix-collect-garbage
+> sudo nix-collect-garbage -d
+  OR
+> sudo nix-collect-garbage --delete-older-than #d 
 
 > nix-env --list-generations
-> nix-env --delete-generations old
 
-# Clean Garbage flakes
-> sudo nix-collect-garbage -d
-# Clean GRUB entries
-> sudo nix-collect-garbage --delete-older-than 14d
-# then rebuild and update grub.
-> sudo nixos-rebuild boot
+> sudo nix-env --delete-generations old (##)
+  OR
+> sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations ##
 
+> sudo nixos-rebuild switch --flake '.'
 
-
-> nix-collect-garbage --delete-old (or --delete-generations 1 2 3)
-> sudo nix-collect-garbage -d
-> sudo /run/current-system/bin/switch-to-configuration boot
+------
 
 # to rollback to a working build
 > console /run/current-system/bin/switch-to-configuration boot
