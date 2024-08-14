@@ -1,4 +1,4 @@
-{ pkgs, stable, unstable, ... }:
+{ pkgs, stable, unstable, userSettings, systemSettings, ... }:
 
 {
   # X11 SETTINGS
