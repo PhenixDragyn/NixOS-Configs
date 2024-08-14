@@ -136,17 +136,6 @@ export RANGER_DEVICONS_SEPARATOR="  "
 
   # ---------------------------------
 
-  # SYMLINKS
-  #home = {
-  #  file.".fehbg-stylix".text = ''
-      #!/bin/sh
- #     feh --no-fehbg --bg-fill ''+config.stylix.image+'';
- #   '';
- #   file.".fehbg-stylix".executable = true;
- # };
-
-  # ---------------------------------
-  
   # STYLIX
   stylix = {
     enable = true;
