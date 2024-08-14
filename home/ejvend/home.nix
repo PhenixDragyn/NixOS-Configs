@@ -75,10 +75,10 @@
       open="xdg-open";
 
       gs="git status";
-      ga="git add -A";
-      gc="git commit";
-      gpull="git pull";
-      gpush="git push";
+      ga="git add -A .";
+      gc="git commit -m";
+      gpullm="git pull origin master";
+      gpushm="git push -m origin master";
       gd="git diff * | bat";
       gl="git log --stat --graph --decorate --oneline";
 

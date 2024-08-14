@@ -130,7 +130,7 @@ pgrep -x polybar > /dev/null || ~/.config/polybar/launch.sh &
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 # Screensaver
-#xautolock -locker "i3lock-color" &
+xautolock -locker "i3lock-color" &
 
 # Start unclutter to hide mouse when not in use
 pgrep -x unclutter > /dev/null || unclutter &
@@ -156,7 +156,7 @@ BG_COLOR=$(echo '#'$TBG_COLOR)
 hsetroot -solid $BG_COLOR
 
 # Start nitrogen to set wallpaper
-#nitrogen --restore &
+nitrogen --restore &
 
 # Call Autorandr
 autorandr -c
