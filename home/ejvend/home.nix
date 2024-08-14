@@ -23,12 +23,20 @@
 
   # Nixpkgs configuration
   nixpkgs.config.allowUnfree = true;
-  
+
+  nix.settings = {
+    experimental-features = "nix-command flakes";
+    auto-optimise-store = true;
+  };
+
+  # ---------------------------------
+
+  # USER SETTINGS
   home = {
     username = userSettings.username;
     homeDirectory = "/home/" + userSettings.username;
 
-    # USER PACKAGES
+    # User specific packages
     packages = with pkgs; [
       #hello
       #unstable.hello
