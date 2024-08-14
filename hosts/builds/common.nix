@@ -152,6 +152,7 @@
     openFirewall = true;
   };    
 
+  programs.ssh.startAgent = true;
   programs.ssh.extraConfig = ''
       AddKeysToAgent yes
       Compression yes
