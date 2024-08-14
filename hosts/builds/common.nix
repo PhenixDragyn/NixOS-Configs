@@ -74,6 +74,7 @@
     networkmanager.enable = true;
     enableIPv6 = false;
   };
+
   networking.firewall.enable = false;
   networking.firewall.allowPing = true;
  
@@ -96,7 +97,6 @@
     enable = true;
     powerOnBoot = true;
   };
-  services.blueman.enable = true;
 
   # ---------------------------------
 
@@ -218,28 +218,30 @@
 
   # SYSTEM PACKAGES 
   environment.systemPackages = with pkgs; [
-    alsa-utils
-    arandr
-    #autorandr
-    bc
-    blueman
-    curl
     home-manager
+
+    alsa-utils
+    bat
+    bc
+    btop
+    curl
+    fzf
     inetutils
+    lsd
     killall
-    nix-zsh-completions
-    #pipewire
+    neofetch
     playerctl
     procps
+    psmisc
     ranger
-    #pulseaudio
     wget
+
+    nix-zsh-completions
     zsh-completions
     zsh-history-substring-search
     zsh-syntax-highlighting
-    
 
-    #(python3Full.withPackages(ps: with ps; [ requests ]))
+    (python3Full.withPackages(ps: with ps; [ requests ]))
   ] ++ (if (systemSettings.system == "x86_64-linux")
 	        then []
 				else 

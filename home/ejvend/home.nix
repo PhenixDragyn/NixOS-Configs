@@ -77,8 +77,8 @@
       gs="git status";
       ga="git add -A .";
       gc="git commit -m";
-      gpullm="git pull origin master";
-      gpushm="git push -m origin master";
+      gpull="git pull origin";
+      gpush="git push -m origin";
       gd="git diff * | bat";
       gl="git log --stat --graph --decorate --oneline";
 

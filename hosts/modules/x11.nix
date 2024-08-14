@@ -21,6 +21,11 @@
 
   # ---------------------------------
 
+  # BLUETOOTH
+  services.blueman.enable = true;
+
+  # ---------------------------------
+
   # SYSTEM PACKAGES 
   environment.systemPackages = with pkgs; [
     x2goclient
@@ -31,45 +36,37 @@
     xdg-user-dirs
     xdotool
     xorg.xbacklight
-    #wget
-    #zsh-completions
-    #zsh-history-substring-search
-    #zsh-syntax-highlighting
-    #zsh-powerlevel10k
-    #zsh-vi-mode
 
-    bat
+    arandr
+    autorandr
+    blueman
     bspwm
-    btop
     dunst
     feh
-    firefox
-    fzf
-    git-credential-keepassxc
     hsetroot
     i3lock-color
-    keepassxc
-    keepass-charactercopy
-    kitty
     libnotify
-    lsd
-    neofetch
     picom-pijulius
     polybar
-    psmisc
     rofi
     sxhkd
+
+    kitty
     st
     termite
+    
+    firefox
     thunderbird
+
+    keepassxc
+    keepass-charactercopy
+    git-credential-keepassxc
 
     numix-cursor-theme
     papirus-icon-theme
     pop-icon-theme
     pop-gtk-theme
     zafiro-icons
-
-    (python3Full.withPackages(ps: with ps; [ requests ]))
   ] ++ (if (systemSettings.system == "x86_64-linux")
 	        then [ pkgs.freeoffice pkgs.spotify ]
 				else 
