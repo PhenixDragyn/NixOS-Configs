@@ -46,6 +46,11 @@
     enable = true;
     userName = "PhenixDragyn";
     userEmail = "ejvend.nielsen@gmail.com";
+    extraConfig = {
+      credential = {
+        helper = "keepassxc --git-groups";
+      };
+    };
   };
 
   programs.zsh = {
