@@ -23,6 +23,7 @@
     displayManager = {
       lightdm.enable = true;
       lightdm.greeters.slick.enable = true;
+      defaultSession = "lxqt+bspwm";
     };
   };
 
