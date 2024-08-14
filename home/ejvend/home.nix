@@ -9,16 +9,15 @@
     inputs.stylix.homeManagerModules.stylix
     #inputs.spicetify-nix.homeManagerModules.spicetify-nix
 
-  ] ++ (if (systemSettings.build == "bspwm_gtk")
-	        then [ ../builds/desktop-bspwm_gtk.nix ]
+  ] ++ (if (systemSettings.build == "xfce_bspwm")
+	        then [ ../builds/desktop-xfce_bspwm.nix ]
 				else 
 			  (if (systemSettings.build == "lxqt_bspwm" )
 			    then [ ../builds/desktop-lxqt_bspwm.nix ] 
 				else 
-			  (if (systemSettings.build == "xfce_bspwm" )
-			    then [ ../builds/desktop-xfce_bspwm.nix ] 
+			  (if (systemSettings.build == "bspwm_gtk" )
+			    then [ ../builds/desktop-bspwm_gtk.nix ] 
 				else [])));
-
    
   # Nixpkgs configuration
   nixpkgs.config.allowUnfree = true;
