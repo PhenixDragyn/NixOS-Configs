@@ -4,10 +4,15 @@
   # You can import other NixOS modules here
   imports = [
     # Import my host modules
+    ../modules/nixvim.nix
+    ../modules/openssh.nix
     ../modules/ranger.nix
     ../modules/samba.nix
     ../modules/syncthing.nix
+    ../modules/zsh.nix
   ];
+
+  # ---------------------------------
   
   # NIX SETTINGS
   # Nixpkgs configuration
@@ -30,6 +35,8 @@
     experimental-features = "nix-command flakes";
     auto-optimise-store = true;
   };
+
+  # ---------------------------------
 
   # BOOT SETTINGS
   boot = {
@@ -57,6 +64,8 @@
     };
   };
 
+  # ---------------------------------
+
   # NETWORKING
   networking = {
     hostName = systemSettings.hostname;
@@ -72,8 +81,6 @@
   #programs.nm-applet.enable = true;
 
   # Enable Avahi for Network/Printing discovery
-  #services.avahi.enable = true;
-  #services.avahi.nssmdns4 = true;
   services.avahi = {
     publish.enable = true;
     publish.userServices = true;
@@ -82,12 +89,16 @@
     openFirewall = true;
   };
 
+  # ---------------------------------
+
   # BLUETOOTH
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
   };
   services.blueman.enable = true;
+
+  # ---------------------------------
 
   # TIMEZONE AND LOCALE
   time.timeZone = "America/Boise";
@@ -105,6 +116,8 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  # ---------------------------------
+
   # INPUT SETTINGS
  # services.libinput = {
  #   enable = true;
@@ -117,10 +130,14 @@
  #   };
  # };
 
+  # ---------------------------------
+
   # DEVICE MANAGEMENT SETTINGS
   services.devmon.enable = true;
   services.gvfs.enable = true;
   services.udisks2.enable = true;
+
+  # ---------------------------------
 
   # PRINTING SERVICES
   #services.printing = {
@@ -130,6 +147,8 @@
   #environment.systemPackages = with pkgs; [ cups-filters ];
   services.printing.enable = false;
   
+  # ---------------------------------
+
   # SOUND SETTINGS
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -141,37 +160,23 @@
     #jack.enable = true;
   };
 
-  # SSH SERVER
-  services.openssh = {
+  # ---------------------------------
+
+  # LOCATE SETTINGS
+  services.locate = {
     enable = true;
-    settings = {
-      PermitRootLogin = "no";
-      PasswordAuthentication = true;
-      X11Forwarding = true;
-    };
-    openFirewall = true;
-  };    
+    localuser = null;
+  };
 
-  programs.ssh.startAgent = true;
-  programs.ssh.extraConfig = ''
-      AddKeysToAgent yes
-      Compression yes
-      ServerAliveInterval 5
-      ServerAliveCountMax 3
-      SetEnv TERM=xterm-256color
-    '';
-
-  # X2GO SERVER AND XRDP
-  #services.x2goserver.enable = true;
-  #services.xrdp.enable = true;
-  #services.xrdp.defaultWindowManager = "startlxqt";
-  #services.xrdp.openFirewall = true;
+  # ---------------------------------
 
   # SUDO SETTINGS
   security.sudo = {
     enable = true;
     wheelNeedsPassword = false;
   };
+
+  # ---------------------------------
 
   # USER ACCOUNT
   users.users = {
@@ -195,6 +200,8 @@
   };
   users.defaultUserShell = pkgs.zsh;
 
+  # ---------------------------------
+
   # USER SYMLINKS
   #system.userActivationScripts.linktosharedfolder.text = ''
   #  if [[ ! -h "${config.home.homeDirectory}/Sync/test.txt" ]]; then
@@ -202,8 +209,12 @@
   #  fi
   #'';
 
+  # ---------------------------------
+
   # PATH CONFIGURATION
   environment.localBinInPath = true;
+
+  # ---------------------------------
 
   # SYSTEM PACKAGES 
   environment.systemPackages = with pkgs; [
@@ -236,45 +247,8 @@
 			    then [] 
 				else []));
 
-  # LOCATE SETTINGS
-  services.locate = {
-    enable = true;
-    localuser = null;
-  };
+  # ---------------------------------
 
-  # ZSH SETTINGS
-  environment.shells = with pkgs; [ zsh ];
-  programs.zsh = {
-    enable = true;
-    autosuggestions.enable = true;
-    enableCompletion = true;
-    zsh-autoenv.enable = true;
-    syntaxHighlighting.enable = true;
-    
-    ohMyZsh = {
-      enable = true;
-      theme = "agnoster";
-      #theme = "robbyrussell";
-      plugins = [ "git" "python" "sudo" "history" ];
-    }; 
-
-    shellAliases = {
-    };
-
-    interactiveShellInit = ''
-      #source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-    '';
-  };
-
-  # EDITOR
-  programs.nixvim = {
-    enable = true;
-    defaultEditor = true;
-    
-    viAlias = true;
-    vimAlias = true;
-  };
-  
   # STYLIX
   stylix = {
     enable = true;
@@ -283,6 +257,8 @@
     base16Scheme = ./. + "/../../themes"+("/"+userSettings.theme)+".yaml";
     image = ../../files/wallpaper/NixOS-Nineish-Dark.png;
   };
+
+  # ---------------------------------
 
   #environment.etc."current-system-packages".text =
   #  let

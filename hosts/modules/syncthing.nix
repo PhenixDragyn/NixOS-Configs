@@ -1,6 +1,10 @@
-{ userSettings, ... }:
+{ pkgs, stable, unstable, userSettings, ... }:
 
 { 
+  environment.systemPackages = with pkgs; [
+    syncthingtray
+  ];
+
   services.syncthing = {
     enable = true;
     user = "${userSettings.username}";

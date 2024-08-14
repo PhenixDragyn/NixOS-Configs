@@ -32,7 +32,6 @@ nixos-rebuild switch. This error can be resolved by updating flake.lock using ni
 
 > nix flake update
 
-
 # Garbage collection
 sudo rm /nix/var/nix/profiles/system-profiles/<entries> (There will be two for each)
 sudo nix-collect-garbage -d

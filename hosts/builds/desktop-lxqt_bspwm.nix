@@ -7,31 +7,37 @@
   imports = [
     # Import my host modules
     ../modules/syncthing.nix
+    ../modules/x11.nix
   ];
 
+  # ---------------------------------
+  
+  # NETWORKING
   # Enable network manager applet
   programs.nm-applet.enable = false;
 
-  # X11 SETTINGS
-  services.xserver = {
-    enable = true;
-    xkb.layout = "us";
-    xkb.variant = "";
-    #xkbOptions = "caps:escape";
-    excludePackages = with pkgs; [ xterm ];
+  # ---------------------------------
 
-    displayManager = {
-      lightdm.enable = true;
-      lightdm.greeters.slick.enable = true;
-      #defaultSession = "lxqt+bspwm";
-    };
+  # X11/LXQT SETTINGS
+  #services.xserver.displayManager.defaultSession = "lxqt+bspwm";
+  services.xserver.desktopManager.lxqt.enable = true;
+
+  xdg.portal = {
+    enable = true;
+    lxqt.enable = true;
+    extraPortals = [ pkgs.lxqt.xdg-desktop-portal-lxqt ];
+    xdgOpenUsePortal = true;
   };
+
+  # ---------------------------------
 
   # X2GO SERVER AND XRDP
   services.x2goserver.enable = true;
   services.xrdp.enable = true;
   services.xrdp.defaultWindowManager = "startlxqt";
   services.xrdp.openFirewall = true;
+
+  # ---------------------------------
 
   # INPUT SETTINGS
   services.libinput = {
@@ -45,7 +51,9 @@
   #  };
   };
   
-  # Environment Variables
+  # ---------------------------------
+
+  # SETUP ENVIRONMENT VARIABLES
   environment.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "qt5ct";
   };
@@ -54,25 +62,9 @@
   #  "QT_STYLE_OVERRIDE" = pkgs.lib.mkForce "adwaita-dark";
   #};
 
-  # LXQT SETTINGS
-  services.xserver.desktopManager.lxqt.enable = true;
+  # ---------------------------------
 
-  # SECURITY SERVICES - GNUPG
-  #security.pam.services.lightdm.gnupg.enable = true;
-  
-  #programs.gnupg.agent = {
-  # enable = true;
-  # enableSSHSupport = true;
-  # pinentryPackage = pkgs.pinentry-curses;
-  #};
-
-  xdg.portal = {
-    enable = true;
-    lxqt.enable = true;
-    extraPortals = [ pkgs.lxqt.xdg-desktop-portal-lxqt ];
-    xdgOpenUsePortal = true;
-  };
-
+  # LXQT PACKAGES EXCLUDES
   environment.lxqt.excludePackages = [
     pkgs.lxqt.lximage-qt
     pkgs.lxqt.obconf-qt
@@ -81,50 +73,10 @@
     pkgs.xscreensaver
   ];
 
+  # ---------------------------------
+
   # SYSTEM PACKAGES 
   environment.systemPackages = with pkgs; [
-    syncthingtray
-
-    x2goclient
-    xautolock
-    xcbutilxrm
-    xclip
-		xdg-utils
-    xdg-user-dirs
-    xdotool
-    xorg.xbacklight
-    #wget
-    #zsh-completions
-    #zsh-history-substring-search
-    #zsh-syntax-highlighting
-    #zsh-powerlevel10k
-    #zsh-vi-mode
-
-    bat
-    bspwm
-    btop
-    dunst
-    feh
-    firefox
-    fzf
-    git-credential-keepassxc
-    hsetroot
-    i3lock-color
-    keepassxc
-    keepass-charactercopy
-    kitty
-    libnotify
-    lsd
-    neofetch
-    picom-pijulius
-    polybar
-    psmisc
-    rofi
-    sxhkd
-    st
-    termite
-    thunderbird
-
     featherpad
     kdePackages.qt6ct
     libsForQt5.qt5ct 
@@ -133,31 +85,10 @@
     lxqt.qlipper
     nm-tray
     qimgv
-
-    numix-cursor-theme
-    papirus-icon-theme
-    pop-icon-theme
-    pop-gtk-theme
-    zafiro-icons
-
-    (python3Full.withPackages(ps: with ps; [ requests ]))
   ] ++ (if (systemSettings.system == "x86_64-linux")
-	        then [ pkgs.freeoffice pkgs.spotify ]
+	        then []
 				else 
 			  (if (systemSettings.system == "aarch64-linux" )
 			    then [] 
 				else []));
-
-  # FONTS
-  fonts.fontconfig.enable = true;
-  fonts.fontDir.enable = true;
-  fonts.packages = with pkgs; [
-    dejavu_fonts
-    fira-code-nerdfont
-    font-awesome
-    jetbrains-mono
-    nerdfonts
-    noto-fonts
-    noto-fonts-emoji
-  ];
 }
