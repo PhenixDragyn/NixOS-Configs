@@ -40,6 +40,7 @@
     arandr
     autorandr
     blueman
+
     bspwm
     dunst
     feh
