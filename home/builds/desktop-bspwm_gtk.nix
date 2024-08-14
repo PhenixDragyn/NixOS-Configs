@@ -16,6 +16,8 @@
     ../modules/nixvim.nix 
   ];
 
+  # ---------------------------------
+
   # SYMLINKS
   home = {
     #file.".fehbg-stylix".text = ''

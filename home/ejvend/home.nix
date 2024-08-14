@@ -19,6 +19,8 @@
 			    then [ ../builds/desktop-bspwm_gtk.nix ] 
 				else [])));
    
+  # ---------------------------------
+
   # Nixpkgs configuration
   nixpkgs.config.allowUnfree = true;
   
@@ -32,6 +34,8 @@
       #unstable.hello
     ];
   };
+
+  # ---------------------------------
 
   # USER PROGRAMS
   programs = {
@@ -94,10 +98,14 @@ export RANGER_DEVICONS_SEPARATOR="  "
     '';
   };
 
+  # ---------------------------------
+
   # USER SERVICES
   services = {
     unclutter.enable = true;
   };
+
+  # ---------------------------------
 
   # SETUP HOME DIRECTORY
   xdg = {
@@ -127,15 +135,19 @@ export RANGER_DEVICONS_SEPARATOR="  "
     #};
   };
 
-  # SYMLINKS
-  home = {
-    file.".fehbg-stylix".text = ''
-      #!/bin/sh
-      feh --no-fehbg --bg-fill ''+config.stylix.image+'';
-    '';
-    file.".fehbg-stylix".executable = true;
-  };
+  # ---------------------------------
 
+  # SYMLINKS
+  #home = {
+  #  file.".fehbg-stylix".text = ''
+      #!/bin/sh
+ #     feh --no-fehbg --bg-fill ''+config.stylix.image+'';
+ #   '';
+ #   file.".fehbg-stylix".executable = true;
+ # };
+
+  # ---------------------------------
+  
   # STYLIX
   stylix = {
     enable = true;
@@ -150,6 +162,8 @@ export RANGER_DEVICONS_SEPARATOR="  "
       '';
     };
   };
+
+  # ---------------------------------
 
   # Silent news
   news.display = "silent";

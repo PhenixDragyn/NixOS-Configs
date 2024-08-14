@@ -18,6 +18,8 @@
     ../modules/gtk.nix
   ];
 
+  # ---------------------------------
+
   # SYMLINKS
   home = {
     #file.".fehbg-stylix".text = ''
