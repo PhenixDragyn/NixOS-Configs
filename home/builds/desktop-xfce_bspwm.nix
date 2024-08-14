@@ -22,11 +22,11 @@
 
   # SYMLINKS
   home = {
-    #file.".fehbg-stylix".text = ''
+    file.".fehbg-stylix".text = ''
       #!/bin/sh
-    #  feh --no-fehbg --bg-fill ''+config.stylix.image+'';
-    #'';
-    #file.".fehbg-stylix".executable = true;
+      feh --no-fehbg --bg-fill ''+config.stylix.image+'';
+    '';
+    file.".fehbg-stylix".executable = true;
 
     file.".config/bspwm".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${userSettings.username}/config/bspwm";
     file.".config/sxhkd/sxhkdrc".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${userSettings.username}/config/sxhkd/sxhkdrc-xfce_bspwm";
