@@ -119,10 +119,10 @@
     xdg-desktop-portal-gtk
     xdotool
     xorg.xbacklight
-    wget
-    zsh-completions
-    zsh-history-substring-search
-    zsh-syntax-highlighting
+    #wget
+    #zsh-completions
+    #zsh-history-substring-search
+    #zsh-syntax-highlighting
     #zsh-powerlevel10k
     #zsh-vi-mode
 

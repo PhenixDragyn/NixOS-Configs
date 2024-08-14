@@ -254,7 +254,7 @@
       enable = true;
       theme = "agnoster";
       #theme = "robbyrussell";
-      plugins = [ "git" "sudo" "history" ];
+      plugins = [ "git" "python" "sudo" "history" ];
     }; 
 
     shellAliases = {

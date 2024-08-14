@@ -62,7 +62,7 @@
   #programs.gnupg.agent = {
   # enable = true;
   # enableSSHSupport = true;
-  # pinentryPackage = pkgs.pinentry-qt;
+  # pinentryPackage = pkgs.pinentry-curses;
   #};
 
   xdg.portal = {
@@ -92,10 +92,10 @@
     xdg-user-dirs
     xdotool
     xorg.xbacklight
-    wget
-    zsh-completions
-    zsh-history-substring-search
-    zsh-syntax-highlighting
+    #wget
+    #zsh-completions
+    #zsh-history-substring-search
+    #zsh-syntax-highlighting
     #zsh-powerlevel10k
     #zsh-vi-mode
 
@@ -106,9 +106,11 @@
     feh
     firefox
     fzf
+    git-credential-keepassxc
     hsetroot
     i3lock-color
     keepassxc
+    keepass-charactercopy
     kitty
     libnotify
     lsd
