@@ -24,10 +24,6 @@
   # Nixpkgs configuration
   nixpkgs.config.allowUnfree = true;
 
-  
-  nixpkgs.config.experimental-features = "nix-command flakes";
-  nixpkgs.config.auto-optimise-store = true;
-
   # ---------------------------------
 
   # USER SETTINGS
