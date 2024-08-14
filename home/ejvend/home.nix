@@ -43,7 +43,6 @@
     feh.enable = true;
     firefox.enable = true;
     home-manager.enable = true;
-    ssh.startAgent = true;
   };
 
   programs.git = {
