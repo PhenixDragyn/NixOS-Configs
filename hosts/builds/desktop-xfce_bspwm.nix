@@ -38,7 +38,7 @@
       enable = true;
       noDesktop = true;
       enableXfwm = false;
-    }
+    };
     
     windowManager.bspwm.enable = true;
   };
