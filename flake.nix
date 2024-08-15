@@ -77,25 +77,6 @@
   in 
   {
     # Function for NixOS system configuration
-    #nixosConfigurations = 
-    #  let
-    #    mkNixosConfiguration = name: system: theme: nixpkgs.lib.nixosSystem {
-    #      specialArgs = {
-    #        inherit inputs outputs systemSettings userSettings;
-    #        #pkgs-unstable = nixpkgs-unstable.legacyPackages.${systemSettings.system};
-    #      };
-    #      modules = [
-    #        ./host + "/${name}" + /configuration.nix
-    #      ];
-    #    };
-    #  in 
-    #  {
-    #    nixos-lt = mkNixosConfiguration "nixos-lt" "x86_64-linux" "lxqt_bspwm";
-    #    nixos-mvm = mkNixosConfiguration "nixos-mvm" "aarch64-linux" "lxqt_bspwm";
-    #    nixos-test = mkNixosConfiguration "nixos-test" "aarch64-linux" "xfce_bspwm";
-    #  };
-
-    # Function for NixOS system configuration
     nixosConfigurations = {
       ${systemSettings.hostname} = nixpkgs.lib.nixosSystem {
         specialArgs = {
