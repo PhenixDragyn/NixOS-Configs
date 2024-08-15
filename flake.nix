@@ -138,12 +138,5 @@
     #  };
     #};
 
-    devShells.${system}.default = lib.mkShell {
-      name = "devShell";
-      packages = [
-        just
-      ];
-    };
-
   };
 }
