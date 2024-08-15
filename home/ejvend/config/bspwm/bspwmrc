@@ -130,7 +130,7 @@ pgrep -x polybar > /dev/null || ~/.config/polybar/launch.sh &
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 # Screensaver
-xautolock -locker "i3lock-color" &
+xautolock -time 60 -locker "i3lock-color" &
 
 # Start unclutter to hide mouse when not in use
 pgrep -x unclutter > /dev/null || unclutter &
