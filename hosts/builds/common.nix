@@ -34,7 +34,7 @@
  
   # Nix settings
   nix.settings = {
-    #trusted-users = ["root" "ejvend"]
+    trusted-users = [ "root" ${userSettings.username} ]
     experimental-features = "nix-command flakes";
     auto-optimise-store = true;
   };
@@ -238,7 +238,6 @@
     playerctl
     procps
     psmisc
-    ranger
     wget
 
     (python3Full.withPackages(ps: with ps; [ requests ]))
