@@ -46,7 +46,7 @@
     };
 
     # ----- USER SETTINGS ----- #
-    userSettings = rec {
+    userSettings = {
       username = "ejvend";
       name = "Ejvend";
       email = "ejvend.nielsen@gmail.com";
