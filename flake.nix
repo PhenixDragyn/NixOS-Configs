@@ -1,7 +1,8 @@
 {
   description = "NixOS Configurations";
   
-  inputs = { # Nixpkgs
+  inputs = { 
+    # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
@@ -20,10 +21,6 @@
     nixvim-stable.url = "github:nix-community/nixvim/nixos-24.05";
     nixvim-unstable.url = "github:nix-community/nixvim";
     #nixvim.inputs.nixpkgs.follows = "nixpkgs";
-
-    # Spicetify
-    #spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-    #spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     # Stylix 
     stylix.url = "github:danth/stylix";
@@ -79,6 +76,36 @@
   in 
   {
     # Function for NixOS system configuration
+    #nixosConfigurations = {
+    #  let
+    #    specialArgs = {
+    #      inherit inputs outputs systemSettings userSettings;
+    #      #pkgs-unstable = nixpkgs-unstable.legacyPackages.${systemSettings.system};
+    #    };
+    #  in
+    #  {
+    #    nixos-lt = nixpkgs.lib.nixosSystem {
+    #      inherit specialArgs;
+    #      modules = [
+    #        .host/nixos-lt/configuration.nix
+    #      ];
+    #    };
+    #    nixos-mvm = nixpkgs.lib.nixosSystem {
+    #      inherit specialArgs;
+    #      modules = [
+    #        .host/nixos-mvm/configuration.nix
+    #      ];
+    #    };
+    #    nixos-test = nixpkgs.lib.nixosSystem {
+    #      inherit specialArgs;
+    #      modules = [
+    #        .host/nixos-mvm/configuration.nix
+    #      ];
+    #    };
+    #  };
+    #};
+
+    # Function for NixOS system configuration
     nixosConfigurations = {
       ${systemSettings.hostname} = nixpkgs.lib.nixosSystem {
         specialArgs = {
@@ -120,5 +147,6 @@
     #    ];
     #  };
     #};
+
   };
 }
