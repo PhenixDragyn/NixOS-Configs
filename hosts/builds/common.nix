@@ -29,9 +29,10 @@
       value.source = value.flake;
     })
     config.nix.registry;
-
+ 
   # Nix settings
   nix.settings = {
+    #trusted-users = ["root" "ejvend"]
     experimental-features = "nix-command flakes";
     auto-optimise-store = true;
   };
