@@ -94,7 +94,7 @@
   {
     # Your custom packages
     # Accessible through 'nix build', 'nix shell', etc
-    packages = forAllSystems (system: let pkgs = nixpkgs.legacyPackages.${system};)
+    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
 
     # Function for NixOS system configuration
     nixosConfigurations = {
