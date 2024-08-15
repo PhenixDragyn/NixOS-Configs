@@ -226,11 +226,6 @@
 
   # SYSTEM PACKAGES 
   environment.systemPackages = with pkgs; [
-    #home-manager
-
-    # Sound
-    alsa-utils
-    playerctl
 
     # Cli
     bat
@@ -248,8 +243,13 @@
     inetutils
     wget
     
+    # Sound
+    alsa-utils
+    playerctl
+
     # Development
     (python3Full.withPackages(ps: with ps; [ requests ]))
+
   ] ++ (if (systemSettings.system == "x86_64-linux")
 	        then []
 				else 
