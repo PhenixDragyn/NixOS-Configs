@@ -75,7 +75,7 @@
     # pass to it, with each system as an argument
     forAllSystems = nixpkgs.lib.genAttrs systems;
 
-    #pkgs = nixpkgs.legacyPackages.${systemSettings.system};
+    pkgs = nixpkgs.legacyPackages.${systemSettings.system};
     system = systemSettings.system;
 
     pkgs = import nixpkgs {
