@@ -76,34 +76,23 @@
   in 
   {
     # Function for NixOS system configuration
-    #nixosConfigurations = {
+    #nixosConfigurations = 
     #  let
-    #    specialArgs = {
-    #      inherit inputs outputs systemSettings userSettings;
-    #      #pkgs-unstable = nixpkgs-unstable.legacyPackages.${systemSettings.system};
+    #    mkNixosConfiguration = name: system: theme: nixpkgs.lib.nixosSystem {
+    #      specialArgs = {
+    #        inherit inputs outputs systemSettings userSettings;
+    #        #pkgs-unstable = nixpkgs-unstable.legacyPackages.${systemSettings.system};
+    #      };
+    #      modules = [
+    #        ./host + "/${name}" + /configuration.nix
+    #      ];
     #    };
-    #  in
+    #  in 
     #  {
-    #    nixos-lt = nixpkgs.lib.nixosSystem {
-    #      inherit specialArgs;
-    #      modules = [
-    #        .host/nixos-lt/configuration.nix
-    #      ];
-    #    };
-    #    nixos-mvm = nixpkgs.lib.nixosSystem {
-    #      inherit specialArgs;
-    #      modules = [
-    #        .host/nixos-mvm/configuration.nix
-    #      ];
-    #    };
-    #    nixos-test = nixpkgs.lib.nixosSystem {
-    #      inherit specialArgs;
-    #      modules = [
-    #        .host/nixos-mvm/configuration.nix
-    #      ];
-    #    };
+    #    nixos-lt = mkNixosConfiguration "nixos-lt" "x86_64-linux" "ia-dark";
+    #    nixos-mvm = mkNixosConfiguration "nixos-mvm" "aarch64-linux" "ia-dark";
+    #    nixos-test = mkNixosConfiguration "nixos-test" "aarch64-linux" "ia-dark";
     #  };
-    #};
 
     # Function for NixOS system configuration
     nixosConfigurations = {
