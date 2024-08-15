@@ -56,7 +56,7 @@
       sortedUnique = builtins.sort builtins.lessThan (pkgs.lib.lists.unique packages);
       formatted = builtins.concatStringsSep "\n" sortedUnique;
     in
-      formatted
+      formatted;
 
 
   system.stateVersion = "24.05";
