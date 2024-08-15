@@ -55,6 +55,10 @@
       email = "ejvend.nielsen@gmail.com";
       theme = "ia-dark";
       #theme = "helios";
+      #theme = "shadesmear-dark";
+      #theme = "tomorrow-night";
+      #theme = "twilight";
+      #theme = "vesper";
       # To view sample themes..  https://tinted-themeing.github.io/base16-gallery
     }; 
 
