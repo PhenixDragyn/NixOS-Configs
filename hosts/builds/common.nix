@@ -23,22 +23,13 @@
 
   # Add inputs to legacy channels
   nix.nixPath = ["/etc/nix/path"];
-  environment.etc = {
+  environment.etc =
     lib.mapAttrs' (name: value: {
       name = "nix/path/${name}";
       value.source = value.flake;
     })
     config.nix.registry;
  
-    "current-system-packages".text =
-    let
-      packages = builtins.map (p: "${p.name}") config.environment.systemPackages;
-      sortedUnique = builtins.sort builtins.lessThan (pkgs.lib.lists.unique packages);
-      formatted = builtins.concatStringsSep "\n" sortedUnique;
-    in
-      formatted;
-  };
-
   # Nix settings
   nix.settings = {
     #trusted-users = ["root" "ejvend"]
