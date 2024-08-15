@@ -89,9 +89,9 @@
     #    };
     #  in 
     #  {
-    #    nixos-lt = mkNixosConfiguration "nixos-lt" "x86_64-linux" "ia-dark";
-    #    nixos-mvm = mkNixosConfiguration "nixos-mvm" "aarch64-linux" "ia-dark";
-    #    nixos-test = mkNixosConfiguration "nixos-test" "aarch64-linux" "ia-dark";
+    #    nixos-lt = mkNixosConfiguration "nixos-lt" "x86_64-linux" "lxqt_bspwm";
+    #    nixos-mvm = mkNixosConfiguration "nixos-mvm" "aarch64-linux" "lxqt_bspwm";
+    #    nixos-test = mkNixosConfiguration "nixos-test" "aarch64-linux" "xfce_bspwm";
     #  };
 
     # Function for NixOS system configuration
