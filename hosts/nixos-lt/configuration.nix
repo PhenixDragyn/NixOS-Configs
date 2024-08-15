@@ -34,7 +34,7 @@
   nix.gc = {
     automatic = true;
     dates = "weekly";
-    options = "--delete-older than 30d";
+    options = "--delete-older-than 7d";
   };
 
   system.autoUpgrade = {
@@ -45,8 +45,8 @@
       "nixpkgs"
       "-L" # print build logs
     ];
-    dates = "05:00";
-    randomizedDelaySec = "30min";
+    #dates = "05:00";
+    #randomizedDelaySec = "30min";
   };
 
   system.stateVersion = "24.05";

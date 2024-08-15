@@ -186,7 +186,7 @@
       description = userSettings.name;
       isNormalUser = true;
       initialPassword = "NixOS!";
-      #hashedPassword = "";
+      #hashedPassword = "$y$j9T$qvaFY9a2zKb.neYDRVK1T0$OGDq0giayeMd6Q3L1Jwz8gPaQ.Ssj4i8za.moPT19DC";
       extraGroups = ["wheel" "networkmanager" "power" "audio" "video" "storage"];
 
       openssh.authorizedKeys.keys = [
@@ -195,6 +195,7 @@
     };
 
     root = {
+      hashedPassword = "$y$j9T$qRgWUxVlS/c8UdYtFqQhu/$lANxdQmqxvVe7YTniG07mld5g/mCPypXueRWH/fC7E2";
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];

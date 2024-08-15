@@ -76,16 +76,6 @@
     pkgs = nixpkgs.legacyPackages.${systemSettings.system};
     stable = nixpkgs.legacyPackages.${systemSettings.system};
     unstable = nixpkgs.legacyPackages.${systemSettings.system};
-
-    #pkgs = import nixpkgs {
-    #  inherit system;
-    #};
-    #stable = import nixpkgs {
-    #  inherit system;
-    #};
-    #unstable = import nixpkgs {
-    #  inherit system;
-    #};
   in 
   {
     # Function for NixOS system configuration
