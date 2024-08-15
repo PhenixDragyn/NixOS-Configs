@@ -18,6 +18,12 @@
 
   # ---------------------------------
 
+  # DEVICE MANAGEMENT SETTINGS
+  # Thunar to have smb:// support
+  services.gvfs.package = lib.mkForce pkgs.gnome3.gvfs;
+
+  # ---------------------------------
+
   # X11/XFCE SETTINGS
   services.xserver.displayManager.defaultSession = "xfce+bspwm";
 

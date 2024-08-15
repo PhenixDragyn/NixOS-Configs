@@ -75,6 +75,7 @@
     enableIPv6 = false;
   };
 
+  # Firewall 
   networking.firewall.enable = false;
   networking.firewall.allowPing = true;
  

@@ -61,18 +61,16 @@
       };
       homes = {
         browsable = "yes";
-	writeable = "yes";
-	"guest ok" = "no";
+      	writeable = "yes";
+	      "guest ok" = "no";
       };
       shared = {
-	path = "/share";
-	browseable = "yes";
-	public = "yes";
-	writable = "yes"; 
-	printable = "no";
-	#"read only" = "no";
-	"only guest" = "yes";
-	#"guest ok" = "yes";
+	      path = "/share";
+        browseable = "yes";
+        public = "yes";
+        writable = "yes"; 
+        printable = "no";
+        "only guest" = "yes";
       	#"create mask" = "0644";
       	#"directory mask" = "0755";
       };
@@ -86,8 +84,8 @@
     };
     openFirewall = true;
   };
-  #networking.firewall.allowedTCPPorts = [ 445 139 ];
-  #networking.firewall.allowedUDPPorts = [ 137 138 ];
+  networking.firewall.allowedTCPPorts = [ 445 139 ];
+  networking.firewall.allowedUDPPorts = [ 137 138 ];
 
   services.samba-wsdd = {
     enable = true;
@@ -110,7 +108,4 @@
     group = "root";
     setuid = true;
   };
-
-  #networking.firewall.enable = true;
-  #networking.firewall.allowPing = true;
 }
