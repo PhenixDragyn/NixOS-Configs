@@ -25,24 +25,6 @@ in
   xdg.mimeApps.associations.added = {
     "inode/directory" = "ranger.desktop";
   };
-  #home.file.".config/ranger/rc.conf".source = "${config.home.homeDirectory}/NixOS/files/config/ranger/rc.conf";
-  #home.file.".config/ranger/rifle.conf".source = "${config.home.homeDirectory}/NixOS/files/config/ranger/rifle.conf";
-  #home.file.".config/ranger/scope.sh" = {
-  #  source = "${config.home.homeDirectory}/NixOS/files/config/ranger/scope.sh";
-  #  executable = true;
-  #};
-  #home.file.".config/ranger/commands.py" = {
-  #  source = "${config.home.homeDirectory}/NixOS/files/config/ranger/commands.py";
-  #  executable = true;
-  #};
-  #home.file.".config/ranger/commands_full.py" = {
-  #  source = "${config.home.homeDirectory}/NixOS/files/config/ranger/commands_full.py";
-  #  executable = true;
-  #};
-  #home.file.".config/ranger/colorschemes/hail.py" = {
-  #  source = "${config.home.homeDirectory}/NixOS/files/config/ranger/colorschemes/hail.py";
-  #  executable = true;
-  #};
 
   home.file = {
     ".config/ranger" = {
