@@ -34,7 +34,7 @@
  
   # Nix settings
   nix.settings = {
-    trusted-users = [ "root" ${userSettings.username} ]
+    trusted-users = [ "root" userSettings.username ];
     experimental-features = "nix-command flakes";
     auto-optimise-store = true;
   };
