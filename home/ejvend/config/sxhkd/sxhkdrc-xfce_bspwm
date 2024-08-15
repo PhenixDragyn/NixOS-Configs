@@ -201,7 +201,7 @@ super + shift + n
 
 # Start Image Viewer
 super + i
-  nitrogen ~/Media/Pictures/Wallpapers
+  nitrogen ~/Wallpapers
 
 # Start Vimiv
 super + v

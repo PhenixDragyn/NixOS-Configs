@@ -22,16 +22,9 @@
     # Register flake inputs for nix commands
     registry = lib.mapAttrs (_: flake: {inherit flake;}) (lib.filterAttrs (_: lib.isType "flake") inputs);
 
-    # Add inputs to legacy channels (Which one?)
+    # Add inputs to legacy channels 
     nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
     #nixPath = ["/etc/nix/path"];
-    
-    #environment.etc =
-    #  lib.mapAttrs' (name: value: {
-    #    name = "nix/path/${name}";
-    #    value.source = value.flake;
-    #  })
-    #  config.nix.registry;
    
     # Nix settings
     settings = {
@@ -41,6 +34,14 @@
       # warn-dirty = false;
     };
   };
+
+  #environment.etc =
+  #  lib.mapAttrs' (name: value: {
+  #    name = "nix/path/${name}";
+  #    value.source = value.flake;
+  #  })
+  #  config.nix.registry;
+
   # ---------------------------------
 
   # BOOT SETTINGS
@@ -227,21 +228,27 @@
   environment.systemPackages = with pkgs; [
     home-manager
 
+    # Sound
     alsa-utils
+    playerctl
+
+    # Cli
     bat
     bc
     btop
-    curl
     fzf
-    inetutils
     lsd
     killall
     neofetch
-    playerctl
     procps
     psmisc
-    wget
 
+    # Network
+    curl
+    inetutils
+    wget
+    
+    # Development
     (python3Full.withPackages(ps: with ps; [ requests ]))
   ] ++ (if (systemSettings.system == "x86_64-linux")
 	        then []

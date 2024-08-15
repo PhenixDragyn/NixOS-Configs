@@ -201,7 +201,7 @@ super + shift + n
 
 # Start Image Viewer
 super + i
-  qimgv ~/Media/Pictures/Wallpapers/
+  qimgv ~/Wallpapers/
 
 # Start Vimiv
 super + v

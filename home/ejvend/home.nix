@@ -117,19 +117,24 @@ export RANGER_DEVICONS_SEPARATOR="  "
       createDirectories = true;
       documents = "${config.home.homeDirectory}/Documents";
       download = "${config.home.homeDirectory}/Downloads";
-      music = "${config.home.homeDirectory}/Media/Music";
-      pictures = "${config.home.homeDirectory}/Media/Pictures";
-      videos = "${config.home.homeDirectory}/Media/Videos";
-      #desktop = null;
+      #music = "${config.home.homeDirectory}/Media/Music";
+      #pictures = "${config.home.homeDirectory}/Media/Pictures";
+      #videos = "${config.home.homeDirectory}/Media/Videos";
+      music = null;
+      pictures = null;
+      videos = null;
+      desktop = null;
       templates= null;
       publicShare = null;
       extraConfig = {
-        XDG_ARCHIVE_DIR= "${config.home.homeDirectory}/Archive";
-        XDG_DOTFILES_DIR = "${config.home.homeDirectory}/.dotfiles";
+        #XDG_ARCHIVE_DIR= "${config.home.homeDirectory}/Archive";
+        #XDG_DOTFILES_DIR = "${config.home.homeDirectory}/.dotfiles";
+        XDG_NIXOS_DIR = "${config.home.homeDirectory}/NixOS";
         XDG_PROJECTS_DIR= "${config.home.homeDirectory}/Projects";
-        #XDG_WALLPAPERS_DIR = "${config.home.homeDirectory}/Media/Wallpapers";
+        #XDG_WALLPAPERS_DIR = "${config.home.homeDirectory}/Wallpapers";
       };
     };
+
     #mime.enable = true;
     #mimeApps.enable = true;
     #mimeApps.association.added = {
@@ -147,6 +152,7 @@ export RANGER_DEVICONS_SEPARATOR="  "
     base16Scheme = ./. + "/../../themes"+("/"+userSettings.theme)+".yaml";
     image = ../../files/wallpaper/NixOS-Nineish-Dark.png;
 
+    # Remove rounded corners in Gnome
     targets.gtk = {
       extraCss = ''
         window.background { border-radius: 0; }
