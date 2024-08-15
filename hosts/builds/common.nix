@@ -241,11 +241,6 @@
     ranger
     wget
 
-    nix-zsh-completions
-    zsh-completions
-    zsh-history-substring-search
-    zsh-syntax-highlighting
-
     (python3Full.withPackages(ps: with ps; [ requests ]))
   ] ++ (if (systemSettings.system == "x86_64-linux")
 	        then []
