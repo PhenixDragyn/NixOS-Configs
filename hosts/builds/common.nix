@@ -226,7 +226,7 @@
 
   # SYSTEM PACKAGES 
   environment.systemPackages = with pkgs; [
-    home-manager
+    #home-manager
 
     # Sound
     alsa-utils
