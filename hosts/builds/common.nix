@@ -18,28 +18,29 @@
   # Nixpkgs configuration
   nixpkgs.config.allowUnfree = true;
 
-  # Register flake inputs for nix commands
-  nix.registry = lib.mapAttrs (_: flake: {inherit flake;}) (lib.filterAttrs (_: lib.isType "flake") inputs);
+  nix = {
+    # Register flake inputs for nix commands
+    registry = lib.mapAttrs (_: flake: {inherit flake;}) (lib.filterAttrs (_: lib.isType "flake") inputs);
 
-  # Add inputs to legacy channels (Which one?)
-  nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
-  #nix.nixPath = ["/etc/nix/path"];
-  
-  #environment.etc =
-  #  lib.mapAttrs' (name: value: {
-  #    name = "nix/path/${name}";
-  #    value.source = value.flake;
-  #  })
-  #  config.nix.registry;
- 
-  # Nix settings
-  nix.settings = {
-    trusted-users = [ "root" userSettings.username ];
-    experimental-features = "nix-command flakes";
-    auto-optimise-store = true;
-    # warn-dirty = false;
+    # Add inputs to legacy channels (Which one?)
+    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
+    #nixPath = ["/etc/nix/path"];
+    
+    #environment.etc =
+    #  lib.mapAttrs' (name: value: {
+    #    name = "nix/path/${name}";
+    #    value.source = value.flake;
+    #  })
+    #  config.nix.registry;
+   
+    # Nix settings
+    settings = {
+      trusted-users = [ "root" userSettings.username ];
+      experimental-features = "nix-command flakes";
+      auto-optimise-store = true;
+      # warn-dirty = false;
+    };
   };
-
   # ---------------------------------
 
   # BOOT SETTINGS
