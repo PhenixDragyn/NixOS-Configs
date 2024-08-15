@@ -7,7 +7,7 @@
     ../modules/nixvim.nix
     ../modules/openssh.nix
     ../modules/ranger.nix
-    #../modules/samba.nix
+    ../modules/samba.nix
     ../modules/syncthing.nix
     ../modules/zsh.nix
   ];
