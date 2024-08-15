@@ -75,18 +75,21 @@
     # pass to it, with each system as an argument
     forAllSystems = nixpkgs.lib.genAttrs systems;
 
-    pkgs = nixpkgs.legacyPackages.${systemSettings.system};
     system = systemSettings.system;
 
-    pkgs = import nixpkgs {
-      inherit system;
-    };
-    stable = import nixpkgs {
-      inherit system;
-    };
-    unstable = import nixpkgs {
-      inherit system;
-    };
+    pkgs = nixpkgs.legacyPackages.${systemSettings.system};
+    stable = nixpkgs.legacyPackages.${systemSettings.system};
+    unstable = nixpkgs.legacyPackages.${systemSettings.system};
+
+    #pkgs = import nixpkgs {
+    #  inherit system;
+    #};
+    #stable = import nixpkgs {
+    #  inherit system;
+    #};
+    #unstable = import nixpkgs {
+    #  inherit system;
+    #};
   in 
   {
     # Your custom packages
