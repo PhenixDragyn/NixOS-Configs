@@ -53,8 +53,9 @@
       username = "ejvend";
       name = "Ejvend";
       email = "ejvend.nielsen@gmail.com";
-      #theme = "helios";
-      theme = "io";
+      theme = "isotope";
+      #theme = "io";
+      # To view sample themes..  https://tinted-themeing.github.io/base16-gallery
     }; 
 
     # Supported systems for your flake packages, shell, etc.
