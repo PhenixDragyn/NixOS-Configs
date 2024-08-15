@@ -19,14 +19,10 @@
     shellAliases = {
     };
 
-    initExtra = ''
-      while read -r option; do
-        setopt $option
-      done <<-EOF
-        HIST_IGNORE_SPACE
-        NO_BEEP
-      EOF
-    '';
+    setOptions = [
+      "HIST_IGNORE_SPACE"
+      "NO_BEEP"
+    ];
 
     interactiveShellInit = ''
       #source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
