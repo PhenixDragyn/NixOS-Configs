@@ -1,4 +1,4 @@
-{ pkgs, stable, unstable, ... }:
+{ pkgs, stable, unstable, systemSettings, ... }:
 
 {
   environment.shells = with pkgs; [ zsh ];
