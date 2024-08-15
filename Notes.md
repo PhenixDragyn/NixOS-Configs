@@ -75,6 +75,10 @@ nixos-rebuild switch. This error can be resolved by updating flake.lock using ni
 > nix falke lock
 
 
+# To list installed packages...
+> nix-store --query --requisites /run/current-system | cut -d- -f2 | sort | uniq
+
+
 # To find what installed a package.. (for example - Chromium)
 > nix eval .#nixosConfigurations.nixos-test.options.programs.chromium.enable.definitionsWithLocations
 [ { file = "/nix/store/dh5p58x9ax2g9d5wrp29nkfsh34a5y3y-modules/chromium/nixos.nix"; value = true; } ]
