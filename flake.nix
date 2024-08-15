@@ -53,8 +53,9 @@
       username = "ejvend";
       name = "Ejvend";
       email = "ejvend.nielsen@gmail.com";
-      theme = "pop";
-      #theme = "io";
+      theme = "shapeshift";
+      #theme = "ia-dark";
+      #theme = "helios";
       # To view sample themes..  https://tinted-themeing.github.io/base16-gallery
     }; 
 
