@@ -67,6 +67,7 @@
       "aarch64-darwin"
       "x86_64-darwin"
     ];
+    forAllSystem = nixpkgs.lib.genAttrs systems;
 
     system = systemSettings.system;
 
