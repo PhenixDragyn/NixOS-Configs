@@ -1,4 +1,4 @@
-{ lib, pkgs, stable, unstable, buildSettings, ... }:
+{ config, lib, pkgs, stable, unstable, buildSettings, ... }:
 
 {
   # Setup user sharing...

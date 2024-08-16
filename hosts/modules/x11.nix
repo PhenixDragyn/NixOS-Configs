@@ -1,4 +1,4 @@
-{ pkgs, stable, unstable, buildSettings, ... }:
+{ config, lib, pkgs, stable, unstable, buildSettings, ... }:
 
 {
   # X11 SETTINGS

@@ -1,4 +1,4 @@
-{ pkgs, stable, unstable, buildSettings, ... }:
+{ config, lib, pkgs, stable, unstable, buildSettings, ... }:
 
 let 
   xbackend = if ( buildSettings.platform == "x86_64-linux" ) then "glx" else "xrender"; 
