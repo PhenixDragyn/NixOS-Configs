@@ -1,5 +1,5 @@
 #{ inputs, outputs, lib, config, pkgs, stable, unstable, username, hostname, platform, build, theme, isWorkstation, stateVersion, ... }:
-{ pkgs, stable, unstable, buildSettings, ... }:
+{ config, lib, pkgs, stable, unstable, buildSettings, ... }:
 
 {
   imports = [
