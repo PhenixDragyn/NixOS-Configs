@@ -30,6 +30,17 @@
   let
     inherit (self) outputs;
 
+    #options.variables = {
+    #  username = nixpkgs.lib.mkOption {
+    #    type = nixpkgs.lib.types.str;
+    #    default = "";
+    #    example = "johndoe";
+    #    description = ''
+    #      Keeps track of the name of your user, useful for looking up the username for other settings in the flake.
+    #    '';
+    #  };
+    #};
+
     # ----- SYSTEM SETTINGS ----- #
     systemSettings = {
       system = "x86_64-linux";
