@@ -1,6 +1,6 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-{ inputs, outputs, lib, config, pkgs, stable, unstable, userSettings, systemSettings, ... }:
+{ inputs, outputs, lib, config, pkgs, stable, unstable, username, hostname, platform, build, theme, isWorkstation, stateVersion, ... }:
 
 {
   # You can import other NixOS modules here
@@ -20,17 +20,17 @@
     # Import my host modules
     ../builds/common.nix
 
-  ] ++ (if (systemSettings.build == "xfce_bspwm")
+  ] ++ (if (build == "xfce_bspwm")
 	        then [ ../builds/desktop-xfce_bspwm.nix ]
 				else 
-			  (if (systemSettings.build == "lxqt_bspwm" )
+			  (if (build == "lxqt_bspwm" )
 			    then [ ../builds/desktop-lxqt_bspwm.nix ] 
 				else 
-			  (if (systemSettings.build == "bspwm_gtk" )
+			  (if (build == "bspwm_gtk" )
 			    then [ ../builds/desktop-bspwm_gtk.nix ] 
 				else [])));
 
   #networking.hostName = "nixos-test";
 
-  system.stateVersion = "24.05";
+  system.stateVersion = stateVersion;
 }

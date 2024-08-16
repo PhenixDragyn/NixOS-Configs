@@ -8,6 +8,8 @@
       username ? "ejvend",
       desktop ? null,
       platform ? "x86_64-linux",
+      build ? null,
+      theme ? "io", 
     }:
     let
       #isISO = builtins.substring 0 4 hostname == "iso-";
@@ -25,6 +27,8 @@
           hostname
           desktop
           platform
+          build
+          theme
           stateVersion
           #isInstall
           #isLima
@@ -42,6 +46,8 @@
       username ? "ejvend",
       desktop ? null,
       platform ? "x86_64-linux",
+      build ? null,
+      theme ? "io", 
     }:
     let
       #isISO = builtins.substring 0 4 hostname == "iso-";
@@ -58,6 +64,8 @@
           hostname
           desktop
           platform
+          build
+          theme
           stateVersion
           #isInstall
           #isLima

@@ -187,7 +187,7 @@
 
   # USER ACCOUNT
   users.users = {
-    ${userSettings.username} = {
+    ${username} = {
       description = username;
       isNormalUser = true;
       initialPassword = "NixOS!";
