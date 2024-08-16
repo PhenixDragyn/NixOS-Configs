@@ -24,7 +24,7 @@
           stateVersion
           ;
       };
-      modules = [ ../home/${username}/${hostname}.nix ];
+      modules = [ ../home/${username}/home.nix ];
     };
 
   # Helper function for generating NixOS configs
