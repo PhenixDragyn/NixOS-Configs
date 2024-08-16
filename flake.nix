@@ -91,7 +91,9 @@
     # unstable = nixpkgs.legacyPackages.${systemSettings.system};
   in 
   {
-
+    # Home-Manager Configurations
+    # home-manager switch -b backup --flake .
+    # nix-run nixpkgs#home-manager -- switch -b backup --flake .
     homeConfigurations = {
       "ejvend@nixos-lt" = helper.mkHome {
          username = "ejvend";
@@ -103,6 +105,10 @@
       };
     };
 
+    # NixOS Configurations
+    # - sudo nixos-rebuild boot --flake .
+    # - sudo nixos-rebuild switch --flake .
+    # - nix-build .#nixosConfigurations.{hostname}.config.system.build.toplevel
     nixosConfigurations = {
       nixos-lt = helper.mkNixos {
         hostname = "nixos-lt";
