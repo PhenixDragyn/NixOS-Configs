@@ -37,6 +37,7 @@
     #system = builtins.currentSystem;
     #host = "$(hostname -f)";
     #user = "$(echo $USER)";
+    #test = nixpkgs.runCommand "example-name" {} "echo Test > $out";
 
     # host = osConfig.networking.hostname;
 
