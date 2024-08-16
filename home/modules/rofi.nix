@@ -1,4 +1,4 @@
-{ config, lib, pkgs, stable, unstable, userSettings, ... }:
+{ inputs, outputs, lib, config, pkgs, stable, unstable, username, hostname, platform, build, theme, isWorkstation, stateVersion, ... }:
 
 let
   inherit (config.lib.formats.rasi) mkLiteral;

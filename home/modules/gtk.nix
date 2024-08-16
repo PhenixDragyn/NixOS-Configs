@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ inputs, outputs, lib, config, pkgs, stable, unstable, username, hostname, platform, build, theme, isWorkstation, stateVersion, ... }:
 
 {
   gtk = {

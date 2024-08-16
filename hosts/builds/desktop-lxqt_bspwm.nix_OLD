@@ -1,11 +1,12 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-{ inputs, outputs, lib, config, pkgs, stable, unstable, username, hostname, platform, build, theme, isWorkstation, stateVersion, ... }:
+{ pkgs, stable, unstable, userSettings, systemSettings, ... }:
 
 {
   # You can import other NixOS modules here
   imports = [
     # Import my host modules
+    ../modules/syncthing.nix
     ../modules/x11.nix
   ];
 
@@ -84,10 +85,10 @@
     lxqt.qlipper
     nm-tray
     qimgv
-  ] ++ (if (platform == "x86_64-linux")
+  ] ++ (if (systemSettings.system == "x86_64-linux")
 	        then []
 				else 
-			  (if (platform == "aarch64-linux" )
+			  (if (systemSettings.system == "aarch64-linux" )
 			    then [] 
 				else []));
 }

@@ -1,4 +1,4 @@
-{ pkgs, stable, unstable, systemSettings, ... }:
+{ inputs, outputs, lib, config, pkgs, stable, unstable, username, hostname, platform, build, theme, isWorkstation, stateVersion, ... }:
 
 {
   environment.shells = with pkgs; [ zsh ];
@@ -8,12 +8,7 @@
     zsh-completions
     zsh-history-substring-search
     zsh-syntax-highlighting
-  ] ++ (if (systemSettings.system == "x86_64-linux")
-	        then []
-				else 
-			  (if (systemSettings.system == "aarch64-linux" )
-			    then [] 
-				else []));
+  ];
 
   programs.zsh = {
     enable = true;

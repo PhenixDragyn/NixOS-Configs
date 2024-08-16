@@ -1,7 +1,7 @@
-{ systemSettings, ... }:
+{ inputs, outputs, lib, config, pkgs, stable, unstable, username, hostname, platform, build, theme, isWorkstation, stateVersion, ... }:
 
 let 
-  xbackend = if ( systemSettings.system == "x86_64-linux" ) then "glx" else "xrender"; 
+  xbackend = if ( platform == "x86_64-linux" ) then "glx" else "xrender"; 
 in
 {
   services.picom = {
