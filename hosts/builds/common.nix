@@ -188,7 +188,7 @@
 
   # USER ACCOUNT
   users.users = {
-    ${username} = {
+    ${buildSettings.username} = {
       description = buildSettings.username;
       isNormalUser = true;
       initialPassword = "NixOS!";
