@@ -1,4 +1,4 @@
-{ pkgs, stable, unstable, buildSettings, ... }:
+{ lib, pkgs, stable, unstable, buildSettings, ... }:
 
 {
   environment.systemPackages = with pkgs; [

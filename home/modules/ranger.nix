@@ -1,4 +1,4 @@
-{ lib, pkgs, stable, unstable, buildSettings, ... }:
+{ pkgs, stable, unstable, buildSettings, ... }:
 
 let myCbxScript = ''
   #!/bin/sh
