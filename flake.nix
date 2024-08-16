@@ -96,15 +96,25 @@
       "ejvend@nixos-lt" = helper.mkHome {
          username = "ejvend";
          hostname = "nixos-lt";
-         build = "lxqt_bspwm";
-         theme = "ia-dark";
+      };
+      "ejvend@nixos-mvm" = helper.mkHome {
+         username = "ejvend";
+         hostname = "nixos-mvm";
       };
     };
 
     nixosConfigurations = {
       nixos-lt = helper.mkNixos {
         hostname = "nixos-lt";
+        platform = "x86_64-linux";
         build = "lxqt_bspwm";
+        theme ="ia-dark";
+      };
+      nixos-mvm = helper.mkNixos {
+        hostname = "nixos-mvm";
+        platform = "aarch64-linux";
+        build = "lxqt_bspwm";
+        theme = "ia-dark";
       };
     };
 
