@@ -74,9 +74,9 @@
     #
     # system = systemSettings.system;
     
-     pkgs = nixpkgs.legacyPackages.${buildSettings.system};
-     stable = nixpkgs.legacyPackages.${buildSettings.system};
-     unstable = nixpkgs.legacyPackages.${buildSettings.system};
+     pkgs = nixpkgs.legacyPackages.${buildSettings.platform};
+     stable = nixpkgs.legacyPackages.${buildSettings.platform};
+     unstable = nixpkgs.legacyPackages.${buildSettings.platform};
   in 
   {
     # Home-Manager Configurations
