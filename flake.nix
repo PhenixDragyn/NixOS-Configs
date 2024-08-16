@@ -32,8 +32,6 @@
     
     stateVersion = "24.05";
 
-    #helper = import ./lib { inherit inputs outputs stateVersion; };
-
     # host = osConfig.networking.hostname;
 
     # ----- BUILD SYSTEM/USER SETTINGS ----- #
@@ -79,47 +77,6 @@
      unstable = nixpkgs.legacyPackages.${buildSettings.platform};
   in 
   {
-    # Home-Manager Configurations
-    # home-manager switch -b backup --flake .
-    # nix-run nixpkgs#home-manager -- switch -b backup --flake .
-    # homeConfigurations = {
-    #   "ejvend@nixos-lt" = helper.mkHome {
-    #     username = "ejvend";
-    #     hostname = "nixos-lt";
-    #     platform = "x86_64-linux";
-    #     build = "lxqt_bspwm";
-    #     theme ="ia-dark";
-    #   };
-    #   "ejvend@nixos-mvm" = helper.mkHome {
-    #     username = "ejvend";
-    #     hostname = "nixos-mvm";
-    #     platform = "aarch64-linux";
-    #     build = "lxqt_bspwm";
-    #     theme = "ia-dark";
-    #   };
-    # };
-
-    # NixOS Configurations
-    # - sudo nixos-rebuild boot --flake .
-    # - sudo nixos-rebuild switch --flake .
-    # - nix-build .#nixosConfigurations.{hostname}.config.system.build.toplevel
-    # nixosConfigurations = {
-    #   nixos-lt = helper.mkNixos {
-    #     username = "ejvend";
-    #     hostname = "nixos-lt";
-    #     platform = "x86_64-linux";
-    #     build = "lxqt_bspwm";
-    #     theme ="ia-dark";
-    #   };
-    #   nixos-mvm = helper.mkNixos {
-    #     username = "ejvend";
-    #     hostname = "nixos-mvm";
-    #     platform = "aarch64-linux";
-    #     build = "lxqt_bspwm";
-    #     theme = "ia-dark";
-    #   };
-    # };
-
     # Function for NixOS system configuration
      nixosConfigurations = {
        ${buildSettings.hostname} = nixpkgs.lib.nixosSystem {
@@ -162,6 +119,5 @@
     #    ];
     #  };
     #};
-
   };
 }
