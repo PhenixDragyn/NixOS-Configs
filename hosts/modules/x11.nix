@@ -1,4 +1,4 @@
-{ inputs, outputs, lib, config, pkgs, stable, unstable, username, hostname, platform, build, theme, isWorkstation, stateVersion, ... }:
+{ pkgs, stable, unstable, buildSettings, ... }:
 
 {
   # X11 SETTINGS
@@ -68,10 +68,10 @@
     pop-icon-theme
     pop-gtk-theme
     zafiro-icons
-  ] ++ (if (platform == "x86_64-linux")
+  ] ++ (if (buildSettings.platform == "x86_64-linux")
 	        then [ pkgs.freeoffice pkgs.spotify ]
 				else 
-			  (if (platform == "aarch64-linux" )
+			  (if (buildSettings.platform == "aarch64-linux" )
 			    then [] 
 				else []));
 

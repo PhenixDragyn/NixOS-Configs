@@ -1,4 +1,5 @@
-{ inputs, outputs, lib, config, pkgs, stable, unstable, username, hostname, platform, build, theme, isWorkstation, stateVersion, ... }:
+#{ inputs, outputs, lib, config, pkgs, stable, unstable, username, hostname, platform, build, theme, isWorkstation, stateVersion, ... }:
+{ inputs, outputs, lib, config, pkgs, stable, unstable, buildSettings, stateVersion, ... }:
 
 {
   # You can import other NixOS modules here
@@ -28,7 +29,7 @@
    
     # Nix settings
     settings = {
-      trusted-users = [ "root" username ];
+      trusted-users = [ "root" buildSettings.username ];
       experimental-features = "nix-command flakes";
       auto-optimise-store = true;
       # warn-dirty = false;
@@ -74,7 +75,7 @@
 
   # NETWORKING
   networking = {
-    hostName = hostname;
+    hostName = buildSettings.hostname;
 
     #wireless.enable = true;
     networkmanager.enable = true;
@@ -188,7 +189,7 @@
   # USER ACCOUNT
   users.users = {
     ${username} = {
-      description = username;
+      description = buildSettings.username;
       isNormalUser = true;
       initialPassword = "NixOS!";
       #hashedPassword = "$y$j9T$qvaFY9a2zKb.neYDRVK1T0$OGDq0giayeMd6Q3L1Jwz8gPaQ.Ssj4i8za.moPT19DC";
@@ -250,10 +251,10 @@
     # Development
     (python3Full.withPackages(ps: with ps; [ requests ]))
 
-  ] ++ (if (platform == "x86_64-linux")
+  ] ++ (if (buildSettings.platform == "x86_64-linux")
 	        then []
 				else 
-			  (if (platform == "aarch64-linux" )
+			  (if (buildSettings.platform == "aarch64-linux" )
 			    then [] 
 				else []));
 
@@ -264,7 +265,7 @@
     enable = true;
     autoEnable = true;
 
-    base16Scheme = ./. + "/../../themes"+("/"+theme)+".yaml";
+    base16Scheme = ./. + "/../../themes"+("/"+buildSettings.theme)+".yaml";
     image = ../../files/wallpaper/NixOS-Nineish-Dark.png;
   };
 

@@ -1,4 +1,4 @@
-{ inputs, outputs, lib, config, pkgs, stable, unstable, username, hostname, platform, build, theme, isWorkstation, stateVersion, ... }:
+{ pkgs, stable, unstable, buildSettings, ... }:
 
 {
   home.file = { 
@@ -41,7 +41,7 @@ fi
     };
 
     ".config/polybar/scripts" = {
-      source = ../${username}/config/polybar/scripts;
+      source = ../${buildSettings.username}/config/polybar/scripts;
       recursive = true;
     };
   };

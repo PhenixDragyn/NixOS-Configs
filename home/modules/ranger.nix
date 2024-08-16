@@ -1,4 +1,4 @@
-{ inputs, outputs, lib, config, pkgs, stable, unstable, username, hostname, platform, build, theme, isWorkstation, stateVersion, ... }:
+{ pkgs, stable, unstable, buildSettings, ... }:
 
 let myCbxScript = ''
   #!/bin/sh
@@ -28,7 +28,7 @@ in
 
   home.file = {
     ".config/ranger" = {
-      source = ../${username}/config/ranger;
+      source = ../${buildSettings.username}/config/ranger;
       recursive = true;
     };
     # Must copy home/ejvend/config/ranger-plugins manually for icons.

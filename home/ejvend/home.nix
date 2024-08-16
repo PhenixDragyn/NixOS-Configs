@@ -1,4 +1,5 @@
-{ inputs, outputs, lib, config, pkgs, stable, unstable, username, hostname, platform, build, theme, isWorkstation, stateVersion, ... }:
+#{ inputs, outputs, lib, config, pkgs, stable, unstable, username, hostname, platform, build, theme, isWorkstation, stateVersion, ... }:
+{ inputs, outputs, lib, config, pkgs, stable, unstable, buildSettings, stateVersion, ... }:
 
 {
   imports = [
@@ -9,13 +10,13 @@
     inputs.stylix.homeManagerModules.stylix
     #inputs.spicetify-nix.homeManagerModules.spicetify-nix
 
-  ] ++ (if (build == "xfce_bspwm")
+  ] ++ (if (buildSettings.build == "xfce_bspwm")
 	        then [ ../builds/desktop-xfce_bspwm.nix ]
 				else 
-			  (if (build == "lxqt_bspwm" )
+			  (if (buildSettings.build == "lxqt_bspwm" )
 			    then [ ../builds/desktop-lxqt_bspwm.nix ] 
 				else 
-			  (if (build == "bspwm_gtk" )
+			  (if (buildSettings.build == "bspwm_gtk" )
 			    then [ ../builds/desktop-bspwm_gtk.nix ] 
 				else [])));
    
@@ -28,8 +29,8 @@
 
   # USER SETTINGS
   home = {
-    username = username;
-    homeDirectory = "/home/" + username;
+    username = buildSettings.username;
+    homeDirectory = "/home/" + buildSettings.username;
 
     # User specific packages
     packages = with pkgs; [
@@ -149,7 +150,7 @@ export RANGER_DEVICONS_SEPARATOR="  "
     enable = true;
     autoEnable = true;
     
-    base16Scheme = ./. + "/../../themes"+("/"+theme)+".yaml";
+    base16Scheme = ./. + "/../../themes"+("/"+buildSettings.theme)+".yaml";
     image = ../../files/wallpaper/NixOS-Nineish-Dark.png;
 
     # Remove rounded corners in Gnome

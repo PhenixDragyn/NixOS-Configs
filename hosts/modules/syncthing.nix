@@ -1,4 +1,4 @@
-{ inputs, outputs, lib, config, pkgs, stable, unstable, username, hostname, platform, build, theme, isWorkstation, stateVersion, ... }:
+{ pkgs, stable, unstable, buildSettings, ... }:
 
 { 
   environment.systemPackages = with pkgs; [
@@ -7,9 +7,9 @@
 
   services.syncthing = {
     enable = true;
-    user = "${username}";
-    dataDir = "/home/${username}/Sync";
-    configDir = "/home/${username}/.config/syncthing";
+    user = "${buildSettings.username}";
+    dataDir = "/home/${buildSettings.username}/Sync";
+    configDir = "/home/${buildSettings.username}/.config/syncthing";
     guiAddress = "127.0.0.1:8384";
     openDefaultPorts = true;
 
@@ -26,7 +26,7 @@
       folders = {
         "Sync" = {
           id = "sync";
-          path = "/home/${username}/Sync";
+          path = "/home/${buildSettings.username}/Sync";
           devices = [ "Macbook" "ArchLinux" ];
         };
       };

@@ -1,4 +1,4 @@
-{ inputs, outputs, lib, config, pkgs, stable, unstable, username, hostname, platform, build, theme, isWorkstation, stateVersion, ... }:
+{ pkgs, stable, unstable, buildSettings, ... }:
 
 {
   # Setup user sharing...
@@ -24,8 +24,8 @@
     securityType = "user";
     extraConfig = ''
       ;workgroup = WORKGROUP
-      server string = ${hostname}
-      netbios name = ${hostname}
+      server string = ${buildSettings.hostname}
+      netbios name = ${buildSettings.hostname}
       security = user
       map to guest = bad user
       guest account = nobody

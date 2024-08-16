@@ -1,6 +1,6 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-{ pkgs, stable, unstable, userSettings, systemSettings, ... }:
+{ pkgs, stable, unstable, buildSettings, ... }:
 
 {
   # You can import other NixOS modules here
@@ -153,10 +153,10 @@
     seahorse
     snapshot
     #gnome-secrets
-  ] ++ (if (systemSettings.system == "x86_64-linux")
+  ] ++ (if (buildSettings.platform == "x86_64-linux")
 	        then []
 				else 
-			  (if (systemSettings.system == "aarch64-linux" )
+			  (if (buildSettings.platform == "aarch64-linux" )
 			    then [] 
 				else []));
 
