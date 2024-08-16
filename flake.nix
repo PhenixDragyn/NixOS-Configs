@@ -33,6 +33,11 @@
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     stateVersion = "24.05";
 
+    #system = "$(uname -m)-$(uname -s)";
+    #system = builtins.currentSystem;
+    #host = "$(hostname -f)";
+    #user = "$(echo $USER)";
+
     # host = osConfig.networking.hostname;
 
     # ----- BUILD SYSTEM/USER SETTINGS ----- #
