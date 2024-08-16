@@ -96,12 +96,18 @@
     # nix-run nixpkgs#home-manager -- switch -b backup --flake .
     homeConfigurations = {
       "ejvend@nixos-lt" = helper.mkHome {
-         username = "ejvend";
-         hostname = "nixos-lt";
+        username = "ejvend";
+        hostname = "nixos-lt";
+        platform = "x86_64-linux";
+        build = "lxqt_bspwm";
+        theme ="ia-dark";
       };
       "ejvend@nixos-mvm" = helper.mkHome {
-         username = "ejvend";
-         hostname = "nixos-mvm";
+        username = "ejvend";
+        hostname = "nixos-mvm";
+        platform = "aarch64-linux";
+        build = "lxqt_bspwm";
+        theme = "ia-dark";
       };
     };
 
@@ -111,12 +117,14 @@
     # - nix-build .#nixosConfigurations.{hostname}.config.system.build.toplevel
     nixosConfigurations = {
       nixos-lt = helper.mkNixos {
+        username = "ejvend";
         hostname = "nixos-lt";
         platform = "x86_64-linux";
         build = "lxqt_bspwm";
         theme ="ia-dark";
       };
       nixos-mvm = helper.mkNixos {
+        username = "ejvend";
         hostname = "nixos-mvm";
         platform = "aarch64-linux";
         build = "lxqt_bspwm";
