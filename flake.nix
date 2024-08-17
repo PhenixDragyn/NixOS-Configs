@@ -68,22 +68,26 @@
 
     # ----- OTHER SETTINGS ----- #
     # Supported systems for your flake packages, shell, etc.
-    # systems = [
-    #   "aarch64-linux" 
-    #   "i686-linux"
-    #   "x86_64-linux"
-    #   "aarch64-darwin"
-    #   "x86_64-darwin"
-    # ];
-    # forAllSystem = nixpkgs.lib.genAttrs systems;
-    #
-    # system = systemSettings.system;
+     systems = [
+       "aarch64-linux" 
+       "i686-linux"
+       "x86_64-linux"
+       "aarch64-darwin"
+       "x86_64-darwin"
+     ];
+     # This is a function that generates an attribute by calling a function you
+     # pass to it, with each system as an arguement
+     forAllSystems = nixpkgs.lib.genAttrs systems;
     
      pkgs = nixpkgs.legacyPackages.${buildSettings.platform};
      stable = nixpkgs.legacyPackages.${buildSettings.platform};
      unstable = nixpkgs.legacyPackages.${buildSettings.platform};
   in 
   {
+    # Your custom packages
+    # Accessible through 'nix build', 'nix shell', etc
+    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+
     # Function for NixOS system configuration
      nixosConfigurations = {
        ${buildSettings.hostname} = nixpkgs.lib.nixosSystem {
