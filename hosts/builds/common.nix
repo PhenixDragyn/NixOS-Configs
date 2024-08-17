@@ -10,6 +10,8 @@
     ../modules/samba.nix
     ../modules/syncthing.nix
     ../modules/zsh.nix
+
+    #../../pkgs/qrsync
   ];
 
   # ---------------------------------
@@ -228,7 +230,7 @@
   environment.systemPackages = with pkgs; [
 
     # Local Pkgs
-    #python3.12-qrsync-0.1.0
+    #python312Packages.qrsync
     #qrsync
 
     # Cli

@@ -2,7 +2,7 @@
 # runnable with `nix-build` without having to supply arguments manually.
 # Also, this lets me build with Python 3.7 by default, but makes it easy
 # to change the python version for customised builds (e.g. testing).
-{ nixpkgs ? import <nixpkgs> {}, pythonPkgs ? nixpkgs.pkgs.python312Packages }:
+{ nixpkgs ? import <nixpkgs> {}, pythonPkgs ? nixpkgs.pkgs.python312Packages, }:
 
 let
   # This takes all Nix packages into this scope
