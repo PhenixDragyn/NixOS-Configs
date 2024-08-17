@@ -228,7 +228,7 @@
   environment.systemPackages = with pkgs; [
 
     # Local Pkgs
-    #qrsync
+    qrsync
 
     # Cli
     bat
