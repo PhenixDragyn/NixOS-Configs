@@ -95,6 +95,7 @@
     # Function for NixOS system configuration
      nixosConfigurations = {
        ${buildSettings.hostname} = nixpkgs.lib.nixosSystem {
+         #inherit pkgs;
          specialArgs = {
            inherit inputs outputs buildSettings stateVersion; 
            #pkgs-unstable = nixpkgs-unstable.legacyPackages.${buildSettings.system};

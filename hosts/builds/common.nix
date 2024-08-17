@@ -229,10 +229,6 @@
   # SYSTEM PACKAGES 
   environment.systemPackages = with pkgs; [
 
-    # Local Pkgs
-    #python312Packages.qrsync
-    #qrsync
-
     # Cli
     bat
     bc
