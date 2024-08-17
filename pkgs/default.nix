@@ -2,5 +2,5 @@
 # You can build them using 'nix build .#example'
 pkgs: {
   # example = pkgs.callPackage ./example { };
-  qrsync = pkgs.callPackage ./qrsync { };
+  qrsync = pkgs.callPackage ./qrsync.nix;
 }
