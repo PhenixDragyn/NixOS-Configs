@@ -79,9 +79,9 @@
      # pass to it, with each system as an arguement
      forAllSystems = nixpkgs.lib.genAttrs systems;
     
-     pkgs = nixpkgs.legacyPackages.${buildSettings.platform};
-     stable = nixpkgs.legacyPackages.${buildSettings.platform};
-     unstable = nixpkgs.legacyPackages.${buildSettings.platform};
+     #pkgs = nixpkgs.legacyPackages.${buildSettings.platform};
+     #stable = nixpkgs.legacyPackages.${buildSettings.platform};
+     #unstable = nixpkgs.legacyPackages.${buildSettings.platform};
   in 
   {
     # Your custom packages
@@ -108,7 +108,8 @@
     # Function for Home-Manager configuration
      homeConfigurations = {
        ${buildSettings.username} = home-manager.lib.homeManagerConfiguration {
-         inherit pkgs;
+         #inherit pkgs;
+         pkgs = nixpkgs.legacyPackages.${buildSettings.platform};
          extraSpecialArgs = {
            inherit inputs outputs buildSettings stateVersion;
            #pkgs-unstable = nixpkgs-unstable.legacyPackages.${buildSettings.system};
