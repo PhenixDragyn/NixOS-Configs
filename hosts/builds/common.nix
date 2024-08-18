@@ -229,7 +229,7 @@
   # SYSTEM PACKAGES 
   environment.systemPackages = with pkgs; [
 
-    qrsync 
+    #qrsync 
 
     # Cli
     bat
