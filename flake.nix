@@ -86,11 +86,7 @@
   {
     # Your custom packages
     # Accessible through 'nix build', 'nix shell', etc
-    #packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
-    packages = forAllSystems (
-      system:
-        import ./packages {pkgs = nixpkgs.legacyPackages.${system};}
-    );
+    packages = forAllSystems (system: import ./packages nixpkgs.legacyPackages.${system});
 
     # Your custom packages and modifications, exported as overlays
     overlays = import ./overlays {inherit inputs;};
