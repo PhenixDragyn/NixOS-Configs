@@ -24,8 +24,6 @@
 
     # Stylix 
     stylix.url = "github:danth/stylix";
-
-    qrsync.url = "path:/home/ejvend/Sync/Projects/Qrsync";
   };
 
   outputs = { self, nixpkgs, nixpkgs-stable, nixpkgs-unstable, home-manager, home-manager-unstable, nixvim, stylix, ... } @ inputs: 
@@ -94,6 +92,9 @@
         import ./packages {pkgs = nixpkgs.legacyPackages.${system};}
     );
 
+    # Your custom packages and modifications, exported as overlays
+    overlays = import ./overlays {inherit inputs;};
+  
     # Function for NixOS system configuration
      nixosConfigurations = {
        ${buildSettings.hostname} = nixpkgs.lib.nixosSystem {
