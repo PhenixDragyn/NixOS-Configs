@@ -150,6 +150,7 @@
     dconf-editor
     file-roller
     geeqie
+    grsync
     seahorse
     snapshot
     #gnome-secrets

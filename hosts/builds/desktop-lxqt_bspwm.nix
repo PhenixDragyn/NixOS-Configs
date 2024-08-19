@@ -76,6 +76,10 @@
 
   # SYSTEM PACKAGES 
   environment.systemPackages = with pkgs; [
+    # Personal Package
+    qrsync
+
+    # LXQT Packages
     featherpad
     kdePackages.qt6ct
     libsForQt5.qt5ct 

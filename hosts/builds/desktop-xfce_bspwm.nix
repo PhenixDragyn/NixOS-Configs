@@ -84,7 +84,7 @@
   services.libinput = {
     enable = true;
   #  touchpad = {
-  #    naturalScrolling = true; # default = false
+  #    naturalScrolling = true; #nc default = false
   #    disableWhileTyping = false; # default = false
   #  };
   #  mouse = {
@@ -119,6 +119,7 @@
   # SYSTEM PACKAGES 
   environment.systemPackages = with pkgs; [
     nitrogen
+    grsync
   ] ++ (if (buildSettings.platform == "x86_64-linux")
 	        then []
 				else 

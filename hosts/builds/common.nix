@@ -250,9 +250,6 @@
   # SYSTEM PACKAGES 
   environment.systemPackages = with pkgs; [
   
-    # Personal Package
-    qrsync
-
     # Cli
     bat
     bc
