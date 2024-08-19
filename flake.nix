@@ -78,15 +78,16 @@
      # This is a function that generates an attribute by calling a function you
      # pass to it, with each system as an arguement
      forAllSystems = nixpkgs.lib.genAttrs systems;
-    
-     #pkgs = nixpkgs.legacyPackages.${buildSettings.platform};
+
+     pkgs = nixpkgs.legacyPackages.${buildSettings.platform};
      #stable = nixpkgs.legacyPackages.${buildSettings.platform};
      #unstable = nixpkgs.legacyPackages.${buildSettings.platform};
   in 
   {
     # Your custom packages
     # Accessible through 'nix build', 'nix shell', etc
-    packages = forAllSystems (system: import ./packages nixpkgs.legacyPackages.${system});
+    packages = forAllSystems (system: import ./packages { inherit pkgs; });
+    #packages = import ./packages { inherit pkgs; };
 
     # Your custom packages and modifications, exported as overlays
     overlays = import ./overlays {inherit inputs;};
@@ -94,7 +95,6 @@
     # Function for NixOS system configuration
      nixosConfigurations = {
        ${buildSettings.hostname} = nixpkgs.lib.nixosSystem {
-         #inherit pkgs;
          specialArgs = {
            inherit inputs outputs buildSettings stateVersion; 
            #pkgs-unstable = nixpkgs-unstable.legacyPackages.${buildSettings.system};
@@ -108,8 +108,7 @@
     # Function for Home-Manager configuration
      homeConfigurations = {
        ${buildSettings.username} = home-manager.lib.homeManagerConfiguration {
-         #inherit pkgs;
-         pkgs = nixpkgs.legacyPackages.${buildSettings.platform};
+         inherit pkgs;
          extraSpecialArgs = {
            inherit inputs outputs buildSettings stateVersion;
            #pkgs-unstable = nixpkgs-unstable.legacyPackages.${buildSettings.system};
