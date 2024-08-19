@@ -18,15 +18,15 @@ let
       format = "pyproject";
 
       # If you have your sources locally, you can specify a path
-      src = /home/ejvend/Sync/Projects/QrSync;
+      #src = /home/ejvend/Sync/Projects/QrSync;
 
       # Pull source from a Git server. Optionally select a specific `ref` (e.g. branch),
       # or `rev` revision hash.
-      #src = builtins.fetchGit {
-      #  url = "git://github.com/PhenixDragyn/QrSync.git";
-      #  ref = "master";
+      src = builtins.fetchGit {
+        url = "git+ssh://github.com/PhenixDragyn/QrSync.git";
+        ref = "master";
       #  #rev = "a9a4cd60e609ed3471b4b8fac8958d009053260d";
-      #};
+      };
 
       # Specify runtime dependencies for the package
       propagatedBuildInputs = [ pyside6 setuptools rsync ];
