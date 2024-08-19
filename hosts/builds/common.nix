@@ -273,8 +273,6 @@
     alsa-utils
     playerctl
 
-    ceph
-
     # Development
     (python3Full.withPackages(ps: with ps; [ requests ]))
 
