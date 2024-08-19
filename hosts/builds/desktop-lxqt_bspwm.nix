@@ -79,6 +79,9 @@
     # Personal Package
     qrsync
 
+    # Develop 
+    jetbrains.pycharm-community
+
     # LXQT Packages
     featherpad
     kdePackages.qt6ct
