@@ -41,6 +41,9 @@
     enable = true;
     flake = inputs.self.outPath;
     flags = [
+      "--impure"
+
+      "--commit-lock-file"
       "--update-input"
       "nixpkgs"
       "-L" # print build logs
