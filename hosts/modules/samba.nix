@@ -19,8 +19,8 @@
 
   services.samba = {
     enable = true;
-    #package = pkgs.samba;
-    package = pkgs.samba4Full; # For full nmbd 
+    package = pkgs.samba;
+    #package = pkgs.samba4Full; # For full nmbd 
     securityType = "user";
     extraConfig = ''
       ;workgroup = WORKGROUP
