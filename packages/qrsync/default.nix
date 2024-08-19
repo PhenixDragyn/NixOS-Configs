@@ -11,29 +11,23 @@ let
   inherit pythonPkgs;
 
   # Inject dependencies into the build function
-  f = { buildPythonPackage, pyside6, setuptools, rsync }:
-    buildPythonPackage rec {
+  f = { buildPythonApplication, pyside6, setuptools, pytest, rsync }:
+    buildPythonApplication rec {
       pname = "qrsync";
       version = "0.1.0";
       format = "pyproject";
 
       # If you have your sources locally, you can specify a path
-      #src = /home/ejvend/Sync/Projects/QrSync;
+      src = /home/ejvend/Sync/Projects/QrSync;
 
       # Pull source from a Git server. Optionally select a specific `ref` (e.g. branch),
       # or `rev` revision hash.
-      src = builtins.fetchGit {
-        url = "https://github.com/PhenixDragyn/QrSync.git";
+      #src = builtins.fetchGit {
+      #  url = "https://github.com/PhenixDragyn/QrSync.git";
         #url = "git+ssh://git@github.com:PhenixDragyn/QrSync.git";
-        ref = "master";
+      #  ref = "master";
         #rev = "0.1.0";
         #rev = "a9a4cd60e609ed3471b4b8fac8958d009053260d";
-      };
-
-      #src = pkgs.fetchFromGitHub {
-      #  owner = "PhenixDragyn";
-      #  repo = "qrsync";
-      #  rev = "0.1.0";
       #};
 
       # Specify runtime dependencies for the package
@@ -42,10 +36,18 @@ let
       # If no `checkPhase` is specified, `python setup.py test` is executed
       # by default as long as `doCheck` is true (the default).
       # I want to run my tests in a different way:
+
+      #doCheck = false;
+      nativeCheckInputs = [ pytest ];
+      checkPhace = ''
+        runHook preCheck
+        pytest
+        runHook postCheck
+      '';
       #checkPhase = ''
       #  python -m unittest tests/*.py
       #'';
-      doCheck = false;
+      
       #pythonImportsCheck = [ "pyside6" ];
 
       # Meta information for the package
