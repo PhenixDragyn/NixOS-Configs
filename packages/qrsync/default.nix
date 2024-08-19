@@ -23,10 +23,18 @@ let
       # Pull source from a Git server. Optionally select a specific `ref` (e.g. branch),
       # or `rev` revision hash.
       src = builtins.fetchGit {
-        url = "git+ssh://github.com/PhenixDragyn/QrSync.git";
+        url = "https://github.com/PhenixDragyn/QrSync.git";
+        #url = "git+ssh://git@github.com:PhenixDragyn/QrSync.git";
         ref = "master";
-      #  #rev = "a9a4cd60e609ed3471b4b8fac8958d009053260d";
+        #rev = "0.1.0";
+        #rev = "a9a4cd60e609ed3471b4b8fac8958d009053260d";
       };
+
+      #src = pkgs.fetchFromGitHub {
+      #  owner = "PhenixDragyn";
+      #  repo = "qrsync";
+      #  rev = "0.1.0";
+      #};
 
       # Specify runtime dependencies for the package
       propagatedBuildInputs = [ pyside6 setuptools rsync ];
