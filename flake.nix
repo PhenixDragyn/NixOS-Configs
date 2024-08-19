@@ -94,7 +94,7 @@
 
     # Formatter for your nix files, available through 'nix fmt'
     # Other options beside 'alejandra' include 'nixpkgs-fmt'
-    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+    #formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
   
     # Function for NixOS system configuration
      nixosConfigurations = {

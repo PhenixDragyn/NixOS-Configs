@@ -249,7 +249,8 @@
 
   # SYSTEM PACKAGES 
   environment.systemPackages = with pkgs; [
-
+  
+    # Personal Package
     qrsync
 
     # Cli
@@ -271,6 +272,8 @@
     # Sound
     alsa-utils
     playerctl
+
+    ceph
 
     # Development
     (python3Full.withPackages(ps: with ps; [ requests ]))
