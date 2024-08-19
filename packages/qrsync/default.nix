@@ -11,7 +11,7 @@ let
   inherit pythonPkgs;
 
   # Inject dependencies into the build function
-  f = { buildPythonPackage, pyside6, setuptools }:
+  f = { buildPythonPackage, pyside6, setuptools, rsync }:
     buildPythonPackage rec {
       pname = "qrsync";
       version = "0.1.0";
@@ -29,7 +29,7 @@ let
       #};
 
       # Specify runtime dependencies for the package
-      propagatedBuildInputs = [ pyside6 setuptools ];
+      propagatedBuildInputs = [ pyside6 setuptools rsync ];
 
       # If no `checkPhase` is specified, `python setup.py test` is executed
       # by default as long as `doCheck` is true (the default).

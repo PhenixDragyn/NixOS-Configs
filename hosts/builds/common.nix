@@ -20,7 +20,7 @@
   # NIX SETTINGS
   # Nixpkgs configuration
   nixpkgs.config.allowUnfree = true;
-  #nixpkgs.overlays = [ outputs.overlays.additions ];
+
   nixpkgs = {
     # You can add overlays here
     overlays = [
