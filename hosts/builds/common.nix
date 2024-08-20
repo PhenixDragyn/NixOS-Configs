@@ -104,8 +104,13 @@
     enableIPv6 = false;
   };
 
+  # Tailscale "aardwolf-alnilam.ts.net"
+  services.tailscale.enable = true;
+  networking.nameservers = [ "100.100.100.100" "8.8.8.8" "1.1.1.1" ];
+  networking.search = [ "aardwolf-alnilam.ts.net" ];
+
   # Firewall 
-  networking.firewall.enable = false;
+  networking.firewall.enable = true;
   networking.firewall.allowPing = true;
  
   # Enable network manager applet
