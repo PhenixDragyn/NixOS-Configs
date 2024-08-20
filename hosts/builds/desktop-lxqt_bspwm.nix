@@ -80,7 +80,7 @@
     qrsync
 
     # Develop 
-    jetbrains.pycharm-community
+    #jetbrains.pycharm-community
 
     # LXQT Packages
     featherpad
