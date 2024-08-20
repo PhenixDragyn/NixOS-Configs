@@ -89,6 +89,7 @@
     lxqt.pavucontrol-qt
     lxqt.pcmanfm-qt
     lxqt.qlipper
+    mpv
     nm-tray
     qimgv
   ] ++ (if (buildSettings.platform == "x86_64-linux")
