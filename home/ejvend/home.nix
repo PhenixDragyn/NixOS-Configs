@@ -8,7 +8,6 @@
     # Inputs
     inputs.nixvim.homeManagerModules.nixvim
     inputs.stylix.homeManagerModules.stylix
-    #inputs.spicetify-nix.homeManagerModules.spicetify-nix
 
   ] ++ (if (buildSettings.build == "xfce_bspwm")
 	        then [ ../builds/desktop-xfce_bspwm.nix ]
