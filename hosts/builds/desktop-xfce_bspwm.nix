@@ -16,6 +16,7 @@
   # Enable network manager applet
   programs.nm-applet.enable = true;
 
+
   # ---------------------------------
 
   # DEVICE MANAGEMENT SETTINGS
@@ -118,8 +119,11 @@
 
   # SYSTEM PACKAGES 
   environment.systemPackages = with pkgs; [
+
     nitrogen
     grsync
+    tailscale-systray
+
   ] ++ (if (buildSettings.platform == "x86_64-linux")
 	        then []
 				else 

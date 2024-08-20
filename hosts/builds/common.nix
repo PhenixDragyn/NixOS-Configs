@@ -105,9 +105,15 @@
   };
 
   # Tailscale "aardwolf-alnilam.ts.net"
+  # https://login.tailscale.com/admin/
+  # Connect machine to Tailscale network.. 
+  # > sudo tailscale up
+  # > tailscale ip -4
   services.tailscale.enable = true;
+  #services.tailscale.useRoutingFeatures = "both";
   networking.nameservers = [ "100.100.100.100" "8.8.8.8" "1.1.1.1" ];
   networking.search = [ "aardwolf-alnilam.ts.net" ];
+  networking.firewall.trustedInterfaces = [ "tailscale0" ];
 
   # Firewall 
   networking.firewall.enable = true;

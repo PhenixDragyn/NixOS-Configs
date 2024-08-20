@@ -31,6 +31,7 @@ nixos-rebuild switch. This error can be resolved by updating flake.lock using ni
 > sudo nixos-rebuild switch --upgrade
 
 > nix flake update
+> nixos-rebuild switch --upgrade --verbose
 
 ------
 
