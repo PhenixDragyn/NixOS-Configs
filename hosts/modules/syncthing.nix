@@ -20,7 +20,7 @@
       devices = {
         "Macbook" = { id = "VEV77YU-ZL74KVJ-203R7IX-5IQNQIM-4ZBUBLX-FGQWD06-SZTEEVI-JYYTKQX"; };
         "ArchLinux" = { id = "T2KGAP2-3NUX7XQ-Q77CWIM-QJLB700-ZULQTH3-6JMYJR5-6EZUNKL-VRRCRAI"; };
-	#"NixOS-LT" = { id = "R376GRY-YR4MKG2-2UG3VFQ-5RJ7EEI-SZ2LQZX-TLPWXKS-KOPBIU4-SCSRQQO"; };
+      	#"NixOS-LT" = { id = "R376GRY-YR4MKG2-2UG3VFQ-5RJ7EEI-SZ2LQZX-TLPWXKS-KOPBIU4-SCSRQQO"; };
       };
  
       folders = {
@@ -30,6 +30,11 @@
           devices = [ "Macbook" "ArchLinux" ];
         };
       };
+
+      #gui = {
+      #  user = "";
+      #  password = "";
+      #};
 
       #options.globalAnnounceEnabled = false; # Only sync on LAN
     };

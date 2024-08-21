@@ -274,6 +274,7 @@
 
     # NIX tools
     nix-prefetch
+    nix-prefetch-git
 
     # Network
     curl
