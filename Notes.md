@@ -109,5 +109,5 @@ nixos-rebuild switch. This error can be resolved by updating flake.lock using ni
 > git commit -m "Some comment"
 > git push -u origin master
 
-
-> 
+# Get has information
+> nix-prefetch samba4Full.src 

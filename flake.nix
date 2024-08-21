@@ -80,7 +80,7 @@
      forAllSystems = nixpkgs.lib.genAttrs systems;
 
      pkgs = nixpkgs.legacyPackages.${buildSettings.platform};
-     #stable = nixpkgs.legacyPackages.${buildSettings.platform};
+     stable = nixpkgs.legacyPackages.${buildSettings.platform};
      #unstable = nixpkgs.legacyPackages.${buildSettings.platform};
   in 
   {

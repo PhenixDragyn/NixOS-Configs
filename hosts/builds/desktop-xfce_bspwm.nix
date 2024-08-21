@@ -124,6 +124,8 @@
     grsync
     tailscale-systray
 
+    xfce.gigolo
+
   ] ++ (if (buildSettings.platform == "x86_64-linux")
 	        then []
 				else 

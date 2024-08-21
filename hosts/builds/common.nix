@@ -1,4 +1,4 @@
-{ inputs, outputs, lib, config, pkgs, buildSettings, stateVersion, ... }:
+{ inputs, outputs, lib, config, pkgs, stable, buildSettings, stateVersion, ... }:
 
 #let
 #    qrsync = pkgs.callPackage ../../packages/qrsync/default.nix {};
@@ -271,6 +271,9 @@
     neofetch
     procps
     psmisc
+
+    # NIX tools
+    nix-prefetch
 
     # Network
     curl
