@@ -19,8 +19,8 @@
 
   services.samba = {
     enable = true;
-    package = pkgs.samba;
-    #package = pkgs.samba4Full; 
+    #package = pkgs.samba;
+    package = pkgs.samba4Full; 
     securityType = "user";
     extraConfig = ''
       ;workgroup = WORKGROUP

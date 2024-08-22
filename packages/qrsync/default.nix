@@ -27,7 +27,6 @@ buildPythonPackage rec {
   propagatedBuildInputs = with pythonPackages; [ 
     pyside6 
     setuptools 
-    #rsync 
   ];
 
   checkInputs = with pythonPackages; [ 
@@ -41,13 +40,13 @@ buildPythonPackage rec {
 
   #pythonImportsCheck = [ "" ];
 
-#   meta = {
-#     description = ''
-#       A QT frontend to rsync.
-#     '';
-#     #license = [ lib.licenses.gpl2 lib.licenses.gpl3 ];
-#     maintainers = [ "phenixdragyn" ];
-#   };
+   meta = {
+     description = ''
+       A QT frontend to rsync.
+     '';
+     #license = [ lib.licenses.gpl2 lib.licenses.gpl3 ];
+     maintainers = [ "phenixdragyn" ];
+   };
  }
 
 
