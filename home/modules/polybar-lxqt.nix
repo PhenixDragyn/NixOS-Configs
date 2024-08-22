@@ -288,7 +288,7 @@ fi
 
           width = 940;
           height = 23;
-          offset-x = "33.3%";
+          offset-x = "31.75%";
           offset-y = 3;
 
           modules-center = "cpu memory filesystem sep wlan eth battery backlight-acpi pulseaudio sep hiddenWindows sep tray";
@@ -312,7 +312,7 @@ fi
 
           width = 55;
           height = 23;
-          offset-x = "97.75%";
+          offset-x = "97.50%";
           offset-y = 3;
 
           modules-center = "power";
