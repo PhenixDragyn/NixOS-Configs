@@ -6,7 +6,7 @@
       executable = true;
 
       text = ''
-#!/bin/sh
+#!/usr/bin/env bash
 
 set -ex
 
@@ -27,14 +27,13 @@ if [ $num_monitors -eq 1 ]; then
   polybar laptop3 2>&1 | tee -a /tmp/polybar.log & disown
   polybar laptop4 2>&1 | tee -a /tmp/polybar.log & disown
   polybar laptop5 2>&1 | tee -a /tmp/polybar.log & disown
- else [ $location == "laptop-home" ]; then
-#else
+elif [ $location == "laptop-home" ]; then
   MONITOR=$side polybar monitor1 2>&1 | tee -a /tmp/polybar.log & disown
   MONITOR=$side polybar monitor2 2>&1 | tee -a /tmp/polybar.log & disown
   MONITOR=$side polybar monitor3 2>&1 | tee -a /tmp/polybar.log & disown
   MONITOR=$side polybar monitor4 2>&1 | tee -a /tmp/polybar.log & disown
   MONITOR=$side polybar monitor5 2>&1 | tee -a /tmp/polybar.log & disown
-else [ $location == "laptop-work" ]; then
+elif [ $location == "laptop-work" ]; then
   MONITOR=$side polybar work1 2>&1 | tee -a /tmp/polybar.log & disown
   MONITOR=$side polybar work2 2>&1 | tee -a /tmp/polybar.log & disown
   MONITOR=$side polybar work3 2>&1 | tee -a /tmp/polybar.log & disown
@@ -275,7 +274,7 @@ fi
           "inherit" = "bar/laptop1";
           monitor = "\${env:MONITOR:}";
 
-          width = 665;
+          width = 635;
           height = 23;
           offset-x = "6%";
           offset-y = 3;
@@ -287,7 +286,7 @@ fi
           "inherit" = "bar/laptop1";
           monitor = "\${env:MONITOR:}";
 
-          width = 940;
+          width = 910;
           height = 23;
           offset-x = "36.3%";
           offset-y = 3;
@@ -299,7 +298,7 @@ fi
           "inherit" = "bar/laptop1";
           monitor = "\${env:MONITOR:}";
 
-          width = 665;
+          width = 645;
           height = 23;
           offset-x = "75%";
           offset-y = 3;
@@ -311,7 +310,7 @@ fi
           "inherit" = "bar/laptop1";
           monitor = "\${env:MONITOR:}";
 
-          width = 55;
+          width = 50;
           height = 23;
           offset-x = "98.25%";
           offset-y = 3;
