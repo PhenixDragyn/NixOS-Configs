@@ -279,6 +279,7 @@
     # Network
     curl
     inetutils
+    rsync
     wget
     
     # Sound
