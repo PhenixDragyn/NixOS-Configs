@@ -1,6 +1,10 @@
 { config, lib, pkgs, stable, unstable, buildSettings, ... }:
 
 {
+  services.udev.extraRules = ''
+    ACTION=="change", SUBSYSTEM=="drm", RUN+="${pkgs.autorandr}/bin/autorandr -c"
+  '';
+
   programs.autorandr = {
     enable = true;
 
