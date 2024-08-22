@@ -37,6 +37,8 @@ fi
 #done
 
 #MONITOR="$main" polybar laptop1 &
+
+# polybar --list-monitors | cut -d":" -f1;
       '';
     };
 
@@ -97,6 +99,8 @@ fi
 
         "bar/laptop1" = fonts // {
           monitor = "\${env:MONITOR:}";
+          #monitor = DP-2;
+          #monitor-fallback = eDP-1;
 
           override-redirect = false;
 
