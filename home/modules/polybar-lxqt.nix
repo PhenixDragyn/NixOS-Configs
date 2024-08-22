@@ -18,18 +18,28 @@ num_monitors="$(xrandr --query | grep ' connected' | wc -l)"
 main=$(xrandr | grep ' connected primary ' | cut -d' ' -f1)
 side=$(xrandr | grep ' connected ' | grep -v ' connected primary ' | cut -d' ' -f1)
 
+#location=$(autorandr --current)
+location=$(autorandr | grep '(detected)' | cut -d' ' -f1)
+
 if [ $num_monitors -eq 1 ]; then
   polybar laptop1 2>&1 | tee -a /tmp/polybar.log & disown
   polybar laptop2 2>&1 | tee -a /tmp/polybar.log & disown
   polybar laptop3 2>&1 | tee -a /tmp/polybar.log & disown
   polybar laptop4 2>&1 | tee -a /tmp/polybar.log & disown
   polybar laptop5 2>&1 | tee -a /tmp/polybar.log & disown
-else
+ else [ $location == "laptop-home" ]; then
+#else
   MONITOR=$side polybar monitor1 2>&1 | tee -a /tmp/polybar.log & disown
   MONITOR=$side polybar monitor2 2>&1 | tee -a /tmp/polybar.log & disown
   MONITOR=$side polybar monitor3 2>&1 | tee -a /tmp/polybar.log & disown
   MONITOR=$side polybar monitor4 2>&1 | tee -a /tmp/polybar.log & disown
   MONITOR=$side polybar monitor5 2>&1 | tee -a /tmp/polybar.log & disown
+else [ $location == "laptop-work" ]; then
+  MONITOR=$side polybar work1 2>&1 | tee -a /tmp/polybar.log & disown
+  MONITOR=$side polybar work2 2>&1 | tee -a /tmp/polybar.log & disown
+  MONITOR=$side polybar work3 2>&1 | tee -a /tmp/polybar.log & disown
+  MONITOR=$side polybar work4 2>&1 | tee -a /tmp/polybar.log & disown
+  MONITOR=$side polybar work5 2>&1 | tee -a /tmp/polybar.log & disown
 fi
 
 #for s in $side; do
@@ -237,6 +247,67 @@ fi
 	      };
 
        	"bar/monitor5" = fonts // {
+          "inherit" = "bar/laptop1";
+          monitor = "\${env:MONITOR:}";
+
+          width = 55;
+          height = 23;
+          offset-x = "98.25%";
+          offset-y = 3;
+
+          modules-center = "power";
+	      };
+
+
+        "bar/work1" = fonts // {
+          "inherit" = "bar/laptop1";
+          monitor = "\${env:MONITOR:}";
+
+          width = 55;
+          height = 23;
+          offset-x = "0.25%";
+          offset-y = 3;
+
+          modules-center = "nixos";
+        };
+
+      	"bar/work2" = fonts // {
+          "inherit" = "bar/laptop1";
+          monitor = "\${env:MONITOR:}";
+
+          width = 665;
+          height = 23;
+          offset-x = "6%";
+          offset-y = 3;
+
+          modules-center = "weather sep spotify spo-previous spo-pause spo-next";
+	      };
+
+	      "bar/work3" = fonts // {
+          "inherit" = "bar/laptop1";
+          monitor = "\${env:MONITOR:}";
+
+          width = 940;
+          height = 23;
+          offset-x = "36.3%";
+          offset-y = 3;
+
+          modules-center = "cpu memory filesystem sep wlan eth battery backlight-acpi pulseaudio sep hiddenWindows sep tray";
+	      };
+
+      	"bar/work4" = fonts // {
+          "inherit" = "bar/laptop1";
+          monitor = "\${env:MONITOR:}";
+
+          width = 665;
+          height = 23;
+          offset-x = "75%";
+          offset-y = 3;
+
+          modules-center = "bspwm2 sep date time";
+	      };
+
+       	"bar/work5" = fonts // {
           "inherit" = "bar/laptop1";
           monitor = "\${env:MONITOR:}";
 
