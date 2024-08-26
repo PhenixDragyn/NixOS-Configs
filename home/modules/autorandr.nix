@@ -56,7 +56,7 @@
             position = "260x1440";
             mode = "1920x1080";
           };
-          "DP-1" = {
+          "HDMI-1" = {
             enable = true;
             primary = false;
             position = "0x0";
