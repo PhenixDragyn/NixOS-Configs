@@ -161,6 +161,7 @@ Deeply inspired in Cascade, SimpleFox & more...
   display: none !important;
 }
 
+/* Menu Button */
 #PanelUI-menu-button {
   padding: 0px !important;
 }
@@ -226,10 +227,12 @@ Deeply inspired in Cascade, SimpleFox & more...
 }
 
 /* Disable the Navigation Buttons */
+/*
 #back-button,
 #forward-button {
   display: none !important;
 }
+*/
 
 /* Disables the Tracking Protection Shield */
 #tracking-protection-icon-container {
@@ -242,22 +245,28 @@ Deeply inspired in Cascade, SimpleFox & more...
   display: none !important;
 }
 /* Hides encryption AND permission items */
+/*
 #identity-box {
   display: none !important;
 }
+*/
 
 /* Hide everything BUT the zoom indicator within the URL Bar */
 /* #page-action-buttons > :not(#urlbar-zoom-button) { display: none !important; } */
 
 /* Hide the »Go«-arrow in the URL Bar */
+/*
 #urlbar-go-button {
   display: none !important;
 }
+*/
 
 /* Hides the Extensions Menu Icon */
+/*
 #unified-extensions-button {
   display: none !important;
 }
+*/
 
 #statuspanel #statuspanel-label {
   margin: 0 0 var(--uc-status-panel-spacing) var(--uc-status-panel-spacing) !important;

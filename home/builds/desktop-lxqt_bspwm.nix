@@ -5,6 +5,7 @@
   imports = [
     # Modules
     ../modules/autorandr.nix
+    ../modules/firefox.nix
     ../modules/kitty.nix
     ##../modules/picom.nix
     ../modules/picom-pijulius.nix
