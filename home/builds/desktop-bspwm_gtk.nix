@@ -6,6 +6,7 @@
     # Modules
     ../modules/dconf.nix
 
+    ../modules/firefox.nix
     ../modules/kitty.nix
     ##../modules/picom.nix
     ../modules/picom-pijulius.nix
@@ -39,5 +40,7 @@
     #file.".config/qimgv".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/qimgv";
     #file.".config/qt5ct".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/qt5ct";
     #file.".config/qt6ct".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/qt6ct";
+
+    file.".mozilla/firefox/default".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/firefox";
   };
 }

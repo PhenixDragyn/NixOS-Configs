@@ -6,6 +6,7 @@
     # Modules
     ../modules/dconf.nix
 
+    ../modules/firefox.nix
     ../modules/kitty.nix
     ##../modules/picom.nix
     ../modules/picom-pijulius.nix
@@ -42,5 +43,7 @@
     #file.".config/qt6ct".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/qt6ct";
 
     #file.".config/syncthingtray.ini".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/syncthing/syncthingtray.ini";
+
+    file.".mozilla/firefox/default".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/firefox";
   };
 }

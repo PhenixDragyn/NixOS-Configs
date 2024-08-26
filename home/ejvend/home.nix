@@ -64,7 +64,6 @@
   programs = {
     btop.enable = true;
     feh.enable = true;
-    firefox.enable = true;
     home-manager.enable = true;
   };
 
@@ -84,8 +83,7 @@
     shellAliases = {
       nr="sudo nixos-rebuild switch --flake";
       hm="home-manager switch --flake";
-      nb="nix-build --no-out-link";
-      nr-pkgs="nix-store --query --requisites /run/current-system | cut -d- -f2 | sort | uniq | fzf ";
+      nb="nix-build --no-out-link"; nr-pkgs="nix-store --query --requisites /run/current-system | cut -d- -f2 | sort | uniq | fzf ";
      
       q="exit";
       ls="lsd -F";
