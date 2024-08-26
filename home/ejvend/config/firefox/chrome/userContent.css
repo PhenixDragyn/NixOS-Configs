@@ -24,6 +24,17 @@
   }
 }
 
+.tabbrowser-tab {
+  visibility: collapse;
+}
+#nav-bar {
+	margin-top: -40px;
+	margin-right: 137px;
+}
+.titlebar-button {
+	height: 40px;
+}
+
 @-moz-document url(moz-extension://e97c5884-aa9d-4dff-bb83-c807a65ade72/sidebar/index.html)
 {
   * {
