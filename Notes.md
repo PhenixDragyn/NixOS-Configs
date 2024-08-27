@@ -112,6 +112,11 @@ nixos-rebuild switch. This error can be resolved by updating flake.lock using ni
 # Get has information
 > nix-prefetch samba4Full.src 
 
+
+# GIT with SSH 
+Make sure the .git/config file has the url set to 
+git@github.com:PhenixDragyn/NixOS-Configs.git
+
 --
 
 nix-clean () {
