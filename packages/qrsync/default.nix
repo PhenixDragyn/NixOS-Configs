@@ -10,7 +10,8 @@ buildPythonPackage rec {
   #src = /home/ejvend/Sync/Projects/QrSync;
 
    src = fetchGit {
-     url = "git@github.com:PhenixDragyn/QrSync.git";
+     #url = "git@github.com:PhenixDragyn/QrSync.git";
+     url = "git+ssh://git@github.com:PhenixDragyn/QrSync.git";
      ref = "refs/heads/master";
      rev = "21daf41f1c1fd6dfaad1b1b4723d5a6975670b7a";
    };
