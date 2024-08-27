@@ -105,8 +105,12 @@
   };
 
   # Fixes an issue of the service failing and hanging.
-  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
-
+  #systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
+  systemd.services.NetworkManager-wait-online = {
+    serviceConfig = {
+      ExecStart = [ "" "${pkgs.networkmanager}/bin/nm-online -q" ];
+    };
+  };
 
   # Tailscale "aardwolf-alnilam.ts.net"
   # https://login.tailscale.com/admin/
