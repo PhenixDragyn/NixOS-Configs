@@ -17,6 +17,9 @@
     overrideDevices = false;
 
     settings = {
+      gui = {
+        theme = "Dark";
+      };
       devices = {
         "Macbook" = { id = "VEV77YU-ZL74KVJ-203R7IX-5IQNQIM-4ZBUBLX-FGQWD06-SZTEEVI-JYYTKQX"; };
         "ArchLinux" = { id = "T2KGAP2-3NUX7XQ-Q77CWIM-QJLB700-ZULQTH3-6JMYJR5-6EZUNKL-VRRCRAI"; };
