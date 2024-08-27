@@ -104,8 +104,8 @@
     enableIPv6 = false;
   };
 
-  # fixes an issue of the service failing and hanging.
-  #systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
+  # Fixes an issue of the service failing and hanging.
+  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
 
 
   # Tailscale "aardwolf-alnilam.ts.net"
