@@ -3,16 +3,6 @@
 {
   programs.firefox = {
     enable = true;
-    #package = pkgs.wrapFirefox pkgs.firefox-devedition-unwrapped {
-    # package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
-    #   extraPolicies = {
-    #     DisableFirefoxStudies = true;
-    #     DisablePocket = true;
-    #     DisableTelemetry = true;
-    #     DisableFirefoxAccounts = false;
-    #     PromptForDownloadLocation = true;
-    #   };
-    # };
     profiles.default = {
       id = 0;
       name = "default";
