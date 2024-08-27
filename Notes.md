@@ -111,3 +111,20 @@ nixos-rebuild switch. This error can be resolved by updating flake.lock using ni
 
 # Get has information
 > nix-prefetch samba4Full.src 
+
+--
+
+nix-clean () {
+  nix-env --delete-generations old
+  nix-store --gc
+  nix-channel --update
+  nix-env -u --always
+  for link in /nix/var/nix/gcroots/auto/*
+  do
+    rm $(readlink "$link")
+  done
+  nix-collect-garbage -d
+}
+ 
+remove old /boot/kernels/
+

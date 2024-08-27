@@ -59,6 +59,9 @@
   # DCONF
   programs.dconf.enable = true;
 
+  # Automount devices/system tray
+  services.udiskie.enable = true;
+
   # ---------------------------------
   
   # MONITOR SETTINGS

@@ -104,6 +104,10 @@
     enableIPv6 = false;
   };
 
+  # fixes an issue of the service failing and hanging.
+  #systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
+
+
   # Tailscale "aardwolf-alnilam.ts.net"
   # https://login.tailscale.com/admin/
   # Connect machine to Tailscale network.. 
