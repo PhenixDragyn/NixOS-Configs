@@ -42,13 +42,13 @@
     # host = osConfig.networking.hostname;
 
     # ----- BUILD SYSTEM/USER SETTINGS ----- #
-     buildSettings = {
-       username = "ejvend";
-       hostname = "nixos-lt";
-       platform = "x86_64-linux";
-       build = "lxqt_bspwm";
-       theme = "ia-dark";
-     };
+     # buildSettings = {
+     #   username = "ejvend";
+     #   hostname = "nixos-lt";
+     #   platform = "x86_64-linux";
+     #   build = "lxqt_bspwm";
+     #   theme = "ia-dark";
+     # };
 
     #buildSettings = {
     #  username = "ejvend";
@@ -66,6 +66,14 @@
     #   theme = "ia-dark";
     # };
     
+     buildSettings = {
+       username = "ejvend";
+       hostname = "nixos-vm";
+       platform = "x86_64-linux";
+       build = "xfce_bspwm";
+       theme = "ia-dark";
+     };
+
     # ----- OTHER SETTINGS ----- #
     # Supported systems for your flake packages, shell, etc.
      systems = [
