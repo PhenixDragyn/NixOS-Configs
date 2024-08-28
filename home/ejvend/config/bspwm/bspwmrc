@@ -155,7 +155,8 @@ TBG_COLOR=$(echo "obase=16;ibase=16;$TMP_COLOR-5F5F5F" | bc | awk '{printf "%06X
 BG_COLOR=$(echo '#'$TBG_COLOR)
 hsetroot -solid $BG_COLOR
 
-# Start nitrogen to set wallpaper
+# Restore wallpaper
+feh --bg-fill ~/.fehbg &
 nitrogen --restore &
 
 # Call Autorandr
