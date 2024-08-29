@@ -17,8 +17,8 @@
     overrideDevices = false;
 
     settings = {
-      gui = {
-        theme = "Dark";
+      options.gui = {
+        theme = "dark";
       };
       devices = {
         "Macbook" = { id = "VEV77YU-ZL74KVJ-203R7IX-5IQNQIM-4ZBUBLX-FGQWD06-SZTEEVI-JYYTKQX"; };
