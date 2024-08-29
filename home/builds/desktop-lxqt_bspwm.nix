@@ -4,7 +4,7 @@
 {
   imports = [
     # Modules
-    ../modules/autorandr.nix
+    #../modules/autorandr.nix
     ../modules/firefox.nix
     ../modules/kitty.nix
     ##../modules/picom.nix

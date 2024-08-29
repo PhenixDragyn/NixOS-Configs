@@ -288,6 +288,9 @@
   # SYSTEM PACKAGES 
   environment.systemPackages = with pkgs; [
   
+    # Home-manager
+    home-manager
+  
     # Cli
     bat
     bc

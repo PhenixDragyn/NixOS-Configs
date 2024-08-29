@@ -1,3 +1,9 @@
+# Build this VM with nix build  ./#nixosConfigurations.vm.config.system.build.vm
+# Then run is with: ./result/bin/run-nixos-vm
+# To be able to connect with ssh enable port forwarding with:
+# QEMU_NET_OPTS="hostfwd=tcp::2222-:22" ./result/bin/run-nixos-vm
+# Then connect with ssh -p 2222 guest@localhost
+
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 { inputs, outputs, lib, config, pkgs, stable, unstable, buildSettings, stateVersion, ... }:
@@ -16,7 +22,7 @@
     # Import my host modules
     ../modules/nixvim.nix
     ../modules/openssh.nix
-    ../modules/ranger.nix
+    #../modules/ranger.nix
     #../modules/samba.nix
     #../modules/syncthing.nix
     ../modules/zsh.nix
@@ -34,6 +40,8 @@
   # ---------------------------------
   
   # NIX SETTINGS
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+
   # Nixpkgs configuration
   nixpkgs.config.allowUnfree = true;
 
@@ -159,29 +167,29 @@
   #networking.firewall.trustedInterfaces = [ "tailscale0" ];
 
   # Firewall 
-  #networking.firewall.enable = true;
-  #networking.firewall.allowPing = true;
+  networking.firewall.enable = true;
+  networking.firewall.allowPing = true;
  
   # Enable network manager applet
   #programs.nm-applet.enable = true;
 
   # Enable Avahi for Network/Printing discovery
-  services.avahi = {
-    publish.enable = true;
-    publish.userServices = true;
-    nssmdns4 = true;
-    enable = true;
-    openFirewall = true;
-  };
+  # services.avahi = {
+  #   publish.enable = true;
+  #   publish.userServices = true;
+  #   nssmdns4 = true;
+  #   enable = true;
+  #   openFirewall = true;
+  # };
 
   # ---------------------------------
 
   # BLUETOOTH
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-  };
-
+   hardware.bluetooth = {
+     enable = true;
+     powerOnBoot = true;
+   };
+  
   # ---------------------------------
 
   # TIMEZONE AND LOCALE
@@ -217,10 +225,10 @@
   # ---------------------------------
 
   # DEVICE MANAGEMENT SETTINGS
-  services.devmon.enable = true;
-  services.gvfs.enable = true;
-  services.udisks2.enable = true;
-
+  # services.devmon.enable = true;
+  # services.gvfs.enable = true;
+  # services.udisks2.enable = true;
+  
   # ---------------------------------
 
   # PRINTING SERVICES
@@ -234,23 +242,23 @@
   # ---------------------------------
 
   # SOUND SETTINGS
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    #jack.enable = true;
-  };
+   hardware.pulseaudio.enable = false;
+   security.rtkit.enable = true;
+   services.pipewire = {
+     enable = true;
+     alsa.enable = true;
+     alsa.support32Bit = true;
+     pulse.enable = true;
+     #jack.enable = true;
+   };
 
   # ---------------------------------
 
   # LOCATE SETTINGS
-  services.locate = {
-    enable = true;
-    localuser = null;
-  };
+   services.locate = {
+     enable = true;
+     localuser = null;
+   };
 
   # ---------------------------------
 
@@ -276,12 +284,12 @@
       ];
     };
 
-    root = {
-      hashedPassword = "$y$j9T$qRgWUxVlS/c8UdYtFqQhu/$lANxdQmqxvVe7YTniG07mld5g/mCPypXueRWH/fC7E2";
-      openssh.authorizedKeys.keys = [
-        # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
-      ];
-    };
+    # root = {
+    #   hashedPassword = "$y$j9T$qRgWUxVlS/c8UdYtFqQhu/$lANxdQmqxvVe7YTniG07mld5g/mCPypXueRWH/fC7E2";
+    #   openssh.authorizedKeys.keys = [
+    #     # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
+    #   ];
+    # };
   };
   users.defaultUserShell = pkgs.zsh;
 
@@ -299,7 +307,7 @@
   # SERVICES 
   services.spice-vdagentd.enable = true;
 
-  services.xserver.displayManager.autologin.user = "ejvend";
+  #services.xserver.displayManager.autologin.user = "ejvend";
   services.xserver.videoDrivers = [ "qxl" ];
 
   # ---------------------------------
@@ -311,6 +319,9 @@
 
   # SYSTEM PACKAGES 
   environment.systemPackages = with pkgs; [
+  
+    # Home-manager
+    home-manager
   
     # Cli
     bat

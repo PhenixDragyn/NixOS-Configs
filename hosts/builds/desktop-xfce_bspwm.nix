@@ -24,7 +24,7 @@
   services.gvfs.package = lib.mkForce pkgs.gnome3.gvfs;
 
   # Automount devices/system tray
-  services.udiskie.enable = true;
+  #services.udiskie.enable = true;
 
   # ---------------------------------
 

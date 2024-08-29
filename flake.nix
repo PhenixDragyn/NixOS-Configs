@@ -42,13 +42,13 @@
     # host = osConfig.networking.hostname;
 
     # ----- BUILD SYSTEM/USER SETTINGS ----- #
-     # buildSettings = {
-     #   username = "ejvend";
-     #   hostname = "nixos-lt";
-     #   platform = "x86_64-linux";
-     #   build = "lxqt_bspwm";
-     #   theme = "ia-dark";
-     # };
+    buildSettings = {
+      username = "ejvend";
+      hostname = "nixos-lt";
+      platform = "x86_64-linux";
+      build = "lxqt_bspwm";
+      theme = "ia-dark";
+    };
 
     #buildSettings = {
     #  username = "ejvend";
@@ -58,21 +58,21 @@
     #  theme = "ia-dark";
     #};
 
-    # buildSettings = {
-    #   username = "ejvend";
-    #   hostname = "nixos-test";
-    #   platform = "aarch64-linux";
-    #   build = "xfce_bspwm";
-    #   theme = "ia-dark";
-    # };
+    #buildSettings = {
+    #  username = "ejvend";
+    #  hostname = "nixos-test";
+    #  platform = "aarch64-linux";
+    #  build = "xfce_bspwm";
+    #  theme = "ia-dark";
+    #};
     
-     buildSettings = {
-       username = "ejvend";
-       hostname = "nixos-vm";
-       platform = "x86_64-linux";
-       build = "xfce_bspwm";
-       theme = "ia-dark";
-     };
+    #buildSettings = {
+    #  username = "ejvend";
+    #  hostname = "nixos-vm";
+    #  platform = "x86_64-linux";
+    #  build = "xfce_bspwm";
+    #  theme = "ia-dark";
+    #};
 
     # ----- OTHER SETTINGS ----- #
     # Supported systems for your flake packages, shell, etc.
@@ -130,6 +130,25 @@
            #./home/${buildSettings.username}/${buildSettings.hostname}.nix
          ];
        };
+     };
+
+    # Function for NixOS VM system configuration
+     nixosConfigurations.vm = nixpkgs.lib.nixosSystem {
+     #nixosConfigurations.vm = {
+     #  ${buildSettings.hostname} = nixpkgs.lib.nixosSystem {
+         specialArgs = {
+           inherit inputs outputs buildSettings stateVersion; 
+         };
+         modules = [
+           ./hosts/${buildSettings.hostname}/configuration.nix
+           home-manager.nixosModules.home-manager {
+             home-manager.useGlobalPkgs=true;
+             home-manager.useUserPackages = true;
+             home-manager.users.${buildSettings.username} = import ./home/${buildSettings.username}/home.nix;
+             home-manager.extraSpecialArgs = {inherit inputs outputs buildSettings;};
+           }
+         ];
+      # };
      };
 
     #nixosConfigurations = {

@@ -133,3 +133,6 @@ nix-clean () {
  
 remove old /boot/kernels/
 
+# VM Machine
+> nix build ./#nixosConfigurations.vm.config.system.build.vm
+> ./result/bin/run-nixos-vm
