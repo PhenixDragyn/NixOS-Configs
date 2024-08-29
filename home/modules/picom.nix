@@ -1,7 +1,7 @@
 { config, lib, pkgs, stable, unstable, buildSettings, ... }:
 
 let 
-  xbackend = if ( buildSettings.platform == "x86_64-linux" ) then "glx" else "xrender"; 
+  xbackend = if ( buildSettings.platform == "x86_64-linux" ) then "xrender" else "xrender"; # xrender, glx, xr_glx_hybrid, or egl
 in
 {
   services.picom = {

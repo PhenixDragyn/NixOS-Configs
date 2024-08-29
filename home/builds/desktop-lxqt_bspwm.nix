@@ -8,7 +8,7 @@
     ../modules/firefox.nix
     ../modules/kitty.nix
     ##../modules/picom.nix
-    #../modules/picom-pijulius.nix
+    ../modules/picom-pijulius.nix
     ../modules/dunst.nix
     ../modules/polybar-lxqt.nix
     ../modules/rofi.nix
