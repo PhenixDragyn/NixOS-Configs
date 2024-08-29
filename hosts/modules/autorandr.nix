@@ -5,7 +5,7 @@
   #  ACTION=="change", SUBSYSTEM=="drm", RUN+="${pkgs.autorandr}/bin/autorandr -c"
   #'';
 
-  programs.autorandr = {
+  services.autorandr = {
     enable = true;
 
     profiles = {
