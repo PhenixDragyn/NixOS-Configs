@@ -160,7 +160,7 @@ hsetroot -solid $BG_COLOR
 #nitrogen --restore &
 
 # Call Autorandr
-#autorandr -c
+autorandr -c
 
 # Start a terminal
 kitty &
