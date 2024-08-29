@@ -152,12 +152,13 @@ fi
           "inherit" = "bar/laptop1";
           monitor = "\${env:MONITOR:}";
 
-          width = 465;
+          width = 650;
 	        height = 25;
           offset-x = "4%";
 	        offset-y = 3;
 
-          modules-center = "uptime sep weather";
+          #modules-center = "uptime sep weather";
+          modules-center = "weather sep spotify spo-previous spo-pause spo-next";
         };
 
         "bar/laptop3" = fonts // {
@@ -166,7 +167,7 @@ fi
 
           width = 820;
 	        height = 25;
-          offset-x = "28.7%";
+          offset-x = "33.50%";
 	        offset-y = 3;
 
           modules-center = "cpu memory filesystem sep wlan eth battery backlight-acpi pulseaudio sep tray";
@@ -176,9 +177,9 @@ fi
           "inherit" = "bar/laptop1";
           monitor = "\${env:MONITOR:}";
 
-          width = 465;
+          width = 650;
 	        height = 25;
-          offset-x = "72%";
+          offset-x = "70.50%";
 	        offset-y = 3;
 
           modules-center = "bspwm sep date time";
@@ -190,7 +191,7 @@ fi
 
           width = 55;
 	        height = 25;
-          offset-x = "96.75%";
+          offset-x = "97.25%";
 	        offset-y = 3;
 
           modules-center = "power";
