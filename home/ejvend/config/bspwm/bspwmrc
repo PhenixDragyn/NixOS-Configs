@@ -156,11 +156,11 @@ BG_COLOR=$(echo '#'$TBG_COLOR)
 hsetroot -solid $BG_COLOR
 
 # Restore wallpaper
-feh --bg-fill ~/.fehbg &
-nitrogen --restore &
+#feh --bg-fill ~/.fehbg &
+#nitrogen --restore &
 
 # Call Autorandr
-autorandr -c
+#autorandr -c
 
 # Start a terminal
 kitty &
