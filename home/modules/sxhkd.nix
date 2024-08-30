@@ -1,4 +1,30 @@
-# SXHKD - XFCE/BSPWM
+{ config, lib, pkgs, stable, unstable, buildSettings, ... }:
+
+let
+  fm = if ( buildSettings.build == "lxqt_bspwm" ) then "pcmanfm-qt" 
+       else if (buildSettings.build == "xfce_bspwm") then "thunar"
+       else if (buildSettings.build == "bspwm_gtk") then "nemo"
+       else "null";
+  config = if ( buildSettings.build == "lxqt_bspwm" ) then "lxqt-config" 
+       else if (buildSettings.build == "xfce_bspwm") then "xfce4-settings-manager"
+       else if (buildSettings.build == "bspwm_gtk") then "null"
+       else "null";
+  imgview = if ( buildSettings.build == "lxqt_bspwm" ) then "qimgv ~/Wallpapers" 
+       else if (buildSettings.build == "xfce_bspwm") then "nitrogen ~/Wallpapers"
+       else if (buildSettings.build == "bspwm_gtk") then "qeegie"
+       else "null";
+  screenshot = if ( buildSettings.build == "lxqt_bspwm" ) then "screengrab" 
+       else if (buildSettings.build == "xfce_bspwm") then "null"
+       else if (buildSettings.build == "bspwm_gtk") then "null"
+       else "null";
+in
+{
+  #SXHKD
+  home.file = {
+    "./.config/sxhkd/sxhkdrc" = {
+
+      text = ''
+# SXHKD - BSWMRC
 #-----------------------------------------------------#
 
 # Restart bspwm
@@ -192,7 +218,8 @@ super + e
 
 # Start pcmanfm
 super + n
-  thunar
+  ${fm}
+  #pcmanfm-qt 
   #bspc rule -a pcmanfm-qt -o state=floating rectangle=875x540+100+100 && pcmanfm-qt
 
 # Start ranger
@@ -201,19 +228,21 @@ super + shift + n
 
 # Start Image Viewer
 super + i
-  nitrogen ~/Wallpapers
+  ${imgview}
+  #qimgv ~/Media/Pictures/Wallpapers/
 
 # Start Vimiv
-super + v
-  vimiv
+#super + v
+#  vimiv
 
 # Start lxqt-config
 super + c
-  xfce4-settings-manager
+  ${config}
+  #lxqt-config
 
 # Lock the screen
 super + x
-  xflock4
+  .local/bin/i3lock-color
 
 # Start Kitty Terminal (Tiled, Floating)
 super + {_,shift +} Return
@@ -221,7 +250,9 @@ super + {_,shift +} Return
 
 # Screenshot
 Print
-  screengrab
+  ${screenshot}
+  #screengrab
+
 # Program launcher
 super + @space
 	rofi --show-icons -show drun -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
@@ -233,4 +264,7 @@ alt + Tab
 # Hotkeys
 alt + h
   sxhkhmenu
-
+    '';
+    };
+  };
+}

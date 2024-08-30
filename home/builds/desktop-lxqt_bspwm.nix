@@ -4,6 +4,7 @@
 {
   imports = [
     # Modules
+    ../modules/bspwm.nix
     ../modules/firefox.nix
     ../modules/kitty.nix
     ##../modules/picom.nix
@@ -11,6 +12,7 @@
     ../modules/dunst.nix
     ../modules/polybar.nix
     ../modules/rofi.nix
+    ../modules/sxhkd.nix
 
     ../modules/ranger.nix
     ../modules/nixvim.nix 
@@ -27,8 +29,8 @@
     file.".fehbg-stylix".executable = true;
 
 
-    file.".config/bspwm".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/bspwm";
-    file.".config/sxhkd/sxhkdrc".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/sxhkd/sxhkdrc-lxqt_bspwm";
+    file.".config/bspwm/scripts".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/bspwm/scripts";
+    file.".config/bspwm/layouts".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/bspwm/layouts";
 
     file.".config/autostart".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/autostart";
     file.".config/featherpad".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/featherpad";

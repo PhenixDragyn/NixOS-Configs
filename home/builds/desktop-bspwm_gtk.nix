@@ -6,6 +6,7 @@
     # Modules
     ../modules/dconf.nix
 
+    ../modules/bspwm.nix
     ../modules/firefox.nix
     ../modules/kitty.nix
     ##../modules/picom.nix
@@ -13,6 +14,7 @@
     ../modules/dunst.nix
     ../modules/polybar.nix
     ../modules/rofi.nix
+    ../modules/sxhkd.nix
 
     ../modules/ranger.nix
     ../modules/nixvim.nix 
@@ -28,8 +30,6 @@
     '';
     file.".fehbg-stylix".executable = true;
 
-    file.".config/bspwm".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/bspwm";
-    file.".config/sxhkd/sxhkdrc".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/sxhkd/sxhkdrc-bspwm_gtk";
     file.".config/rofi/powermenu".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/rofi/powermenu";
 
     #file.".config/autostart".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/autostart";

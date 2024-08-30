@@ -1,3 +1,15 @@
+{ config, lib, pkgs, stable, unstable, buildSettings, ... }:
+
+let
+  bwall = if ( buildSettings.build == "lxqt_bspwm" ) then "~/.fehbg &" 
+        else if (buildSettings.build == "xfce_bspwm") then "nitrogen --restore &"
+        else "";
+in
+{
+  home.file = {
+    "./.config/bspwm/bspwmrc" = {
+      executable = true;
+      text = ''
 #! /bin/sh
 xresource () { 
   xrdb -query | grep -E "^(bspwm|\*)$1" | sed -r "s/^[^:]+:\s+//" | tail -n 1 
@@ -157,8 +169,7 @@ BG_COLOR=$(echo '#'$TBG_COLOR)
 hsetroot -solid $BG_COLOR
 
 # Restore wallpaper
-~/.fehbg &
-nitrogen --restore &
+${bwall}
 
 # Call Autorandr
 autorandr -c
@@ -176,3 +187,8 @@ kitty &
 
 #~/.config/bspwm/layouts/rules.sh
 #bspc wm --load-state "$(readlink --canonicalize-existing ~/.config/bspwm/layouts/load.json)"
+      '';
+    };
+  };
+}
+
