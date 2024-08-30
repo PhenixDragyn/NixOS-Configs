@@ -332,6 +332,10 @@
     alsa-utils
     playerctl
 
+    # Spellcheck
+    hunspell
+    hunspellDicts.en-us
+
     # Development
     (python3Full.withPackages(ps: with ps; [ requests ]))
 
