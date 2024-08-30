@@ -303,6 +303,9 @@
         "dom.push.enabled" = false;
         "dom.push.connection.enabled" = false;
         "browser.tabs.firefox-view" = false;
+
+        # Touchscreen - MOZ_USE_XINPUT2 DEFAULT=1 in pam_env.conf
+        "dom.w3c_touch_events.enabled" = 1;
       };
     };
   };
