@@ -12,8 +12,6 @@ with config.lib.stylix.colors.withHashtag;
     scrollOnKeystroke = false;
     font = "Fira Code Nerd Font 12";
 
-    #backgroundColor = "#002b36";
-    #foregroundColor = "#839496";
     backgroundColor = base00;
     foregroundColor = base05;
 
