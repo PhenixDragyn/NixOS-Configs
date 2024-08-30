@@ -22,6 +22,9 @@
     nixvim-unstable.url = "github:nix-community/nixvim";
     #nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Hardware
+    #hardware.url = "github:nixos/nixos-hardware";
+
     # Stylix 
     stylix.url = "github:danth/stylix";
   };

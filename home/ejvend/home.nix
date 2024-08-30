@@ -63,7 +63,6 @@
   # USER PROGRAMS
   programs = {
     btop.enable = true;
-    feh.enable = true;
     home-manager.enable = true;
   };
 
@@ -76,14 +75,37 @@
     #    helper = "keepassxc --git-groups";
     #  };
     #};
+    #ignores = [
+    # "*.example"
+    #];
+  };
+
+  programs.feh = {
+    enable = true;
+    keybindings = {
+      menu_parent = [ "h" "Left" ];
+      menu_child = [ "l" "Right" ];
+      menu_down = [ "j" "Down" ];
+      menu_up = [ "k" "Up" ];
+      menu_select = [ "space" "Return" ];
+      next_img = [ "j" "Right" "space" ];
+      prev_img = [ "k" "Left" "BackSpace" ];
+      scroll_up = [ "J" "C-Up" ];
+      scroll_down = [ "K" "C-Down" ];
+      scroll_left = [ "H" "C-Left" ];
+      scroll_right = [ "L" "C-Right" ];
+    };
   };
 
   programs.zsh = {
     enable = true;
+    #dotDir = ".config/zsh";
     shellAliases = {
       nr="sudo nixos-rebuild switch --flake";
       hm="home-manager switch --flake";
-      nb="nix-build --no-out-link"; nr-pkgs="nix-store --query --requisites /run/current-system | cut -d- -f2 | sort | uniq | fzf ";
+      nb="nix-build --no-out-link"; 
+      nu="nix flake update";
+      nr-pkgs="nix-store --query --requisites /run/current-system | cut -d- -f2 | sort | uniq | fzf ";
      
       q="exit";
       ls="lsd -F";
@@ -104,18 +126,32 @@
       gl="git log --stat --graph --decorate --oneline";
 
       rr="ranger";
-      vv="vimiv";
-      lf="lfub";
 
       diff="diff --color=auto";
       grep="grep --color=auto";
     };
-    initExtra = ''
-set -o vi
 
-# Ranger
-export RANGER_DEVICONS_SEPARATOR="  "
+    initExtra = ''
+      set -o vi
+   
+      # Ranger
+      export RANGER_DEVICONS_SEPARATOR="  "
     '';
+    
+    envExtra = ''
+      path=(~/.local/bin ~/.local/lib $path[@])
+    '';
+
+    #profileExtra = ''
+    #'';
+
+    history = {
+      ignoreDups = true;
+      ignoreSpace = true;
+      save = 100000;
+      share = true;
+      size = 100000;
+    };
   };
 
   # ---------------------------------

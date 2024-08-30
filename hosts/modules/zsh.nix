@@ -12,8 +12,9 @@
 
   programs.zsh = {
     enable = true;
-    autosuggestions.enable = true;
+    
     enableCompletion = true;
+    autosuggestions.enable = true;
     zsh-autoenv.enable = true;
     syntaxHighlighting.enable = true;
     
@@ -21,6 +22,7 @@
       enable = true;
       theme = "agnoster";
       #theme = "robbyrussell";
+
       plugins = [ "git" "python" "sudo" "history" ];
     }; 
 
@@ -28,7 +30,6 @@
     };
 
     setOptions = [
-      "HIST_IGNORE_SPACE"
       "NO_BEEP"
     ];
 

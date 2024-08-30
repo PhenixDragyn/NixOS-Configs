@@ -127,6 +127,7 @@ pgrep -x polybar > /dev/null || ~/.config/polybar/launch.sh &
 #pgrep -x polybar > /dev/null || (sleep 3; ~/.config/polybar/launch.sh) &
 
 # Start sxhkd for Hotkeys
+killall "sxhkd"
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 # Screensaver
