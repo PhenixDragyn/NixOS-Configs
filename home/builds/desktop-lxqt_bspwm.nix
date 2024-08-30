@@ -13,6 +13,7 @@
     ../modules/polybar.nix
     ../modules/rofi.nix
     ../modules/sxhkd.nix
+    ../modules/termite.nix
 
     ../modules/ranger.nix
     ../modules/nixvim.nix 

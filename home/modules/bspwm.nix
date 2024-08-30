@@ -154,7 +154,7 @@ pgrep -x unclutter > /dev/null || unclutter &
 [ "$(ps -x | grep -c 'scratchpad')" -eq "1" ] && st -c scratchpad -e ~/.local/bin/scratch &
 killall "termite"
 bspc rule -a dropdown sticky=on state=floating layer=above hidden=on 
-#pgrep -x termite > /dev/null || termite --class dropdown -e "zsh -i" &
+pgrep -x termite > /dev/null || termite --class dropdown -e "zsh -i" &
 
 # Fix cursors
 xsetroot -cursor_name left_ptr
