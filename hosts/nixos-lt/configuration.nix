@@ -87,7 +87,8 @@
   boot = {
     # kernelPackages = pkgs.linuxPackages_latest;
     consoleLogLevel = 0;
-    kernelParams = ["quiet" "splash"];
+    #kernelParams = ["quiet" "splash" "i915.enable_psr=0" ];
+    kernelParams = ["quiet" "splash" ];
     extraModprobeConfig = ''
       options snd-hda-intel power_save=0 power_save_controller=N
     '';
