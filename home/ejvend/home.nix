@@ -115,9 +115,6 @@ set -o vi
 
 # Ranger
 export RANGER_DEVICONS_SEPARATOR="  "
-
-# Mozilla Touchscreen scroll
-export MOZ_USE_XINPUT2=1
     '';
   };
 
