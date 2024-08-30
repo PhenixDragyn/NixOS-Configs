@@ -103,6 +103,9 @@
   environment.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "qt5ct";
     #ADW_DISABLE_PORTAL = 1;
+
+    # Mozilla Touchscreen scroll
+    MOZ_USE_XINPUT2 = 1;
   };
 
   #environment.variables = {

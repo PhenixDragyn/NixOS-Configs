@@ -137,6 +137,9 @@
   # SETUP ENVIRONMENT VARIABLES
   environment.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "gnome";
+
+    # Mozilla Touchscreen scroll
+    MOZ_USE_XINPUT2 = 1;
   };
 
   environment.variables = {
