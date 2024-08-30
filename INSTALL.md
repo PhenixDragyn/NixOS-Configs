@@ -8,7 +8,7 @@
 > sudo fdisk /dev/diskX
 
 
-UEFI
+# UEFI
 
     g (gpt disk label)
     n
@@ -29,9 +29,9 @@ UEFI
 
 
 
-Label partitions
+# Label partitions
 
-This is useful for having multiple setups and makes partitions easier to handle.
+# This is useful for having multiple setups and makes partitions easier to handle.
 
     lsblk
     sudo mkfs.fat -F 32 /dev/sdX1
@@ -44,13 +44,13 @@ This is useful for having multiple setups and makes partitions easier to handle.
     sudo swapon /dev/disk/by-label/NIXSWAP
 
 
-NixOS config
+# NixOS config
 
     sudo nixos-generate-config --root /mnt
     cd /mnt/etc/nixos/
     sudo vim configuration.nix
 
-Most essential changes:
+# Most essential changes:
 
     keyboard layout, ie services.xserver.layout
     users.users.user with adding entry initialPassword = "pw123";
@@ -60,7 +60,7 @@ Most essential changes:
     change hardware config to use labels
 
 
-NixOS installation
+# NixOS installation
 
     cd /mnt
     sudo nixos-install
