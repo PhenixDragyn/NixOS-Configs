@@ -214,9 +214,9 @@ fi
           "inherit" = "bar/laptop1";
           monitor = "\${env:MONITOR:}";
 
-          width = 665;
+          width = 700;
           height = 25;
-          offset-x = "6%";
+          offset-x = "6.5%";
           offset-y = 3;
 
           modules-center = "weather sep spotify spo-previous spo-pause spo-next";
@@ -238,9 +238,9 @@ fi
           "inherit" = "bar/laptop1";
           monitor = "\${env:MONITOR:}";
 
-          width = 665;
+          width = 700;
           height = 25;
-          offset-x = "75%";
+          offset-x = "73%";
           offset-y = 3;
 
           modules-center = "bspwm2 sep date time";
