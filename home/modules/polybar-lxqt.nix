@@ -82,12 +82,12 @@ fi
       	#border = "\${xrdb:color12}";
 
         fonts = {
-          font-0 = "Fira Code Nerd Font:size=12;2";
-          font-1 = "JetBrainsMono Nerd Font:size=12;3";
-          font-2 = "Siji:size=14;2";
-          font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=12;1";
-          font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=12;1";
-          font-5 = "Font Awesome 5 Brands:pixelsize=12;1";
+          font-0 = "Fira Code Nerd Font:size=10;2";
+          font-1 = "JetBrainsMono Nerd Font:size=10;3";
+          font-2 = "Siji:size=12;2";
+          font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=10;1";
+          font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=10;1";
+          font-5 = "Font Awesome 5 Brands:pixelsize=10;1";
         };
 
       in 
@@ -115,7 +115,7 @@ fi
 
           wm-restack = "bspwm";
 
-          height = 25;
+          height = 23;
           width = 55;
           offset-x = "0.5%";
           offset-y = 3;
@@ -153,7 +153,7 @@ fi
           monitor = "\${env:MONITOR:}";
 
           width = 650;
-	        height = 25;
+	        height = 23;
           offset-x = "4%";
 	        offset-y = 3;
 
@@ -166,7 +166,7 @@ fi
           monitor = "\${env:MONITOR:}";
 
           width = 820;
-	        height = 25;
+	        height = 23;
           offset-x = "33.50%";
 	        offset-y = 3;
 
@@ -178,7 +178,7 @@ fi
           monitor = "\${env:MONITOR:}";
 
           width = 650;
-	        height = 25;
+	        height = 23;
           offset-x = "70.50%";
 	        offset-y = 3;
 
@@ -190,7 +190,7 @@ fi
           monitor = "\${env:MONITOR:}";
 
           width = 55;
-	        height = 25;
+	        height = 23;
           offset-x = "97.25%";
 	        offset-y = 3;
 
@@ -203,7 +203,7 @@ fi
           monitor = "\${env:MONITOR:}";
 
           width = 55;
-          height = 25;
+          height = 23;
           offset-x = "0.25%";
           offset-y = 3;
 
@@ -215,7 +215,7 @@ fi
           monitor = "\${env:MONITOR:}";
 
           width = 700;
-          height = 25;
+          height = 23;
           offset-x = "6.5%";
           offset-y = 3;
 
@@ -227,7 +227,7 @@ fi
           monitor = "\${env:MONITOR:}";
 
           width = 940;
-          height = 25;
+          height = 23;
           offset-x = "36.3%";
           offset-y = 3;
 
@@ -239,7 +239,7 @@ fi
           monitor = "\${env:MONITOR:}";
 
           width = 700;
-          height = 25;
+          height = 23;
           offset-x = "73%";
           offset-y = 3;
 
@@ -251,7 +251,7 @@ fi
           monitor = "\${env:MONITOR:}";
 
           width = 55;
-          height = 25;
+          height = 23;
           offset-x = "98.25%";
           offset-y = 3;
 
@@ -264,7 +264,7 @@ fi
           monitor = "\${env:MONITOR:}";
 
           width = 55;
-          height = 25;
+          height = 23;
           offset-x = "0.25%";
           offset-y = 3;
 
@@ -276,7 +276,7 @@ fi
           monitor = "\${env:MONITOR:}";
 
           width = 720;
-          height = 25;
+          height = 23;
           offset-x = "6%";
           offset-y = 3;
 
@@ -288,7 +288,7 @@ fi
           monitor = "\${env:MONITOR:}";
 
           width = 960;
-          height = 25;
+          height = 23;
           offset-x = "37%";
           offset-y = 3;
 
@@ -300,7 +300,7 @@ fi
           monitor = "\${env:MONITOR:}";
 
           width = 720;
-          height = 25;
+          height = 23;
           offset-x = "76%";
           offset-y = 3;
 
@@ -312,7 +312,7 @@ fi
           monitor = "\${env:MONITOR:}";
 
           width = 55;
-          height = 25;
+          height = 23;
           offset-x = "98.25%";
           offset-y = 3;
 
