@@ -191,7 +191,7 @@ kitty &
     };
   };
 
-  file.".config/bspwm/scripts".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/bspwm/scripts";
-  file.".config/bspwm/layouts".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/bspwm/layouts";
+  home.file.".config/bspwm/scripts".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/bspwm/scripts";
+  home.file.".config/bspwm/layouts".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/bspwm/layouts";
 }
 
