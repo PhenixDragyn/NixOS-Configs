@@ -6,7 +6,7 @@
       executable = true;
 
       text = ''
-#!/bin/sh
+#!/usr/bin/env bash
 
 set -ex
 
@@ -18,18 +18,27 @@ num_monitors="$(xrandr --query | grep ' connected' | wc -l)"
 main=$(xrandr | grep ' connected primary ' | cut -d' ' -f1)
 side=$(xrandr | grep ' connected ' | grep -v ' connected primary ' | cut -d' ' -f1)
 
+#location=$(autorandr --current)
+location=$(autorandr | grep '(detected)' | cut -d' ' -f1)
+
 if [ $num_monitors -eq 1 ]; then
   polybar laptop1 2>&1 | tee -a /tmp/polybar.log & disown
   polybar laptop2 2>&1 | tee -a /tmp/polybar.log & disown
   polybar laptop3 2>&1 | tee -a /tmp/polybar.log & disown
   polybar laptop4 2>&1 | tee -a /tmp/polybar.log & disown
   polybar laptop5 2>&1 | tee -a /tmp/polybar.log & disown
-else
+elif [ $location == "laptop-home" ]; then
   MONITOR=$side polybar monitor1 2>&1 | tee -a /tmp/polybar.log & disown
   MONITOR=$side polybar monitor2 2>&1 | tee -a /tmp/polybar.log & disown
   MONITOR=$side polybar monitor3 2>&1 | tee -a /tmp/polybar.log & disown
   MONITOR=$side polybar monitor4 2>&1 | tee -a /tmp/polybar.log & disown
   MONITOR=$side polybar monitor5 2>&1 | tee -a /tmp/polybar.log & disown
+elif [ $location == "laptop-work" ]; then
+  MONITOR=$side polybar work1 2>&1 | tee -a /tmp/polybar.log & disown
+  MONITOR=$side polybar work2 2>&1 | tee -a /tmp/polybar.log & disown
+  MONITOR=$side polybar work3 2>&1 | tee -a /tmp/polybar.log & disown
+  MONITOR=$side polybar work4 2>&1 | tee -a /tmp/polybar.log & disown
+  MONITOR=$side polybar work5 2>&1 | tee -a /tmp/polybar.log & disown
 fi
 
 #for s in $side; do
@@ -37,6 +46,8 @@ fi
 #done
 
 #MONITOR="$main" polybar laptop1 &
+
+# polybar --list-monitors | cut -d":" -f1;
       '';
     };
 
@@ -79,6 +90,9 @@ fi
           font-5 = "Font Awesome 5 Brands:pixelsize=10;1";
         };
 
+        xpower = if ( buildSettings.build == "lxqt_bspwm" ) then "lxqt-leave" 
+        else if (buildSettings.build == "xfce_bspwm") then "xfce4-session-logout"
+        else "systemctl poweroff";
       in 
       {
         "colors" = {
@@ -97,6 +111,8 @@ fi
 
         "bar/laptop1" = fonts // {
           monitor = "\${env:MONITOR:}";
+          #monitor = DP-2;
+          #monitor-fallback = eDP-1;
 
           override-redirect = false;
 
@@ -139,12 +155,13 @@ fi
           "inherit" = "bar/laptop1";
           monitor = "\${env:MONITOR:}";
 
-          width = 465;
+          width = 650;
 	        height = 23;
           offset-x = "4%";
 	        offset-y = 3;
 
-          modules-center = "uptime sep weather";
+          #modules-center = "uptime sep weather";
+          modules-center = "weather sep spotify spo-previous spo-pause spo-next";
         };
 
         "bar/laptop3" = fonts // {
@@ -153,7 +170,7 @@ fi
 
           width = 820;
 	        height = 23;
-          offset-x = "28.7%";
+          offset-x = "33.50%";
 	        offset-y = 3;
 
           modules-center = "cpu memory filesystem sep wlan eth battery backlight-acpi pulseaudio sep tray";
@@ -163,9 +180,9 @@ fi
           "inherit" = "bar/laptop1";
           monitor = "\${env:MONITOR:}";
 
-          width = 465;
+          width = 650;
 	        height = 23;
-          offset-x = "72%";
+          offset-x = "70.50%";
 	        offset-y = 3;
 
           modules-center = "bspwm sep date time";
@@ -177,7 +194,7 @@ fi
 
           width = 55;
 	        height = 23;
-          offset-x = "96.75%";
+          offset-x = "97.25%";
 	        offset-y = 3;
 
           modules-center = "power";
@@ -200,9 +217,9 @@ fi
           "inherit" = "bar/laptop1";
           monitor = "\${env:MONITOR:}";
 
-          width = 665;
+          width = 700;
           height = 23;
-          offset-x = "6%";
+          offset-x = "6.5%";
           offset-y = 3;
 
           modules-center = "weather sep spotify spo-previous spo-pause spo-next";
@@ -224,15 +241,76 @@ fi
           "inherit" = "bar/laptop1";
           monitor = "\${env:MONITOR:}";
 
-          width = 665;
+          width = 700;
           height = 23;
-          offset-x = "75%";
+          offset-x = "73%";
           offset-y = 3;
 
           modules-center = "bspwm2 sep date time";
 	      };
 
        	"bar/monitor5" = fonts // {
+          "inherit" = "bar/laptop1";
+          monitor = "\${env:MONITOR:}";
+
+          width = 55;
+          height = 23;
+          offset-x = "98.25%";
+          offset-y = 3;
+
+          modules-center = "power";
+	      };
+
+
+        "bar/work1" = fonts // {
+          "inherit" = "bar/laptop1";
+          monitor = "\${env:MONITOR:}";
+
+          width = 55;
+          height = 23;
+          offset-x = "0.25%";
+          offset-y = 3;
+
+          modules-center = "nixos";
+        };
+
+      	"bar/work2" = fonts // {
+          "inherit" = "bar/laptop1";
+          monitor = "\${env:MONITOR:}";
+
+          width = 720;
+          height = 23;
+          offset-x = "6%";
+          offset-y = 3;
+
+          modules-center = "weather sep spotify spo-previous spo-pause spo-next";
+	      };
+
+	      "bar/work3" = fonts // {
+          "inherit" = "bar/laptop1";
+          monitor = "\${env:MONITOR:}";
+
+          width = 960;
+          height = 23;
+          offset-x = "37%";
+          offset-y = 3;
+
+          modules-center = "cpu memory filesystem sep wlan eth battery backlight-acpi pulseaudio sep hiddenWindows sep tray";
+	      };
+
+      	"bar/work4" = fonts // {
+          "inherit" = "bar/laptop1";
+          monitor = "\${env:MONITOR:}";
+
+          width = 720;
+          height = 23;
+          offset-x = "76%";
+          offset-y = 3;
+
+          modules-center = "bspwm2 sep date time";
+	      };
+
+       	"bar/work5" = fonts // {
           "inherit" = "bar/laptop1";
           monitor = "\${env:MONITOR:}";
 
@@ -670,7 +748,7 @@ fi
           ramp-2-foreground = "\${colors.orange}";
         };
 
-              "module/tray" = {
+        "module/tray" = {
           type = "internal/tray";
 
           tray-postion = "adaptive";
@@ -683,10 +761,20 @@ fi
           format = "%{T2} %{T-}";
           format-foreground = "\${colors.orange}";
           format-padding=1;
-          click-left = "xfce4-session-logout";
+          #click-left = "lxqt-leave";
+          click-left = toString xpower;
         };
 
         "module/powermenu" = {
+          type = "custom/text";
+          format-spacing = 2;
+          format = "%{T2} %{T-}";
+          format-foreground = "\${colors.orange}";
+          format-padding=1;
+          click-left = "~/.config/rofi/powermenu/power-gtk.sh";
+        };
+
+        "module/powermenu2" = {
           type = "custom/menu";
 
           format-spacing = "1";

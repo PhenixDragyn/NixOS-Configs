@@ -9,7 +9,7 @@
     ##../modules/picom.nix
     ../modules/picom-pijulius.nix
     ../modules/dunst.nix
-    ../modules/polybar-lxqt.nix
+    ../modules/polybar.nix
     ../modules/rofi.nix
 
     ../modules/ranger.nix

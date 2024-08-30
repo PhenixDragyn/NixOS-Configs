@@ -11,7 +11,7 @@
     ##../modules/picom.nix
     ../modules/picom-pijulius.nix
     ../modules/dunst.nix
-    ../modules/polybar-xfce.nix
+    ../modules/polybar.nix
     ../modules/rofi.nix
 
     ../modules/ranger.nix
