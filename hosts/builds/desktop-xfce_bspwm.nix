@@ -6,7 +6,6 @@
   # You can import other NixOS modules here
   imports = [
     # Import my host modules
-    #../modules/syncthing.nix
     ../modules/x11.nix
   ];
 
