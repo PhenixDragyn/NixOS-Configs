@@ -103,14 +103,17 @@
       lualine = {
           enable = true;
           globalstatus = true;
-           extensions = [
-             "fzf"
-             "neo-tree"
-           ];
-           disabledFiletypes = {
-             statusline = ["startup" "alpha"];
-           };
           # theme = "catppuccin";
+
+          extensions = [
+            "fzf"
+            "neo-tree"
+          ];
+
+          disabledFiletypes = {
+            statusline = ["startup" "alpha"];
+          };
+
            sections = {
              lualine_a = [
                {
@@ -169,20 +172,20 @@
                    path = 1;
                  };
                }
-               {
-                 name.__raw = ''
-                   function()
-                     local icon = " "
-                     local status = require("copilot.api").status.data
-                     return icon .. (status.message or " ")
-                   end,
-          
-                   cond = function()
-                    local ok, clients = pcall(vim.lsp.get_clients, { name = "copilot", bufnr = 0 })
-                    return ok and #clients > 0
-                   end,
-                 '';
-               }
+          #      {
+          #        name.__raw = ''
+          #          function()
+          #            local icon = " "
+          #            local status = require("copilot.api").status.data
+          #            return icon .. (status.message or " ")
+          #          end,
+          # 
+          #          cond = function()
+          #           local ok, clients = pcall(vim.lsp.get_clients, { name = "copilot", bufnr = 0 })
+          #           return ok and #clients > 0
+          #          end,
+          #        '';
+          #      }
              ];
              lualine_y = [
                {
@@ -195,6 +198,30 @@
                }
              ];
           };
+      };
+
+      plugins.obsidian = {
+        enable = false;
+        settings = {
+          workspaces = [
+            {
+              name = "SecondBrain";
+              path = "~/projects/personal/SecondBrain";
+            }
+          ];
+          templates = {
+            subdir = "templates";
+            dateFormat = "%Y-%m-%d";
+            timeFormat = "%H:%M";
+            substitutions = {};
+          };
+
+          dailyNotes = {
+            folder = "0_Daily_Notes";
+            dateFormat = "%Y-%m-%d";
+            aliasFormat = "%B %-d, %Y";
+          };
+        };
       };
 
     };
