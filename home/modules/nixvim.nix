@@ -200,7 +200,7 @@
           };
       };
 
-      plugins.obsidian = {
+      obsidian = {
         enable = false;
         settings = {
           workspaces = [
