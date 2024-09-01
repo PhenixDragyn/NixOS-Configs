@@ -27,32 +27,32 @@ in
       shadow-blue = 0.792157;
       shadow-exclude = [ 
         "!focused"
-	"name = 'Notification'"
-	"name = 'qtfm'"
-	"name = 'qimgv'"
-	"name = 'qt5ct'"
-	"name = 'qt6ct'"
-	"name = 'qpdfview'"
-	"name = 'screengrab'"
-	"name = 'luckybackup'"
-	"name = 'Syncthingtray'"
-	"name = 'arqiver'"
-	"name = 'Notes'"
-	"name = 'QtPass'"
-	"name = 'nm-tray'"
-	"name = 'nobleNote'"
-	"name = 'steam'"
-	"class_g = 'i3bar'"
-	"class_g ?= 'Conky'"
-	"class_g ?= 'rofi'"
-	"class_g ?= 'Syncthingtray'"
-	"class_g ?= 'Syncthing Tray'"
-	"class_g ?= 'qlipper'"
-	"class_g ?= 'Notify-osd'"
-	"window_type = 'menu'"
-	"window_type = 'dropdown_menu'"
-	"window_type = 'popup_menu'"
-	"window_type = 'tooltip'" 
+        "name = 'Notification'"
+        "name = 'qtfm'"
+        "name = 'qimgv'"
+        "name = 'qt5ct'"
+        "name = 'qt6ct'"
+        "name = 'qpdfview'"
+        "name = 'screengrab'"
+        "name = 'luckybackup'"
+        "name = 'Syncthingtray'"
+        "name = 'arqiver'"
+        "name = 'Notes'"
+        "name = 'QtPass'"
+        "name = 'nm-tray'"
+        "name = 'nobleNote'"
+        "name = 'steam'"
+        "class_g = 'i3bar'"
+        "class_g ?= 'Conky'"
+        "class_g ?= 'rofi'"
+        "class_g ?= 'Syncthingtray'"
+        "class_g ?= 'Syncthing Tray'"
+        "class_g ?= 'qlipper'"
+        "class_g ?= 'Notify-osd'"
+        "window_type = 'menu'"
+        "window_type = 'dropdown_menu'"
+        "window_type = 'popup_menu'"
+      	"window_type = 'tooltip'" 
       ];
 
       fading = true;
@@ -62,9 +62,9 @@ in
       fade-exclude = [ 
         "class_g = 'dmenu'"
         "window_type = 'menu'"
-	"window_type = 'dropdown_menu'"
-	"window_type = 'popup_menu'"
-	"window_type = 'tooltip'" 
+        "window_type = 'dropdown_menu'"
+        "window_type = 'popup_menu'"
+        "window_type = 'tooltip'" 
       ];
 
       active-opacity = 0.95;
@@ -73,17 +73,17 @@ in
       inactive-opacity-override = false;
       opacity-rule = [ 
         "100:class_g *= 'vlc'"
-	"100:class_g *= 'obs'"
-	"100:class_g *= 'steam'"
-	"100:class_g *= 'dota'"
-	"100:class_g *= 'Zathura'"
-	"100:class_g *= 'libreoffice'"
-	"100:class_g *= 'Virt-manager'"
-	"0:_NET_WM_STATE@[0]:32a *= '_NET_WM_STATE_HIDDEN'"
-	"0:_NET_WM_STATE@[1]:32a *= '_NET_WM_STATE_HIDDEN'"
-	"0:_NET_WM_STATE@[2]:32a *= '_NET_WM_STATE_HIDDEN'"
-	"0:_NET_WM_STATE@[3]:32a *= '_NET_WM_STATE_HIDDEN'"
-	"0:_NET_WM_STATE@[4]:32a *= '_NET_WM_STATE_HIDDEN'" 
+        "100:class_g *= 'obs'"
+        "100:class_g *= 'steam'"
+        "100:class_g *= 'dota'"
+        "100:class_g *= 'Zathura'"
+        "100:class_g *= 'libreoffice'"
+        "100:class_g *= 'Virt-manager'"
+        "0:_NET_WM_STATE@[0]:32a *= '_NET_WM_STATE_HIDDEN'"
+        "0:_NET_WM_STATE@[1]:32a *= '_NET_WM_STATE_HIDDEN'"
+        "0:_NET_WM_STATE@[2]:32a *= '_NET_WM_STATE_HIDDEN'"
+        "0:_NET_WM_STATE@[3]:32a *= '_NET_WM_STATE_HIDDEN'"
+      	"0:_NET_WM_STATE@[4]:32a *= '_NET_WM_STATE_HIDDEN'" 
       ];
 
       focus-exclude = [ 
@@ -93,32 +93,32 @@ in
       corner-radius = 0;
       rounded-corners-exclude = [ 
         "window_type = 'dock'"
-	"window_type = 'desktop'"
-	"class_g = 'dmenu'"
-	"class_g = 'polybar'" 
+        "window_type = 'desktop'"
+        "class_g = 'dmenu'"
+        "class_g = 'polybar'" 
       ];
 
       blur-kern = "3x3box";
       blur = {
         method = "kernel";
-	strength = 8;
-	background = false;
-	background-frame = false;
-	background-fixed = false;
-	kern = "3x3box";
+        strength = 8;
+        background = false;
+        background-frame = false;
+        background-fixed = false;
+        kern = "3x3box";
       };
       blur-background-frame = false;
       blur-background = false;
       blur-background-exclude = [ 
         "class_g = 'slop'"
-	"class_g = 'i3bar'"
-	"window_type = 'dock'"
-	"window_type = 'desktop'"
-	"window_type = 'menu'"
-	"window_type = 'dropdown_menu'"
-	"window_type = 'popup_menu'"
-	"window_type = 'tooltip'"
-	"_GTK_FRAME_EXTENTS@:c" 
+        "class_g = 'i3bar'"
+        "window_type = 'dock'"
+        "window_type = 'desktop'"
+        "window_type = 'menu'"
+        "window_type = 'dropdown_menu'"
+        "window_type = 'popup_menu'"
+        "window_type = 'tooltip'"
+        "_GTK_FRAME_EXTENTS@:c" 
       ];
 
 			backend = xbackend;
@@ -142,10 +142,10 @@ in
         dnd = { shadow = false; };
         popup_menu = { opacity = 0.8; shadow = false; fade = true; focus = true; };
         dropdown_menu = { opacity = 0.8; };
-	notification = { fade = true; opacity = 0.9; focus = true; shadow = true; };
+      	notification = { fade = true; opacity = 0.9; focus = true; shadow = true; };
         dialog = { opacity = 0.95; focus = true; fade = true; shadow = true; };
-	menu = { focus = true; fade = true; shadow = false; opacity = 0.95; };
-	unknown = { opacity = 0.0; };
+      	menu = { focus = true; fade = true; shadow = false; opacity = 0.95; };
+      	unknown = { opacity = 0.0; };
       };
     };
   };

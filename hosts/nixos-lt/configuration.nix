@@ -21,15 +21,19 @@
     ../modules/syncthing.nix
     ../modules/zsh.nix
 
-  ] ++ (if (buildSettings.build == "xfce_bspwm")
-	        then [ ../builds/desktop-xfce_bspwm.nix ]
-				else 
-			  (if (buildSettings.build == "lxqt_bspwm" )
-			    then [ ../builds/desktop-lxqt_bspwm.nix ] 
-				else 
-			  (if (buildSettings.build == "bspwm_gtk" )
-			    then [ ../builds/desktop-bspwm_gtk.nix ] 
-				else [])));
+    # Load desktop flake
+    ../builds/desktop-${buildSettings.build}.nix
+  ];
+
+  # ] ++ (if (buildSettings.build == "xfce_bspwm")
+	 #        then [ ../builds/desktop-xfce_bspwm.nix ]
+		# 		else 
+		# 	  (if (buildSettings.build == "lxqt_bspwm" )
+		# 	    then [ ../builds/desktop-lxqt_bspwm.nix ] 
+		# 		else 
+		# 	  (if (buildSettings.build == "bspwm_gtk" )
+		# 	    then [ ../builds/desktop-bspwm_gtk.nix ] 
+		# 		else [])));
 
   # ---------------------------------
   
