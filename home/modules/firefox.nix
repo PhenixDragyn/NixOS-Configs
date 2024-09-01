@@ -2,7 +2,8 @@
 
 {
   home.file.".mozilla/firefox/default/chrome" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/firefox";
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/modules/firefox";
+    #source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/firefox";
   };
 
   programs.firefox = {

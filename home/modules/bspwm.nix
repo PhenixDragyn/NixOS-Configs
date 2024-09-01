@@ -8,10 +8,12 @@ in
 {
   home.file = {
     ".config/bspwm/scripts" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/bspwm/scripts";
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/modules/bspwm/scripts";
+      #source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/bspwm/scripts";
     };
     ".config/bspwm/layouts" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/bspwm/layouts";
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/modules/bspwm/layouts";
+      #source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/bspwm/layouts";
     };
 
     "./.config/bspwm/bspwmrc" = {

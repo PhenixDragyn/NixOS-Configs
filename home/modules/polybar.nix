@@ -3,7 +3,8 @@
 {
   home.file = { 
     ".config/polybar/scripts" = {
-      source = ../${buildSettings.username}/config/polybar/scripts;
+      source = ./polybar/scripts;
+      #source = ../${buildSettings.username}/config/polybar/scripts;
       recursive = true;
     };
 

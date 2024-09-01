@@ -290,6 +290,8 @@ let
     };
 
   in {
+    home.file.".config/rofi/powermenu".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/modules/rofi/powermenu";
+
     programs.rofi = {
       enable = true;
       theme = nixos-theme;

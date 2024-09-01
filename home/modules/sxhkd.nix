@@ -41,7 +41,7 @@ super + ctrl + Escape
 
 # Quit or Kill a node
 super + {_,shift +}q
-  bspc node -{c,k} && ~/.config/bspwm/scripts/bspunhide
+  bspc node -{c,k} && ~/.config/bspwm/scripts/bspwm-unhide
 
 #-----------------------------------------------------#
 
@@ -51,7 +51,7 @@ super + {1-9,0}
 
 # Send the node to the given desktop
 super + alt + {1-9,0}
-  bspc node -d '^{1-9,10}' && ~/.config/bspwm/scripts/bspunhide
+  bspc node -d '^{1-9,10}' && ~/.config/bspwm/scripts/bspwm-unhide
 
 # focus/swap the node in the given direction
 super + {_,shift + }{h,j,k,l}
@@ -102,7 +102,7 @@ super + r; {h,j,k,l}
 
 # Cancel a receptacle for the focused node receptacle
 super + alt + r
-  $HOME/.config/bspwm/scripts/bspmovereceptacle
+  $HOME/.config/bspwm/scripts/bspmw-move_receptacle
 
 # Cancel all receptacles for the focused desktop
 super + alt + shift + r
@@ -147,7 +147,7 @@ super + equal
 
 # Resize a window (i3 resizing)
 super + alt + {h,j,k,l}
-  $HOME/.config/bspwm/scripts/bspresize {left,down,up,right}
+  $HOME/.config/bspwm/scripts/bspwm-resize {left,down,up,right}
 
 super + alt + {comma,period,slash}
   bspc node -f @parent && bspc node --ratio {0.33,0.50,0.66}
@@ -202,11 +202,11 @@ super + d
   bspc node -g hidden
 
 super + alt + d
-  $HOME/.config/bspwm/scripts/bsprofihidden
+  $HOME/.config/bspwm/scripts/bspwm-rofihidden
 
 # Scratchpad 
 super + u
-  $HOME/.config/bspwm/scripts/bspscratchpad dropdown
+  $HOME/.config/bspwm/scripts/bspwm-scratchpad dropdown
 
 # Start firefox
 super + w
