@@ -207,13 +207,26 @@
   # ---------------------------------
 
   # SYMLINKS
-  home = {
-    file.".fehbg-stylix".text = ''
+  home.file = {
+    ".fehbg-stylix".text = ''
       #!/bin/sh
       feh --no-fehbg --bg-fill ''+config.stylix.image+'';
     '';
-    file.".fehbg-stylix".executable = true;
+  
+    ".fehbg-stylix".executable = true;
+  };
 
+  # home.file = if buildSettings.build == "lxqt_bspwm" then {
+  #   ".fehbg-stylix".text = ''
+  #     #!/bin/sh
+  #     feh --no-fehbg --bg-fill ''+config.stylix.image+'';
+  #   '';
+  #
+  #   ".fehbg-stylix".executable = true;
+  #
+  #   "config/featherpad".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/featherpad";
+  # } else {};
+  
   # ---------------------------------
 
   # STYLIX
