@@ -152,7 +152,7 @@ killall "sxhkd"
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 # Screensaver
-xautolock -time 60 -locker "i3lock-color" &
+xautolock -time 30 -locker "i3lock-color" &
 
 # Start unclutter to hide mouse when not in use
 pgrep -x unclutter > /dev/null || unclutter &
