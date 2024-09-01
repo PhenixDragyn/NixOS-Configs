@@ -44,6 +44,8 @@ in
     };
   };
 
+  #stylix.targets.hyprland.hyprpaper.enable = false;
+
   stylix.targets.alacritty.enable = false;
   programs.alacritty.settings = {
     colors = {
@@ -100,12 +102,13 @@ in
     };
     ".config/qt5ct/qt5ct.conf".text = pkgs.lib.mkBefore (builtins.readFile ./qt5ct.conf);
   };
+
   home.file.".config/hypr/hyprpaper.conf".text = ''
     preload = ''+config.stylix.image+''
-
+  
     wallpaper = ,''+config.stylix.image+''
-
   '';
+
   home.packages = with pkgs; [
      libsForQt5.qt5ct pkgs.libsForQt5.breeze-qt5 libsForQt5.breeze-icons pkgs.noto-fonts-monochrome-emoji
   ];
