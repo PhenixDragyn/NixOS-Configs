@@ -25,12 +25,6 @@
 
   # SYMLINKS
   home = {
-    file.".fehbg-stylix".text = ''
-      #!/bin/sh
-      feh --no-fehbg --bg-fill ''+config.stylix.image+'';
-    '';
-    file.".fehbg-stylix".executable = true;
-
     #file.".config/autostart".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/autostart";
     file.".config/rofi/powermenu".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/rofi/powermenu";
   };

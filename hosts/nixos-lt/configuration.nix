@@ -24,7 +24,6 @@
     # Load desktop flake
     ../builds/desktop-${buildSettings.build}.nix
   ];
-
   # ] ++ (if (buildSettings.build == "xfce_bspwm")
 	 #        then [ ../builds/desktop-xfce_bspwm.nix ]
 		# 		else 

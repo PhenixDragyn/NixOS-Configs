@@ -2,6 +2,11 @@
 
 {
   home.file = { 
+    ".config/polybar/scripts" = {
+      source = ../${buildSettings.username}/config/polybar/scripts;
+      recursive = true;
+    };
+
     ".config/polybar/launch.sh" = {
       executable = true;
 
@@ -49,11 +54,6 @@ fi
 
 # polybar --list-monitors | cut -d":" -f1;
       '';
-    };
-
-    ".config/polybar/scripts" = {
-      source = ../${buildSettings.username}/config/polybar/scripts;
-      recursive = true;
     };
   };
   

@@ -1,6 +1,10 @@
 { config, lib, pkgs, stable, unstable, buildSettings, ... }:
 
 {
+  home.file.".mozilla/firefox/default/chrome" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/firefox";
+  };
+
   programs.firefox = {
     enable = true;
     profiles.default = {
@@ -309,7 +313,5 @@
       };
     };
   };
-
-  home.file.".mozilla/firefox/default/chrome".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/firefox";
 }
 

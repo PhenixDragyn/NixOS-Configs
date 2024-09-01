@@ -17,20 +17,22 @@ let myCbxScript = ''
   '';
 in
 {
+  # Must copy home/ejvend/config/ranger-plugins manually for icons.
+  
   #imports = [ ../../pkgs/ranger.nix ];
-
-  home.packages = with pkgs; [
-    (pkgs.writeScriptBin "cbx" myCbxScript)
-  ];
-  xdg.mimeApps.associations.added = {
-    "inode/directory" = "ranger.desktop";
-  };
 
   home.file = {
     ".config/ranger" = {
       source = ../${buildSettings.username}/config/ranger;
       recursive = true;
     };
-    # Must copy home/ejvend/config/ranger-plugins manually for icons.
+  };
+
+  home.packages = with pkgs; [
+    (pkgs.writeScriptBin "cbx" myCbxScript)
+  ];
+
+  xdg.mimeApps.associations.added = {
+    "inode/directory" = "ranger.desktop";
   };
 }

@@ -12,7 +12,6 @@
     # Load desktop flake
     ../builds/desktop-${buildSettings.build}.nix
   ];
-
   # ] ++ (if (buildSettings.build == "xfce_bspwm")
 	 #        then [ ../builds/desktop-xfce_bspwm.nix ]
 		# 		else 
@@ -205,6 +204,17 @@
   #if buildSettings.build == "lxqt_bspwm" then
   #  "Test";
 
+  # ---------------------------------
+
+  # SYMLINKS
+  home = {
+    file.".fehbg-stylix".text = ''
+      #!/bin/sh
+      feh --no-fehbg --bg-fill ''+config.stylix.image+'';
+    '';
+    file.".fehbg-stylix".executable = true;
+
+  # ---------------------------------
 
   # STYLIX
   stylix = {
