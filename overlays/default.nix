@@ -22,7 +22,6 @@
     #     #repo = prev.pname;
     #     repo = "hyprpaper";
     #     rev = "v${version}";
-    #     #hash = "sha256-l13c8ALA7ZKDgluYA1C1OfkDGYD6e1/GR6LJnxCLRhA=";
     #     hash = "sha256-HIK7XJWQCM0BAnwW5uC7P0e7DAkVTy5jlxQ0NwoSy4M=";
     #     #sha256 = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
     #   };
