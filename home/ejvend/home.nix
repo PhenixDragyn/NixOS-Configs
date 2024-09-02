@@ -1,4 +1,3 @@
-#{ inputs, outputs, lib, config, pkgs, stable, unstable, username, hostname, platform, build, theme, isWorkstation, stateVersion, ... }:
 { inputs, outputs, lib, config, pkgs, stable, unstable, buildSettings, stateVersion, ... }:
 
 {
@@ -8,6 +7,7 @@
     # Inputs
     inputs.nixvim.homeManagerModules.nixvim
     inputs.stylix.homeManagerModules.stylix
+    inputs.nix-colors.homeManagerModules.default
     
     # Load desktop flake
     ../builds/desktop-${buildSettings.build}.nix
@@ -58,7 +58,7 @@
     packages = with pkgs; [
       #hello
       #unstable.hello
-      hyprpaper
+      #hyprpaper
     ];
   };
 
@@ -232,7 +232,7 @@
 
   # STYLIX
   stylix = {
-    enable = false;
+    enable = true;
     autoEnable = true;
     
     base16Scheme = ./. + "/../../themes"+("/"+buildSettings.theme)+".yaml";

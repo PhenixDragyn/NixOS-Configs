@@ -27,6 +27,9 @@
 
     # Stylix 
     stylix.url = "github:danth/stylix";
+
+    # Nix-colors
+    #nix-colors.url = "github:misterio77/nix-colors";
   };
 
   outputs = { self, nixpkgs, nixpkgs-stable, nixpkgs-unstable, home-manager, home-manager-unstable, nixvim, stylix, ... } @ inputs: 
