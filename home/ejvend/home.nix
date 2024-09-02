@@ -58,6 +58,7 @@
     packages = with pkgs; [
       #hello
       #unstable.hello
+      hyprpaper
     ];
   };
 
@@ -231,7 +232,7 @@
 
   # STYLIX
   stylix = {
-    enable = true;
+    enable = false;
     autoEnable = true;
     
     base16Scheme = ./. + "/../../themes"+("/"+buildSettings.theme)+".yaml";

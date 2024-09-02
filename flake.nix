@@ -111,7 +111,7 @@
      nixosConfigurations = {
        ${buildSettings.hostname} = nixpkgs.lib.nixosSystem {
          specialArgs = {
-           inherit inputs outputs buildSettings stateVersion; 
+           inherit inputs outputs stable buildSettings stateVersion; 
            #pkgs-unstable = nixpkgs-unstable.legacyPackages.${buildSettings.system};
          };
          modules = [
@@ -125,7 +125,7 @@
        ${buildSettings.username} = home-manager.lib.homeManagerConfiguration {
          inherit pkgs;
          extraSpecialArgs = {
-           inherit inputs outputs buildSettings stateVersion;
+           inherit inputs outputs stable buildSettings stateVersion;
            #pkgs-unstable = nixpkgs-unstable.legacyPackages.${buildSettings.system};
          };
          modules = [
