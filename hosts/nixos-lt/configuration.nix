@@ -363,12 +363,6 @@
     base16Scheme = ./. + "/../../themes"+("/"+buildSettings.theme)+".yaml";
     image = ../../files/wallpaper/NixOS-Nineish-Dark.png;
     #polarity = buildSettings.polarity;
-  
-    # Remove rounded corners in Gnome
-    # targets.gtk = {
-    #   extraCss = ''
-    #     window.background { border-radius: 0; }
-    #   '';
   };
 
   #networking.hostName = "nixos-lt";
