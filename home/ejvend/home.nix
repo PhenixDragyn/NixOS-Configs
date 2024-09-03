@@ -7,7 +7,7 @@
     # Inputs
     inputs.nixvim.homeManagerModules.nixvim
     inputs.stylix.homeManagerModules.stylix
-    inputs.nix-colors.homeManagerModules.default
+    #inputs.nix-colors.homeManagerModules.default
     
     # Load desktop flake
     ../builds/desktop-${buildSettings.build}.nix

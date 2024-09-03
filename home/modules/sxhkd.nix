@@ -242,7 +242,7 @@ super + c
 
 # Lock the screen
 super + x
-  .local/bin/i3lock-color
+  i3lock-color
 
 # Start Kitty Terminal (Tiled, Floating)
 super + {_,shift +} Return
