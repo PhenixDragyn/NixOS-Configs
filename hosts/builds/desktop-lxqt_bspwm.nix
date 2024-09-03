@@ -80,7 +80,7 @@
   # SYSTEM PACKAGES 
   environment.systemPackages = with pkgs; [
     # Personal Package
-    #qrsync
+    qrsync
 
     # Develop 
     #jetbrains.pycharm-community
