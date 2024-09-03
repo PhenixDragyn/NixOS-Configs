@@ -24,15 +24,18 @@
     ../modules/syncthing.nix
     ../modules/zsh.nix
 
-  ] ++ (if (buildSettings.build == "xfce_bspwm")
-	        then [ ../builds/desktop-xfce_bspwm.nix ]
-				else 
-			  (if (buildSettings.build == "lxqt_bspwm" )
-			    then [ ../builds/desktop-lxqt_bspwm.nix ] 
-				else 
-			  (if (buildSettings.build == "bspwm_gtk" )
-			    then [ ../builds/desktop-bspwm_gtk.nix ] 
-				else [])));
+    # Load desktop flake
+    ../builds/desktop-${buildSettings.build}.nix
+  ];
+  # ] ++ (if (buildSettings.build == "xfce_bspwm")
+	 #        then [ ../builds/desktop-xfce_bspwm.nix ]
+		# 		else 
+		# 	  (if (buildSettings.build == "lxqt_bspwm" )
+		# 	    then [ ../builds/desktop-lxqt_bspwm.nix ] 
+		# 		else 
+		# 	  (if (buildSettings.build == "bspwm_gtk" )
+		# 	    then [ ../builds/desktop-bspwm_gtk.nix ] 
+		# 		else [])));
 
   # ---------------------------------
   
@@ -252,7 +255,6 @@
       description = buildSettings.username;
       isNormalUser = true;
       initialPassword = "NixOS!";
-      #hashedPassword = "$y$j9T$qvaFY9a2zKb.neYDRVK1T0$OGDq0giayeMd6Q3L1Jwz8gPaQ.Ssj4i8za.moPT19DC";
       extraGroups = ["wheel" "networkmanager" "power" "audio" "video" "storage"];
 
       openssh.authorizedKeys.keys = [
@@ -261,7 +263,6 @@
     };
 
     root = {
-      hashedPassword = "$y$j9T$qRgWUxVlS/c8UdYtFqQhu/$lANxdQmqxvVe7YTniG07mld5g/mCPypXueRWH/fC7E2";
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];

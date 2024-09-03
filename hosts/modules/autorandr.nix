@@ -1,14 +1,12 @@
 { config, lib, pkgs, stable, unstable, buildSettings, ... }:
 
 {
-  #services.udev.extraRules = ''
-  #  ACTION=="change", SUBSYSTEM=="drm", RUN+="${pkgs.autorandr}/bin/autorandr -c"
-  #'';
-
   services.autorandr = {
     enable = true;
 
-    profiles = {
+    profiles = 
+    if (buildSettings.hostname == "nixos-lt") then
+    {
       "laptop" = {
         fingerprint = {
           "eDP-1" = "00ffffffffffff0006afa40b0000000000200104a51e137803adf5a854479c240e505400000001010101010101010101010101010101f06800a0a0402e60302035002dbc1000001af35300a0a0402e60302035002dbc1000001a000000fe00383944474680423134305141580000000000024121a8000100001a410a202000a8";
@@ -18,7 +16,8 @@
             enable = true;
             primary = true;
             position = "0x0";
-            mode = "2560x1600";
+            #mode = "2560x1600";
+            mode = "1920x1200";
           };
         };
       };
@@ -44,7 +43,7 @@
           };
         };
       };
-      
+          
       "laptop-work" = {
         fingerprint = {
           "eDP-1" = "00ffffffffffff0006afa40b0000000000200104a51e137803adf5a854479c240e505400000001010101010101010101010101010101f06800a0a0402e60302035002dbc1000001af35300a0a0402e60302035002dbc1000001a000000fe00383944474680423134305141580000000000024121a8000100001a410a202000a8";
@@ -65,8 +64,23 @@
           };
         };
       };
-
-
-    };
+    }
+    else if (buildSettings.hostname == "nixos-test") then
+    {
+      "virtual" = {
+        fingerprint = {
+          "Virtual-1" = "00ffffffffffff0049143412000000002a180104a520147806ee91a3544c99260f5054210800e1c0d1c0d100a940b300950081808140ea2900c051201c304026444045cb10000018000000f7000a004082002820000000000000000000fd00327d1ea0ff010a202020202020000000fc0051454d55204d6f6e69746f720a013a02030b00467d6560591f6100000010000000000000000000000000000000000010000000000000000000000000000000000010000000000000000000000000000000000010000000000000000000000000000000000010000000000000000000000000000000000010000000000000000000000000000000000000000000002f";
+        };
+        config = {
+          "Virtual-1" = {
+            enable = true;
+            primary = true;
+            position = "0x0";
+            mode = "1920x1200";
+          };
+        };
+      };
+    }
+    else "";
   };
 }
