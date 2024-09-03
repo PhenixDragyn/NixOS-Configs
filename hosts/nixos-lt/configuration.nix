@@ -53,7 +53,7 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
-
+      
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
 
@@ -359,16 +359,16 @@
   stylix = {
     enable = true;
     autoEnable = true;
-
+  
     base16Scheme = ./. + "/../../themes"+("/"+buildSettings.theme)+".yaml";
     image = ../../files/wallpaper/NixOS-Nineish-Dark.png;
     #polarity = buildSettings.polarity;
-
+  
     # Remove rounded corners in Gnome
-    targets.gtk = {
-      extraCss = ''
-        window.background { border-radius: 0; }
-      '';
+    # targets.gtk = {
+    #   extraCss = ''
+    #     window.background { border-radius: 0; }
+    #   '';
   };
 
   #networking.hostName = "nixos-lt";
