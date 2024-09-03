@@ -237,6 +237,7 @@
     
     base16Scheme = ./. + "/../../themes"+("/"+buildSettings.theme)+".yaml";
     image = ../../files/wallpaper/NixOS-Nineish-Dark.png;
+    #polarity = buildSettings.polarity;
 
     # Remove rounded corners in Gnome
     targets.gtk = {

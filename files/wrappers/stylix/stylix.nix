@@ -82,11 +82,14 @@ in
   stylix.targets.rofi.enable = if (userSettings.wmType == "x11") then true else false;
   stylix.targets.feh.enable = if (userSettings.wmType == "x11") then true else false;
   programs.feh.enable = true;
+
   home.file.".fehbg-stylix".text = ''
     #!/bin/sh
     feh --no-fehbg --bg-fill ''+config.stylix.image+'';
   '';
+
   home.file.".fehbg-stylix".executable = true;
+
   home.file = {
     ".config/qt5ct/colors/oomox-current.conf".source = config.lib.stylix.colors {
       template = builtins.readFile ./oomox-current.conf.mustache;

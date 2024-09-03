@@ -14,6 +14,10 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
 
+    # Disk configurations
+    #(import ./disk-configuration.nix {device = "/dev/nvme0n1";})
+    #inputs.disko.nixosModules.default
+
     # Import my host modules
     ../modules/autorandr.nix
     ../modules/nixvim.nix
@@ -360,6 +364,13 @@
 
     base16Scheme = ./. + "/../../themes"+("/"+buildSettings.theme)+".yaml";
     image = ../../files/wallpaper/NixOS-Nineish-Dark.png;
+    #polarity = buildSettings.polarity;
+
+    # Remove rounded corners in Gnome
+    targets.gtk = {
+      extraCss = ''
+        window.background { border-radius: 0; }
+      '';
   };
 
   #networking.hostName = "nixos-lt";

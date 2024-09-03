@@ -20,7 +20,11 @@
 
     nixvim-stable.url = "github:nix-community/nixvim/nixos-24.05";
     nixvim-unstable.url = "github:nix-community/nixvim";
-    #nixvim.inputs.nixpkgs.follows = "nixpkgs";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
+
+    # DiskO
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
 
     # Hardware
     #hardware.url = "github:nixos/nixos-hardware";
@@ -54,6 +58,7 @@
       platform = "x86_64-linux";
       build = "lxqt_bspwm";
       theme = "ia-dark";
+      #polarity = "dark";
     };
 
     #buildSettings = {
@@ -62,6 +67,7 @@
     #  platform = "aarch64-linux";
     #  build = "lxqt_bspwm";
     #  theme = "ia-dark";
+    #  #polarity = "dark";
     #};
 
     #buildSettings = {
@@ -70,6 +76,7 @@
     #  platform = "aarch64-linux";
     #  build = "xfce_bspwm";
     #  theme = "ia-dark";
+    #  #polarity = "dark";
     #};
     
     #buildSettings = {
@@ -78,6 +85,7 @@
     #  platform = "x86_64-linux";
     #  build = "xfce_bspwm";
     #  theme = "ia-dark";
+    #  #polarity = "dark";
     #};
 
     # ----- OTHER SETTINGS ----- #
