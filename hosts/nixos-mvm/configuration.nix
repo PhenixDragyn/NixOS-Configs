@@ -16,7 +16,7 @@
     ./hardware-configuration.nix
 
     # Disk configurations
-    #(import ./disk-configuration.nix {device = "/dev/nvme0n1";})
+    #(import ./disk-configuration.nix {device = "/dev/vda";})
     #inputs.disko.nixosModules.default
 
     # Import my host modules
