@@ -53,8 +53,8 @@
           "eDP-1" = {
             enable = true;
             primary = true;
-            position = "300x1440";
-            mode = "1920x1600";
+            position = "0x1440";
+            mode = "1920x1200";
           };
           "DP-1" = {
             enable = true;
