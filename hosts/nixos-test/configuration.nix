@@ -17,6 +17,7 @@
     ./hardware-configuration.nix
 
     # Import my host modules
+    ../modules/autorandr.nix
     ../modules/nixvim.nix
     ../modules/openssh.nix
     ../modules/ranger.nix
