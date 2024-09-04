@@ -16,6 +16,10 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
 
+    # Disk configurations
+    #(import ./disk-configuration.nix {device = "/dev/nvme0n1";})
+    #inputs.disko.nixosModules.default
+
     # Import my host modules
     ../modules/autorandr.nix
     ../modules/nixvim.nix
