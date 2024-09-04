@@ -279,9 +279,9 @@ fi
           "inherit" = "bar/laptop1";
           monitor = "\${env:MONITOR:}";
 
-          width = 720;
+          width = 650;
           height = 23;
-          offset-x = "6%";
+          offset-x = "4%";
           offset-y = 3;
 
           modules-center = "weather sep spotify spo-previous spo-pause spo-next";
@@ -291,9 +291,9 @@ fi
           "inherit" = "bar/laptop1";
           monitor = "\${env:MONITOR:}";
 
-          width = 960;
+          width = 870;
           height = 23;
-          offset-x = "37%";
+          offset-x = "32.75%";
           offset-y = 3;
 
           modules-center = "cpu memory filesystem sep wlan eth battery backlight-acpi pulseaudio sep hiddenWindows sep tray";
@@ -303,9 +303,9 @@ fi
           "inherit" = "bar/laptop1";
           monitor = "\${env:MONITOR:}";
 
-          width = 720;
+          width = 650;
           height = 23;
-          offset-x = "76%";
+          offset-x = "70.50%";
           offset-y = 3;
 
           modules-center = "bspwm2 sep date time";
@@ -317,7 +317,7 @@ fi
 
           width = 55;
           height = 23;
-          offset-x = "98.25%";
+          offset-x = "97.50%";
           offset-y = 3;
 
           modules-center = "power";
