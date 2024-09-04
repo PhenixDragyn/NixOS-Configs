@@ -1,47 +1,48 @@
 {
-  # run sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko disk-config.nix
-  device ? throw "Set this to your disk device, e.g. /dev/sda",
-  ...
-}: {
   disko.devices = {
-    disk.main = {
-      inherit device;
-      type = "disk";
-      content = {
-        type = "gpt";
-        partitions = {
-          boot = {
-            name = "NIXBOOT";
-            size = "500M";
-            type = "EF00";
-            content = {
-              type = "filessystem";
-              format = "vfat";
-              mountpoint = "/boot";
+    disk = {
+      main = {
+        device = "/dev/vda";
+        type = "disk";
+        content = {
+          type = "gpt";
+          partitions = {
+            ESP = {
+              size = "500M";
+              type = "EF00";
+              content = {
+                type = "filesystem";
+                format = "vfat";
+                mountpoint = "/boot";
+              };
+            };
+            root = {
+              end = "-1G";
+              content = {
+                type = "filesystem";
+                format = "ext4";
+                mountpoint = "/";
+              };
+            };
+            encryptedSwap = {
+              size = "16G";
+              content = {
+                type = "swap";
+                randomEncryption = true;
+                priority = 100; # prefer to encrypt as long as we have space for it
+              };
+            };
+            plainSwap = {
+              size = "100%";
+              content = {
+                type = "swap";
+                discardPolicy = "both";
+                resumeDevice = true; # resume from hiberation from this device
+              };
             };
           };
-
-          swap = {
-            size = "16G";
-            content = {
-              type = "swap";
-              resumeDevice = true;
-            };
-          };
-
-          root = {
-            name = "NIXROOT";
-            size = "100%";
-            content = {
-              type = "filesystem";
-              format = "ext4";
-              mountpoint = "/";
-            };
-          };
-
         };
       };
     };
   };
 }
-

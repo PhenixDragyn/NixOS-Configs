@@ -17,7 +17,8 @@
 
     # Disk configurations
     #(import ./disk-configuration.nix {device = "/dev/vda";})
-    #inputs.disko.nixosModules.default
+    ./disk-configuration.nix 
+    inputs.disko.nixosModules.default
 
     # Import my host modules
     ../modules/autorandr.nix
