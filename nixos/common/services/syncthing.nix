@@ -12,10 +12,10 @@
   #   sopsFile = ../../../secrets/${deployment_type}/${hostname}.yaml;
   #   restartUnits = [ "syncthing.service" ];
   # };
-  #
-  # environment.systemPackages = with pkgs; [
-  #   syncthingtray
-  # ];
+  
+  environment.systemPackages = with pkgs; [
+    syncthingtray
+  ];
 
   services.syncthing = {
     enable = true;
