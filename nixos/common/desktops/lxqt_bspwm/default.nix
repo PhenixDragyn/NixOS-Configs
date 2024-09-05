@@ -4,7 +4,7 @@
   # You can import other NixOS modules here
   imports = [
     # Import my host modules
-    ../modules/x11.nix
+    ../../modules/x11.nix
   ];
 
   # ---------------------------------
@@ -96,10 +96,10 @@
 
     # Development
     (python3Full.withPackages(ps: with ps; [ requests ]))
-  ] ++ (if (buildSettings.platform == "x86_64-linux")
+  ] ++ (if ( system == "x86_64-linux")
 	        then []
 				else 
-			  (if (buildSettings.platform == "aarch64-linux" )
+			  (if ( system == "aarch64-linux" )
 			    then [] 
 				else []));
 

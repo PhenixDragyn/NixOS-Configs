@@ -7,7 +7,8 @@
     xkb.layout = "us";
     xkb.variant = "";
     #xkbOptions = "caps:escape";
-    excludePackages = with pkgs; [ xterm ];
+    #excludePackages = with pkgs; [ xterm ];
+    excludePackages = with pkgs; [ ];
 
     displayManager = {
       lightdm.enable = true;
