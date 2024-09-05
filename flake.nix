@@ -1,183 +1,81 @@
 {
-  description = "NixOS Configurations";
-  
-  inputs = { 
-    # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+  description = "NixOS System Config";
 
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    
-    # Home manager
-    home-manager.url = "github:nix-community/home-manager";
+  inputs = {
+    # Stable Packages
+    nixpkgs.url = "nixpkgs/nixos-24.05";
 
-    home-manager-stable.url = "github:nix-community/home-manager/release-24.05";
-    home-manager-unstable.url = "github:nix-community/home-manager";
+    # Unstable Packages
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+
+    # home-manager - Dotfile mnagement - add /master at the end to pull from master 
+    home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # NixVIM
-    nixvim.url = "github:nix-community/nixvim";
-
-    nixvim-stable.url = "github:nix-community/nixvim/nixos-24.05";
-    nixvim-unstable.url = "github:nix-community/nixvim";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
-
-    # DiskO
+    # disko - Declarative Disk Partitioning
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Hardware
-    #hardware.url = "github:nixos/nixos-hardware";
+    # deploy-rs, declarative NixOS deployments
+    deploy-rs.url = "github:serokell/deploy-rs";
+    deploy-rs.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Stylix 
-    stylix.url = "github:danth/stylix";
+    # nixos-hardware - Hardware Configurations
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    # Nix-colors
-    #nix-colors.url = "github:misterio77/nix-colors";
+    # sops-nix - Secret Management with SOPS using GPG Keys
+    #sops-nix.url = "github:Mic92/sops-nix";
+
+    # nixvim - neovim configuration management in nix
+    nixvim.url = "github:nix-community/nixvim/nixos-24.05";
+
+    # Nix colorizer / themer 
+    stylix.url = "github:danth/stylix/release-24.05";
+
+    # nixos-generators - Automated Image / ISO Creation
+    #nixos-generators.url = "github:nix-community/nixos-generators";
+    #nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, nixpkgs-unstable, home-manager, home-manager-unstable, nixvim, stylix, ... } @ inputs: 
+  outputs = { self, nixpkgs, sops-nix, deploy-rs, ... } @inputs:
   let
     inherit (self) outputs;
-    
-    # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+
     stateVersion = "24.05";
+    hmStateVersion = "24.05";
 
-    #system = "$(uname -m)-$(uname -s)";
-    #system = builtins.currentSystem;
-    #host = "$(hostname -f)";
-    #user = "$(echo $USER)";
-    #test = nixpkgs.runCommand "example-name" {} "echo Test > $out";
-
-    # host = osConfig.networking.hostname;
-
-    # ----- BUILD SYSTEM/USER SETTINGS ----- #
-    buildSettings = {
-      username = "ejvend";
-      hostname = "nixos-lt";
-      platform = "x86_64-linux";
-      build = "lxqt_bspwm";
-      theme = "ia-dark";
-      #polarity = "dark";
-    };
-
-    #buildSettings = {
-    #  username = "ejvend";
-    #  hostname = "nixos-mvm";
-    #  platform = "aarch64-linux";
-    #  build = "lxqt_bspwm";
-    #  theme = "ia-dark";
-    #  #polarity = "dark";
-    #};
-
-    #buildSettings = {
-    #  username = "ejvend";
-    #  hostname = "nixos-test";
-    #  platform = "aarch64-linux";
-    #  build = "xfce_bspwm";
-    #  theme = "ia-dark";
-    #  #polarity = "dark";
-    #};
-    
-    #buildSettings = {
-    #  username = "ejvend";
-    #  hostname = "nixos-vm";
-    #  platform = "x86_64-linux";
-    #  build = "xfce_bspwm";
-    #  theme = "ia-dark";
-    #  #polarity = "dark";
-    #};
-
-    # ----- OTHER SETTINGS ----- #
-    # Supported systems for your flake packages, shell, etc.
-     systems = [
-       "aarch64-linux" 
-       "i686-linux"
-       "x86_64-linux"
-       "aarch64-darwin"
-       "x86_64-darwin"
-     ];
-     # This is a function that generates an attribute by calling a function you
-     # pass to it, with each system as an arguement
-     forAllSystems = nixpkgs.lib.genAttrs systems;
-
-     pkgs = nixpkgs.legacyPackages.${buildSettings.platform};
-     stable = nixpkgs.legacyPackages.${buildSettings.platform};
-     #unstable = nixpkgs.legacyPackages.${buildSettings.platform};
+    libx = import ./lib/default.nix { inherit self inputs outputs stateVersion hmStateVersion; };
   in 
   {
-    # Your custom packages
-    # Accessible through 'nix build', 'nix shell', etc
-    packages = forAllSystems (system: import ./packages { inherit pkgs; });
-    #packages = import ./packages { inherit pkgs; };
+    packages = libx.forAllSystems ( system: import ./packages nixpkgs.legacyPackages.${system} );
+    overlay = import ./overlays { inherit inputs; };
 
-    # Your custom packages and modifications, exported as overlays
-    overlays = import ./overlays {inherit inputs;};
+    nixosConfigurations = {
+      # Mac VMs 
+      nixos-mvm = libx.mkNixOS { hostname = "nixos-mvm"; username = "ejvend"; system = "aarch64-linux"; desktop = "xfce_bspwm"; type = "default"; theme = "ia-dark"; };
+    };
 
-    # Formatter for your nix files, available through 'nix fmt'
-    # Other options beside 'alejandra' include 'nixpkgs-fmt'
-    #formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
-  
-    # Function for NixOS system configuration
-     nixosConfigurations = {
-       ${buildSettings.hostname} = nixpkgs.lib.nixosSystem {
-         specialArgs = {
-           inherit inputs outputs stable buildSettings stateVersion; 
-           #pkgs-unstable = nixpkgs-unstable.legacyPackages.${buildSettings.system};
-         };
-         modules = [
-           ./hosts/${buildSettings.hostname}/configuration.nix
-         ];
-       };
-     };
+    homeConfigurations = {
+      # Mac VMs
+      "ejvend@nixos-mvm" = libx.mkHome { hostname = "nixos-mvm"; username = "ejvend"; system = "aarch64-linux"; desktop = "xfce_bspwm"; type = "default"; theme = "ia-dark"; };
+    };
 
-    # Function for Home-Manager configuration
-     homeConfigurations = {
-       ${buildSettings.username} = home-manager.lib.homeManagerConfiguration {
-         inherit pkgs;
-         extraSpecialArgs = {
-           inherit inputs outputs stable buildSettings stateVersion;
-           #pkgs-unstable = nixpkgs-unstable.legacyPackages.${buildSettings.system};
-         };
-         modules = [
-           ./home/${buildSettings.username}/home.nix
-           #./home/${buildSettings.username}/${buildSettings.hostname}.nix
-         ];
-       };
-     };
+    deploy.nodes = {
+      # Mac VMs 
+      # nixos-vm = libx.deploy { hostname = "nixos-mvm"; };
+    };
 
-    # Function for NixOS VM system configuration
-     nixosConfigurations.vm = nixpkgs.lib.nixosSystem {
-     #nixosConfigurations.vm = {
-     #  ${buildSettings.hostname} = nixpkgs.lib.nixosSystem {
-         specialArgs = {
-           inherit inputs outputs buildSettings stateVersion; 
-         };
-         modules = [
-           ./hosts/${buildSettings.hostname}/configuration.nix
-           home-manager.nixosModules.home-manager {
-             home-manager.useGlobalPkgs=true;
-             home-manager.useUserPackages = true;
-             home-manager.users.${buildSettings.username} = import ./home/${buildSettings.username}/home.nix;
-             home-manager.extraSpecialArgs = {inherit inputs outputs buildSettings;};
-           }
-         ];
-      # };
-     };
+    imageConfigurations = {
+      # nixos-iso-console = libx.mkImage    { hostname = "nixos-iso-console"; format = "iso"; };
+    };
 
-    #nixosConfigurations = {
-    #  ${systemSettings.hostname} = nixpkgs.lib.nixosSystem {
-    #    specialArgs = {inherit inputs outputs buildSettings;};
-    #    modules = [
-    #  	   ./hosts/${buildSettings.hostname}/configuration.nix
-    #      home-manager.nixosModules.home-manager {
-    #        home-manager.useGlobalPkgs=true;
-    #        home-manager.useUserPackages = true;
-    #        home-manager.users.${buildSettings.username} = import ./home/${buildSettings.username}/${buildSettings.hostname}.nix;
-    #        home-manager.extraSpecialArgs = {inherit inputs outputs buildSettings;};
-    #      }
-    #    ];
-    #  };
-    #};
+    # Checks for deploy-rs -  Makes deploy-rs fail when system evaluations fail
+    checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
+
+    # Devshell for bootstrapping; acessible via 'nix develop'
+    devShells = libx.forAllSystems (system:
+      let pkgs = nixpkgs.legacyPackages.${system};
+      in import ./shell.nix { inherit pkgs sops-nix deploy-rs system; }
+    );
   };
 }
