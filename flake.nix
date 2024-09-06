@@ -16,10 +16,6 @@
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
-    # deploy-rs, declarative NixOS deployments
-    #deploy-rs.url = "github:serokell/deploy-rs";
-    #deploy-rs.inputs.nixpkgs.follows = "nixpkgs";
-
     # nixos-hardware - Hardware Configurations
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
@@ -37,7 +33,7 @@
     nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, sops-nix, deploy-rs, ... } @inputs:
+  outputs = { self, nixpkgs, sops-nix, ... } @inputs:
   let
     inherit (self) outputs;
 
@@ -61,16 +57,8 @@
     };
 
     imageConfigurations = {
-      nixos-iso = libx.mkImage { hostname = "nixos-iso"; username = "ejvend"; system = "x86_64-linux"; theme = "ia-dark"; format = "iso"; };
+      nixos-iso = libx.mkImage { hostname = "nixos-iso"; username = "ejvend"; system = "x86_64-linux"; theme = "ia-dark"; };
     };
-
-    #deploy.nodes = {
-      # Mac VMs 
-      # nixos-vm = libx.deploy { hostname = "nixos-mvm"; };
-    #};
-
-    # Checks for deploy-rs -  Makes deploy-rs fail when system evaluations fail
-    #checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
 
     # Devshell for bootstrapping; acessible via 'nix develop'
     devShells = libx.forAllSystems (system:

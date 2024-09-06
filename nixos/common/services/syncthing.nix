@@ -1,4 +1,3 @@
-#{ pkgs, username, hostname, deployment_type, ... }:
 { pkgs, username, hostname, ... }:
 
 { 
