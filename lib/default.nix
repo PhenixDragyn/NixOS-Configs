@@ -44,6 +44,8 @@
   };
 
   # Combines mkHost and mkHome for image building
+  # nix build .#imageConfigurations.nixos-iso
+  # sudo dd if=result/iso/nixos.iso of=/dev/sda
   mkImage = {
     hostname  , 
     username  ? "ejvend",
@@ -53,7 +55,7 @@
     type      ? "default",
     repo      ? "nixpkgs",
     unfree    ? false,
-    format
+    format    ? "iso",
   }: inputs.nixos-generators.nixosGenerate {
   #}: inputs.${repo}.lib.nixosSystem {
     specialArgs = { 

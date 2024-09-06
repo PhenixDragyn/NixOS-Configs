@@ -38,4 +38,7 @@
     '';
   };
 
+  fonts.packages = with pkgs; [
+    powerline-fonts
+  ];
  }
