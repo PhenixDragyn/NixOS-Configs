@@ -1,4 +1,6 @@
-{ inputs, lib,  pkgs, hostname, stateVersion, username, desktop, system, ... }: {
+{ inputs, lib,  pkgs, hostname, stateVersion, username, desktop, system, ... }: 
+
+{
   imports = [ 
     # Services
     ./common/services/openssh.nix

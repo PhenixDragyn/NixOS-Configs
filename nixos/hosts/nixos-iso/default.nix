@@ -1,7 +1,9 @@
-{ config, lib, pkgs, modulesPath, desktop, username, ... }: {
+{ config, lib, pkgs, modulesPath, desktop, username, ... }: 
 
+{
+  #nix build .#imageConfigurations.nixos-iso
   networking.useDHCP = lib.mkDefault true;
-  networking.hostName = "nixos-iso-console";
+  networking.hostName = "nixos-iso";
 
   #networking.firewall.allowedTCPPorts = [ 22 ];
 
