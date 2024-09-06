@@ -53,30 +53,30 @@
     type      ? "default",
     repo      ? "nixpkgs",
     unfree    ? false,
-    #format
-  #}: inputs.nixos-generators.nixosGenerate {
-  }: inputs.${repo}.lib.nixosSystem {
+    format
+  }: inputs.nixos-generators.nixosGenerate {
+  #}: inputs.${repo}.lib.nixosSystem {
     specialArgs = { 
-      inherit inputs outputs desktop hostname username stateVersion hmStateVersion system theme; 
-      #inherit inputs outputs desktop hostname username stateVersion hmStateVersion system theme format; 
+      #inherit inputs outputs desktop hostname username stateVersion hmStateVersion system theme; 
+      inherit inputs outputs desktop hostname username stateVersion hmStateVersion system theme format; 
       # Choose whether to pull from stable or unstable 
       pkgs          = let packages = (import ./packages.nix { inherit inputs repo system unfree; }); in packages.pkgs;
       pkgs-unstable = let packages = (import ./packages.nix { inherit inputs repo system unfree; }); in packages.pkgs-unstable;
     };
-    #system = system;
-    #format = format;
+    system = system;
+    format = format;
 
     modules = [
       ../nixos
       ../nixos/common/modules/installer.nix
       "${inputs.nixpkgs}/nixos/modules/profiles/all-hardware.nix"
+      #"${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+
       #inputs.sops-nix.nixosModules.sops
-      # inputs.lanzaboote.nixosModules.lanzaboote
       inputs.home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.extraSpecialArgs  = { inherit inputs outputs desktop hostname username hmStateVersion stateVersion system theme; };
-        #home-manager.extraSpecialArgs  = { inherit inputs outputs desktop hostname username hmStateVersion stateVersion system theme format; };
         home-manager.users."${username}" = import ../home;
       }
     ];

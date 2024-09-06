@@ -1,19 +1,29 @@
-{ config, lib, pkgs, modulesPath, desktop, username, ... }: 
+{ config, lib, pkgs, modulesPath, system, desktop, username, hostname, ... }: 
 
 {
-  #nix build .#imageConfigurations.nixos-iso
-  networking.useDHCP = lib.mkDefault true;
-  networking.hostName = "nixos-iso";
+  #nix build .#imageConfigurations.nixos-iso.config.system.build.isoImage
 
-  #networking.firewall.allowedTCPPorts = [ 22 ];
+  nixpkgs.hostPlatform = lib.mkDefault "${system}";
 
-  # Allow passworded ssh
-  # services.openssh = {
-  #   enable = true;
-  #   openFirewall = false;
-  #   settings = {
-  #     PermitRootLogin = "no";
-  #     PasswordAuthentication = lib.mkForce true;
-  #   };
-  # };
+  # NETWORKING
+  networking = {
+    hostName = hostname;
+
+    #wireless.enable = true;
+    networkmanager.enable = lib.mkForce false;
+    enableIPv6 = false;
+  };
+
+  # OPENSSH
+  services.openssh = {
+    enable = true;
+
+    settings = {
+      PermitRootLogin = lib.mkForce "no";
+      PasswordAuthentication = true;
+      X11Forwarding = true;
+    };
+    
+    openFirewall = true;
+  };
 }

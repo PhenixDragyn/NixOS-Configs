@@ -10,24 +10,14 @@ if [ "$(id -u)" -eq 0 ]; then
   exit 1
 fi
 
-#read -p "Include wallpapers? [y/N]" -n 1 -r
-#echo ""
+if [ ! -d "/tmp/nixos/git/.git" ]; then
+  git clone --recursive https://github.com/PhenixDragyn/NixOS "/tmp/nixos/git"
+else
+  git -C "/tmp/nixos/git" pull
+fi
 
-#if [[ $REPLY =~ ^[Yy]$ ]]; then
-#  if [ ! -d "/tmp/nixos/git/.git" ]; then
-#    git clone --recursive https://github.com/PhenixDragyn/NixOS "/tmp/nixos/git"
-#  else
-#    git -C "/tmp/nixos/git" pull
-#  fi
-#else 
-#  if [ ! -d "/tmp/nixos/git/.git" ]; then
-#    git clone https://github.com/PhenixDragyn/NixOS "/tmp/nixos/git"
-#  else
-#    git -C "/tmp/nixos/git" pull
-#  fi
-#fi
+pushd /tmp/nixos/git
 
-#pushd /tmp/nixos/git
 
 if [[ -z "$TARGET_HOST" ]]; then
   echo "ERROR! $(basename "$0") requires a hostname as the first argument"
@@ -81,9 +71,9 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 
   # Rsync nix-config to the target install.
   sudo mkdir -p "/mnt/etc/nixos"
-  #sudo rsync -a --delete "/tmp/nixos/git/" "/mnt/etc/nixos/git/"
-  #pushd "/mnt/etc/nixos/git/"
-  #popd
+  sudo rsync -a --delete "/tmp/nixos/git/" "/mnt/etc/nixos/git/"
+  pushd "/mnt/etc/nixos/git/"
+  popd
 
   # If there is a keyfile for a data disk, put copy it to the root partition and
   # ensure the permissions are set appropriately.
