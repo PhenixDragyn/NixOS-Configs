@@ -1,12 +1,10 @@
-# INSTALL
+INSTALLATION
 
-> wpa_passphrase ESSID | sudo tee /etc/wpa_supplicant.conf
+# Connect to wifi
 
-> sudo wpa_supplicant -i<network device> -c/etc/wpa_supplicant.conf
-
-
-> sudo fdisk /dev/diskX
-
+    wpa_passphrase ESSID | sudo tee /etc/wpa_supplicant.conf
+    sudo wpa_supplicant -i<network device> -c/etc/wpa_supplicant.conf
+    sudo fdisk /dev/diskX
 
 # UEFI
 
@@ -26,7 +24,6 @@
     default (fill up partition)
     default (fill up partition)
     w (write)
-
 
 
 # Label partitions
@@ -65,9 +62,9 @@
     cd /mnt
     sudo nixos-install
 
-after installation: Run passwd to change user password.
+# after installation: Run passwd to change user password.
 
-if internet broke/breaks, try one of the following:
+# if internet broke/breaks, try one of the following:
 
     nixos-rebuild switch --option substitute false # no downloads
     nixos-rebuild switch --option binary-caches "" # no downloads
@@ -75,11 +72,34 @@ if internet broke/breaks, try one of the following:
     or rund nmtui for network settings
     sudo nmcli dev wifi con “OAG” password “#SawtoothRange19”
 
+-------------------------------------------------------
 
-sudo nixos-enter
-sudo nix-daemon --daemon &
-su - ejvend
-home-manager switch --flake .
+INSTALLATION WITH NIX FLAKES
+
+# Connect to wifi
+
+    wpa_passphrase ESSID | sudo tee /etc/wpa_supplicant.conf
+    sudo wpa_supplicant -i<network device> -c/etc/wpa_supplicant.conf
+    sudo fdisk /dev/diskX
+
+# Git or copy flakes
+
+# cd NixOS and run install.sh script
+
+    ./files/scripts/install.sh nixos-lt
+
+# copy NixOS to /mnt/home/ejvend directory
+
+# chroot and change to user and run home-manager:
+
+    sudo nixos-enter
+    sudo nix-daemon --daemon &
+    su - ejvend
+    home-manager switch --flake '.#ejvend@nixos-lt'
+
+-------------------------------------------------------
+
+POST INSTALLATION
 
 # Bluetooth
 * Sync wireless mouse.

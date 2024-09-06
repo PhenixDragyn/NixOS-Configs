@@ -3,12 +3,12 @@ pushd /etc/nixos/git
 
 # Home-Manager Setup
 echo ">>> Setting up Home Manager..... "
-sudo mkdir /nix/var/nix/profiles/per-user/albert
+sudo mkdir /nix/var/nix/profiles/per-user/ejvend
 
 # For some reason the syncthing folder takes this over and makes it owned by root
-sudo mkdir /home/albert/.config 
-sudo chown albert:albert /home/albert/.config
-sudo chown -R albert:root /nix/var/nix/profiles/per-user/albert
+sudo mkdir /home/ejvend/.config 
+sudo chown ejvend:users /home/ejvend/.config
+sudo chown -R ejvend:root /nix/var/nix/profiles/per-user/ejvend
 home-manager switch -b backup --flake /etc/nixos/git
 
 # Setup SOPS
@@ -34,7 +34,7 @@ echo ">>> Setting up SSH Keys..... "
 ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519  -N ""
 echo "" >> ./keys/ssh/keys.txt
 echo "# ($(date)) $(whoami)@$(hostname)" >> ./keys/ssh/keys.txt
-cat /home/albert/.ssh/id_ed25519.pub >> ./keys/ssh/keys.txt
+cat /home/ejvend/.ssh/id_ed25519.pub >> ./keys/ssh/keys.txt
 
 # Add all changes to git and and push
 echo ">>> Pushing to git..... "
