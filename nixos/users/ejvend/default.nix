@@ -29,11 +29,11 @@ in {
       #openssh.authorizedKeys.keyFiles = [ ../../../keys/ssh/keys.txt ];
     };
 
-    groups.ejvend = {
-      gid = 1000;
-      name = "ejvend";
-      members = [ "ejvend" ];
-    };
+    # groups.ejvend = {
+    #   gid = 1000;
+    #   name = "ejvend";
+    #   members = [ "ejvend" ];
+    # };
   };
 
   # Used in home-manager's atuin config

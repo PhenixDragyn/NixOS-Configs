@@ -5,7 +5,7 @@
     enable = true;
 
     profiles = 
-    if (hostname == "nixos-lt") then
+    if (hostname == "nixos-lt") || (hostname == "nixos-dt") then
     {
       "laptop" = {
         fingerprint = {
@@ -65,7 +65,7 @@
         };
       };
     }
-    else if (hostname == "nixos-test") then
+    else if (hostname == "nixos-mvm") then
     {
       "virtual" = {
         fingerprint = {
@@ -81,6 +81,6 @@
         };
       };
     }
-    else "";
+    else null;
   };
 }
