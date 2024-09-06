@@ -47,7 +47,7 @@
     overlay = import ./overlays { inherit inputs; };
 
     nixosConfigurations = {
-      nixos-dt = libx.mkNixOS { hostname = "nixos-dt"; username = "ejvend"; system = "x86_64-linux"; desktop = "lxqt_bspwm"; type = "default"; theme = "ia-dark"; unfree = true; };
+      nixos-dt = libx.mkNixOS { hostname = "nixos-dt"; username = "ejvend"; system = "x86_64-linux"; desktop = "xfce_bspwm"; type = "default"; theme = "ia-dark"; unfree = true; };
       nixos-lt = libx.mkNixOS { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "lxqt_bspwm"; type = "default"; theme = "ia-dark"; unfree = true; };
       nixos-mvm = libx.mkNixOS { hostname = "nixos-mvm"; username = "ejvend"; system = "aarch64-linux"; desktop = "xfce_bspwm"; type = "default"; theme = "ia-dark"; };
     };
