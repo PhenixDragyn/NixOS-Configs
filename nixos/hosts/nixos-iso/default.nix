@@ -1,4 +1,4 @@
-{ config, lib, pkgs, modulesPath, system, desktop, username, hostname, ... }: 
+{ inputs, config, lib, pkgs, modulesPath, system, desktop, username, hostname, ... }: 
 
 {
   #nix build .#imageConfigurations.nixos-iso.config.system.build.isoImage
@@ -26,4 +26,8 @@
     
     openFirewall = true;
   };
+
+  environment.systemPackages = with pkgs; [
+    inputs.disko.packages.${system}.default
+  ];
 }

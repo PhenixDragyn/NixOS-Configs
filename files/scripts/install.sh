@@ -10,13 +10,17 @@ if [ "$(id -u)" -eq 0 ]; then
   exit 1
 fi
 
-if [ ! -d "/tmp/nixos/git/.git" ]; then
-  git clone --recursive https://github.com/PhenixDragyn/NixOS "/tmp/nixos/git"
+if [ ! -d "$HOME/NixOS/.git" ]; then
+#if [ ! -d "/tmp/nixos/git/.git" ]; then
+  git clone --recursive https://github.com/PhenixDragyn/NixOS-Configs.git "$HOME/NixOS"
+  #git clone --recursive https://github.com/PhenixDragyn/NixOS-Configs.git "/tmp/nixos/git"
 else
-  git -C "/tmp/nixos/git" pull
+  git -C "$HOME/NixOS" pull
+  #git -C "/tmp/nixos/git" pull
 fi
 
-pushd /tmp/nixos/git
+pushd $HOME/NixOS
+#pushd /tmp/nixos/git
 
 
 if [[ -z "$TARGET_HOST" ]]; then
@@ -70,10 +74,20 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   sudo nixos-install --no-root-password --flake ".#$TARGET_HOST"
 
   # Rsync nix-config to the target install.
-  sudo mkdir -p "/mnt/etc/nixos"
-  sudo rsync -a --delete "/tmp/nixos/git/" "/mnt/etc/nixos/git/"
-  pushd "/mnt/etc/nixos/git/"
+  sudo mkdir -p "/mnt/home/$TARGET_USER/NixOS"
+  #sudo mkdir -p "/mnt/etc/nixos"
+  sudo rsync -a --delete "$HOME/NixOS/" "/mnt/home/$TARGET_USER/NixOS/"
+  #sudo rsync -a --delete "/tmp/nixos/git/" "/mnt/etc/nixos/git/"
+  pushd "/mnt/home/$TARGET_USER/NixOS/"
+  #pushd "/mnt/home/$TARGET_USER/NixOS/git/"
+  #pushd "/mnt/etc/nixos/git/"
+	git remote set-url origin git@github.com:PhenixDragyn/NixOS-Configs.git
   popd
+
+  # Enter to the new install and apply the home-manager configuration.
+  sudo nixos-enter --root /mnt --command "chown -R $TARGET_USER:users /home/$TARGET_USER"
+  sudo nixos-enter --root /mnt --command "cd /home/$TARGET_USER/NixOS; env USER=$TARGET_USER HOME=/home/$TARGET_USER home-manager switch --flake \".#$TARGET_USER@$TARGET_HOST\""
+  sudo nixos-enter --root /mnt --command "chown -R $TARGET_USER:users /home/$TARGET_USER"
 
   # If there is a keyfile for a data disk, put copy it to the root partition and
   # ensure the permissions are set appropriately.
