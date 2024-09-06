@@ -1,4 +1,5 @@
-{ pkgs, username, hostname, deployment_type, ... }:
+#{ pkgs, username, hostname, deployment_type, ... }:
+{ pkgs, username, hostname, ... }:
 
 { 
   # sops.secrets."syncthing_cert" = {

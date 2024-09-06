@@ -1,22 +1,22 @@
 { lib ? lib, self, inputs, outputs, stateVersion, hmStateVersion , ... }: 
 
 {
-  deploy = {
-    hostname, 
-    system    ? "x86_64-linux", 
-    username  ? "ejvend"
-  }: {
-    user = "root";
-    sshUser = "${username}";
-    hostname = "${hostname}";
-    sshOpts = [ "-A" "-q"];
-
-    profiles = {
-      system.path = inputs.deploy-rs.lib.${system}.activate.nixos self.nixosConfigurations.${hostname};
-      home-manager.path = inputs.deploy-rs.lib.${system}.activate.home-manager self.homeConfigurations."${username}@${hostname}";
-      home-manager.user = "${username}";
-    };
-  };
+  # deploy = {
+  #   hostname, 
+  #   system    ? "x86_64-linux", 
+  #   username  ? "ejvend"
+  # }: {
+  #   user = "root";
+  #   sshUser = "${username}";
+  #   hostname = "${hostname}";
+  #   sshOpts = [ "-A" "-q"];
+  #
+  #   profiles = {
+  #     system.path = inputs.deploy-rs.lib.${system}.activate.nixos self.nixosConfigurations.${hostname};
+  #     home-manager.path = inputs.deploy-rs.lib.${system}.activate.home-manager self.homeConfigurations."${username}@${hostname}";
+  #     home-manager.user = "${username}";
+  #   };
+  # };
 
   # Helper function for generating home-manager configs
   mkHome = { 
@@ -42,11 +42,12 @@
     theme     ? "default",
     type      ? "default",
     repo      ? "nixpkgs",
-    deployment_type ? "hosts",
+    #deployment_type ? "hosts",
     unfree    ? false
   }: inputs.${repo}.lib.nixosSystem { 
     specialArgs = { 
-      inherit inputs outputs desktop hostname username hmStateVersion stateVersion system theme self deployment_type;
+      inherit inputs outputs desktop hostname username hmStateVersion stateVersion system theme self;
+      #inherit inputs outputs desktop hostname username hmStateVersion stateVersion system theme self deployment_type;
       # Choose whether to pull from stable or unstable 
       pkgs          = let packages = (import ./packages.nix { inherit inputs repo system unfree; }); in packages.pkgs;
       pkgs-unstable = let packages = (import ./packages.nix { inherit inputs repo system unfree; }); in packages.pkgs-unstable;
@@ -70,7 +71,8 @@
     repo      ? "nixpkgs",
     unfree    ? false,
     format
-  }: inputs.nixos-generators.nixosGenerate {
+  #}: inputs.nixos-generators.nixosGenerate {
+  }: inputs.${repo}.lib.nixosSystem {
     specialArgs = { 
       inherit inputs outputs desktop hostname username stateVersion hmStateVersion system theme format; 
       # Choose whether to pull from stable or unstable 
@@ -78,7 +80,7 @@
       pkgs-unstable = let packages = (import ./packages.nix { inherit inputs repo system unfree; }); in packages.pkgs-unstable;
     };
     system = system;
-    format = format;
+    #format = format;
 
     modules = [
       ../nixos
@@ -87,6 +89,8 @@
       #inputs.sops-nix.nixosModules.sops
       # inputs.lanzaboote.nixosModules.lanzaboote
       inputs.home-manager.nixosModules.home-manager {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
         home-manager.extraSpecialArgs  = { inherit inputs outputs desktop hostname username hmStateVersion stateVersion system theme format; };
         home-manager.users."${username}" = import ../home;
       }
