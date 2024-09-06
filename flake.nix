@@ -33,8 +33,8 @@
     stylix.url = "github:danth/stylix/release-24.05";
 
     # nixos-generators - Automated Image / ISO Creation
-    #nixos-generators.url = "github:nix-community/nixos-generators";
-    #nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
+    nixos-generators.url = "github:nix-community/nixos-generators";
+    nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, nixpkgs, sops-nix, deploy-rs, ... } @inputs:
@@ -60,13 +60,13 @@
       "ejvend@nixos-mvm" = libx.mkHome { hostname = "nixos-mvm"; username = "ejvend"; system = "aarch64-linux"; desktop = "xfce_bspwm"; type = "default"; theme = "ia-dark"; };
     };
 
+    imageConfigurations = {
+      nixos-iso-console = libx.mkImage { hostname = "nixos-iso-console"; format = "iso"; };
+    };
+
     deploy.nodes = {
       # Mac VMs 
       # nixos-vm = libx.deploy { hostname = "nixos-mvm"; };
-    };
-
-    imageConfigurations = {
-      nixos-iso-console = libx.mkImage { hostname = "nixos-iso-console"; format = "iso"; };
     };
 
     # Checks for deploy-rs -  Makes deploy-rs fail when system evaluations fail
