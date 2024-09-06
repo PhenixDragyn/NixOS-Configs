@@ -1,4 +1,6 @@
-{ inputs, config, lib, pkgs, hostname, username, desktop, hmStateVersion, system, ... }: {
+{ inputs, config, lib, pkgs, hostname, username, desktop, hmStateVersion, system, ... }: 
+
+{
   imports = [ 
     # Common configs
     #./common/software/cli
@@ -8,10 +10,6 @@
 
     # NixVIM
     #inputs.nixvim.homeManagerModules.nixvim
-
-    # Theming
-    #inputs.stylix.homeManagerModules.stylix
-    #../stylix
 
     # Secrets 
     #inputs.sops-nix.homeManagerModules.sops
@@ -199,24 +197,6 @@
   
   # ---------------------------------
 
-  # STYLIX
-  # stylix = {
-  #   enable = true;
-  #   autoEnable = true;
-  #   
-  #   base16Scheme = ./. + "/../../themes"+("/"+buildSettings.theme)+".yaml";
-  #   image = ../../files/wallpaper/NixOS-Nineish-Dark.png;
-  #   #polarity = buildSettings.polarity;
-  #
-  #   # Remove rounded corners in Gnome
-  #   targets.gtk = {
-  #     extraCss = ''
-  #       window.background { border-radius: 0; }
-  #     '';
-  #   };
-  # };
-
-  # ---------------------------------
 
   # Silent news
   news.display = "silent";

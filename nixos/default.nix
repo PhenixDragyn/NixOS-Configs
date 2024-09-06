@@ -1,9 +1,5 @@
 { inputs, lib,  pkgs, hostname, stateVersion, username, desktop, system, ... }: {
   imports = [ 
-    # Stylix
-    inputs.stylix.nixosModules.stylix
-    ../stylix/stylix.nix
-
     # Services
     ./common/services/openssh.nix
 
@@ -18,6 +14,10 @@
     ./common/modules/nixvim.nix
     ./common/modules/ranger.nix
     ./common/modules/zsh.nix
+
+    # Stylix
+    #inputs.stylix.nixosModules.stylix
+    #../stylix/stylix.nix
 
     # NixOS and Home
     ./hosts/${hostname}

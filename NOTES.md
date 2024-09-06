@@ -136,3 +136,6 @@ remove old /boot/kernels/
 # VM Machine
 > nix build ./#nixosConfigurations.vm.config.system.build.vm
 > ./result/bin/run-nixos-vm
+
+# ISO Command
+nix build .#imageConfigurations.nixos-iso-console.config.system.build.isoImage

@@ -93,6 +93,7 @@
     ];
   };
 
+
   # Small version
   mkMinImage = {
     hostname  , 
@@ -107,7 +108,7 @@
     format = format;
 
     modules = [
-      ../nixos/default.nix
+      ../nixos
       ../nixos/common/modules/installer.nix
       #inputs.sops-nix.nixosModules.sops
     ];

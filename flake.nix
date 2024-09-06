@@ -61,7 +61,7 @@
     };
 
     imageConfigurations = {
-      nixos-iso-console = libx.mkImage { hostname = "nixos-iso-console"; format = "iso"; };
+      nixos-iso-console = libx.mkImage { hostname = "nixos-iso-console"; username = "ejvend"; system = "x86_64-linux"; theme = "ia-dark"; format = "iso"; };
     };
 
     deploy.nodes = {

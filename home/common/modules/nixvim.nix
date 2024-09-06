@@ -4,6 +4,7 @@
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
   ];
+  #] ++ lib.optional (builtins.isString theme) ../../../../../stylix/themes/${theme}/home-manager/nixvim.nix;
 
   programs.nixvim = {
     enable = true;

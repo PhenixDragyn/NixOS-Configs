@@ -10,10 +10,9 @@
     enable = true;
     autoEnable = true;
 
-    #base16Scheme = ./. + "./themes"+("/"+theme)+".yaml";
     base16Scheme = ./. + "/themes"+("/"+theme)+".yaml";
-    #polarity = buildSettings.polarity;
     image = ../files/wallpaper/NixOS-Nineish-Dark.png;
+    #polarity = dark;
 
     # Remove rounded corners in Gnome
     # targets.gtk = {
@@ -22,4 +21,6 @@
     #   '';
     # };
   };
+
+  # Themes https://github.com/tinted-theming/base16-schemes
 }
