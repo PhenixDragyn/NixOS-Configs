@@ -44,10 +44,11 @@
     bat
     bc
     btop
+    fastfetch
     fzf
     lsd
     killall
-    neofetch
+    #neofetch
     procps
     psmisc
 
