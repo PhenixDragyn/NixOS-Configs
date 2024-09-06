@@ -66,7 +66,7 @@
     };
 
     imageConfigurations = {
-      # nixos-iso-console = libx.mkImage    { hostname = "nixos-iso-console"; format = "iso"; };
+      nixos-iso-console = libx.mkImage { hostname = "nixos-iso-console"; format = "iso"; };
     };
 
     # Checks for deploy-rs -  Makes deploy-rs fail when system evaluations fail

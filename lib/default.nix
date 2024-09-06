@@ -84,8 +84,8 @@
       ../nixos
       ../nixos/common/modules/installer.nix
       "${inputs.nixpkgs}/nixos/modules/profiles/all-hardware.nix"
-      inputs.sops-nix.nixosModules.sops
-      inputs.lanzaboote.nixosModules.lanzaboote
+      #inputs.sops-nix.nixosModules.sops
+      # inputs.lanzaboote.nixosModules.lanzaboote
       inputs.home-manager.nixosModules.home-manager {
         home-manager.extraSpecialArgs  = { inherit inputs outputs desktop hostname username hmStateVersion stateVersion system theme format; };
         home-manager.users."${username}" = import ../home;
@@ -107,9 +107,9 @@
     format = format;
 
     modules = [
-      ../nixos/minimal.nix
+      ../nixos/default.nix
       ../nixos/common/modules/installer.nix
-      inputs.sops-nix.nixosModules.sops
+      #inputs.sops-nix.nixosModules.sops
     ];
   };
 
