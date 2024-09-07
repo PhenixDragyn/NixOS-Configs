@@ -55,19 +55,6 @@
 
   # ---------------------------------
 
-  # Tailscale "aardwolf-alnilam.ts.net"
-  # https://login.tailscale.com/admin/
-  # Connect machine to Tailscale network.. 
-  # > sudo tailscale up
-  # > tailscale ip -4
-  # services.tailscale.enable = true;
-  # #services.tailscale.useRoutingFeatures = "both";
-  # networking.nameservers = [ "100.100.100.100" "8.8.8.8" "1.1.1.1" ];
-  # networking.search = [ "aardwolf-alnilam.ts.net" ];
-  # networking.firewall.trustedInterfaces = [ "tailscale0" ];
-
-  # ---------------------------------
-
   # INPUT SETTINGS
  # services.libinput = {
  #   enable = true;
@@ -79,27 +66,4 @@
  #     naturalScrolling = true;
  #   };
  # };
-
-  # ---------------------------------
-
-  # PRINTING SERVICES
-  #services.printing = {
-  #  enable = true;
-  #  drivers = with pkgs; [ brlaser ];
-  #};
-  #environment.systemPackages = with pkgs; [ cups-filters ];
-  services.printing.enable = false;
-  
-  # ---------------------------------
-
-  # SOUND SETTINGS
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    #jack.enable = true;
-  };
 }

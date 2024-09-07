@@ -69,52 +69,14 @@
   # ---------------------------------
 
   # INPUT SETTINGS
- # services.libinput = {
- #   enable = true;
- #   touchpad = {
- #     naturalScrolling = true; # default = false
- #     disableWhileTyping = false; # default = false
- #   };
- #   mouse = {
- #     naturalScrolling = true;
- #   };
- # };
-
-  # ---------------------------------
-
-  # PRINTING SERVICES
-  #services.printing = {
-  #  enable = true;
-  #  drivers = with pkgs; [ brlaser ];
-  #};
-  #environment.systemPackages = with pkgs; [ cups-filters ];
-  services.printing.enable = false;
-  
-  # ---------------------------------
-
-  # VIDEO
-  hardware.opengl = {
-    enable = true;
-    #driSupport = true;
-    driSupport32Bit = true;
-
-    extraPackages = with pkgs; [
-      intel-media-driver
-      vaapiVdpau
-      libvdpau-va-gl
-    ];
-  };
-
-  # ---------------------------------
-
-  # SOUND SETTINGS
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    #jack.enable = true;
-  };
+  # services.libinput = {
+  #   enable = true;
+  #   touchpad = {
+  #     naturalScrolling = true; # default = false
+  #     disableWhileTyping = false; # default = false
+  #   };
+  #   mouse = {
+  #     naturalScrolling = true;
+  #   };
+  # };
 }

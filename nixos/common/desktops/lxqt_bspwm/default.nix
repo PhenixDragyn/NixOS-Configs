@@ -4,7 +4,7 @@
   # You can import other NixOS modules here
   imports = [
     # Import my host modules
-    ../../modules/x11.nix
+    #../../modules/x11.nix
   ];
 
   # ---------------------------------
@@ -15,16 +15,8 @@
 
   # ---------------------------------
 
-  # X11/LXQT SETTINGS
-  #services.xserver.displayManager.defaultSession = "lxqt+bspwm";
-  services.xserver.desktopManager.lxqt.enable = true;
-
-  xdg.portal = {
-    enable = true;
-    lxqt.enable = true;
-    extraPortals = [ pkgs.lxqt.xdg-desktop-portal-lxqt ];
-    xdgOpenUsePortal = true;
-  };
+  # BLUETOOTH
+  services.blueman.enable = true;
 
   # ---------------------------------
 
@@ -64,14 +56,37 @@
 
   # ---------------------------------
 
-  # LXQT PACKAGES EXCLUDES
-  environment.lxqt.excludePackages = [
-    pkgs.lxqt.lximage-qt
-    pkgs.lxqt.obconf-qt
-    pkgs.lxqt.qps
-    pkgs.lxqt.qterminal
-    pkgs.xscreensaver
-  ];
+  # X11 SETTINGS
+  services.xserver = {
+    enable = true;
+    xkb.layout = "us";
+    xkb.variant = "";
+    #xkbOptions = "caps:escape";
+    #excludePackages = with pkgs; [ xterm ];
+    excludePackages = with pkgs; [ ];
+
+    displayManager = {
+      lightdm.enable = true;
+      lightdm.greeters.slick = {
+        enable = true;
+        #theme.name = "Zukitre-dark";
+      };
+      #defaultSession = "xfce+bspwm";
+    };
+  };
+
+  # ---------------------------------
+
+  # X11/LXQT SETTINGS
+  #services.xserver.displayManager.defaultSession = "lxqt+bspwm";
+  services.xserver.desktopManager.lxqt.enable = true;
+
+  xdg.portal = {
+    enable = true;
+    lxqt.enable = true;
+    extraPortals = [ pkgs.lxqt.xdg-desktop-portal-lxqt ];
+    xdgOpenUsePortal = true;
+  };
 
   # ---------------------------------
 
@@ -94,13 +109,79 @@
     nm-tray
     qimgv
 
+    x2goclient
+    xautolock
+    xcbutilxrm
+    xclip
+		xdg-utils
+    xdg-user-dirs
+    xdotool
+    xorg.xbacklight
+
+    arandr
+    autorandr
+    blueman
+
+    bspwm
+    dunst
+    feh
+    hsetroot
+    i3lock-color
+    libnotify
+    picom-pijulius
+    polybar
+    rofi
+    sxhkd
+
+    kitty
+    st
+    termite
+    
+    firefox
+    thunderbird
+
+    keepassxc
+    keepass-charactercopy
+    git-credential-keepassxc
+
+    numix-cursor-theme
+    papirus-icon-theme
+    pop-icon-theme
+    pop-gtk-theme
+    zafiro-icons
+
     # Development
     (python3Full.withPackages(ps: with ps; [ requests ]))
-  ] ++ (if ( system == "x86_64-linux")
-	        then []
+  ] ++ (if (system == "x86_64-linux")
+	        then [ pkgs.freeoffice pkgs.spotify ]
 				else 
-			  (if ( system == "aarch64-linux" )
+			  (if (system == "aarch64-linux" )
 			    then [] 
 				else []));
 
+  # ---------------------------------
+
+  # LXQT PACKAGES EXCLUDES
+  environment.lxqt.excludePackages = [
+    pkgs.lxqt.lximage-qt
+    pkgs.lxqt.obconf-qt
+    pkgs.lxqt.qps
+    pkgs.lxqt.qterminal
+    pkgs.xscreensaver
+  ];
+
+  # ---------------------------------
+
+  # FONTS
+  fonts.fontconfig.enable = true;
+  fonts.fontDir.enable = true;
+  fonts.packages = with pkgs; [
+    dejavu_fonts
+    fira-code-nerdfont
+    font-awesome
+    jetbrains-mono
+    nerdfonts
+    noto-fonts
+    noto-fonts-emoji
+  ];
 }
