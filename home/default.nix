@@ -105,6 +105,8 @@
 
       diff="diff --color=auto";
       grep="grep --color=auto";
+
+      fastfetch="fastfetch --config ~/.config/fastfetch/fastfetch.jsonc"
     };
 
     initExtra = ''
