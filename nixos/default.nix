@@ -5,9 +5,8 @@
     # Services
     ./common/services/openssh.nix
 
-    # Software
-    #../../packages/clean-hm/clean-hm.nix
-    ./common/software/cli/clean-hm.nix
+    # Scripts
+    ./common/modules/clean-hm.nix
 
     # Modules
     ./common/modules/nixvim.nix
@@ -198,9 +197,6 @@
 
   # SYSTEM PACKAGES 
   environment.systemPackages = with pkgs; [
-    # Home-manager
-    #home-manager
-  
     # Cli
     bat
     bc
