@@ -25,6 +25,45 @@
 
   # ---------------------------------
 
+  # NIX SETTINGS
+  nix = {
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [ "nix-command"  "flakes" ];
+    };
+
+    optimise = {
+      automatic = true;
+      dates = [ "daily" ];
+    };
+
+    gc = {
+      automatic = true;
+      dates = "daily"; options = "--delete-older-than 7d";
+    };
+  };
+
+  nixpkgs = {
+    # You can add overlays here
+    overlays = [
+      # Add overlays your own flake exports (from overlays and pkgs dir):
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.unstable-packages
+      
+      # You can also add overlays exported from other flakes:
+      # neovim-nightly-overlay.overlays.default
+
+      # Or define it inline, for example:
+      # (final: prev: {
+      #   hi = final.hello.overrideAttrs (oldAttrs: {
+      #     patches = [ ./change-hello-to-hi.patch ];
+      #   });
+      # })
+    ];
+  };
+
+  # ---------------------------------
   # NETWORKING
   networking = {
     hostName = hostname;
@@ -111,26 +150,6 @@
 
   # ---------------------------------
 
-  # NIX SETTINGS
-  nix = {
-    settings = {
-      auto-optimise-store = true;
-      experimental-features = [ "nix-command"  "flakes" ];
-    };
-
-    optimise = {
-      automatic = true;
-      dates = [ "daily" ];
-    };
-
-    gc = {
-      automatic = true;
-      dates = "daily"; options = "--delete-older-than 7d";
-    };
-  };
-
-  # ---------------------------------
-
   # TIMEZONE AND LOCALE
   time.timeZone = "America/Boise";
 
@@ -146,15 +165,6 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
-
-  # ---------------------------------
-
-  # https://github.com/NixOS/nixpkgs/issues/180175#issuecomment-1658731959
-  # systemd.services.NetworkManager-wait-online = {
-  #   serviceConfig = {
-  #     ExecStart = [ "" "${pkgs.networkmanager}/bin/nm-online -q" ];
-  #   };
-  # };
 
   # ---------------------------------
 
@@ -224,7 +234,7 @@
 				else []));
 
   # ---------------------------------
-
+  
   # AUTO UPGRADE
   system.autoUpgrade = {
     enable = true;
