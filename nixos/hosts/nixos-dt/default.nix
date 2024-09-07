@@ -25,32 +25,71 @@
   ];
 
   # ---------------------------------
-  
+
+  # CONSOLE
+  console = {
+    font = "ter-132n";
+    packages = [pkgs.terminus_font];
+    useXkbConfig = true;
+    earlySetup = false;
+  };
+
   # BOOT SETTINGS
   boot = {
-    # kernelPackages = pkgs.linuxPackages_latest;
     consoleLogLevel = 0;
-    kernelParams = ["quiet" "splash"];
+    initrd.verbose = false;
+    plymouth.enable = true;
+    kernelParams = [
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "i915.fastboot=1"
+      "loglevel=3"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_priority=3"
+    ];
+
     extraModprobeConfig = ''
       options snd-hda-intel power_save=0 power_save_controller=N
     '';
 
-    initrd.verbose = false;
-    
     loader = {
+      timeout = lib.mkDefault 0;
       efi.canTouchEfiVariables = true;
-      #systemd-boot.enable = true;
-      #timeout = 0;
-
-      grub = {
+      systemd-boot = {
         enable = true;
-        devices = [ "nodev" ];
-        efiSupport = true;
-        useOSProber = true;
-        #configurationLimit = 10;
+        editor = false;
+        configurationLimit = 100;
       };
     };
   };
+  
+  # BOOT SETTINGS
+  # boot = {
+  #   # kernelPackages = pkgs.linuxPackages_latest;
+  #   consoleLogLevel = 0;
+  #   kernelParams = ["quiet" "splash"];
+  #   extraModprobeConfig = ''
+  #     options snd-hda-intel power_save=0 power_save_controller=N
+  #   '';
+  #
+  #   initrd.verbose = false;
+  #   
+  #   loader = {
+  #     efi.canTouchEfiVariables = true;
+  #     #systemd-boot.enable = true;
+  #     #timeout = 0;
+  #
+  #     grub = {
+  #       enable = true;
+  #       devices = [ "nodev" ];
+  #       efiSupport = true;
+  #       useOSProber = true;
+  #       #configurationLimit = 10;
+  #     };
+  #   };
+  # };
 
   # ---------------------------------
 

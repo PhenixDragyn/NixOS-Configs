@@ -1,8 +1,7 @@
 { inputs, config, lib, pkgs, modulesPath, system, desktop, username, hostname, ... }: 
 
 {
-  #nix build .#imageConfigurations.nixos-iso.config.system.build.isoImage
-
+  #nix build .#imageConfigurations.nixos-iso
   nixpkgs.hostPlatform = lib.mkDefault "${system}";
 
   # NETWORKING

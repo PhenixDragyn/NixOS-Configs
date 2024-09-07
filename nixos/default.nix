@@ -1,4 +1,4 @@
-{ inputs, lib,  pkgs, hostname, stateVersion, username, desktop, system, ... }: 
+{ inputs, outputs, lib,  pkgs, hostname, stateVersion, username, desktop, system, ... }: 
 
 {
   imports = [ 

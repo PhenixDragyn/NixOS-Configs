@@ -43,20 +43,29 @@
     libx = import ./lib/default.nix { inherit self inputs outputs stateVersion hmStateVersion; };
   in 
   {
+    # Your custom packages
+    # Accessible through 'nix build', 'nix shell', etc
     packages = libx.forAllSystems ( system: import ./packages nixpkgs.legacyPackages.${system} );
+
+    # Your custom packages and modifications, exported as overlays
     overlay = import ./overlays { inherit inputs; };
 
+    # Function for NixOS system configuration
     nixosConfigurations = {
       nixos-dt = libx.mkNixOS { hostname = "nixos-dt"; username = "ejvend"; system = "x86_64-linux"; desktop = "xfce_bspwm"; type = "default"; theme = "ia-dark"; unfree = true; };
       nixos-lt = libx.mkNixOS { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "lxqt_bspwm"; type = "default"; theme = "ia-dark"; unfree = true; };
       nixos-mvm = libx.mkNixOS { hostname = "nixos-mvm"; username = "ejvend"; system = "aarch64-linux"; desktop = "xfce_bspwm"; type = "default"; theme = "ia-dark"; };
     };
 
+    # Function for Home-Manager configuration
     homeConfigurations = {
+      "ejvend@nixos-dt" = libx.mkHome { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "xfce_bspwm"; type = "default"; theme = "ia-dark"; };
       "ejvend@nixos-lt" = libx.mkHome { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "lxqt_bspwm"; type = "default"; theme = "ia-dark"; };
       "ejvend@nixos-mvm" = libx.mkHome { hostname = "nixos-mvm"; username = "ejvend"; system = "aarch64-linux"; desktop = "xfce_bspwm"; type = "default"; theme = "ia-dark"; };
     };
 
+    # Function for Image configuration
+    # nix build .#imageConfigurations.nixos-iso
     imageConfigurations = {
       nixos-iso = libx.mkImage { hostname = "nixos-iso"; username = "ejvend"; system = "x86_64-linux"; theme = "ia-dark"; format = "iso"; };
     };
