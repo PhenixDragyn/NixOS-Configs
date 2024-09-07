@@ -86,10 +86,11 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 
   # Enter to the new install and apply the home-manager configuration.
   sudo nixos-enter --root /mnt --command "rm -rf /home/$TARGET_USER/NixOS/.git"
-  sudo nixos-enter --root /mnt --command "chown -R $TARGET_USER:users /home/$TARGET_USER"
-	#sudo nixos-enter --root /mnt --command "nix-daemon --daemon"
+  #sudo nixos-enter --root /mnt --command "chown -R $TARGET_USER:users /home/$TARGET_USER"
+  #sudo nixos-enter --root /mnt --command "nix-daemon --daemon &" 
   #sudo nixos-enter --root /mnt --command "cd /home/$TARGET_USER/NixOS; env USER=$TARGET_USER HOME=/home/$TARGET_USER home-manager switch --flake \".#$TARGET_USER@$TARGET_HOST\""
   #sudo nixos-enter --root /mnt --command "chown -R $TARGET_USER:users /home/$TARGET_USER"
+	
 	echo ""
 	echo "Manually run the following commands..."
 	echo "> sudo nixos-enter"
