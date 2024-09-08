@@ -42,7 +42,23 @@
   boot = {
     consoleLogLevel = 0;
     initrd.verbose = false;
-    plymouth.enable = true;
+
+    plymouth = {
+      enable = true;
+      theme = "circle_hud";
+      themePackages = [ pkgs.adi1090x-plymouth ];
+      # themePackages = with pkgs; [
+      #   # By default we would install all themes
+      #   (adi1090x-plymouth-themes.override {
+      #     selected_themes = [ "circle_hud" ];
+      #   })
+      # ];
+
+      extraConfig = ''
+        ShowDelay=10
+      '';
+    };
+
     kernelParams = [
       "quiet"
       "splash"
@@ -58,13 +74,16 @@
       options snd-hda-intel power_save=0 power_save_controller=N
     '';
 
+    # Hide the OS choice for bootloaders.
+    # It's still possible to open the bootloader list by pressing any key
+    # It will just not appear on screen unless a key is pressed
     loader = {
       timeout = lib.mkDefault 0;
       efi.canTouchEfiVariables = true;
       systemd-boot = {
         enable = true;
         editor = false;
-        configurationLimit = 100;
+        configurationLimit = 10;
       };
     };
   };

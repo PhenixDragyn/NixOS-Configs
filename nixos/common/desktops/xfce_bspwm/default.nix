@@ -148,6 +148,7 @@
     xfce.gigolo
 
     x2goclient
+    xarchiver
     xautolock
     xcbutilxrm
     xclip

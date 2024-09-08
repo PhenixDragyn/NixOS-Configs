@@ -65,7 +65,7 @@
       systemd-boot = {
         enable = true;
         editor = false;
-        configurationLimit = 100;
+        configurationLimit = 10;
       };
     };
   };
