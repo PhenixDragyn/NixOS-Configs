@@ -26,7 +26,7 @@
 
     # Stylix
     inputs.stylix.nixosModules.stylix
-    ../stylix/stylix.nix
+    ../../../stylix/stylix.nix
   ];
 
   # ---------------------------------
