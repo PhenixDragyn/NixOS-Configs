@@ -23,6 +23,10 @@
 
     # Modules
     ../../common/modules/autorandr.nix
+
+    # Stylix
+    inputs.stylix.nixosModules.stylix
+    ../stylix/stylix.nix
   ];
 
   # ---------------------------------

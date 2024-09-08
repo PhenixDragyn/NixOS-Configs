@@ -20,7 +20,6 @@
     # Stylix
     inputs.stylix.homeManagerModules.stylix
     ../stylix/stylix.nix
-
   ]
   #++ lib.optional (builtins.isString desktop) ./common/software/gui                    # GUI packages
   ++ lib.optional (builtins.isString desktop) ./common/desktops/${desktop}             # Machine-agnostic desktop configs
