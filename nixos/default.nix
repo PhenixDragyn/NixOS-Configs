@@ -13,7 +13,8 @@
     ./common/modules/ranger.nix
     ./common/modules/zsh.nix
 
-    # Stylix
+    # Stylix (Set in hosts default.nix) 
+    # ISO can't have both Hosts and Home defined.
     #inputs.stylix.nixosModules.stylix
     #../stylix/stylix.nix
 
