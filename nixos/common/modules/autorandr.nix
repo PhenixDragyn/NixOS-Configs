@@ -5,7 +5,7 @@
     enable = true;
 
     profiles = 
-    if (hostname == "nixos-lt") || (hostname == "nixos-dt") then
+    if (hostname == "nixos-lt") then
     {
       "laptop" = {
         fingerprint = {
@@ -59,6 +59,22 @@
           "DP-1" = {
             enable = true;
             primary = false;
+            position = "0x0";
+            mode = "2560x1440";
+          };
+        };
+      };
+    }
+    else if (hostname == "nixos-dt") then
+    {
+      "desktop" = {
+        fingerprint = {
+          "DP-2" = "00ffffffffffff0010aceca04c4734311b1b0104b53d23783eee95a3544c99260f5054a54b00714f8180a9c0a940d1c0e100d10001014dd000a0f0703e8030203500615d2100001a000000ff00344b3858373737363134474c0a000000fc0044454c4c205532373138510a20000000fd0031560a8936000a202020202020010502031df150101f200514041312110302161507060123091f0783010000565e00a0a0a0295030203500615d2100001aa36600a0f0701f8030203500615d2100001a4dd000a0f0703e8030203500615d2100001a023a801871382d40582c2500615d2100001ebf1600a08038134030203a00615d2100001a00000000000000004a";
+        };
+        config = {
+          "DP-2" = {
+            enable = true;
+            primary = true;
             position = "0x0";
             mode = "2560x1440";
           };
