@@ -139,3 +139,5 @@ remove old /boot/kernels/
 
 # ISO Command
 nix build .#imageConfigurations.nixos-iso-console.config.system.build.isoImage
+nix-shell -p qemu
+> qemu-system-x86_64 -cdrom result/iso/nixos.iso 
