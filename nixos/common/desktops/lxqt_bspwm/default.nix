@@ -73,6 +73,9 @@
       };
       #defaultSession = "xfce+bspwm";
     };
+
+    #autoLogin.enable = true;
+	  #autoLogin.user = 'ejvend';
   };
 
   # ---------------------------------
