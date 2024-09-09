@@ -24,36 +24,69 @@ num_monitors="$(xrandr --query | grep ' connected' | wc -l)"
 main=$(xrandr | grep ' connected primary ' | cut -d' ' -f1)
 side=$(xrandr | grep ' connected ' | grep -v ' connected primary ' | cut -d' ' -f1)
 
-#location=$(autorandr --current)
-location=$(autorandr | grep '(detected)' | cut -d' ' -f1)
-
 if [ $num_monitors -eq 1 ]; then
-  polybar laptop1 2>&1 | tee -a /tmp/polybar.log & disown
-  polybar laptop2 2>&1 | tee -a /tmp/polybar.log & disown
-  polybar laptop3 2>&1 | tee -a /tmp/polybar.log & disown
-  polybar laptop4 2>&1 | tee -a /tmp/polybar.log & disown
-  polybar laptop5 2>&1 | tee -a /tmp/polybar.log & disown
-elif [ $location == "laptop-home" ]; then
-  MONITOR=$side polybar monitor1 2>&1 | tee -a /tmp/polybar.log & disown
-  MONITOR=$side polybar monitor2 2>&1 | tee -a /tmp/polybar.log & disown
-  MONITOR=$side polybar monitor3 2>&1 | tee -a /tmp/polybar.log & disown
-  MONITOR=$side polybar monitor4 2>&1 | tee -a /tmp/polybar.log & disown
-  MONITOR=$side polybar monitor5 2>&1 | tee -a /tmp/polybar.log & disown
-elif [ $location == "laptop-work" ]; then
-  MONITOR=$side polybar work1 2>&1 | tee -a /tmp/polybar.log & disown
-  MONITOR=$side polybar work2 2>&1 | tee -a /tmp/polybar.log & disown
-  MONITOR=$side polybar work3 2>&1 | tee -a /tmp/polybar.log & disown
-  MONITOR=$side polybar work4 2>&1 | tee -a /tmp/polybar.log & disown
-  MONITOR=$side polybar work5 2>&1 | tee -a /tmp/polybar.log & disown
+  res="$(xrandr | grep ' connected primary ' | cut -d' ' -f4 | cut -d'+' -f1)"
+else
+  res="$(xrandr | grep ' connected ' | grep -v ' connected primary ' | cut -d' ' -f3 | cut -d'+' -f1)"
 fi
 
-#for s in $side; do
-#  MONITOR="$s" polybar monitor1 &
-#done
+#location=$(autorandr | grep '(detected)' | cut -d' ' -f1)
 
-#MONITOR="$main" polybar laptop1 &
+# if [ $num_monitors -eq 1 ]; then
+#   polybar laptop1 2>&1 | tee -a /tmp/polybar.log & disown
+#   polybar laptop2 2>&1 | tee -a /tmp/polybar.log & disown
+#   polybar laptop3 2>&1 | tee -a /tmp/polybar.log & disown
+#   polybar laptop4 2>&1 | tee -a /tmp/polybar.log & disown
+#   polybar laptop5 2>&1 | tee -a /tmp/polybar.log & disown
+# elif [ $location == "laptop-home" ]; then
+#   MONITOR=$side polybar monitor1 2>&1 | tee -a /tmp/polybar.log & disown
+#   MONITOR=$side polybar monitor2 2>&1 | tee -a /tmp/polybar.log & disown
+#   MONITOR=$side polybar monitor3 2>&1 | tee -a /tmp/polybar.log & disown
+#   MONITOR=$side polybar monitor4 2>&1 | tee -a /tmp/polybar.log & disown
+#   MONITOR=$side polybar monitor5 2>&1 | tee -a /tmp/polybar.log & disown
+# elif [ $location == "laptop-work" ]; then
+#   MONITOR=$side polybar work1 2>&1 | tee -a /tmp/polybar.log & disown
+#   MONITOR=$side polybar work2 2>&1 | tee -a /tmp/polybar.log & disown
+#   MONITOR=$side polybar work3 2>&1 | tee -a /tmp/polybar.log & disown
+#   MONITOR=$side polybar work4 2>&1 | tee -a /tmp/polybar.log & disown
+#   MONITOR=$side polybar work5 2>&1 | tee -a /tmp/polybar.log & disown
+# fi
 
-# polybar --list-monitors | cut -d":" -f1;
+if [ $num_monitors -eq 1]; then
+  if [ $res == "1920x1200" ]; then
+    polybar laptop1 2>&1 | tee -a /tmp/polybar.log & disown
+    polybar laptop2 2>&1 | tee -a /tmp/polybar.log & disown
+    polybar laptop3 2>&1 | tee -a /tmp/polybar.log & disown
+    polybar laptop4 2>&1 | tee -a /tmp/polybar.log & disown
+    polybar laptop5 2>&1 | tee -a /tmp/polybar.log & disown
+  elif [ $res == "2560x1440" ]; then
+    polybar work1 2>&1 | tee -a /tmp/polybar.log & disown
+    polybar work2 2>&1 | tee -a /tmp/polybar.log & disown
+    polybar work3 2>&1 | tee -a /tmp/polybar.log & disown
+    polybar work4 2>&1 | tee -a /tmp/polybar.log & disown
+    polybar work5 2>&1 | tee -a /tmp/polybar.log & disown
+  fi
+else
+  if [ $res == "1920x1200" ]; then
+    MONITOR=$side polybar laptop1 2>&1 | tee -a /tmp/polybar.log & disown
+    MONITOR=$side polybar laptop2 2>&1 | tee -a /tmp/polybar.log & disown
+    MONITOR=$side polybar laptop3 2>&1 | tee -a /tmp/polybar.log & disown
+    MONITOR=$side polybar laptop4 2>&1 | tee -a /tmp/polybar.log & disown
+    MONITOR=$side polybar laptop5 2>&1 | tee -a /tmp/polybar.log & disown
+  elif [ $res == "2560x1440" ]; then
+    MONITOR=$side polybar work1 2>&1 | tee -a /tmp/polybar.log & disown
+    MONITOR=$side polybar work2 2>&1 | tee -a /tmp/polybar.log & disown
+    MONITOR=$side polybar work3 2>&1 | tee -a /tmp/polybar.log & disown
+    MONITOR=$side polybar work4 2>&1 | tee -a /tmp/polybar.log & disown
+    MONITOR=$side polybar work5 2>&1 | tee -a /tmp/polybar.log & disown
+  elif [ $res == "3440x1440" ]; then
+    MONITOR=$side polybar monitor1 2>&1 | tee -a /tmp/polybar.log & disown
+    MONITOR=$side polybar monitor2 2>&1 | tee -a /tmp/polybar.log & disown
+    MONITOR=$side polybar monitor3 2>&1 | tee -a /tmp/polybar.log & disown
+    MONITOR=$side polybar monitor4 2>&1 | tee -a /tmp/polybar.log & disown
+    MONITOR=$side polybar monitor5 2>&1 | tee -a /tmp/polybar.log & disown
+  fi
+fi
       '';
     };
   };

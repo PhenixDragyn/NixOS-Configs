@@ -160,7 +160,8 @@ pgrep -x unclutter > /dev/null || unclutter &
 #bspc rule -a scratchpad sticky=on state=floating hidden=on
 ## check scratchpad already running
 [ "$(ps -x | grep -c 'scratchpad')" -eq "1" ] && st -c scratchpad -e ~/.local/bin/scratch &
-killall "termite"
+#killall "termite"
+pgrep -f termite | xargs -I{} kill -9 {}
 bspc rule -a dropdown sticky=on state=floating layer=above hidden=on 
 pgrep -x termite > /dev/null || termite --class dropdown -e "zsh -i" &
 
