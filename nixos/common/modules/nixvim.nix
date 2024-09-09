@@ -7,7 +7,7 @@
 
   environment.systemPackages = with pkgs; [
     ripgrep
-  };
+  ];
 
   programs.nixvim = {
     enable = true;
