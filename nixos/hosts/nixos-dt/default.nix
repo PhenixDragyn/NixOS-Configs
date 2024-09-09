@@ -45,8 +45,9 @@
 
     plymouth = {
       enable = true;
-      theme = "circle_hud";
-      themePackages = [ pkgs.adi1090x-plymouth ];
+      #theme = "circle_hud";
+      #themePackages = [ pkgs.adi1090x-plymouth ];
+
       # themePackages = with pkgs; [
       #   # By default we would install all themes
       #   (adi1090x-plymouth-themes.override {
