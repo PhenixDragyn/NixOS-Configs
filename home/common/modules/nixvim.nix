@@ -42,7 +42,7 @@
       gitsigns.enable = true;
       indent-blankline.enable = true;
 			nvim-autopairs.enable = true;
-			nix.enable = true;
+      ts-autotag.enable = true;
       #surround.enable = true;
 
       neo-tree = {
