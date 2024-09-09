@@ -33,58 +33,58 @@ fi
 #location=$(autorandr | grep '(detected)' | cut -d' ' -f1)
 
 # if [ $num_monitors -eq 1 ]; then
-#   polybar laptop1 2>&1 | tee -a /tmp/polybar.log & disown
-#   polybar laptop2 2>&1 | tee -a /tmp/polybar.log & disown
-#   polybar laptop3 2>&1 | tee -a /tmp/polybar.log & disown
-#   polybar laptop4 2>&1 | tee -a /tmp/polybar.log & disown
-#   polybar laptop5 2>&1 | tee -a /tmp/polybar.log & disown
+#   polybar 1920x1200-1 2>&1 | tee -a /tmp/polybar.log & disown
+#   polybar 1920x1200-2 2>&1 | tee -a /tmp/polybar.log & disown
+#   polybar 1920x1200-3 2>&1 | tee -a /tmp/polybar.log & disown
+#   polybar 1920x1200-4 2>&1 | tee -a /tmp/polybar.log & disown
+#   polybar 1920x1200-5 2>&1 | tee -a /tmp/polybar.log & disown
 # elif [ $location == "laptop-home" ]; then
-#   MONITOR=$side polybar monitor1 2>&1 | tee -a /tmp/polybar.log & disown
-#   MONITOR=$side polybar monitor2 2>&1 | tee -a /tmp/polybar.log & disown
-#   MONITOR=$side polybar monitor3 2>&1 | tee -a /tmp/polybar.log & disown
-#   MONITOR=$side polybar monitor4 2>&1 | tee -a /tmp/polybar.log & disown
-#   MONITOR=$side polybar monitor5 2>&1 | tee -a /tmp/polybar.log & disown
+#   MONITOR=$side polybar 3440x1440-1 2>&1 | tee -a /tmp/polybar.log & disown
+#   MONITOR=$side polybar 3440x1440-2 2>&1 | tee -a /tmp/polybar.log & disown
+#   MONITOR=$side polybar 3440x1440-3 2>&1 | tee -a /tmp/polybar.log & disown
+#   MONITOR=$side polybar 3440x1440-4 2>&1 | tee -a /tmp/polybar.log & disown
+#   MONITOR=$side polybar 3440x1440-5 2>&1 | tee -a /tmp/polybar.log & disown
 # elif [ $location == "laptop-work" ]; then
-#   MONITOR=$side polybar work1 2>&1 | tee -a /tmp/polybar.log & disown
-#   MONITOR=$side polybar work2 2>&1 | tee -a /tmp/polybar.log & disown
-#   MONITOR=$side polybar work3 2>&1 | tee -a /tmp/polybar.log & disown
-#   MONITOR=$side polybar work4 2>&1 | tee -a /tmp/polybar.log & disown
-#   MONITOR=$side polybar work5 2>&1 | tee -a /tmp/polybar.log & disown
+#   MONITOR=$side polybar 2560x1440-1 2>&1 | tee -a /tmp/polybar.log & disown
+#   MONITOR=$side polybar 2560x1440-2 2>&1 | tee -a /tmp/polybar.log & disown
+#   MONITOR=$side polybar 2560x1440-3 2>&1 | tee -a /tmp/polybar.log & disown
+#   MONITOR=$side polybar 2560x1440-4 2>&1 | tee -a /tmp/polybar.log & disown
+#   MONITOR=$side polybar 2560x1440-5 2>&1 | tee -a /tmp/polybar.log & disown
 # fi
 
 if [ $num_monitors -eq 1]; then
   if [ $res == "1920x1200" ]; then
-    polybar laptop1 2>&1 | tee -a /tmp/polybar.log & disown
-    polybar laptop2 2>&1 | tee -a /tmp/polybar.log & disown
-    polybar laptop3 2>&1 | tee -a /tmp/polybar.log & disown
-    polybar laptop4 2>&1 | tee -a /tmp/polybar.log & disown
-    polybar laptop5 2>&1 | tee -a /tmp/polybar.log & disown
+    polybar 1920x1200-1 2>&1 | tee -a /tmp/polybar.log & disown
+    polybar 1920x1200-2 2>&1 | tee -a /tmp/polybar.log & disown
+    polybar 1920x1200-3 2>&1 | tee -a /tmp/polybar.log & disown
+    polybar 1920x1200-4 2>&1 | tee -a /tmp/polybar.log & disown
+    polybar 1920x1200-5 2>&1 | tee -a /tmp/polybar.log & disown
   elif [ $res == "2560x1440" ]; then
-    polybar work1 2>&1 | tee -a /tmp/polybar.log & disown
-    polybar work2 2>&1 | tee -a /tmp/polybar.log & disown
-    polybar work3 2>&1 | tee -a /tmp/polybar.log & disown
-    polybar work4 2>&1 | tee -a /tmp/polybar.log & disown
-    polybar work5 2>&1 | tee -a /tmp/polybar.log & disown
+    polybar 2560x1440-1 2>&1 | tee -a /tmp/polybar.log & disown
+    polybar 2560x1440-2 2>&1 | tee -a /tmp/polybar.log & disown
+    polybar 2560x1440-3 2>&1 | tee -a /tmp/polybar.log & disown
+    polybar 2560x1440-4 2>&1 | tee -a /tmp/polybar.log & disown
+    polybar 2560x1440-5 2>&1 | tee -a /tmp/polybar.log & disown
   fi
 else
   if [ $res == "1920x1200" ]; then
-    MONITOR=$side polybar laptop1 2>&1 | tee -a /tmp/polybar.log & disown
-    MONITOR=$side polybar laptop2 2>&1 | tee -a /tmp/polybar.log & disown
-    MONITOR=$side polybar laptop3 2>&1 | tee -a /tmp/polybar.log & disown
-    MONITOR=$side polybar laptop4 2>&1 | tee -a /tmp/polybar.log & disown
-    MONITOR=$side polybar laptop5 2>&1 | tee -a /tmp/polybar.log & disown
+    MONITOR=$side polybar 1920x1200-1 2>&1 | tee -a /tmp/polybar.log & disown
+    MONITOR=$side polybar 1920x1200-2 2>&1 | tee -a /tmp/polybar.log & disown
+    MONITOR=$side polybar 1920x1200-3 2>&1 | tee -a /tmp/polybar.log & disown
+    MONITOR=$side polybar 1920x1200-4 2>&1 | tee -a /tmp/polybar.log & disown
+    MONITOR=$side polybar 1920x1200-5 2>&1 | tee -a /tmp/polybar.log & disown
   elif [ $res == "2560x1440" ]; then
-    MONITOR=$side polybar work1 2>&1 | tee -a /tmp/polybar.log & disown
-    MONITOR=$side polybar work2 2>&1 | tee -a /tmp/polybar.log & disown
-    MONITOR=$side polybar work3 2>&1 | tee -a /tmp/polybar.log & disown
-    MONITOR=$side polybar work4 2>&1 | tee -a /tmp/polybar.log & disown
-    MONITOR=$side polybar work5 2>&1 | tee -a /tmp/polybar.log & disown
+    MONITOR=$side polybar 2560x1440-1 2>&1 | tee -a /tmp/polybar.log & disown
+    MONITOR=$side polybar 2560x1440-2 2>&1 | tee -a /tmp/polybar.log & disown
+    MONITOR=$side polybar 2560x1440-3 2>&1 | tee -a /tmp/polybar.log & disown
+    MONITOR=$side polybar 2560x1440-4 2>&1 | tee -a /tmp/polybar.log & disown
+    MONITOR=$side polybar 2560x1440-5 2>&1 | tee -a /tmp/polybar.log & disown
   elif [ $res == "3440x1440" ]; then
-    MONITOR=$side polybar monitor1 2>&1 | tee -a /tmp/polybar.log & disown
-    MONITOR=$side polybar monitor2 2>&1 | tee -a /tmp/polybar.log & disown
-    MONITOR=$side polybar monitor3 2>&1 | tee -a /tmp/polybar.log & disown
-    MONITOR=$side polybar monitor4 2>&1 | tee -a /tmp/polybar.log & disown
-    MONITOR=$side polybar monitor5 2>&1 | tee -a /tmp/polybar.log & disown
+    MONITOR=$side polybar 3440x1440-1 2>&1 | tee -a /tmp/polybar.log & disown
+    MONITOR=$side polybar 3440x1440-2 2>&1 | tee -a /tmp/polybar.log & disown
+    MONITOR=$side polybar 3440x1440-3 2>&1 | tee -a /tmp/polybar.log & disown
+    MONITOR=$side polybar 3440x1440-4 2>&1 | tee -a /tmp/polybar.log & disown
+    MONITOR=$side polybar 3440x1440-5 2>&1 | tee -a /tmp/polybar.log & disown
   fi
 fi
       '';
@@ -143,7 +143,7 @@ fi
            border = "\${xrdb:color8}";
          };
 
-        "bar/laptop1" = fonts // {
+        "bar/1920x1200-1" = fonts // {
           monitor = "\${env:MONITOR:}";
           #monitor = DP-2;
           #monitor-fallback = eDP-1;
@@ -185,8 +185,8 @@ fi
           #scroll-down = "i3wm-wsprev";
         };
 
-        "bar/laptop2" = fonts // {
-          "inherit" = "bar/laptop1";
+        "bar/1920x1200-2" = fonts // {
+          "inherit" = "bar/1920x1200-1";
           monitor = "\${env:MONITOR:}";
 
           width = 500;
@@ -198,8 +198,8 @@ fi
           modules-center = "weather sep spotify spo-previous spo-pause spo-next";
         };
 
-        "bar/laptop3" = fonts // {
-          "inherit" = "bar/laptop1";
+        "bar/1920x1200-3" = fonts // {
+          "inherit" = "bar/1920x1200-1";
           monitor = "\${env:MONITOR:}";
 
           width = 720;
@@ -210,8 +210,8 @@ fi
           modules-center = "cpu memory filesystem sep wlan eth battery backlight-acpi pulseaudio sep tray";
         };
 
-        "bar/laptop4" = fonts // {
-          "inherit" = "bar/laptop1";
+        "bar/1920x1200-4" = fonts // {
+          "inherit" = "bar/1920x1200-1";
           monitor = "\${env:MONITOR:}";
 
           width = 500;
@@ -222,8 +222,8 @@ fi
           modules-center = "bspwm sep date time";
         };
 
-        "bar/laptop5" = fonts // {
-          "inherit" = "bar/laptop1";
+        "bar/1920x1200-5" = fonts // {
+          "inherit" = "bar/1920x1200-1";
           monitor = "\${env:MONITOR:}";
 
           width = 55;
@@ -235,8 +235,8 @@ fi
         };
 
 	
-        "bar/monitor1" = fonts // {
-          "inherit" = "bar/laptop1";
+        "bar/3440x1440-1" = fonts // {
+          "inherit" = "bar/1920x1200-1";
           monitor = "\${env:MONITOR:}";
 
           width = 55;
@@ -247,8 +247,8 @@ fi
           modules-center = "nixos";
         };
 
-      	"bar/monitor2" = fonts // {
-          "inherit" = "bar/laptop1";
+      	"bar/3440x1440-2" = fonts // {
+          "inherit" = "bar/1920x1200-1";
           monitor = "\${env:MONITOR:}";
 
           width = 700;
@@ -259,8 +259,8 @@ fi
           modules-center = "weather sep spotify spo-previous spo-pause spo-next";
 	      };
 
-	      "bar/monitor3" = fonts // {
-          "inherit" = "bar/laptop1";
+	      "bar/3440x1440-3" = fonts // {
+          "inherit" = "bar/1920x1200-1";
           monitor = "\${env:MONITOR:}";
 
           width = 940;
@@ -271,8 +271,8 @@ fi
           modules-center = "cpu memory filesystem sep wlan eth battery backlight-acpi pulseaudio sep hiddenWindows sep tray";
 	      };
 
-      	"bar/monitor4" = fonts // {
-          "inherit" = "bar/laptop1";
+      	"bar/3440x1440-4" = fonts // {
+          "inherit" = "bar/1920x1200-1";
           monitor = "\${env:MONITOR:}";
 
           width = 700;
@@ -283,8 +283,8 @@ fi
           modules-center = "bspwm2 sep date time";
 	      };
 
-       	"bar/monitor5" = fonts // {
-          "inherit" = "bar/laptop1";
+       	"bar/3440x1440-5" = fonts // {
+          "inherit" = "bar/1920x1200-1";
           monitor = "\${env:MONITOR:}";
 
           width = 55;
@@ -296,8 +296,8 @@ fi
 	      };
 
 
-        "bar/work1" = fonts // {
-          "inherit" = "bar/laptop1";
+        "bar/2560x1440-1" = fonts // {
+          "inherit" = "bar/1920x1200-1";
           monitor = "\${env:MONITOR:}";
 
           width = 55;
@@ -308,8 +308,8 @@ fi
           modules-center = "nixos";
         };
 
-      	"bar/work2" = fonts // {
-          "inherit" = "bar/laptop1";
+      	"bar/2560x1440-2" = fonts // {
+          "inherit" = "bar/1920x1200-1";
           monitor = "\${env:MONITOR:}";
 
           width = 650;
@@ -320,8 +320,8 @@ fi
           modules-center = "weather sep spotify spo-previous spo-pause spo-next";
 	      };
 
-	      "bar/work3" = fonts // {
-          "inherit" = "bar/laptop1";
+	      "bar/2560x1440-3" = fonts // {
+          "inherit" = "bar/1920x1200-1";
           monitor = "\${env:MONITOR:}";
 
           width = 870;
@@ -332,8 +332,8 @@ fi
           modules-center = "cpu memory filesystem sep wlan eth battery backlight-acpi pulseaudio sep hiddenWindows sep tray";
 	      };
 
-      	"bar/work4" = fonts // {
-          "inherit" = "bar/laptop1";
+      	"bar/2560x1440-4" = fonts // {
+          "inherit" = "bar/1920x1200-1";
           monitor = "\${env:MONITOR:}";
 
           width = 650;
@@ -344,8 +344,8 @@ fi
           modules-center = "bspwm2 sep date time";
 	      };
 
-       	"bar/work5" = fonts // {
-          "inherit" = "bar/laptop1";
+       	"bar/2560x1440-5" = fonts // {
+          "inherit" = "bar/1920x1200-1";
           monitor = "\${env:MONITOR:}";
 
           width = 55;
