@@ -76,6 +76,7 @@ bspc rule -a \*:\* state=floating center=true
 bspc rule -a kitty:kitty state=tiled
 bspc rule -a firefox:Navigator state=tiled
 bspc rule -a thunderbird:Mail state=tiled
+bspc rule -a spotify:Spotify state=tiled 
 
 #bspc rule -a jetbrains-pycharm-ce:jetbrains-pycharm-ce state=tiled
 
