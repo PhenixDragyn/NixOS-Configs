@@ -30,6 +30,10 @@
     inherit username;
     homeDirectory = "/home/${username}";
     sessionPath = [ "$HOME/.local/bin" ];
+  
+	  sessionVariables = {
+		  EDITOR = "nvim";
+		};
 
     # User specific packages
     packages = with pkgs; [
