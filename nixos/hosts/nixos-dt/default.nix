@@ -55,9 +55,9 @@
       #   })
       # ];
 
-      extraConfig = ''
-        ShowDelay=10
-      '';
+      #extraConfig = ''
+      #  ShowDelay=10
+      #'';
     };
 
     kernelParams = [
