@@ -11,7 +11,8 @@
     type      ? "default",
     repo      ? "nixpkgs",
     #deployment_type ? "hosts",
-    unfree    ? false
+    unfree    ? false,
+		insecure  ? false,
   }: inputs.${repo}.lib.nixosSystem { 
     specialArgs = { 
       inherit inputs outputs desktop hostname username hmStateVersion stateVersion system theme self;
@@ -48,13 +49,14 @@
   # sudo dd if=result/iso/nixos.iso of=/dev/sda
   mkImage = {
     hostname  , 
-    username  ? "ejvend",
+    username  ? "nixos",
     desktop   ? null, 
     system    ? "x86_64-linux",
     theme     ? "default",
     type      ? "default",
     repo      ? "nixpkgs",
     unfree    ? false,
+		insecure  ? false,
     format    ? "iso",
   }: inputs.nixos-generators.nixosGenerate {
   #}: inputs.${repo}.lib.nixosSystem {

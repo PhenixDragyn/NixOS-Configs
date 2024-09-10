@@ -1,4 +1,4 @@
-{ inputs, outputs, lib,  pkgs, hostname, stateVersion, username, desktop, system, ... }: 
+{ inputs, outputs, lib,  pkgs, format, hostname, stateVersion, username, desktop, system, ... }: 
 
 {
   imports = [ 
@@ -23,7 +23,7 @@
     ./users/${username}
   ] 
   ++ lib.optional (builtins.isString desktop) ./common/desktops/${desktop}
-  ++ (if (desktop != "nixos-iso")
+  ++ (if ( format != "iso")
       then [ 
         inputs.stylix.nixosModules.stylix
         ../stylix/stylix.nix
@@ -213,6 +213,8 @@
     fzf
     lsd
     killall
+		git
+		neovim
     #neofetch
     procps
     psmisc

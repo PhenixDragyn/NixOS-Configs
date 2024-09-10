@@ -67,7 +67,7 @@
     # Function for Image configuration
     # nix build .#imageConfigurations.nixos-iso
     imageConfigurations = {
-      nixos-iso = libx.mkImage { hostname = "nixos-iso"; username = "ejvend"; system = "x86_64-linux"; theme = "ia-dark"; format = "iso"; };
+      nixos-iso = libx.mkImage { hostname = "nixos-iso"; username = "nixos"; system = "x86_64-linux"; theme = "ia-dark"; format = "iso"; };
     };
 
     # Devshell for bootstrapping; acessible via 'nix develop'

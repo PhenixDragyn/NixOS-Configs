@@ -74,8 +74,12 @@
       #defaultSession = "xfce+bspwm";
     };
 
-    #autoLogin.enable = true;
-	  #autoLogin.user = 'ejvend';
+   #  displayManager = {
+			# startx.enable = true;
+			#
+   #    autoLogin.enable = true;
+	  #   autoLogin.user = "nixos";
+   #  };
   };
 
   # ---------------------------------
