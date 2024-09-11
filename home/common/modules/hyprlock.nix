@@ -1,4 +1,5 @@
 { lib, pkgs, ... }:
+
 let
   batteryLockInfo = pkgs.writeShellApplication {
     name = "battery-lock-info";
@@ -168,6 +169,7 @@ in
       };
     };
   };
+
   services = {
     hypridle = {
       enable = true;
@@ -190,6 +192,7 @@ in
       };
     };
   };
+
   wayland.windowManager.hyprland = {
     settings = {
       bind = [

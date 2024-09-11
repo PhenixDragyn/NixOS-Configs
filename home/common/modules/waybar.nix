@@ -10,19 +10,20 @@
             modules-left = [
                 "custom/wlogout"
                 "idle_inhibitor"
-                "clock"
                 "mpris"
             ];
             modules-center = [
                 "hyprland/workspaces"
             ];
             modules-right = [
+								#"tray"
                 "privacy"
                 "hyprland/submap"
                 "pulseaudio"
-                "custom/tailscale"
+                #"custom/tailscale"
                 "network"
                 "battery"
+                "clock"
             ];
 
             # Modules
@@ -53,6 +54,10 @@
             #         Stopped = " 󰌊";
             #     };
             # };
+						tray = {
+              icon-size = 20;
+							spacing = 4;
+						};
             idle_inhibitor = {
                 format = "{icon}";
                 format-icons = {
