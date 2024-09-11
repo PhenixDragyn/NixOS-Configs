@@ -52,9 +52,11 @@
   #   MOZ_USE_XINPUT2 = 1;
   # };
 
-  #environment.variables = {
+  environment.variables = {
+	  WLR_RENDERER_ALLOW_SOFTWARE = 1;
+		#WLR_NO_HARDWARE_CURSORS = 1;
   #  "QT_STYLE_OVERRIDE" = pkgs.lib.mkForce "adwaita-dark";
-  #};
+  };
 
   # ---------------------------------
 
