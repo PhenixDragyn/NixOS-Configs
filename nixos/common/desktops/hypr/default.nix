@@ -55,7 +55,8 @@
   environment.variables = {
 	  WLR_RENDERER_ALLOW_SOFTWARE = 1;
 		#WLR_NO_HARDWARE_CURSORS = 1;
-  #  "QT_STYLE_OVERRIDE" = pkgs.lib.mkForce "adwaita-dark";
+		#NIXOS_OZONE_WL = 1;
+    #"QT_STYLE_OVERRIDE" = pkgs.lib.mkForce "adwaita-dark";
   };
 
   # ---------------------------------
@@ -178,8 +179,6 @@
 
     libnotify            # Notification libraries
     mako                 # Notification daemon
-    swww                 # Wallpaper daemon
-    kitty                # Terminal emulator
     rofi-wayland         # App Launcher
     grim                 # Screenshots
     slurp                # Screenshots
@@ -187,30 +186,41 @@
     libinput-gestures    # Gesture Control
     glib                 # Set GTK theme settings
     greetd.tuigreet      # Greeter
-    swayidle             # Idle management daemon - Automatic lock screen
-    swayosd              # used for on-screen notifications for things like adjusting backlight, volume, etc
+		waybar
     wlogout              # Logout/shutdown/hibernate/lock screen modal UI
     bitwarden-cli        # Bitwarden for rofi
     bitwarden-menu       # Bitwarden for rofi
     calcurse             # TUI Calendar app
+		pyprland
+		
+		hyprpicker
+		hyprcursor
+		hyprlock
+		hypridle
+		hyprpaper
+
+    swayidle             # Idle management daemon - Automatic lock screen
+		swaylock
+    swayosd              # used for on-screen notifications for things like adjusting backlight, volume, etc
 
     # Themes
-    gruvbox-gtk-theme    # Gruvbox Theme
+    #gruvbox-gtk-theme    # Gruvbox Theme
     papirus-icon-theme   # Papirus Icons
 
     # wayland-packages
     #inputs.nixpkgs-wayland.packages.${platform}.wayprompt  # from nixpkgs-wayland exclusively - pinentry UI
 
 
+    imv
     nitrogen
 
-    xautolock
-    xcbutilxrm
-    xclip
-		xdg-utils
-    xdg-user-dirs
-    xdotool
-    xorg.xbacklight
+    #xautolock
+    #xcbutilxrm
+    #xclip
+		#xdg-utils
+    #xdg-user-dirs
+    #xdotool
+    #xorg.xbacklight
 
     #arandr
     #autorandr

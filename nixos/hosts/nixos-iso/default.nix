@@ -4,9 +4,6 @@
   #nix build .#imageConfigurations.nixos-iso
   nixpkgs.hostPlatform = lib.mkDefault "${system}";
 
-  # BOOT SETTINGS
-	#boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
-
   # NETWORKING
   networking = {
     #enable = true;
