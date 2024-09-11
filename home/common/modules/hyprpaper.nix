@@ -1,4 +1,4 @@
-{hostname, ... }:
+{username, ... }:
 
 # let
 #   wallpaperResolution = if hostname == "vader" then
