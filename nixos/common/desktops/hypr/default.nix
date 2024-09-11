@@ -75,7 +75,10 @@
   programs.hyprland = {
 	  enable = true;
 		xwayland.enable = true;
+    systemd.setPath.enable = true;
 	};
+
+  #programs.gnupg.agent.pinentryPackage = lib.mkForce pkgs.pinentry-gnome3;
 
   services.logind.extraConfig = ''
     IdleActionSec=900
@@ -93,7 +96,6 @@
 
     HibernateDelaySec = 600
   '';
-	
 
   # services.xserver = {
   #   enable = true;
@@ -133,7 +135,6 @@
   #security.pam.services.lightdm.enableGnomeKeyring = true;
 	#security.pam.services.swaylock = {};
 	security.pam.services.hyprlock = {};
-
 	security.polkit.enable = true;
 
   # DBus Setup
@@ -155,17 +156,64 @@
   # Call dbus-update-activation-environment on login
   #services.xserver.updateDbusEnvironment = true;
 
+  xdg.autostart.enable = true;
+
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk];
+    extraPortals = [ 
+		  pkgs.xdg-desktop-portal
+		  pkgs.xdg-desktop-portal-gtk 
+		  pkgs.xdg-desktop-portal-hyprland
+		];
     xdgOpenUsePortal = true;
-    config.common.default = "*";
+    #config.common.default = "*";
+    config.common.default = [ "hyprland" "gtk" ];
+		config.common."org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
   };
 
   # ---------------------------------
 
-  # Automount devices/system tray
-  #services.udiskie.enable = true;
+  programs = {
+    dconf.profiles.user.databases = [
+      {
+        settings = with lib.gvariant; {
+          "org/gnome/desktop/interface" = {
+            clock-format = "24h";
+            color-scheme = "prefer-dark";
+            cursor-size = mkInt32 48;
+            cursor-theme = "catppuccin-mocha-blue-cursors";
+            document-font-name = "Work Sans 12";
+            font-name = "Work Sans 12";
+            gtk-theme = "catppuccin-mocha-blue-standard+default";
+            gtk-enable-primary-paste = true;
+            icon-theme = "Papirus-Dark";
+            monospace-font-name = "FiraCode Nerd Font Mono Medium 13";
+            text-scaling-factor = mkDouble 1.0;
+          };
+
+          "org/gnome/desktop/sound" = {
+            theme-name = "freedesktop";
+          };
+
+          "org/gtk/gtk4/Settings/FileChooser" = {
+            clock-format = "24h";
+          };
+
+          "org/gtk/Settings/FileChooser" = {
+            clock-format = "24h";
+          };
+        };
+      }
+    ];
+    file-roller.enable = true;
+    gnome-disks.enable = true;
+    nautilus-open-any-terminal = {
+      enable = true;
+      terminal = "kitty";
+    };
+    seahorse.enable = true;
+    udevil.enable = true;
+  };
 
   # ---------------------------------
 
@@ -177,20 +225,18 @@
       })
     )
 
-    libnotify            # Notification libraries
-    mako                 # Notification daemon
-    rofi-wayland         # App Launcher
     grim                 # Screenshots
     slurp                # Screenshots
-    wl-clipboard         # Clipboard
-    libinput-gestures    # Gesture Control
     glib                 # Set GTK theme settings
-    greetd.tuigreet      # Greeter
-		waybar
-    wlogout              # Logout/shutdown/hibernate/lock screen modal UI
     bitwarden-cli        # Bitwarden for rofi
     bitwarden-menu       # Bitwarden for rofi
     calcurse             # TUI Calendar app
+
+    greetd.tuigreet      # Greeter
+
+    libnotify            # Notification libraries
+    libinput-gestures    # Gesture Control
+
 		pyprland
 		
 		hyprpicker
@@ -198,6 +244,15 @@
 		hyprlock
 		hypridle
 		hyprpaper
+
+		waybar
+		wdisplays
+		wlr-randr
+    wlogout              # Logout/shutdown/hibernate/lock screen modal UI
+    wl-clipboard         # Clipboard
+
+    mako                 # Notification daemon
+    rofi-wayland         # App Launcher
 
     swayidle             # Idle management daemon - Automatic lock screen
 		swaylock
@@ -210,9 +265,12 @@
     # wayland-packages
     #inputs.nixpkgs-wayland.packages.${platform}.wayprompt  # from nixpkgs-wayland exclusively - pinentry UI
 
+    gnome.nautilus
+		gnome.zenity
+		polkit_gnome
 
-    imv
-    nitrogen
+    #imv
+    #nitrogen
 
     #xautolock
     #xcbutilxrm

@@ -15,11 +15,12 @@
     ../../modules/hyprland.nix
     ../../modules/mako.nix
     ../../modules/rofi-wayland.nix
-		../../modules/swaylock.nix
+		#../../modules/swaylock.nix
 		#../../modules/swayosd.nix
     ../../modules/waybar.nix
     ../../modules/wlogout.nix
 
+		../../modules/hyprlock.nix
 		../../modules/hyprpaper.nix
   ];
 

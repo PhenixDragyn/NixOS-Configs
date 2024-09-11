@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, theme, ... }: {
+{ config, pkgs, inputs, theme, ... }: 
+
+# let
+#   monitors = (import ./monitors.nix { }).${hostname};
+# in
+{
   wayland.windowManager.hyprland = {
     enable = true;
     plugins = [
@@ -24,6 +29,7 @@
       '';
     settings = {
       #monitor = ",highrr,auto,1.175";
+      #inherit (monitors) monitor workspace;
       plugin = {
         hyprexpo = {
           gap_size = 8;
