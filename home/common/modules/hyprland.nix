@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, theme, ... }: 
+{ config, pkgs, inputs, username, ... }: 
 
 # let
 #   monitors = (import ./monitors.nix { }).${hostname};
@@ -254,8 +254,6 @@
     };
   };
 
-
-
   home.file = {
     # Set the custom launcher script
     ".config/hypr/start.sh" = {
@@ -267,26 +265,26 @@
           dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
 
           # Set the wallpaper
-          #swww init
+          swww init
 
           # Waybar
           waybar &
 
           # Set up the idle management daemon
-          swayidle -w \
-              timeout 120       'swaylock -f && playerctl pause' \
-              timeout 180       'hyprctl dispatch dpms off' \
-              timeout 300       'systemctl suspend-then-hibernate' \
-                   resume       'hyprctl dispatch dpms on' \
-                   before-sleep 'swaylock -f' \
-                   before-sleep 'playerctl pause' &
+          # swayidle -w \
+          #     timeout 120       'swaylock -f && playerctl pause' \
+          #     timeout 180       'hyprctl dispatch dpms off' \
+          #     timeout 300       'systemctl suspend-then-hibernate' \
+          #          resume       'hyprctl dispatch dpms on' \
+          #          before-sleep 'swaylock -f' \
+          #          before-sleep 'playerctl pause' &
 
           # Automatic device mounting 
           udiskie &
 
-          #DIR=/etc/nixos/git/wallpapers/${theme}
-          #IMG=`ls $DIR | shuf -n 1`
-          #swww img $DIR/$IMG -t random &
+          DIR=/home/${username}/Wallpapers
+          IMG=`ls $DIR | shuf -n 1`
+          swww img $DIR/$IMG -t random &
 
           # Notification listener
           mako 

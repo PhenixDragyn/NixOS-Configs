@@ -1,7 +1,7 @@
 { lib, pkgs, username, system, ... }:
 
-{
-  # You can import other NixOS modules here
+{ 
+# You can import other NixOS modules here 
   imports = [
     # Import my host modules
     #../../modules/x11.nix
@@ -231,6 +231,7 @@
     bitwarden-cli        # Bitwarden for rofi
     bitwarden-menu       # Bitwarden for rofi
     calcurse             # TUI Calendar app
+		udiskie
 
     greetd.tuigreet      # Greeter
 
@@ -244,6 +245,8 @@
 		hyprlock
 		hypridle
 		hyprpaper
+
+		swww
 
 		waybar
 		wdisplays

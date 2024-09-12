@@ -21,7 +21,7 @@
     ../../modules/wlogout.nix
 
 		../../modules/hyprlock.nix
-		../../modules/hyprpaper.nix
+		#../../modules/hyprpaper.nix
   ];
 
   # ---------------------------------
