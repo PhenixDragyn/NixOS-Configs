@@ -19,14 +19,14 @@
     # NixOS and Home
     ./hosts/${hostname}
     ./users/${username}
-  ] 
-  ++ lib.optional (builtins.isString desktop) ./common/desktops/${desktop}
-  ++ (if ( format != "iso")
-      then [ 
-        inputs.stylix.nixosModules.stylix
-        ../stylix/stylix.nix
-      ]
-      else []);
+  ]
+   ++ lib.optional (builtins.isString desktop) ./common/desktops/${desktop};
+  # ++ (if ( format != "iso")
+  #     then [ 
+  #       inputs.stylix.nixosModules.stylix
+  #       ../stylix/stylix.nix
+  #     ]
+  #     else []);
 
   # ---------------------------------
 
