@@ -57,6 +57,23 @@
 		#WLR_NO_HARDWARE_CURSORS = 1;
 		#NIXOS_OZONE_WL = 1;
     #"QT_STYLE_OVERRIDE" = pkgs.lib.mkForce "adwaita-dark";
+
+		XDG_CURRENT_DESKTOP = "Hyprland";
+    XDG_SESSION_TYPE = "wayland";
+		XDG_SESSION_DESKTOP = "Hyprland";
+
+    QT_QPA_PLATFORM = "wayland;xcb";
+    QT_QPA_PLATFORMTHEME = "qt5ct";
+    #QT_QPA_PLATFORMTHEME = "qt6ct";
+		QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
+		QT_AUTO_SCREEN_SCALE_FACTOR = 1;
+
+		GDK_SCALE = 1;
+		GDK_BACKEND = "wayland,x11,*";
+	  CLUTTER_BACKEND = "wayland";
+
+		MOZ_ENABLE_WAYLAND =1;
+    MOZ_USE_XINPUT2 = 1;
   };
 
   # ---------------------------------
@@ -196,11 +213,11 @@
           };
 
           "org/gtk/gtk4/Settings/FileChooser" = {
-            clock-format = "24h";
+            clock-format = "12h";
           };
 
           "org/gtk/Settings/FileChooser" = {
-            clock-format = "24h";
+            clock-format = "12h";
           };
         };
       }
@@ -226,12 +243,17 @@
     )
 
     grim                 # Screenshots
+		grimblast
     slurp                # Screenshots
     glib                 # Set GTK theme settings
     bitwarden-cli        # Bitwarden for rofi
     bitwarden-menu       # Bitwarden for rofi
     calcurse             # TUI Calendar app
 		udiskie
+		pulsemixer
+
+		cliphist
+		nwg-look
 
     greetd.tuigreet      # Greeter
 
@@ -245,10 +267,12 @@
 		hyprlock
 		hypridle
 		hyprpaper
+		#hyprutils
 
 		swww
 
 		waybar
+		waypaper
 		wdisplays
 		wlr-randr
     wlogout              # Logout/shutdown/hibernate/lock screen modal UI
@@ -260,6 +284,12 @@
     swayidle             # Idle management daemon - Automatic lock screen
 		swaylock
     swayosd              # used for on-screen notifications for things like adjusting backlight, volume, etc
+
+		gum
+		figlet
+		stow
+    eww
+    nwg-displays
 
     # Themes
     #gruvbox-gtk-theme    # Gruvbox Theme

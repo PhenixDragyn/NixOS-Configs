@@ -30,6 +30,27 @@
     settings = {
       #monitor = ",highrr,auto,1.175";
       #inherit (monitors) monitor workspace;
+			# workspace = 1, monitor:eDP-1, default:true;
+			# workspace = 2, monitor:eDP-1, default:true;
+			# workspace = 3, monitor:eDP-1, default:true;
+			# workspace = 4, monitor:DP-1, default:true;
+			# workspace = 5, monitor:DP-1, default:true;
+			# workspace = 6, monitor:DP-1, default:true;
+
+			# monitor = [
+   #      "eDP-1, 1920x1200, 0x0, 1" 
+   #      "DP-1, 2560x1440, 0x-1440, 1" 
+			# ];
+			#
+			# workspace = [ "1, monitor:DP-1, default:true"
+			# 	"2, monitor:DP-1"
+			# 	"3, monitor:DP-1"
+			#
+			# 	"4, monitor:eDP-1, default:true"
+			# 	"5, monitor:eDP-1"
+			# 	"6, monitor:eDP-1"
+			# ];
+
       plugin = {
         hyprexpo = {
           gap_size = 8;
@@ -51,7 +72,7 @@
         };
       };
       layerrule = [
-        "blur, waybar"
+        #"blur, waybar"
         "blur, rofi"
         "blur, notifications"
         "ignorezero, notifications"
@@ -96,21 +117,25 @@
 				#background_color = 0x24273a;
       };
       decoration = {
-        rounding = 10;
-        active_opacity = 0.75;
+        rounding = 0;
+        active_opacity = 0.95;
         inactive_opacity = 0.6;
         fullscreen_opacity = 1.0;
+
         drop_shadow = true;
-        shadow_range = 15;
+        shadow_range = 30;
         shadow_render_power = 3;
 			
         #col.shadow = conf.lib.stylix.colors.base04;
         #col.shadow_inactive = 0xff$baseAlpha;
 
         blur = {
-          size = 8;
-          passes = 2;
-          #ignore_opacity = true;
+				  enabled = true;
+          size = 12;
+          passes = 3;
+          ignore_opacity = true;
+					new_optimizations = true;
+					xray = true;
         };
       };
       animations = {
@@ -181,10 +206,10 @@
       ''SUPER, 4, workspace, 4''
       ''SUPER, 5, workspace, 5''
       ''SUPER, 6, workspace, 6''
-      ''SUPER, 7, workspace, 7''
-      ''SUPER, 8, workspace, 8''
-      ''SUPER, 9, workspace, 9''
-      ''SUPER, 0, workspace, 10''
+      # ''SUPER, 7, workspace, 7''
+      # ''SUPER, 8, workspace, 8''
+      # ''SUPER, 9, workspace, 9''
+      # ''SUPER, 0, workspace, 10''
 
       # Move active window to a workspace with mainMod + SHIFT + [0-9]
       ''SUPER SHIFT, 1, movetoworkspace, 1''
@@ -193,10 +218,10 @@
       ''SUPER SHIFT, 4, movetoworkspace, 4''
       ''SUPER SHIFT, 5, movetoworkspace, 5''
       ''SUPER SHIFT, 6, movetoworkspace, 6''
-      ''SUPER SHIFT, 7, movetoworkspace, 7''
-      ''SUPER SHIFT, 8, movetoworkspace, 8''
-      ''SUPER SHIFT, 9, movetoworkspace, 9''
-      ''SUPER SHIFT, 0, movetoworkspace, 10''
+      # ''SUPER SHIFT, 7, movetoworkspace, 7''
+      # ''SUPER SHIFT, 8, movetoworkspace, 8''
+      # ''SUPER SHIFT, 9, movetoworkspace, 9''
+      # ''SUPER SHIFT, 0, movetoworkspace, 10''
 
       # Scroll through existing workspaces with mainMod + scroll
       ''SUPER, mouse_down, workspace, e+1''
@@ -259,6 +284,7 @@
     ".config/hypr/start.sh" = {
         enable = true;
         executable = true;
+
         text = ''
           #!/usr/bin/env bash
           # https://wiki.hyprland.org/FAQ/#some-of-my-apps-take-a-really-long-time-to-open
@@ -266,6 +292,7 @@
 
           # Set the wallpaper
           swww init
+					swww-daemon --format xrgb
 
           # Waybar
           waybar &
@@ -287,7 +314,7 @@
           swww img $DIR/$IMG -t random &
 
           # Notification listener
-          mako 
+          #mako 
       '';
     };
   };

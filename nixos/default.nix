@@ -15,9 +15,7 @@
 
     # Stylix (Set in hosts default.nix) 
     # ISO can't have both Hosts and Home defined.
-    #inputs.stylix.nixosModules.stylix
-    #../stylix/stylix.nix
-
+    #inputs.stylix.nixosModules.stylix #../stylix/stylix.nix
     # NixOS and Home
     ./hosts/${hostname}
     ./users/${username}
@@ -222,6 +220,7 @@
     # NIX tools
     nix-prefetch
     nix-prefetch-git
+		nvd
 
     # Network
     curl

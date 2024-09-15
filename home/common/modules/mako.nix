@@ -3,6 +3,7 @@
 {
   services.mako = {
     enable = true;
+
     anchor = "top-right";
     borderRadius = 2;
     borderSize = 2;

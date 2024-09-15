@@ -5,10 +5,7 @@
   nixpkgs.hostPlatform = lib.mkDefault "${system}";
 
   # NETWORKING
-  networking = {
-    #enable = true;
-    hostName = hostname;
- 
+  networking = lib.mkIf (desktop == null) {
     wireless = {
       enable = true;
       # networks."mySSID".psk = "myPSK";
@@ -24,7 +21,6 @@
     # };
 
     networkmanager.enable = lib.mkForce false;
-    enableIPv6 = false;
   };
 
   environment.systemPackages = with pkgs; [
