@@ -353,6 +353,5 @@ let
         kb-remove-char-back = "BackSpace";
       };
     };
-  }
 }
 
