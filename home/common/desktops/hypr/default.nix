@@ -14,7 +14,6 @@
 
     ../../modules/dunst.nix
     ../../modules/hyprland.nix
-    #../../modules/mako.nix
     ../../modules/rofi-wayland.nix
 		#../../modules/swaylock.nix
 		#../../modules/swayosd.nix
