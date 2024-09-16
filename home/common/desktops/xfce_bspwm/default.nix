@@ -4,7 +4,7 @@
 {
   imports = [
     # Modules
-    ../../modules/dconf.nix
+    #../../modules/dconf.nix
 
     ../../modules/bspwm.nix
     ../../modules/firefox.nix

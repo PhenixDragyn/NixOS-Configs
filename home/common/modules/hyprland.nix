@@ -119,7 +119,7 @@
       decoration = {
         rounding = 0;
         active_opacity = 0.95;
-        inactive_opacity = 0.6;
+        inactive_opacity = 0.8;
         fullscreen_opacity = 1.0;
 
         drop_shadow = true;
@@ -182,22 +182,22 @@
       ''SUPER, Q, killactive,''
       ''SUPER, M, exit,''
       ''SUPER, F, togglefloating,''
-      ''SUPER, P, pseudo, # dwindle''
+      #''SUPER, P, pseudo, # dwindle''
       ''SUPER, J, togglesplit, # dwindle''
-      ''SUPER, S, exec, steam -vgui''
-      ''SUPER, B, exec, rofi-rbw --action copy --no-folder''
+      #''SUPER, S, exec, steam -vgui''
+      #''SUPER, B, exec, rofi-rbw --action copy --no-folder''
       ''SUPER_SHIFT, L, exec, logseq''
 
       # Move focus with mainMod + arrow keys
-      ''SUPER_ALT, left, movefocus, l''
-      ''SUPER_ALT, right, movefocus, r''
-      ''SUPER_ALT, up, movefocus, u''
-      ''SUPER_ALT, down, movefocus, d''
-
-      ''SUPER_ALT, H, movefocus, l''
-      ''SUPER_ALT, L, movefocus, r''
-      ''SUPER_ALT, K, movefocus, u''
-      ''SUPER_ALT, J, movefocus, d''
+      # ''SUPER SHIFT, left, movefocus, l''
+      # ''SUPER SHIFT, right, movefocus, r''
+      # ''SUPER SHIFT, up, movefocus, u''
+      # ''SUPER SHIFT, down, movefocus, d''
+      #
+      # ''SUPER SHIFT, H, movefocus, l''
+      # ''SUPER SHIFT, L, movefocus, r''
+      # ''SUPER SHIFT, K, movefocus, u''
+      # ''SUPER SHIFT, J, movefocus, d''
 
       # Switch workspaces with mainMod + [0-9]
       ''SUPER, 1, workspace, 1''
@@ -212,12 +212,12 @@
       # ''SUPER, 0, workspace, 10''
 
       # Move active window to a workspace with mainMod + SHIFT + [0-9]
-      ''SUPER SHIFT, 1, movetoworkspace, 1''
-      ''SUPER SHIFT, 2, movetoworkspace, 2''
-      ''SUPER SHIFT, 3, movetoworkspace, 3''
-      ''SUPER SHIFT, 4, movetoworkspace, 4''
-      ''SUPER SHIFT, 5, movetoworkspace, 5''
-      ''SUPER SHIFT, 6, movetoworkspace, 6''
+      ''SUPER_ALT, 1, movetoworkspace, 1''
+      ''SUPER_ALT, 2, movetoworkspace, 2''
+      ''SUPER_ALT, 3, movetoworkspace, 3''
+      ''SUPER_ALT, 4, movetoworkspace, 4''
+      ''SUPER_ALT, 5, movetoworkspace, 5''
+      ''SUPER_ALT, 6, movetoworkspace, 6''
       # ''SUPER SHIFT, 7, movetoworkspace, 7''
       # ''SUPER SHIFT, 8, movetoworkspace, 8''
       # ''SUPER SHIFT, 9, movetoworkspace, 9''
@@ -232,19 +232,24 @@
       # Show Rofi on SUPER-SPACE
       # ''SUPER, space, exec, fuzzel''
       ''SUPER, space, exec, rofi -show drun -show-icons''
+
       # Take a screenshot with the Print key''
-      '', Print, exec, grim -g "$(slurp)" | wl-copy -t image/png''
+      #'', Print, exec, grim -g "$(slurp)" | wl-copy -t image/png''
+
+      ''SUPER, w, exec, firefox''
+      ''SUPER, e, exec, thunderbird''
+      ''SUPER, n, exec, nautilus''
 
       # Move to the previous / next workspace with SUPER-LEFT and SUPER-RIGHT
-      ''SUPER      , right, workspace, e+1''
-      ''SUPER      , left , workspace, e-1''
-      ''SUPER SHIFT, right, movetoworkspace, e+1''
-      ''SUPER SHIFT, left , movetoworkspace, e-1''
-      ''SHIFT ALT, L, workspace, e+1''
-      ''SHIFT ALT, H, workspace, e-1''
+      # ''SUPER      , right, workspace, e+1''
+      # ''SUPER      , left , workspace, e-1''
+      # ''SUPER SHIFT, right, movetoworkspace, e+1''
+      # ''SUPER SHIFT, left , movetoworkspace, e-1''
+      # ''SHIFT ALT, L, workspace, e+1''
+      # ''SHIFT ALT, H, workspace, e-1''
 
       # Lock the screen, send to swaylock and pause music
-      ''SUPER, X, exec, swaylock''
+      ''SUPER, X, exec, hyprlock''
       ''SUPER, X, exec, playerctl pause''
 
       # to switch between windows in a floating workspace
@@ -252,7 +257,8 @@
       ''SUPER ,Tab, bringactivetotop,   # bring it to the top''
 
 			# Audo controls
-      '', XF86AudioMute, exec, swayosd --output-volume=mute-toggle''
+      #'', XF86AudioMute, exec, swayosd --output-volume=mute-toggle''
+      '', XF86AudioMute, exec, playerctl play-pause''
       '', XF86AudioPrev, exec, playerctl previous''
       '', XF86AudioNext, exec, playerctl next''
       ];

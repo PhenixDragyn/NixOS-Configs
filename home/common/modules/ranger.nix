@@ -28,7 +28,7 @@ in
       recursive = true;
     };
 
-    ".config/ranger/plugins".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/modules/ranger-plugins";
+    ".config/ranger/plugins".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/common/modules/ranger-plugins";
   };
 
   home.packages = with pkgs; [

@@ -1,4 +1,4 @@
-{ lib, pkgs, username, system, ... }:
+{ lib, pkgs, pkgs-unstable, username, system, ... }:
 
 { 
 # You can import other NixOS modules here 
@@ -95,7 +95,7 @@
     systemd.setPath.enable = true;
 	};
 
-  #programs.gnupg.agent.pinentryPackage = lib.mkForce pkgs.pinentry-gnome3;
+  programs.gnupg.agent.pinentryPackage = lib.mkForce pkgs.pinentry-gnome3;
 
   services.logind.extraConfig = ''
     IdleActionSec=900
@@ -191,37 +191,37 @@
   # ---------------------------------
 
   programs = {
-    dconf.profiles.user.databases = [
-      {
-        settings = with lib.gvariant; {
-          "org/gnome/desktop/interface" = {
-            clock-format = "24h";
-            color-scheme = "prefer-dark";
-            cursor-size = mkInt32 48;
-            cursor-theme = "catppuccin-mocha-blue-cursors";
-            document-font-name = "Work Sans 12";
-            font-name = "Work Sans 12";
-            gtk-theme = "catppuccin-mocha-blue-standard+default";
-            gtk-enable-primary-paste = true;
-            icon-theme = "Papirus-Dark";
-            monospace-font-name = "FiraCode Nerd Font Mono Medium 13";
-            text-scaling-factor = mkDouble 1.0;
-          };
-
-          "org/gnome/desktop/sound" = {
-            theme-name = "freedesktop";
-          };
-
-          "org/gtk/gtk4/Settings/FileChooser" = {
-            clock-format = "12h";
-          };
-
-          "org/gtk/Settings/FileChooser" = {
-            clock-format = "12h";
-          };
-        };
-      }
-    ];
+    # dconf.profiles.user.databases = [
+    #   {
+    #     settings = with lib.gvariant; {
+    #       "org/gnome/desktop/interface" = {
+    #         clock-format = "24h";
+    #         color-scheme = "prefer-dark";
+    #         cursor-size = mkInt32 48;
+    #         #cursor-theme = "catppuccin-mocha-blue-cursors";
+    #         document-font-name = "Work Sans 12";
+    #         font-name = "Work Sans 12";
+    #         #gtk-theme = "catppuccin-mocha-blue-standard+default";
+    #         gtk-enable-primary-paste = true;
+    #         icon-theme = "Papirus-Dark";
+    #         monospace-font-name = "FiraCode Nerd Font Mono Medium 13";
+    #         text-scaling-factor = mkDouble 1.0;
+    #       };
+    #
+    #       "org/gnome/desktop/sound" = {
+    #         theme-name = "freedesktop";
+    #       };
+    #
+    #       "org/gtk/gtk4/Settings/FileChooser" = {
+    #         clock-format = "12h";
+    #       };
+    #
+    #       "org/gtk/Settings/FileChooser" = {
+    #         clock-format = "12h";
+    #       };
+    #     };
+    #   }
+    # ];
     file-roller.enable = true;
     gnome-disks.enable = true;
     nautilus-open-any-terminal = {
@@ -242,25 +242,24 @@
       })
     )
 
-    grim                 # Screenshots
-		grimblast
-    slurp                # Screenshots
+		# grimblast
+    # slurp                # Screenshots
+
     glib                 # Set GTK theme settings
-    bitwarden-cli        # Bitwarden for rofi
-    bitwarden-menu       # Bitwarden for rofi
+    # bitwarden-cli        # Bitwarden for rofi
+    # bitwarden-menu       # Bitwarden for rofi
     calcurse             # TUI Calendar app
 		udiskie
 		pulsemixer
 
 		cliphist
-		nwg-look
 
     greetd.tuigreet      # Greeter
 
     libnotify            # Notification libraries
     libinput-gestures    # Gesture Control
 
-		pyprland
+		#pyprland
 		
 		hyprpicker
 		hyprcursor
@@ -281,75 +280,44 @@
     mako                 # Notification daemon
     rofi-wayland         # App Launcher
 
-    swayidle             # Idle management daemon - Automatic lock screen
-		swaylock
-    swayosd              # used for on-screen notifications for things like adjusting backlight, volume, etc
+    # swayidle             # Idle management daemon - Automatic lock screen
+		# swaylock
+    # swayosd              # used for on-screen notifications for things like adjusting backlight, volume, etc
 
-		gum
-		figlet
-		stow
-    eww
-    nwg-displays
+		# gum
+		# figlet
+		# stow
+    # eww
 
-    # Themes
-    #gruvbox-gtk-theme    # Gruvbox Theme
-    papirus-icon-theme   # Papirus Icons
+		nwg-look     			# Theme changer
+    nwg-displays			# Monitor display configuration
 
     # wayland-packages
-    #inputs.nixpkgs-wayland.packages.${platform}.wayprompt  # from nixpkgs-wayland exclusively - pinentry UI
+    #inputs.nixpkgs-wayland.packages.${system}.wayprompt  # from nixpkgs-wayland exclusively - pinentry UI
+		pkgs-unstable.wayprompt
 
     gnome.nautilus
 		gnome.zenity
 		polkit_gnome
+		#themechanger
 
-    #imv
-    #nitrogen
-
-    #xautolock
-    #xcbutilxrm
-    #xclip
-		#xdg-utils
-    #xdg-user-dirs
-    #xdotool
-    #xorg.xbacklight
-
-    #arandr
-    #autorandr
     blueman
 
     kitty
     
     firefox
-    # thunderbird
+    thunderbird
     
-    # keepassxc
-    # keepass-charactercopy
-    # git-credential-keepassxc
-    
-    # numix-cursor-theme
-    # papirus-icon-theme
-    # pop-icon-theme
-    # pop-gtk-theme
-    zafiro-icons
-
-    # Development
-    #(python3Full.withPackages(ps: with ps; [ requests ]))
+    keepassxc
+    keepass-charactercopy
+    git-credential-keepassxc
   ] ++ (if (system == "x86_64-linux")
-	        then []
-	        #then [ pkgs.freeoffice pkgs.spotify ]
+	        #then []
+	        then [ pkgs.freeoffice pkgs.spotify ]
 				else 
 			  (if (system == "aarch64-linux" )
 			    then [] 
 				else []));
-
-  # ---------------------------------
-
-  # XFCE PACKAGES EXCLUDES
-  # environment.xfce.excludePackages = with pkgs; [
-  #   xfce.ristretto
-  #   xfce.xfce4-appfinder
-  #   xfce.xfce4-terminal
-  # ];
 
   # ---------------------------------
 

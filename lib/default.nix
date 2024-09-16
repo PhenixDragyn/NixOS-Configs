@@ -13,9 +13,10 @@
     #deployment_type ? "hosts",
     unfree    ? false,
 		insecure  ? false,
+    format    ? null,
   }: inputs.${repo}.lib.nixosSystem { 
     specialArgs = { 
-      inherit inputs outputs desktop hostname username hmStateVersion stateVersion system theme self;
+      inherit inputs outputs desktop hostname username hmStateVersion stateVersion system theme format self;
       #inherit inputs outputs desktop hostname username hmStateVersion stateVersion system theme self deployment_type;
       # Choose whether to pull from stable or unstable 
       pkgs          = let packages = (import ./packages.nix { inherit inputs repo system unfree; }); in packages.pkgs;

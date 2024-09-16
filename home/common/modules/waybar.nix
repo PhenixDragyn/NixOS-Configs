@@ -530,7 +530,7 @@ window#waybar.empty #window {
     color: @textcolor1;
     border-radius: 0px;
     padding: 0px 5px 0px 5px;
-    margin: 2px 0px 2px 0px;
+    margin: 2px 20px 2px 5px;
     opacity:0.8;
     border:2px solid @bordercolor;
 }
@@ -615,7 +615,7 @@ window#waybar.empty #window {
     color: @textcolor1;
     border-radius: 0px;
     padding: 0px 5px 0px 5px;
-    margin: 2px 0px 2px 0px;
+    margin: 2px 5px 2px 20px;
     opacity:0.8;
     border:2px solid @bordercolor;   
 }

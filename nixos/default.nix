@@ -15,18 +15,20 @@
 
     # Stylix (Set in hosts default.nix) 
     # ISO can't have both Hosts and Home defined.
-    #inputs.stylix.nixosModules.stylix #../stylix/stylix.nix
+    #inputs.stylix.nixosModules.stylix 
+		#../stylix/stylix.nix
+
     # NixOS and Home
     ./hosts/${hostname}
     ./users/${username}
   ]
-   ++ lib.optional (builtins.isString desktop) ./common/desktops/${desktop};
-  # ++ (if ( format != "iso")
-  #     then [ 
-  #       inputs.stylix.nixosModules.stylix
-  #       ../stylix/stylix.nix
-  #     ]
-  #     else []);
+   ++ lib.optional (builtins.isString desktop) ./common/desktops/${desktop}
+   ++ (if ( format != "iso")
+       then [ 
+         inputs.stylix.nixosModules.stylix
+         ../stylix/stylix.nix
+       ]
+       else []);
 
   # ---------------------------------
 
