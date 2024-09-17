@@ -4,11 +4,17 @@
   gtk = {
     enable = true;
 
+    # cursorTheme = {
+    #   name = "Simp1e-Dark";
+		# 	package = pkgs.simp1e-cursors;
+		# };
+
     iconTheme = {
       #name = lib.mkForce "Pop";
       #package = lib.mkForce pkgs.pop-icon-theme;
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
+      #package = pkgs.papirus-icon-theme.override {color = "indigo";};
     };
 
     theme = {
@@ -123,6 +129,16 @@
   #     '';
   #   };
   # };
+
+    # Stop gtk4 from being rounded
+    # gtk4.extraCss = ''
+    #   window {
+    #     border-top-left-radius:0;
+    #     border-top-right-radius:0;
+    #     border-bottom-left-radius:0;
+    #     border-bottom-right-radius:0;
+    #   }
+    # '';
 
   stylix = {
     # Remove rounded corners in Gnome

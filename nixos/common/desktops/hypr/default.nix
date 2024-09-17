@@ -94,7 +94,11 @@
     systemd.setPath.enable = true;
 	};
 
-  programs.gnupg.agent.pinentryPackage = lib.mkForce pkgs.pinentry-gnome3;
+  programs.gnupg.agent = {
+	  enable = true;
+		enableSSHSupport = true;
+	  pinentryPackage = lib.mkForce pkgs.pinentry-gnome3;
+	};
 
   services.logind.extraConfig = ''
     IdleActionSec=900

@@ -21,6 +21,21 @@ in
   
   #imports = [ ../../pkgs/ranger.nix ];
 
+	programs.ranger = {
+    enable = true;
+		settings = {
+      preview_images = true;
+      #preview_images_method = "sixel";
+      dirname_in_tabs = true;
+      cd_tab_fuzzy = true;
+      autosave_bookmarks = false;
+      show_hidden = false;
+      wrap_scroll = true;
+      column_ratios = "2,2,4";
+      hidden_filter = ''^\.|\.(?:pyc|pyo|bak|swp)$|^lost\+found$|^__(py)?cache__$'';
+		};
+	};
+
   home.file = {
     ".config/ranger" = {
       source = ./ranger;

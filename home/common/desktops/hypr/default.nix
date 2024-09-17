@@ -11,6 +11,7 @@
     ../../modules/kitty.nix
 
     ../../modules/gtk.nix
+    ../../modules/qt.nix
 
     ../../modules/dunst.nix
     ../../modules/hyprland.nix

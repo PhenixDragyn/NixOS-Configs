@@ -3,6 +3,7 @@
 {
   programs.git = {
     enable = true;
+		lfs.enable = true;
     userName = "PhenixDragyn";
     userEmail = "ejvend.nielsen@gmail.com";
 
@@ -22,5 +23,9 @@
     #ignores = [
     # "*.example"
     #];
+
+		# home.packages = with pkgs: [
+		#  git-crypt
+		# ];
   };
 } 
