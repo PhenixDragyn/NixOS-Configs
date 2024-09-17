@@ -1,10 +1,15 @@
-{ config, ... }: {
+{ config, ... }: 
+
+{
   imports = [ ./waybar/scripts.nix ];
 
   programs.waybar = {
     enable = true;
     settings = {
         mainBar = {
+				    id = "main";
+				    #output = "eDP-1";
+				    #output = ["!eDP-1", "*"];
             layer = "top";
             position = "top";
 						margin-top = 0;

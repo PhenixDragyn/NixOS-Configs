@@ -20,6 +20,8 @@
     ../../modules/waybar.nix
     ../../modules/wlogout.nix
 
+		../../modules/imv.nix
+
 		../../modules/hyprlock.nix
 		#../../modules/hyprpaper.nix
   ];

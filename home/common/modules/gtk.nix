@@ -5,10 +5,10 @@
     enable = true;
 
     iconTheme = {
-      name = lib.mkForce "Pop";
-      package = lib.mkForce pkgs.pop-icon-theme;
-      #name = "Papirus-Dark";
-      #package = pkgs.papirus-icon-theme;
+      #name = lib.mkForce "Pop";
+      #package = lib.mkForce pkgs.pop-icon-theme;
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
     };
 
     theme = {

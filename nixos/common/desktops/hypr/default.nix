@@ -14,8 +14,7 @@
   programs.nm-applet.enable = true;
 
   # ---------------------------------
-
-  # BLUETOOTH
+# BLUETOOTH
   services.blueman.enable = true;
 
   # ---------------------------------
@@ -151,10 +150,39 @@
   # Security Services
   #security.pam.services.lightdm.enableGnomeKeyring = true;
 	#security.pam.services.swaylock = {};
-	security.pam.services.hyprlock = {};
-	security.polkit.enable = true;
+
+	#security.pam.services.hyprlock = {};
+	#security.polkit.enable = true;
+
+  # Security / Polkit
+  security.rtkit.enable = true;
+  security.polkit.enable = true;
+  security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+      if (
+        subject.isInGroup("users")
+          && (
+            action.id == "org.freedesktop.login1.reboot" ||
+            action.id == "org.freedesktop.login1.reboot-multiple-sessions" ||
+            action.id == "org.freedesktop.login1.power-off" ||
+            action.id == "org.freedesktop.login1.power-off-multiple-sessions"
+          )
+        )
+      {
+        return polkit.Result.YES;
+      }
+    })
+  '';
+  security.pam.services.hyprlock = {
+    text = ''
+      auth include login
+    '';
+  };
+
 
   # DBus Setup
+	services.gnome.gnome-keyring.enable = true;
+
 	# services = {
 	#   dbus = {
 	#     enable = true;
@@ -180,6 +208,7 @@
     extraPortals = [ 
 		  pkgs.xdg-desktop-portal
 		  pkgs.xdg-desktop-portal-gtk 
+		  #pkgs.xdg-desktop-portal-xapp
 		  pkgs.xdg-desktop-portal-hyprland
 		];
     xdgOpenUsePortal = true;
@@ -222,12 +251,12 @@
     #     };
     #   }
     # ];
-    file-roller.enable = true;
-    gnome-disks.enable = true;
     nautilus-open-any-terminal = {
       enable = true;
       terminal = "kitty";
     };
+    file-roller.enable = true;
+    gnome-disks.enable = true;
     seahorse.enable = true;
     udevil.enable = true;
   };
@@ -267,8 +296,13 @@
 		hypridle
 		hyprpaper
 		#hyprutils
+ 
+    #kanshi   # wayland autorndr
 
 		swww
+		imv 	# image viewer
+		mpv   # video viewer
+		#vimiv-qt
 
 		waybar
 		waypaper
@@ -282,7 +316,8 @@
 
     # swayidle             # Idle management daemon - Automatic lock screen
 		# swaylock
-    # swayosd              # used for on-screen notifications for things like adjusting backlight, volume, etc
+    swayosd              # used for on-screen notifications for things like adjusting backlight, volume, etc
+		swayimg
 
 		# gum
 		# figlet
@@ -301,6 +336,16 @@
 		polkit_gnome
 		#themechanger
 
+		cinnamon.nemo
+		cinnamon.nemo-with-extensions
+		cinnamon.nemo-emblems
+		cinnamon.nemo-fileroller
+		cinnamon.folder-color-switcher
+		#cinnamon.pix
+		#cinnamon.xviewer
+		#cinnamon.xreader
+
+
     blueman
 
     kitty
@@ -312,7 +357,6 @@
     keepass-charactercopy
     git-credential-keepassxc
   ] ++ (if (system == "x86_64-linux")
-	        #then []
 	        then [ pkgs.freeoffice pkgs.spotify ]
 				else 
 			  (if (system == "aarch64-linux" )
