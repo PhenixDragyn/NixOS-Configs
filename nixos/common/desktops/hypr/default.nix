@@ -94,12 +94,6 @@
     systemd.setPath.enable = true;
 	};
 
-  programs.gnupg.agent = {
-	  enable = true;
-		enableSSHSupport = true;
-	  pinentryPackage = lib.mkForce pkgs.pinentry-gnome3;
-	};
-
   services.logind.extraConfig = ''
     IdleActionSec=900
     IdleAction=suspend-then-hibernate
@@ -183,6 +177,11 @@
     '';
   };
 
+  programs.gnupg.agent = {
+	  enable = true;
+		#enableSSHSupport = true;
+	  pinentryPackage = lib.mkForce pkgs.pinentry-gnome3;
+	};
 
   # DBus Setup
 	services.gnome.gnome-keyring.enable = true;

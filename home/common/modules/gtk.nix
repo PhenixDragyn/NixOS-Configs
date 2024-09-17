@@ -18,18 +18,18 @@
     };
 
     theme = {
-      name = lib.mkForce "Pop-dark";
-      package = lib.mkForce pkgs.pop-gtk-theme;
-      #name = "adw-gtk3-dark";
-      #package = pkgs.adw-gtk3;
+      #name = lib.mkForce "Pop-dark";
+      #package = lib.mkForce pkgs.pop-gtk-theme;
+      name = lib.mkForce "adw-gtk3-dark";
+      package = lib.mkForce pkgs.adw-gtk3;
     };
   };
 
   dconf.settings = {
      "org/gnome/desktop/interface" = {
        color-scheme = lib.mkForce "prefer-dark";
-       gtk-theme = lib.mkForce "Pop-dark";
-       #gtk-theme = "adw-gtk3-dark";
+       #gtk-theme = lib.mkForce "Pop-dark";
+       gtk-theme = lib.mkForce "adw-gtk3-dark";
      };
 
     # "org/gnome/desktop/wm/preferences" = {
