@@ -27,22 +27,28 @@
     #   };
 		# };
 
-		cinnamon = prev.cinnamon.overrideScope (cfinal: cprev: {
-			nemo = cprev.nemo.overrideAttrs (attrs: {
-				preFixup = attrs.preFixup or "" + ''
-					gappsWrapperArgs+=(
-						--prefix XDG_DATA_DIRS : "${final.shared-mime-info}/share"
-						# Thumbnailers
-						--prefix XDG_DATA_DIRS : "${final.gdk-pixbuf}/share"
-						--prefix XDG_DATA_DIRS : "${final.librsvg}/share"
-						--prefix XDG_DATA_DIRS : "${final.webp-pixbuf-loader}/share"
-						--prefix XDG_DATA_DIRS : "${final.libavif}/share"
-					)
-				'';
-			});
-		};
-  };
+    # thunar = prev.thunar.override {
+		#   configureFlags = [
+		# 	  "--disable-wallpaper-plugin"
+		# 	] ++ prev.thunar.configureFlags;
+		# };
 
+		# cinnamon = prev.cinnamon.overrideScope (cfinal: cprev: {
+		# 	nemo = cprev.nemo.overrideAttrs (attrs: {
+		# 		preFixup = attrs.preFixup or "" + ''
+		# 			gappsWrapperArgs+=(
+		# 				--prefix XDG_DATA_DIRS : "${final.shared-mime-info}/share"
+		# 				# Thumbnailers
+		# 				--prefix XDG_DATA_DIRS : "${final.gdk-pixbuf}/share"
+		# 				--prefix XDG_DATA_DIRS : "${final.librsvg}/share"
+		# 				--prefix XDG_DATA_DIRS : "${final.webp-pixbuf-loader}/share"
+		# 				--prefix XDG_DATA_DIRS : "${final.libavif}/share"
+		# 			)
+		# 		'';
+		# 	});
+		# };
+  };
+		
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will
   # be accessible through 'pkgs.unstable'
   unstable-packages = final: _prev: {
