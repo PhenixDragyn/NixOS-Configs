@@ -215,24 +215,24 @@
     #   }
     # ];
 
-    # nautilus-open-any-terminal = {
-    #   enable = true;
-    #   terminal = "kitty";
-    # };
-
-    # file-roller.enable = true;
-    # gnome-disks.enable = true;
-    # seahorse.enable = true;
-    # udevil.enable = true;
-    
-    thunar = {
+    nautilus-open-any-terminal = {
       enable = true;
-      plugins = with pkgs.xfce; [
-        thunar-archive-plugin
-        thunar-media-tags-plugin
-        thunar-volman
-      ];
+      terminal = "kitty";
     };
+
+    file-roller.enable = true;
+    gnome-disks.enable = true;
+    seahorse.enable = true;
+    udevil.enable = true;
+    
+    # thunar = {
+    #   enable = true;
+    #   plugins = with pkgs.xfce; [
+    #     thunar-archive-plugin
+    #     thunar-media-tags-plugin
+    #     thunar-volman
+    #   ];
+    # };
   };
 
   # ---------------------------------
@@ -295,9 +295,9 @@
     # wayland-packages
 		pkgs-unstable.wayprompt
 
-    #gnome.nautilus
-		#gnome.zenity
-		#polkit_gnome
+    gnome.nautilus
+		gnome.zenity
+		polkit_gnome
 		#themechanger
 		# shared-mime-info
 		# gdk-pixbuf
@@ -315,10 +315,10 @@
 		#cinnamon.xviewer
 		#cinnamon.xreader
 
-    xfce.gigolo
-		xfce.tumbler
-		xarchiver
-
+    # xfce.gigolo
+		# xfce.tumbler
+		# xarchiver
+		
     #blueman
 
     kitty
