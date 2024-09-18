@@ -191,28 +191,29 @@
   # ---------------------------------
 
   programs = {
-    dconf.profiles.user.databases = [
-      {
-        settings = with lib.gvariant; {
-				  "org/nemo/plugins" = {
-					  disabled-actions = [ 
-						  "set-as-background.nemo_action" 
-							"change-background.nemo_action" 
-						];
-					};
-
-          "org/nemo/preferences" = {
-					  thumbnail-limit = "uint64 1073741824";
-					};
-
-					"org/nemo/window-state" = {
-					  maximized = true;
-						sidebar-bookmark-breakpoint = "0";
-						start-with-sidebar = true;
-					};
-        };
-      }
-    ];
+		dconf.enable = true;
+    # dconf.profiles.user.databases = [
+    #   {
+    #     settings = with lib.gvariant; {
+				#   "org/nemo/plugins" = {
+				# 	  disabled-actions = [ 
+				# 		  "set-as-background.nemo_action" 
+				# 			"change-background.nemo_action" 
+				# 		];
+				# 	};
+    #
+    #       "org/nemo/preferences" = {
+				# 	  thumbnail-limit = "uint64 1073741824";
+				# 	};
+    #
+				# 	"org/nemo/window-state" = {
+				# 	  maximized = true;
+				# 		sidebar-bookmark-breakpoint = "0";
+				# 		start-with-sidebar = true;
+				# 	};
+    #     };
+    #   }
+    # ];
 
     # nautilus-open-any-terminal = {
     #   enable = true;
@@ -223,6 +224,15 @@
     gnome-disks.enable = true;
     seahorse.enable = true;
     udevil.enable = true;
+    
+    # thunar = {
+    #   enable = true;
+    #   plugins = with pkgs.xfce; [
+    #     thunar-archive-plugin
+    #     thunar-media-tags-plugin
+    #     thunar-volman
+    #   ];
+    # };
   };
 
   # ---------------------------------
@@ -235,6 +245,23 @@
       })
     )
 
+		# (final: prev: {
+		# 	cinnamon = prev.cinnamon.overrideScope (cfinal: cprev: {
+		# 		nemo = cprev.nemo.overrideAttrs (attrs: {
+		# 			preFixup = attrs.preFixup or "" + ''
+		# 				gappsWrapperArgs+=(
+		# 					--prefix XDG_DATA_DIRS : "${final.shared-mime-info}/share"
+		# 					# Thumbnailers
+		# 					--prefix XDG_DATA_DIRS : "${final.gdk-pixbuf}/share"
+		# 					--prefix XDG_DATA_DIRS : "${final.librsvg}/share"
+		# 					--prefix XDG_DATA_DIRS : "${final.webp-pixbuf-loader}/share"
+		# 					--prefix XDG_DATA_DIRS : "${final.libavif}/share"
+		# 				)
+		# 			'';
+		# 		});
+		# 	});
+		# })
+	  
 		# grimblast
     # slurp                # Screenshots
 
@@ -289,15 +316,24 @@
 		#gnome.zenity
 		#polkit_gnome
 		#themechanger
+		shared-mime-info
+		gdk-pixbuf
+		librsvg
+		webp-pixbuf-loader
+		libavif
 
 		cinnamon.nemo
-		cinnamon.nemo-with-extensions
+		#cinnamon.nemo-with-extensions
 		cinnamon.nemo-emblems
 		cinnamon.nemo-fileroller
 		cinnamon.folder-color-switcher
-		#cinnamon.pix
+
+		cinnamon.pix
 		#cinnamon.xviewer
 		#cinnamon.xreader
+
+    #xfce.gigolo
+		#xfce.tumbler
 
     #blueman
 
