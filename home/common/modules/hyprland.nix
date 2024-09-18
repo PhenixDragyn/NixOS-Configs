@@ -264,8 +264,10 @@
       ];
       bindm = [
         # Move/resize windows with mainMod + LMB/RMB and dragging
-        ''LCTRL SHIFT, mouse:272, movewindow''
-        ''LCTRL SHIFT, mouse:273, resizewindow''
+        #''LCTRL SHIFT, mouse:272, movewindow''
+        #''LCTRL SHIFT, mouse:273, resizewindow''
+        ''SUPER, mouse:272, movewindow''
+        ''SUPER, mouse:273, resizewindow''
       ];
       binde = [
         '', XF86AudioPlay, exec, playerctl play-pause''

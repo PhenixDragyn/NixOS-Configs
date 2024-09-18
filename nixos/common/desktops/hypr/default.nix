@@ -81,10 +81,31 @@
   services.greetd = {
 	  enable = true;
 		settings = {
-		  default_session = {
-			  command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland -g 'Authorized Personnel Only'";
-				user = "greeter";
+			default_session = let
+			  tuigreet = "${lib.getExe pkgs.greetd.tuigreet}";
+				#baseSessionsDIr = "${config.services.xserver.displayManager.sessionData.desktops}";
+				#xSessions = "${baseSessionsDir}/share/xsessions";
+				#waylandSessions = "${baseSessionDir}/share/wayland-sessions";
+				tuigreetOptions = [
+				  # "--remember"
+					# "--remember-session"
+					# "--sessions ${waylandSessions}:${xSessions}";
+				  "--time"
+					"--theme 'border=lightblue;prompt=green;time=orange;button=yellow;container=black'"
+					"--cmd Hyprland"
+					"-g 'Authorized Personnel Only'"
+				];
+
+				flags = lib.concatStringsSep " " tuigreetOptions;
+			in {
+			  command = "${tuigreet} ${flags}";
+			  user = "greeter";
 			};
+
+		 #  default_session = {
+			#   command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland -g 'Authorized Personnel Only' --theme border=lightblue\;prompt=green\;time=orange\;button=yellow";
+			# 	user = "greeter";
+			# };
 		};
 	};
 
@@ -111,46 +132,9 @@
     HibernateDelaySec = 600
   '';
 
-  # services.xserver = {
-  #   enable = true;
-  #   xkb.layout = "us";
-  #   xkb.variant = "";
-  #   #xkbOptions = "caps:escape";
-  #   #excludePackages = with pkgs; [ xterm ];
-  #   excludePackages = with pkgs; [ ];
-  #
-  #   # displayManager = {
-  #   #   lightdm.enable = true;
-  #   #   lightdm.greeters.slick = {
-  #   #     enable = true;
-  #   #     #theme.name = "Zukitre-dark";
-  #   #   };
-  #   #   defaultSession = "none+bspwm";
-  #   # };
-  #
-  #    displayManager = {
-		# 	 startx.enable = true;
-		# 	
-  #      autoLogin.enable = true;
-	 #     autoLogin.user = "${username}";
-  #
-  #      defaultSession = "none+bspwm";
-  #    };
-  #
-  #    windowManager.bspwm.enable = true;
-  #  };
-
   # ---------------------------------
 
-  # X11/XFCE SETTINGS
-  #services.xserver.displayManager.defaultSession = "none+bspwm";
-
-  # Security Services
-  #security.pam.services.lightdm.enableGnomeKeyring = true;
-	#security.pam.services.swaylock = {};
-
-	#security.pam.services.hyprlock = {};
-	#security.polkit.enable = true;
+  # SECURITY
 
   # Security / Polkit
   security.rtkit.enable = true;
@@ -186,23 +170,7 @@
   # DBus Setup
 	services.gnome.gnome-keyring.enable = true;
 
-	# services = {
-	#   dbus = {
-	#     enable = true;
- #      #implementation = "broker";
-	# 	  #packages = with pkgs; [ dconf gcr ];
-	#   };
-	#
-	#   devmon.enable = true;
-	#
-	#   gnome = {
-	#     gnome-keyring.enable = true;
-	#     #sushi.enable = true;
-	#   };
-	# };
-
-  # Call dbus-update-activation-environment on login
-  #services.xserver.updateDbusEnvironment = true;
+  # ---------------------------------
 
   xdg.autostart.enable = true;
 
@@ -223,41 +191,34 @@
   # ---------------------------------
 
   programs = {
-    # dconf.profiles.user.databases = [
-    #   {
-    #     settings = with lib.gvariant; {
-    #       "org/gnome/desktop/interface" = {
-    #         clock-format = "24h";
-    #         color-scheme = "prefer-dark";
-    #         cursor-size = mkInt32 48;
-    #         #cursor-theme = "catppuccin-mocha-blue-cursors";
-    #         document-font-name = "Work Sans 12";
-    #         font-name = "Work Sans 12";
-    #         #gtk-theme = "catppuccin-mocha-blue-standard+default";
-    #         gtk-enable-primary-paste = true;
-    #         icon-theme = "Papirus-Dark";
-    #         monospace-font-name = "FiraCode Nerd Font Mono Medium 13";
-    #         text-scaling-factor = mkDouble 1.0;
-    #       };
-    #
-    #       "org/gnome/desktop/sound" = {
-    #         theme-name = "freedesktop";
-    #       };
-    #
-    #       "org/gtk/gtk4/Settings/FileChooser" = {
-    #         clock-format = "12h";
-    #       };
-    #
-    #       "org/gtk/Settings/FileChooser" = {
-    #         clock-format = "12h";
-    #       };
-    #     };
-    #   }
-    # ];
-    nautilus-open-any-terminal = {
-      enable = true;
-      terminal = "kitty";
-    };
+    dconf.profiles.user.databases = [
+      {
+        settings = with lib.gvariant; {
+				  "org/nemo/plugins" = {
+					  disabled-actions = [ 
+						  "set-as-background.nemo_action" 
+							"change-background.nemo_action" 
+						];
+					};
+
+          "org/nemo/preferences" = {
+					  thumbnail-limit = "uint64 1073741824";
+					};
+
+					"org/nemo/window-state" = {
+					  maximized = true;
+						sidebar-bookmark-breakpoint = "0";
+						start-with-sidebar = true;
+					};
+        };
+      }
+    ];
+
+    # nautilus-open-any-terminal = {
+    #   enable = true;
+    #   terminal = "kitty";
+    # };
+
     file-roller.enable = true;
     gnome-disks.enable = true;
     seahorse.enable = true;
@@ -278,8 +239,6 @@
     # slurp                # Screenshots
 
     glib                 # Set GTK theme settings
-    # bitwarden-cli        # Bitwarden for rofi
-    # bitwarden-menu       # Bitwarden for rofi
     calcurse             # TUI Calendar app
 		udiskie
 		pulsemixer
@@ -288,6 +247,8 @@
 
     greetd.tuigreet      # Greeter
 
+    #mako                 # Notification daemon
+    dunst
     libnotify            # Notification libraries
     libinput-gestures    # Gesture Control
 
@@ -300,12 +261,9 @@
 		hyprpaper
 		#hyprutils
  
-    #kanshi   # wayland autorndr
-
 		swww
 		imv 	# image viewer
 		mpv   # video viewer
-		#vimiv-qt
 
 		waybar
 		waypaper
@@ -313,30 +271,23 @@
 		wlr-randr
     wlogout              # Logout/shutdown/hibernate/lock screen modal UI
     wl-clipboard         # Clipboard
-
-    mako                 # Notification daemon
     rofi-wayland         # App Launcher
+    #kanshi   # wayland autorndr
 
     # swayidle             # Idle management daemon - Automatic lock screen
 		# swaylock
     swayosd              # used for on-screen notifications for things like adjusting backlight, volume, etc
 		swayimg
 
-		# gum
-		# figlet
-		# stow
-    # eww
-
 		nwg-look     			# Theme changer
     nwg-displays			# Monitor display configuration
 
     # wayland-packages
-    #inputs.nixpkgs-wayland.packages.${system}.wayprompt  # from nixpkgs-wayland exclusively - pinentry UI
 		pkgs-unstable.wayprompt
 
-    gnome.nautilus
-		gnome.zenity
-		polkit_gnome
+    #gnome.nautilus
+		#gnome.zenity
+		#polkit_gnome
 		#themechanger
 
 		cinnamon.nemo
@@ -348,8 +299,7 @@
 		#cinnamon.xviewer
 		#cinnamon.xreader
 
-
-    blueman
+    #blueman
 
     kitty
     
