@@ -165,7 +165,7 @@
     extraPortals = [ 
 		  pkgs.xdg-desktop-portal
 		  pkgs.xdg-desktop-portal-gtk 
-		  #pkgs.xdg-desktop-portal-xapp
+		  pkgs.xdg-desktop-portal-wlr
 		  pkgs.xdg-desktop-portal-hyprland
 		];
     xdgOpenUsePortal = true;
