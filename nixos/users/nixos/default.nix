@@ -46,6 +46,7 @@ in {
 
   # ---------------------------------
 
+  # USER ENVIRONMENT PACKAGES 
   environment.systemPackages = with pkgs; [];
 
   # ---------------------------------
@@ -59,6 +60,7 @@ in {
 
   # ---------------------------------
 
+  # USER NIX SETTINGS
   # Make this user trusted
   nix.settings.trusted-users = [ "nixos" ];
 }

@@ -14,16 +14,9 @@
   programs.nm-applet.enable = true;
 
   # ---------------------------------
-# BLUETOOTH
+
+  # BLUETOOTH
   services.blueman.enable = true;
-
-  # ---------------------------------
-
-  # X2GO SERVER AND XRDP
-  #services.x2goserver.enable = true;
-  #services.xrdp.enable = true;
-  #services.xrdp.defaultWindowManager = "startxfce4";
-  #services.xrdp.openFirewall = true;
 
   # ---------------------------------
 
@@ -114,7 +107,7 @@
 
   # ---------------------------------
 
-  #HYPERLAND SETTINGS
+  # HYPERLAND SETTINGS
   programs.hyprland = {
 	  enable = true;
 		xwayland.enable = true;
@@ -161,6 +154,7 @@
     '';
   };
 
+  # GPG agent
   programs.gnupg.agent = {
 	  enable = true;
 		#enableSSHSupport = true;

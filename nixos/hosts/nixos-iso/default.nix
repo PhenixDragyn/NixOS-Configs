@@ -1,10 +1,13 @@
 { inputs, config, lib, pkgs, modulesPath, system, desktop, username, hostname, ... }: 
 
 {
+  # HOST NIX PLATFORM
   #nix build .#imageConfigurations.nixos-iso
   nixpkgs.hostPlatform = lib.mkDefault "${system}";
 
-  # NETWORKING
+  # ---------------------------------
+
+  # HOST NETWORK SETTINGS
   networking = lib.mkIf (desktop == null) {
     wireless = {
       enable = true;
@@ -23,6 +26,9 @@
     networkmanager.enable = lib.mkForce false;
   };
 
+  # ---------------------------------
+
+  # HOST SPECIFIC PACKAGES
   environment.systemPackages = with pkgs; [
     inputs.disko.packages.${system}.default
 
@@ -30,5 +36,8 @@
     networkmanager
   ];
 
+  # ---------------------------------
+  
+  # ISO AUTOLOGIN 
   services.getty.autologinUser = "${username}";
 }

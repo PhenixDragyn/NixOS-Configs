@@ -71,6 +71,7 @@
   };
 
   # ---------------------------------
+
   # NETWORKING
   networking = {
     hostName = hostname;
@@ -259,8 +260,6 @@
   };
 
   # ---------------------------------
-
-  #nixpkgs.hostPlatform = system;
 
   system.stateVersion = stateVersion;
 }
