@@ -15,6 +15,7 @@
     ../../modules/sxhkd.nix
     ../../modules/termite.nix
 
+    ../../modules/feh.nix
     ../../modules/ranger.nix
     ../../modules/nixvim.nix 
   ];
