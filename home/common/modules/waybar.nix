@@ -241,8 +241,8 @@
 
 							network = {
 									format = "{ifname}";
-									format-wifi = "  {ipaddr}";
-									format-ethernet = "  {ipaddr}";
+									format-wifi = "   {ipaddr}";
+									format-ethernet = "   {ipaddr}";
 									format-disconnected = ""; # Hides the module
 									tooltip-format = "{ifname} via {gwaddr}  ";
 									tooltip-format-wifi = "{essid} ({signalStrength}%)  ";

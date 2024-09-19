@@ -23,27 +23,18 @@
   # INPUT SETTINGS
   services.libinput = {
     enable = true;
-  #  touchpad = {
-  #    naturalScrolling = true; #nc default = false
-  #    disableWhileTyping = false; # default = false
-  #  };
-  #  mouse = {
-  #    naturalScrolling = true;
-  #  };
+    touchpad = {
+      naturalScrolling = true; #nc default = false
+      disableWhileTyping = false; # default = false
+    };
+    mouse = {
+      naturalScrolling = true;
+    };
   };
 
   # ---------------------------------
 
   # SETUP ENVIRONMENT VARIABLES
-  # Environment Variables
-  # environment.sessionVariables = {
-  #   QT_QPA_PLATFORMTHEME = "qt5ct";
-  #   #ADW_DISABLE_PORTAL = 1;
-  #
-  #   # Mozilla Touchscreen scroll
-  #   MOZ_USE_XINPUT2 = 1;
-  # };
-
   environment.variables = {
 	  WLR_RENDERER_ALLOW_SOFTWARE = 1;
 		#WLR_NO_HARDWARE_CURSORS = 1;
@@ -298,6 +289,7 @@
     gnome.nautilus
 		gnome.zenity
 		gedit
+		gimp-with-plugins
 		polkit_gnome
 		#themechanger
 		# shared-mime-info

@@ -80,7 +80,6 @@ INSTALLATION WITH NIX FLAKES
 
     wpa_passphrase ESSID | sudo tee /etc/wpa_supplicant.conf
     sudo wpa_supplicant -i<network device> -c/etc/wpa_supplicant.conf
-    sudo fdisk /dev/diskX
 
 # Git or copy flakes
 

@@ -69,18 +69,5 @@
   # networking.nameservers = [ "100.100.100.100" "8.8.8.8" "1.1.1.1" ];
   # networking.search = [ "aardwolf-alnilam.ts.net" ];
   # networking.firewall.trustedInterfaces = [ "tailscale0" ];
-
-  # ---------------------------------
-
-  # INPUT SETTINGS
-  # services.libinput = {
-  #   enable = true;
-  #   touchpad = {
-  #     naturalScrolling = true; # default = false
-  #     disableWhileTyping = false; # default = false
-  #   };
-  #   mouse = {
-  #     naturalScrolling = true;
-  #   };
   # };
 }
