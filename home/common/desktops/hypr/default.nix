@@ -4,11 +4,13 @@
 {
   imports = [
     # Modules
+    ../../modules/fastfetch.nix
     ../../modules/ranger.nix
     ../../modules/nixvim.nix 
 
     ../../modules/firefox.nix
     ../../modules/kitty.nix
+    ../../modules/nautilus.nix
 
     ../../modules/gtk.nix
     ../../modules/qt.nix
@@ -32,7 +34,6 @@
   # SYMLINKS
   home = {
     #file.".config/autostart".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/autostart";
-    file.".config/fastfetch".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/users/${username}/config/fastfetch";
     #file.".config/xfce".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/xfce";
 
     #file.".config/syncthingtray.ini".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/users/${username}/config/syncthing/syncthingtray.ini";

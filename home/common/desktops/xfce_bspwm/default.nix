@@ -17,6 +17,7 @@
     ../../modules/sxhkd.nix
     ../../modules/termite.nix
 
+    ../../modules/fastfetch.nix
     ../../modules/feh.nix
     ../../modules/ranger.nix
     ../../modules/nixvim.nix 
@@ -29,7 +30,6 @@
   # SYMLINKS
   home = {
     #file.".config/autostart".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/autostart";
-    #file.".config/fastfetch".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/users/${username}/config/fastfetch";
     #file.".config/xfce".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${buildSettings.username}/config/xfce";
   };
 }
