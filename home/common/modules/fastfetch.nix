@@ -6,4 +6,5 @@
       source = ./fastfetch;
       recursive = true;
     };
+	};
 }

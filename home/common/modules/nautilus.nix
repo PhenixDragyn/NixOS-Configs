@@ -1,4 +1,4 @@
-{ pkgs, username, desktop, ... }:
+{ ... }:
 
 {
   home.file = { 
@@ -6,4 +6,5 @@
       source = ./nautilus/scripts;
       recursive = true;
     };
+	};
 }
