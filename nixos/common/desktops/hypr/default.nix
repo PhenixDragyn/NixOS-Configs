@@ -217,9 +217,9 @@
     };
 
     file-roller.enable = true;
-    gnome-disks.enable = true;
     seahorse.enable = true;
     udevil.enable = true;
+    gnome-disks.enable = true;
     
     # thunar = {
     #   enable = true;
@@ -230,6 +230,8 @@
     #   ];
     # };
   };
+  
+	services.gnome.sushi.enable = true;
 
   # ---------------------------------
 
@@ -291,8 +293,11 @@
     # wayland-packages
 		pkgs-unstable.wayprompt
 
+		gnome.cheese
+		gnome.eog
     gnome.nautilus
 		gnome.zenity
+		gedit
 		polkit_gnome
 		#themechanger
 		# shared-mime-info

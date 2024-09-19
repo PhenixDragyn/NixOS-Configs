@@ -9,7 +9,7 @@
         mainBar = {
 				    id = "main";
 				    #output = "eDP-1";
-				    #output = ["!eDP-1", "*"];
+				    output = ["!eDP-1" "*"];
             layer = "top";
             position = "top";
 						margin-top = 0;
@@ -24,12 +24,11 @@
             ];
 
             modules-center = [
-						    "group/switcher"
-                #"hyprland/workspaces"
+						    "group/system"
             ];
 
             modules-right = [
-								"group/system"
+								"group/switcher"
                 "clock"
             ];
 
@@ -39,31 +38,34 @@
 								modules = [
 								  "custom/wlogout"
 									"custom/seperator"
-							    "custom/nix-updates"
+									"user"
+									"custom/seperator"
 									"idle_inhibitor"
+							    "custom/nix-updates"
 									"mpris"
 								];
 						};
 
-						"group/switcher" = {
+						"group/system" = {
                 orientation = "inherit";
 								modules = [
 								  "cpu"
 									"memory"
 									"disk"
 									"custom/seperator"
-								  "hyprland/workspaces"
+									"network"
+									"battery"
+									"backlight"
+									"pulseaudio"
+									"custom/seperator"
+									"tray"
 								];
 						};
 
-						"group/system" = {
+						"group/switcher" = {
 						    orientation = "inherit";
 								modules = [
-									"tray"
-									"custom/seperator"
-									"pulseaudio"
-									"network"
-									"battery"
+								  "hyprland/workspaces"
 								];
 						};
 
@@ -82,20 +84,24 @@
             # Modules
 						"custom/seperator" = {
 						    format = " | ";
+							  tooltip = false;
 						};
 
 						"custom/nixos" = {
 								format = ''<span color="#${config.lib.stylix.colors.base0D}">   </span>'';
+							  tooltip = false;
 						};
 
             "custom/wlogout" = {
                 format = "  ";
                 on-click = "wlogout";
+							  tooltip = false;
             };
 
 						tray = {
               icon-size = 16;
 							spacing = 4;
+							tooltip = false;
 						};
 
             idle_inhibitor = {
@@ -104,6 +110,7 @@
                     activated = "  ";
                     deactivated = "  ";
                 };
+							  tooltip = false;
             };
 
             mpris = {
@@ -144,12 +151,21 @@
 								# format = " {name} ";
 
   							persistent-workspaces = {
-									 "*" = 6; # 6 workspaces by default on every monitor
-									 "DP-1" = 3; # but only three on HDMI-A-1
+									 "*" = 3; # 6 workspaces by default on every monitor
+									 "DP-1" = 3; # but only three on external 
 								};
 
 								on-click = "activate";
+							  tooltip = false;
 						};
+           
+					  user = {
+              format = "{user} ( ↑ up {work_d} days)";
+							interval = 60;
+							height = 30;
+							width = 30;
+							icon = true;
+            };
 
 							cpu = {
 									interval = 10;
@@ -196,13 +212,22 @@
 											on-scroll-down = "shift_down";
 									};
 							};
-							
+
+							backlight = {
+								device = "intel_backlight";
+								format = "{icons} {percent}";
+								format-icons = ["  " "  "];
+							  tooltip = false;
+							};
+
 							pulseaudio = {
 									scroll-step = 1;
-									format = "{icon}{format_source}";
+									#format = "{icon}{format_source} {volume}";
+									format = "{icon} {volume}";
 									format-bluetooth = "{volume}% {icon} {format_source}";
 									format-bluetooth-muted = " ";
-									format-muted = " {format_source}";
+									#format-muted = "  {format_source}";
+									format-muted = "  ";
 									format-source = "  ";
 									format-source-muted = "  ";
 									format-icons = {
@@ -216,8 +241,8 @@
 
 							network = {
 									format = "{ifname}";
-									format-wifi = "  ";
-									format-ethernet = "  ";
+									format-wifi = "  {ipaddr}";
+									format-ethernet = "  {ipaddr}";
 									format-disconnected = ""; # Hides the module
 									tooltip-format = "{ifname} via {gwaddr}  ";
 									tooltip-format-wifi = "{essid} ({signalStrength}%)  ";

@@ -23,8 +23,7 @@
       binde = , left, resizeactive,-50 0
       binde = , right, resizeactive,50 0
       binde = , up, resizeactive,0 -50
-      binde = , down, resizeactive,0 50
-      bind  = , escape, submap, reset
+      binde = , down, resizeactive,0 50 bind  = , escape, submap, reset
       submap = reset
       '';
     settings = {
@@ -42,7 +41,8 @@
    #      "DP-1, 2560x1440, 0x-1440, 1" 
 			# ];
 			#
-			# workspace = [ "1, monitor:DP-1, default:true"
+			# workspace = [ 
+			#   "1, monitor:DP-1, default:true"
 			# 	"2, monitor:DP-1"
 			# 	"3, monitor:DP-1"
 			#
@@ -152,7 +152,8 @@
       };
       dwindle = {
         # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
-        pseudotile = true; # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+        pseudotile = false; # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+				force_split = 2;
         preserve_split = true;# you probably want this
 				#smart_split = true;
         #no_gaps_when_only = 1; # If it's the only window int he layout, 1=don't show gaps
@@ -172,17 +173,20 @@
 
       windowrulev2 = [
         ''float, class:(rofi), title:(rofi)''
+        ''float, class:(imv), title:(imv)''
       ];
 
       bind = [
       ''SUPER,, hyprexpo:expo, toggle''
       ''SUPER, RETURN, exec, kitty''
       ''SUPER, W, exec, firefox''
+      ''SUPER, E, exec, thunderbird''
+      ''SUPER, N, exec, nautilus''
 
       ''SUPER, Q, killactive,''
       ''SUPER, M, exit,''
       ''SUPER, F, togglefloating,''
-      #''SUPER, P, pseudo, # dwindle''
+      ''SUPER, P, pseudo, # dwindle''
       ''SUPER, J, togglesplit, # dwindle''
       #''SUPER, S, exec, steam -vgui''
       #''SUPER, B, exec, rofi-rbw --action copy --no-folder''
@@ -235,10 +239,6 @@
 
       # Take a screenshot with the Print key''
       #'', Print, exec, grim -g "$(slurp)" | wl-copy -t image/png''
-
-      ''SUPER, w, exec, firefox''
-      ''SUPER, e, exec, thunderbird''
-      ''SUPER, n, exec, nautilus''
 
       # Move to the previous / next workspace with SUPER-LEFT and SUPER-RIGHT
       # ''SUPER      , right, workspace, e+1''
