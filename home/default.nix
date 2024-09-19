@@ -5,8 +5,8 @@
     # Common configs
     #./common/software/cli
 
-    # User configs
-    ./users/${username}
+    # Software
+    #../packages/qrsync/qrsync.nix
 
     # NixVIM
     #inputs.nixvim.homeManagerModules.nixvim
@@ -14,12 +14,12 @@
     # Secrets 
     #inputs.sops-nix.homeManagerModules.sops
 
-    # Software
-    #../packages/qrsync/qrsync.nix
-
     # Stylix
     inputs.stylix.homeManagerModules.stylix
     ../stylix/stylix.nix
+
+    # User configs
+    ./users/${username}
   ]
   ++ lib.optional (builtins.isString desktop) ./common/desktops/${desktop}; 
 
@@ -186,7 +186,6 @@
   # } else {};
   
   # ---------------------------------
-
 
   # Silent news
   news.display = "silent";
