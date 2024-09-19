@@ -77,7 +77,7 @@
 
   # ---------------------------------
 
-  # X11 SETTINGS
+  # LOGIN SETTINGS
   services.greetd = {
 	  enable = true;
 		settings = {
@@ -101,18 +101,7 @@
 			  command = "${tuigreet} ${flags}";
 			  user = "greeter";
 			};
-
-		 #  default_session = {
-			#   command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland -g 'Authorized Personnel Only' --theme border=lightblue\;prompt=green\;time=orange\;button=yellow";
-			# 	user = "greeter";
-			# };
 		};
-	};
-
-  programs.hyprland = {
-	  enable = true;
-		xwayland.enable = true;
-    systemd.setPath.enable = true;
 	};
 
   services.logind.extraConfig = ''
@@ -123,6 +112,18 @@
     HandleLidSwitchExternalPower=suspend
   '';
 
+  # ---------------------------------
+
+  #HYPERLAND SETTINGS
+  programs.hyprland = {
+	  enable = true;
+		xwayland.enable = true;
+    systemd.setPath.enable = true;
+	};
+
+  # ---------------------------------
+
+  # SYSTEM SLEEP SETTINGS
   systemd.sleep.extraConfig = ''
     AllowSuspend = yes
     AllowHibernate = yes
@@ -135,7 +136,6 @@
   # ---------------------------------
 
   # SECURITY
-
   # Security / Polkit
   security.rtkit.enable = true;
   security.polkit.enable = true;
@@ -171,7 +171,8 @@
 	services.gnome.gnome-keyring.enable = true;
 
   # ---------------------------------
-
+ 
+  # XDG SETTINGS
   xdg.autostart.enable = true;
 
   xdg.portal = {
@@ -190,6 +191,7 @@
 
   # ---------------------------------
 
+  # PROGRAM SETTINGS
   programs = {
 		dconf.enable = true;
     # dconf.profiles.user.databases = [
