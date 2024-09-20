@@ -26,6 +26,7 @@
 		../../modules/imv.nix
 
 		../../modules/hyprlock.nix
+		../../modules/hypridle.nix
 		#../../modules/hyprpaper.nix
   ];
 
