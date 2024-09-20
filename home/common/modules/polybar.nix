@@ -580,7 +580,7 @@ fi
           #mount-2 = "/var";
 
           format-mounted-prefix = " ";
-          format-mounted-foreground = "\${colors.purple}";
+          format-mounted-prefix-foreground = "\${colors.purple}";
           #format-mounted-underline = "#06E87A";
 
           #label-mounted = "%{T2}%mountpoint%%{T-}:%free%%";

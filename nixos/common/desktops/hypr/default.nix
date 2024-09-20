@@ -154,6 +154,15 @@
 	};
 
   # DBus Setup
+  services.dbus = {
+    enable = true;
+    packages = [ pkgs.dconf ];
+  };
+
+  # Call dbus-update-activation-environment on login
+  services.xserver.updateDbusEnvironment = true;
+
+  # Gnome-Keyring Setup
 	services.gnome.gnome-keyring.enable = true;
 
   # ---------------------------------

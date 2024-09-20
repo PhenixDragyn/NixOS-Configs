@@ -175,8 +175,8 @@
       windowrulev2 = [
         ''float, class:(rofi), title:(rofi)''
         ''float, class:(imv), title:(imv)''
-        ''float, class:(keepasxc), title:(KeePassXC)''
-        ''float, class:(syncthingtray), title:(Syncthing Tray)''
+        ''float, title:(.*)(KeePassXC), size: 1080 650''
+        ''float, title:(.*)(Syncthing)(.*)''
       ];
 
       bind = [
@@ -357,6 +357,7 @@
 
           # Notification listener
           #mako 
+					dunst
       '';
     };
   };
