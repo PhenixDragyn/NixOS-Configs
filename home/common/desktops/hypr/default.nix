@@ -26,7 +26,6 @@
 		../../modules/imv.nix
 
 		../../modules/hyprlock.nix
-		../../modules/hypridle.nix
 		#../../modules/hyprpaper.nix
   ];
 
@@ -39,9 +38,4 @@
 
     file.".config/syncthingtray.ini".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/users/${username}/config/syncthing/syncthingtray.ini";
   };
-
-  # ---------------------------------
-
-	# SET DESKTOP AUTOSTART
-	xdg.autostart.enable = true;
 }

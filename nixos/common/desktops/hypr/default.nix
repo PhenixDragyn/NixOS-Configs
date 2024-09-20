@@ -159,7 +159,7 @@
   # ---------------------------------
  
   # XDG SETTINGS
-  xdg.autostart.enable = true;
+  #xdg.autostart.enable = true;
 
   xdg.portal = {
     enable = true;

@@ -180,11 +180,11 @@ in
         };
         listener = [
           {
-            timeout = 300;
+            timeout = 900;
             on-timeout = "${lib.getExe pkgs.hyprlock}";
           }
           {
-            timeout = 305;
+            timeout = 1200;
             on-timeout = "hyprctl dispatch dpms off";
             on-resume = "hyprctl dispatch dpms on";
           }
