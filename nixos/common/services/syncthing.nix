@@ -47,10 +47,10 @@
           autoAcceptFolders = true;
           id = "VEV77YU-ZL74KVJ-203R7IX-5IQNQIM-4ZBUBLX-FGQWD06-SZTEEVI-JYYTKQX"; 
         };
-        "ArchLinux" = { 
-          autoAcceptFolders = true;
-          id = "T2KGAP2-3NUX7XQ-Q77CWIM-QJLB700-ZULQTH3-6JMYJR5-6EZUNKL-VRRCRAI"; 
-        };
+        # "ArchLinux" = { 
+        #   autoAcceptFolders = true;
+        #   id = "T2KGAP2-3NUX7XQ-Q77CWIM-QJLB700-ZULQTH3-6JMYJR5-6EZUNKL-VRRCRAI"; 
+        # };
       	#"NixOS-LT" = { id = "R376GRY-YR4MKG2-2UG3VFQ-5RJ7EEI-SZ2LQZX-TLPWXKS-KOPBIU4-SCSRQQO"; };
       };
  
