@@ -59,7 +59,8 @@
           id = "sync";
           path = "/home/${username}/Sync";
           #versioning.type = "trashcan";
-          devices = [ "Macbook" "ArchLinux" ];
+          devices = [ "Macbook" ];
+          #devices = [ "Macbook" "ArchLinux" ];
         };
       };
 
