@@ -520,7 +520,7 @@ Deeply inspired in Cascade, SimpleFox & more...
   position: relative !important;
   margin-top: 0px !important;
   border-right: none;
-  transition: all 200ms !important;
+  transition: all 400ms !important;
 
   /* lock sidebar to specified width */
   min-width: var(--thin-tab-width) !important;
@@ -556,7 +556,7 @@ Deeply inspired in Cascade, SimpleFox & more...
   margin-right: calc(
     (var(--wide-tab-width) - var(--thin-tab-width)) * -1
   ) !important;
-  transition: all 200ms !important;
+  transition: all 400ms !important;
 }
 
 #sidebar-header {
