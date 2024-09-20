@@ -258,10 +258,27 @@
 
 			# Audo controls
       #'', XF86AudioMute, exec, swayosd --output-volume=mute-toggle''
-      '', XF86AudioMute, exec, playerctl play-pause''
-      '', XF86AudioPrev, exec, playerctl previous''
-      '', XF86AudioNext, exec, playerctl next''
+      # '', XF86AudioMute, exec, playerctl play-pause''
+      # '', XF86AudioPrev, exec, playerctl previous''
+      # '', XF86AudioNext, exec, playerctl next''
+      
+			# Fn keys
+			'', XF86MonBrightnessUp, exec, brightnessctl -q s +10%'' # Increase brightness by 10%
+			'', XF86MonBrightnessDown, exec, brightnessctl -q s 10%-'' # Reduce brightness by 10%
+			'', XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%'' # Increase volume by 5%
+			'', XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%'' # Reduce volume by 5%
+			'', XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'' # Toggle mute
+			'', XF86AudioPlay, exec, playerctl play-pause'' # Audio play pause
+			'', XF86AudioPause, exec, playerctl pause'' # Audio pause
+			'', XF86AudioNext, exec, playerctl next'' # Audio next
+			'', XF86AudioPrev, exec, playerctl previous'' # Audio previous
+			'', XF86AudioMicMute, exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle'' # Toggle microphone
+			'', XF86Lock, exec, hyprlock # Open screenlock''
+
+			'', code:238, exec, brightnessctl -d smc::kbd_backlight s +10''
+			'', code:237, exec, brightnessctl -d smc::kbd_backlight s 10-'' 
       ];
+
       bindm = [
         # Move/resize windows with mainMod + LMB/RMB and dragging
         #''LCTRL SHIFT, mouse:272, movewindow''
@@ -284,6 +301,11 @@
       ];
 
       exec-once = ''bash ~/.config/hypr/start.sh'';
+
+      # Autostart
+			# exec-once blueman-applet &
+		 #  exec-once	syncthing --no-browser &
+		 #  exec-once	syncthingtray --wait &
     };
   };
 
@@ -304,6 +326,14 @@
 
           # Waybar
           waybar &
+
+          # Autostart
+ 				  blueman-applet &
+				  sleep 1
+					keepassxc &
+					#syncthing --no-browser &
+					sleep 2
+					syncthingtray --wait &
 
           # Set up the idle management daemon
           # swayidle -w \
