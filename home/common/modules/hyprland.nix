@@ -117,7 +117,7 @@
 				#background_color = 0x24273a;
       };
       decoration = {
-        rounding = 0;
+        rounding = 1;
         active_opacity = 0.95;
         inactive_opacity = 0.8;
         fullscreen_opacity = 1.0;

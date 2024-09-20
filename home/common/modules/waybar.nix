@@ -305,7 +305,7 @@
 * {
     /*font-family: "Fira Sans Semibold", "Font Awesome 6 Free", FontAwesome, Roboto, Helvetica, Arial, sans-serif;*/
     border: none;
-    border-radius: 0px;
+    border-radius: 2px;
 }
 
 window#waybar {
@@ -327,7 +327,7 @@ window#waybar {
     background: @workspacesbackground1;
     margin: 0px 0px 0px 0px;
     padding: 0px 0px;
-    border-radius: 0px;
+    border-radius: 2px;
     border: 0px;
     font-weight: bold;
     font-style: normal;
@@ -340,7 +340,7 @@ window#waybar {
 #workspaces button {
     padding: 0px 0px;
     margin: 0px 0px;
-    border-radius: 0px;
+    border-radius: 2px;
     /*border: 0px;*/
     /*color: @textcolor2;*/
     /*background-color: @workspacesbackground1;*/
@@ -352,7 +352,7 @@ window#waybar {
 #workspaces button.persistent {
     color: @textcolor1; /* gray */
     background: @workspacesbackground1;
-    border-radius: 0px;
+    border-radius: 2px;
     min-width: 40px;
     transition: all 0.3s ease-in-out;
     opacity:1.0;
@@ -361,7 +361,7 @@ window#waybar {
 #workspaces button.active {
     color: @textcolor2; /* blue */
     background: @workspacesbackground1;
-    border-radius: 0px;
+    border-radius: 2px;
     min-width: 40px;
     transition: all 0.3s ease-in-out;
     opacity:1.0;
@@ -370,7 +370,7 @@ window#waybar {
 #workspaces button.visible {
     color: @textcolor3; /* orange */
     background: @workspacesbackground1;
-    border-radius: 0px;
+    border-radius: 2px;
     min-width: 40px;
     transition: all 0.3s ease-in-out;
     opacity:1.0;
@@ -379,7 +379,7 @@ window#waybar {
 #workspaces button.empty {
     color: @textcolor1; /* gray */
     background: @workspacesbackground1;
-    border-radius: 0px;
+    border-radius: 2px;
     min-width: 40px;
     transition: all 0.3s ease-in-out;
     opacity:1.0;
@@ -388,7 +388,7 @@ window#waybar {
 #workspaces button:hover {
     color: @textcolor3; /* orange */
     background: @workspacesbackground1;
-    border-radius: 0px;
+    border-radius: 2px;
     opacity:0.7;
 }
 
@@ -397,7 +397,7 @@ window#waybar {
  * ----------------------------------------------------- */
 
 tooltip {
-    border-radius: 0px;
+    border-radius: 2px;
     background-color: @backgroundlight;
     opacity:0.8;
     padding:20px;
@@ -416,7 +416,7 @@ tooltip label {
     background: @backgroundlight;
     margin: 2px 0px 2px 0px;
     padding: 0px 10px 0px 10px;
-    border-radius: 0px;
+    border-radius: 2px;
     color:@textcolor1;
     font-size:12px;
     font-weight:normal;
@@ -435,7 +435,7 @@ window#waybar.empty #window {
     background: @backgroundlight;
     margin: 2px 0px 2px 0px;
     padding:0px;
-    border-radius: 0px;
+    border-radius: 2px;
     font-weight: normal;
     font-style: normal;
     opacity:0.8;
@@ -444,7 +444,7 @@ window#waybar.empty #window {
 
 #taskbar button {
     margin:0;
-    border-radius: 0px;
+    border-radius: 2px;
     padding: 0px 5px 0px 5px;
 }
 
@@ -558,7 +558,7 @@ window#waybar.empty #window {
     background-color: @backgroundlight;
     font-size: 14px;
     color: @textcolor1;
-    border-radius: 0px;
+    border-radius: 2px;
     padding: 0px 5px 0px 5px;
     margin: 2px 20px 2px 5px;
     opacity:0.8;
@@ -585,7 +585,7 @@ window#waybar.empty #window {
     background-color: @backgroundlight;
     font-size: 14px;
     color: @textcolor1;
-    border-radius: 0px;
+    border-radius: 2px;
     padding: 0px 5px 0px 5px;
     margin: 2px 0px 2px 0px;
     opacity:0.8;
@@ -613,7 +613,7 @@ window#waybar.empty #window {
     background-color: @backgroundlight;
     font-size: 14px;
     /*color: @textcolor1;*/
-    border-radius: 0px;
+    border-radius: 2px;
     padding: 0px 5px 0px 5px;
     margin: 2px 0px 2px 0px;
     opacity: 0.8;
@@ -643,7 +643,7 @@ window#waybar.empty #window {
     background-color: @backgroundlight;
     font-size: 14px;
     color: @textcolor1;
-    border-radius: 0px;
+    border-radius: 2px;
     padding: 0px 5px 0px 5px;
     margin: 2px 5px 2px 20px;
     opacity:0.8;
@@ -658,7 +658,7 @@ window#waybar.empty #window {
     background-color: @backgroundlight;
     font-size: 14px;
     color: @textcolor1;
-    border-radius: 0px;
+    border-radius: 2px;
     padding: 0px 5px 0px 5px;
     margin: 2px 0px 2px 0px;
     opacity:0.8;
@@ -672,7 +672,7 @@ window#waybar.empty #window {
     background-color: @backgroundlight;
     font-size: 14px;
     color: @textcolor1;
-    border-radius: 0px;
+    border-radius: 2px;
     padding: 0px 5px 0px 5px;
     margin: 2px 0px 2px 0px;
     opacity:0.8;
@@ -691,7 +691,7 @@ window#waybar.empty #window {
     background-color: @backgroundlight;
     font-size: 14px;
     color: @textcolor1;
-    border-radius: 0px;
+    border-radius: 2px;
     padding: 0px 5px 0px 5px;
     margin: 2px 0px 2px 0px;
     opacity:0.8;
@@ -715,7 +715,7 @@ window#waybar.empty #window {
     background-color: @backgroundlight;
     font-size: 14px;
     color: @textcolor1;
-    border-radius: 0px;
+    border-radius: 2px;
     padding: 0px 5px 0px 5px;
     margin: 2px 0px 2px 0px;
     opacity:0.8;
@@ -735,7 +735,7 @@ window#waybar.empty #window {
     background-color: @backgroundlight;
     font-size: 14px;
     color: @textcolor1;
-    border-radius: 0px;
+    border-radius: 2px;
     padding: 0px 5px 0px 5px;
     margin: 2px 0px 2px 0px;
     opacity:0.8;
