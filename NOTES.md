@@ -142,3 +142,28 @@ nix build .#imageConfigurations.nixos-iso-console.config.system.build.isoImage
 nix-shell -p qemu
 #> qemu-system-x86_64 -enable-kvm -m 256 -cdrom result/iso/nixos-*.iso
 qemu-system-x86_64 -enable-kvm -m 4096 -cpu host -device virtio-vga-gl -device intel-hda -device hda-duplex -display gtk,gl=on -cdrom result/iso/nixos.iso
+
+
+# HYPERLAND CLIPBOARD
+Skimmed thru writing and saw screenshot part.
+Here is another solution stolen from somewhere on github, unfortunately don't remember from where and who.
+Freezes screen for you to select region means pop-ups should be captured as well.
+Also works in games.
+Output folder can be set (instead of -o -put -o your_path) altho I prefer to not save and have it just copied to clipboard.
+ 
+#----
+#!/bin/bash
+
+hyprpicker -r -z &
+hyprpicker_pid=$!
+sleep 0.1
+hyprshot -m region --clipboard-only | grim -t png -c -o -
+hyprshot_pid=$!
+wait $hyprshot_pid
+sleep 0.1
+kill $hyprpicker_pid
+kill $hyprshot_pid
+#----
+
+
+

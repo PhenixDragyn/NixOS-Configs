@@ -177,6 +177,7 @@
         ''float, class:(imv), title:(imv)''
         ''float, title:(.*)(KeePassXC), size: 1080 650''
         ''float, title:(.*)(Syncthing)(.*)''
+        ''float, class:^(thunderbird)$, title:^(.*)(Reminder)(.*)''
       ];
 
       bind = [
