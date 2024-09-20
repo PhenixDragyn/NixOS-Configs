@@ -226,8 +226,6 @@
   
 	services.gnome.sushi.enable = true;
 
-  services.hypridle.enable = true;
-
   # ---------------------------------
 
   # SYSTEM PACKAGES 
