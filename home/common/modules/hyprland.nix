@@ -249,8 +249,9 @@
       # ''SHIFT ALT, H, workspace, e-1''
 
       # Lock the screen, send to swaylock and pause music
-      ''SUPER, X, exec, hyprlock''
-      ''SUPER, X, exec, playerctl pause''
+			# Defined in hyprlock.nix
+      #''SUPER, X, exec, hyprlock''
+      #''SUPER, X, exec, playerctl pause''
 
       # to switch between windows in a floating workspace
       ''SUPER ,Tab, cyclenext,          # change focus to another window''
