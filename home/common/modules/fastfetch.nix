@@ -96,7 +96,7 @@
           },
           {
             "type": "gpu",
-            "key": "│ ├﬙",
+            "key": "│ ├",
             "keyColor": "green"
           },
           {
