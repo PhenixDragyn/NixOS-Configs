@@ -2,7 +2,7 @@
 
 {
   programs.fastfetch.enable = true;
-  home.file.".config/fastfetch/config.jsonc".text = # jsonc
+  home.file.".config/fastfetch/fastfetch.jsonc".text = # jsonc
     ''
       {
         "logo": {
