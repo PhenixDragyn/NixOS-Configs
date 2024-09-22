@@ -19,6 +19,7 @@
 
     ../../modules/fastfetch.nix
     ../../modules/feh.nix
+    ../../modules/fzf.nix
     ../../modules/ranger.nix
     ../../modules/nixvim.nix 
 
