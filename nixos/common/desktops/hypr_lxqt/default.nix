@@ -11,7 +11,7 @@
 
   # NETWORKING
   # Enable network manager applet
-  programs.nm-applet.enable = true;
+  programs.nm-applet.enable = false;
 
   # ---------------------------------
 
@@ -147,11 +147,11 @@
   };
 
   # GPG agent
-  programs.gnupg.agent = {
-	  enable = true;
-		#enableSSHSupport = true;
-	  pinentryPackage = lib.mkForce pkgs.pinentry-gnome3;
-	};
+ #  programs.gnupg.agent = {
+	#   enable = true;
+	# 	#enableSSHSupport = true;
+	#   pinentryPackage = lib.mkForce pkgs.pinentry-gnome3;
+	# };
 
   # DBus Setup
   services.dbus = {
@@ -163,7 +163,7 @@
   services.xserver.updateDbusEnvironment = true;
 
   # Gnome-Keyring Setup
-	services.gnome.gnome-keyring.enable = true;
+	#services.gnome.gnome-keyring.enable = true;
 
   # ---------------------------------
  
@@ -174,54 +174,53 @@
     enable = true;
     extraPortals = [ 
 		  pkgs.xdg-desktop-portal
-		  pkgs.xdg-desktop-portal-gtk 
-		  pkgs.xdg-desktop-portal-gnome 
 		  pkgs.xdg-desktop-portal-wlr
 		  pkgs.xdg-desktop-portal-hyprland
+			pkgs.lxqt.xdg-desktop-portal-lxqt
 		];
     xdgOpenUsePortal = true;
-    #config.common.default = "*";
-    config.common.default = [ "hyprland" "gtk" ];
-		config.common."org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+    config.common.default = "*";
+    #config.common.default = [ "hyprland" "gtk" ];
+		#config.common."org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
   };
 
   # ---------------------------------
 
   # PROGRAM SETTINGS
-  programs = {
-		dconf.enable = true;
-    # dconf.profiles.user.databases = [
-    #   {
-    #     settings = with lib.gvariant; {
-				#   "org/nemo/plugins" = {
-				# 	  disabled-actions = [ 
-				# 		  "set-as-background.nemo_action" 
-				# 			"change-background.nemo_action" 
-				# 		];
-				# 	};
-    #
-    #       "org/nemo/preferences" = {
-				# 	  thumbnail-limit = "uint64 1073741824";
-				# 	};
-    #
-				# 	"org/nemo/window-state" = {
-				# 	  maximized = true;
-				# 		sidebar-bookmark-breakpoint = "0";
-				# 		start-with-sidebar = true;
-				# 	};
-    #     };
-    #   }
-    # ];
-
-    nautilus-open-any-terminal = {
-      enable = true;
-      terminal = "kitty";
-    };
-
-    file-roller.enable = true;
-    seahorse.enable = true;
-    udevil.enable = true;
-    gnome-disks.enable = true;
+  #programs = {
+		# dconf.enable = true;
+  #   # dconf.profiles.user.databases = [
+  #   #   {
+  #   #     settings = with lib.gvariant; {
+		# 		#   "org/nemo/plugins" = {
+		# 		# 	  disabled-actions = [ 
+		# 		# 		  "set-as-background.nemo_action" 
+		# 		# 			"change-background.nemo_action" 
+		# 		# 		];
+		# 		# 	};
+  #   #
+  #   #       "org/nemo/preferences" = {
+		# 		# 	  thumbnail-limit = "uint64 1073741824";
+		# 		# 	};
+  #   #
+		# 		# 	"org/nemo/window-state" = {
+		# 		# 	  maximized = true;
+		# 		# 		sidebar-bookmark-breakpoint = "0";
+		# 		# 		start-with-sidebar = true;
+		# 		# 	};
+  #   #     };
+  #   #   }
+  #   # ];
+		#
+  #   nautilus-open-any-terminal = {
+  #     enable = true;
+  #     terminal = "kitty";
+  #   };
+		#
+  #   file-roller.enable = true;
+  #   seahorse.enable = true;
+  #   udevil.enable = true;
+  #   gnome-disks.enable = true;
     
     # thunar = {
     #   enable = true;
@@ -231,9 +230,9 @@
     #     thunar-volman
     #   ];
     # };
-  };
+  #};
   
-	services.gnome.sushi.enable = true;
+	#services.gnome.sushi.enable = true;
 
   # ---------------------------------
 
@@ -255,6 +254,7 @@
 
 		cliphist
 
+    #greetd.tuigreet      # Greeter
     greetd.tuigreet      # Greeter
 
     #mako                 # Notification daemon
@@ -295,13 +295,13 @@
     # wayland-packages
 		pkgs-unstable.wayprompt
 
-		gnome.cheese
-		gnome.eog
-    gnome.nautilus
-		gnome.zenity
-		gedit
-		gimp-with-plugins
-		polkit_gnome
+		# gnome.cheese
+		# gnome.eog
+  #   gnome.nautilus
+		# gnome.zenity
+		# gedit
+		# gimp-with-plugins
+		# polkit_gnome
 
 		#themechanger
 		# shared-mime-info
@@ -310,8 +310,13 @@
 		# webp-pixbuf-loader
 		# libavif
 
-		#qimgv
-		#pcmanfm-qt
+    kdePackages.qt6ct
+    libsForQt5.qt5ct 
+    lxqt.pavucontrol-qt
+    lxqt.pcmanfm-qt
+    lxqt.qlipper
+    nm-tray
+    qimgv
 
 		#calcure
 		
