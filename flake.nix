@@ -68,7 +68,7 @@
     # nix build .#imageConfigurations.nixos-iso
     imageConfigurations = {
       nixos-iso = libx.mkImage { hostname = "nixos-iso"; username = "nixos"; system = "x86_64-linux"; theme = "ia-dark"; format = "iso"; };
-      nixos-iso2 = libx.mkImage { hostname = "nixos-iso"; username = "nixos"; system = "x86_64-linux"; theme = "ia-dark"; desktop = "hypr_lxqt"; format = "iso"; unfree = true; };
+      nixos-iso2 = libx.mkImage { hostname = "nixos-iso"; username = "nixos"; system = "x86_64-linux"; theme = "ia-dark"; desktop = "hypr"; format = "iso"; unfree = true; };
     };
 
     # Devshell for bootstrapping; acessible via 'nix develop'
