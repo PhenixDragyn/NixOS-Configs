@@ -1,4 +1,4 @@
-{ inputs, pkgs, theme, ... }:
+{ inputs, pkgs, config, theme, ... }:
 
 {
   imports = [ inputs.stylix.nixosModules.stylix ];
