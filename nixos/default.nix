@@ -16,7 +16,7 @@
     # Stylix (Set in hosts default.nix) 
     # ISO can't have both Hosts and Home defined.
     #inputs.stylix.nixosModules.stylix 
-		#../stylix/stylix.nix
+		#../stylix/stylix-nixos.nix
 
     # NixOS and Home
     ./hosts/${hostname}
@@ -26,7 +26,7 @@
    ++ (if ( format != "iso")
        then [ 
          inputs.stylix.nixosModules.stylix
-         ../stylix/stylix.nix
+         ../stylix/stylix-nixos.nix
        ]
        else []);
 
