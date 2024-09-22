@@ -5,7 +5,6 @@
   imports = [
     # Modules
     ../../modules/fastfetch.nix
-    ../../modules/fzf.nix
     ../../modules/ranger.nix
     ../../modules/nixvim.nix 
 
