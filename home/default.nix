@@ -16,7 +16,7 @@
 
     # Stylix
     inputs.stylix.homeManagerModules.stylix
-    ../stylix/stylix-home.nix
+    ../stylix/stylix.nix
 
     # User configs
     ./users/${username}

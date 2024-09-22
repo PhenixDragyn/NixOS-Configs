@@ -26,7 +26,7 @@
    ++ (if ( format != "iso")
        then [ 
          inputs.stylix.nixosModules.stylix
-         ../stylix/stylix-nixos.nix
+         ../stylix/stylix.nix
        ]
        else []);
 
