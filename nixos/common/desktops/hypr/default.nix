@@ -313,7 +313,7 @@
 		#qimgv
 		#pcmanfm-qt
 
-		#calcure
+		calcure
 		
     #blueman
 

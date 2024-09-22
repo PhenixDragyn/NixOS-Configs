@@ -12,9 +12,9 @@
     ../../modules/kitty.nix
     ../../modules/nautilus.nix
 
-    ../../modules/gtk.nix
-    ../../modules/qt.nix
-
+    # ../../modules/gtk.nix
+    # ../../modules/qt.nix
+    
     ../../modules/dunst.nix
     ../../modules/hyprland.nix
     ../../modules/rofi-wayland.nix

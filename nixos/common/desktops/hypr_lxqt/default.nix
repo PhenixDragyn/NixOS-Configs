@@ -43,18 +43,22 @@
     #HYPRCURSOR_SIZE = 24;
     #HYPRCURSOR_THEME = ${config.stylix.cursor.name}"_OVERRIDE" = pkgs.lib.mkForce "adwaita-dark";
 
-		XDG_CURRENT_DESKTOP = "Hyprland";
-    XDG_SESSION_TYPE = "wayland";
-		XDG_SESSION_DESKTOP = "Hyprland";
+		#XDG_CURRENT_DESKTOP = "Hyprland";
+    #XDG_SESSION_TYPE = "wayland";
+		#XDG_SESSION_DESKTOP = "Hyprland";
 
-    QT_QPA_PLATFORM = "wayland;xcb";
-    QT_QPA_PLATFORMTHEME = "qt5ct";
+		XDG_CURRENT_DESKTOP = "LXQt:Hyprland";
+    QT_QPA_PLATFORMTHEME = "lxqt";
+    QT_QPA_PLATFORM_PLUGIN = "lxqt";
+		
+    #QT_QPA_PLATFORM = "wayland;xcb";
     #QT_QPA_PLATFORMTHEME = "qt6ct";
-		QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
-		QT_AUTO_SCREEN_SCALE_FACTOR = 1;
+		#QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
+		#QT_AUTO_SCREEN_SCALE_FACTOR = 1;
 
-		GDK_SCALE = 1;
-		GDK_BACKEND = "wayland,x11,*"; CLUTTER_BACKEND = "wayland"; MOZ_ENABLE_WAYLAND =1; MOZ_USE_XINPUT2 = 1;
+		#GDK_SCALE = 1;
+		#GDK_BACKEND = "wayland,x11,*"; CLUTTER_BACKEND = "wayland"; MOZ_ENABLE_WAYLAND =1; MOZ_USE_XINPUT2 = 1;
+		
     #SWWW_TRANSITION_STEP,60;
     #SWWW_TRANSITION,simple;
   };
@@ -177,8 +181,7 @@
 		  pkgs.xdg-desktop-portal-wlr
 		  pkgs.xdg-desktop-portal-hyprland
 			pkgs.lxqt.xdg-desktop-portal-lxqt
-		];
-    xdgOpenUsePortal = true;
+		]; xdgOpenUsePortal = true;
     config.common.default = "*";
     #config.common.default = [ "hyprland" "gtk" ];
 		#config.common."org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
@@ -315,6 +318,10 @@
     lxqt.pavucontrol-qt
     lxqt.pcmanfm-qt
     lxqt.qlipper
+		lxqt.lxqt-session
+		lxqt.lxqt-config
+		lxqt.lxqt-admin
+		lxqt.lxqt-archiver
     nm-tray
     qimgv
 
@@ -330,6 +337,8 @@
     keepassxc
     keepass-charactercopy
     git-credential-keepassxc
+
+    zafiro-icons
   ] ++ (if (system == "x86_64-linux")
 	        then [ pkgs.freeoffice pkgs.spotify ]
 				else 

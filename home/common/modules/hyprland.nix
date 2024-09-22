@@ -359,6 +359,8 @@
           # Notification listener
           #mako 
 					dunst
+
+					#lxqt-session
       '';
     };
   };
