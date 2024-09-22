@@ -1,4 +1,4 @@
-{ inputs, opts, pkgs, config, ... }: 
+{ inputs, pkgs, config, theme, ... }:
 
 {
   imports = [ inputs.stylix.homeManagerModules.stylix ];
