@@ -38,8 +38,10 @@
   environment.variables = {
 	  WLR_RENDERER_ALLOW_SOFTWARE = 1;
 		#WLR_NO_HARDWARE_CURSORS = 1;
-		#NIXOS_OZONE_WL = 1;
-    #"QT_STYLE_OVERRIDE" = pkgs.lib.mkForce "adwaita-dark";
+		
+    GTK_THEME,adw-gtk3;
+    HYPRCURSOR_SIZE,24;
+    HYPRCURSOR_THEME,${config.stylix.cursor.name}"_OVERRIDE" = pkgs.lib.mkForce "adwaita-dark";
 
 		XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_TYPE = "wayland";
@@ -57,6 +59,9 @@
 
 		MOZ_ENABLE_WAYLAND =1;
     MOZ_USE_XINPUT2 = 1;
+
+    #SWWW_TRANSITION_STEP,60;
+    #SWWW_TRANSITION,simple;
   };
 
   # ---------------------------------

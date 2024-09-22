@@ -1,4 +1,5 @@
 { lib, pkgs, ... }:
+
 let
   binds = [
     "--bind='ctrl-d:preview-down'"
