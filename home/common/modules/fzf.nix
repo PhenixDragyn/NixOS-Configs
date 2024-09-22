@@ -48,7 +48,6 @@ let
 
       # filesystem
       eza
-
       openssl
       coreutils
       ffmpegthumbnailer
@@ -63,6 +62,7 @@ let
       poppler_utils
       fd
     ];
+
     text = ''
       if [[ $# -ne 1 ]]; then
         >&2 echo "usage: $0 FILENAME"
@@ -82,7 +82,8 @@ let
         case "$1" in
 
         image/*)
-          chafa -f sixel -s "''${FZF_PREVIEW_COLUMNS}x''${FZF_PREVIEW_LINES}" "$2" --animate false
+          #chafa -f sixel -s "''${FZF_PREVIEW_COLUMNS}x''${FZF_PREVIEW_LINES}" "$2" --animate false
+          kitty icat --clear --transfer-mode=memory --unicode-placeholder --stdin=no --place="$dim@0x0" "$2" | sed '$d' | sed $'$s/$/\e[m/'
           mediainfo "$2"
           ;;
         *) exiftool -All "$2" ;;
@@ -183,7 +184,6 @@ in
     };
 
     fzf = {
-
       enable = true;
       inherit defaultOptions;
 
@@ -201,6 +201,7 @@ in
         src = zsh-fzf-tab;
         file = "share/fzf-tab/fzf-tab.plugin.zsh";
       }];
+
       initExtra = # sh
         ''
           bindkey '^[j' fzf-tab-complete
@@ -229,9 +230,6 @@ in
           zstyle ':fzf-tab:complete:systemctl-*:*' ${
             lib.getExe fzf-preview
           } 'SYSTEMD_COLORS=1 systemctl status $word'
-
-
-
         '';
     };
 
