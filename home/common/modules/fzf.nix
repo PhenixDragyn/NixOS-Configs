@@ -42,6 +42,7 @@ let
 
       # for text
       bat
+			icat
       jq
       glow
       w3m
