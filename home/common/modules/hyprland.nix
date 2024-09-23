@@ -94,9 +94,8 @@
           kb_layout = "us";
           follow_mouse = "1";
           mouse_refocus = false;
-					mouse = {
-					    natural_scroll = true;
-					};
+					natural_scroll = true;
+				
           touchpad = {
               natural_scroll = true;
               disable_while_typing = true;

@@ -165,5 +165,6 @@ kill $hyprpicker_pid
 kill $hyprshot_pid
 #----
 
-
+# Repair fonts 
+fc-cache -fr
 

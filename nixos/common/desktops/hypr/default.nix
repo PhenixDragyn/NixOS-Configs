@@ -1,4 +1,4 @@
-{ lib, pkgs, pkgs-unstable, username, system, ... }:
+{ config, lib, pkgs, pkgs-unstable, username, system, ... }:
 
 { 
 # You can import other NixOS modules here 
@@ -66,24 +66,56 @@
 	  enable = true;
 		settings = {
 			default_session = let
-			  tuigreet = "${lib.getExe pkgs.greetd.tuigreet}";
+			  #tuigreet = "${lib.getExe pkgs.greetd.tuigreet}";
+			  #gtkgreet = "${lib.getExe pkgs.greetd.gtkgreet}";
+			  regreet = "${lib.getExe pkgs.greetd.regreet}";
+				
+
 				#baseSessionsDIr = "${config.services.xserver.displayManager.sessionData.desktops}";
 				#xSessions = "${baseSessionsDir}/share/xsessions";
 				#waylandSessions = "${baseSessionDir}/share/wayland-sessions";
-				tuigreetOptions = [
-				  # "--remember"
-					# "--remember-session"
-					# "--sessions ${waylandSessions}:${xSessions}";
-				  "--time"
-					"--theme 'border=lightblue;prompt=green;time=orange;button=yellow;container=black'"
-					"--cmd Hyprland"
-					"-g 'Authorized Personnel Only'"
-				];
 
-				flags = lib.concatStringsSep " " tuigreetOptions;
-			in {
-			  command = "${tuigreet} ${flags}";
+				# tuigreetOptions = [
+				#   # "--remember"
+				# 	# "--remember-session"
+				# 	# "--sessions ${waylandSessions}:${xSessions}";
+				#   "--time"
+				# 	"--theme 'border=lightblue;prompt=green;time=orange;button=yellow;container=black'"
+				# 	"--cmd Hyprland"
+				# 	"-g 'Authorized Personnel Only'"
+				# ];
+
+				#flags = lib.concatStringsSep " " tuigreetOptions;
+		  in {
+			  #command = "${tuigreet} ${flags}";
+			  #command = "cage -s -- gtkgreet";
+			  command = "cage -s -- regreet";
 			  user = "greeter";
+	    };
+		};
+	};
+
+	programs.regreet = {
+    enable = true;
+		#package = ${pkgs.greetd.regreet};
+		settings = {
+		  GTK = {
+			  application_prefer_dark_theme = true;
+				font_name = "DejaVu Sans 12";
+				cursor_theme_name = "volantes_cursors";
+				icon_theme_name = "Adwaita";
+				theme_name = "Adwaita";
+			};
+     
+		  background = {
+			  #path = "${config.stylix.image}";
+        path = ../../../../files/wallpaper/NixOS-Nineish-Dark.png;
+				fit = "Contain";
+			};
+
+			commands = {
+			  reboot = [ "systemctl" "reboot" ];
+				poweroff = [ "systemctl" "poweroff" ];
 			};
 		};
 	};
@@ -255,7 +287,10 @@
 
 		cliphist
 
-    greetd.tuigreet      # Greeter
+		cage
+    greetd.regreet        # Greeter
+    #greetd.gtkgreet      # Greeter
+    #greetd.tuigreet      # Greeter
 
     #mako                 # Notification daemon
     dunst
