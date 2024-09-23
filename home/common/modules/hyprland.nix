@@ -93,8 +93,10 @@
       input = {
           kb_layout = "us";
           follow_mouse = "1";
-					natural_scroll = true;
           mouse_refocus = false;
+					mouse = {
+					    natural_scroll = true;
+					};
           touchpad = {
               natural_scroll = true;
               disable_while_typing = true;

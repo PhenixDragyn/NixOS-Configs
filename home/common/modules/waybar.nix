@@ -181,7 +181,7 @@
 
 							disk = {
 									interval = 10;
-									format = ''<span color="#${config.lib.stylix.colors.base0E}"> </span>  /: {percentage_free}%'';
+									format = ''<span color="#${config.lib.stylix.colors.base0E}"> </span>/: {percentage_free}%'';
 									path = "/";
 							};						
 

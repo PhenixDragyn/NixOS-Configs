@@ -23,13 +23,13 @@
   # INPUT SETTINGS
   services.libinput = {
     enable = true;
-    touchpad = {
-      naturalScrolling = true; #nc default = false
-      disableWhileTyping = false; # default = false
-    };
-    mouse = {
-      naturalScrolling = true;
-    };
+  #   touchpad = {
+  #     naturalScrolling = true; #nc default = false
+  #     disableWhileTyping = false; # default = false
+  #   };
+  #   mouse = {
+  #     naturalScrolling = true;
+  #   };
   };
 
   # ---------------------------------
