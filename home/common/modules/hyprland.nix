@@ -186,6 +186,7 @@
       ''SUPER, W, exec, firefox''
       ''SUPER, E, exec, thunderbird''
       ''SUPER, N, exec, nautilus''
+      ''SUPER, I, exec, waypaper --folder ~/Wallpapers''
 
       ''SUPER, Q, killactive,''
       ''SUPER, M, exit,''
@@ -329,14 +330,21 @@
           swww init
 					swww-daemon --format xrgb
 
-          # Waybar
+          # Set a random wallpaper
+          #DIR=/home/${username}/Wallpapers
+          #IMG=`ls $DIR | shuf -n 1`
+          #swww img $DIR/$IMG -t random &
+
+          # Restore last wallpaper
+					waypaper --restore
+
+          # Start Waybar
           waybar &
 
-          # Autostart
+          # Autostart Programs
  				  blueman-applet &
 				  sleep 1
 					keepassxc &
-					#syncthing --no-browser &
 					sleep 2
 					syncthingtray --wait &
 
@@ -352,12 +360,7 @@
           # Automatic device mounting 
           udiskie &
 
-          DIR=/home/${username}/Wallpapers
-          IMG=`ls $DIR | shuf -n 1`
-          swww img $DIR/$IMG -t random &
-
           # Notification listener
-          #mako 
 					dunst
 
 					#lxqt-session
