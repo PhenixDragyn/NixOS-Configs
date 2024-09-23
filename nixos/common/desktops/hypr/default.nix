@@ -39,7 +39,7 @@
 	  WLR_RENDERER_ALLOW_SOFTWARE = 1;
 		#WLR_NO_HARDWARE_CURSORS = 1;
 		
-    #GTK_THEME = adw-gtk3;
+    #GTK_THEME = "adw-gtk3";
     #HYPRCURSOR_SIZE = 24;
     #HYPRCURSOR_THEME = ${config.stylix.cursor.name}"_OVERRIDE" = pkgs.lib.mkForce "adwaita-dark";
 
@@ -338,6 +338,8 @@
 		gimp-with-plugins
 		polkit_gnome
 
+    pkgs.unstalbe.nemo-with-extensions
+
 		#themechanger
 		# shared-mime-info
 		# gdk-pixbuf
@@ -348,7 +350,7 @@
 		#qimgv
 		#pcmanfm-qt
 
-		calcure
+		#calcure
 		
     #blueman
 
