@@ -183,7 +183,7 @@
   fonts.fontconfig.enable = true;
   fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [
-    dejavu_fonts
+    #dejavu_fonts
     fira-code-nerdfont
     font-awesome
     jetbrains-mono
