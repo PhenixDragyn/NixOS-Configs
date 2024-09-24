@@ -39,7 +39,7 @@
 
 		settings = {
 				preview = true;
-				hidden = true;
+				hidden = false;
 				drawbox = true;
 				icons = true;
 				ignorecase = true;
