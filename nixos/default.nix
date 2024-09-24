@@ -11,6 +11,7 @@
     # Modules
     ./common/modules/nixvim.nix
     ./common/modules/ranger.nix
+    ./common/modules/yazi.nix
     ./common/modules/zsh.nix
 
     # Stylix (Set in hosts default.nix) 
@@ -46,12 +47,7 @@
 
     gc = {
       automatic = true;
-      dates = "daily"; options = "--delete-older-than 7d";
-    };
-  };
-
-  nixpkgs = {
-    # You can add overlays here
+      dates = "daily"; options = "--delete-older-than 7d"; }; }; nixpkgs = { # You can add overlays here
     overlays = [
       # Add overlays your own flake exports (from overlays and pkgs dir):
       outputs.overlays.additions
@@ -220,6 +216,11 @@
     procps
     psmisc
 
+		# yazi
+  #   ffmpegthumbnailer
+  #   poppler
+		# ripgrep
+		
     # NIX tools
     nix-prefetch
     nix-prefetch-git

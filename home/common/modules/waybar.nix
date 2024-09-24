@@ -36,11 +36,10 @@
 						"group/tools" = {
 						    orientation = "inherit";
 								modules = [
-								  "custom/wlogout"
+									"idle_inhibitor"
 									"custom/seperator"
 									"user"
 									"custom/seperator"
-									"idle_inhibitor"
 							    "custom/nix-updates"
 									"mpris"
 								];
@@ -89,6 +88,7 @@
 
 						"custom/nixos" = {
 								format = ''<span color="#${config.lib.stylix.colors.base0D}">   </span>'';
+                on-click = "wlogout";
 							  tooltip = false;
 						};
 
@@ -152,7 +152,7 @@
 
   							persistent-workspaces = {
 									 "*" = 3; # 6 workspaces by default on every monitor
-									 "DP-1" = 3; # but only three on external 
+									 "DP-2" = 3; # but only three on external 
 								};
 
 								on-click = "activate";

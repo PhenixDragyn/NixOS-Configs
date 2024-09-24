@@ -187,7 +187,7 @@
       ''SUPER, RETURN, exec, kitty''
       ''SUPER, W, exec, firefox''
       ''SUPER, E, exec, thunderbird''
-      ''SUPER, N, exec, nautilus''
+      ''SUPER, N, exec, nemo''
       ''SUPER, I, exec, waypaper --folder ~/Wallpapers''
 
       ''SUPER, Q, killactive,''
