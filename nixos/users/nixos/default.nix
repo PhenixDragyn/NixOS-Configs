@@ -10,7 +10,6 @@ in {
   # USER ACCOUNT
   users = {
     mutableUsers = false;
-    #users.ejvend = {
     users.nixos = {
       isNormalUser = true;
       description = "NixOS";

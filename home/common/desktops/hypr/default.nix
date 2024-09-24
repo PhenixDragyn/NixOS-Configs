@@ -28,16 +28,12 @@
 		../../modules/imv.nix
 
 		../../modules/hyprlock.nix
-		#../../modules/hyprpaper.nix
   ];
 
   # ---------------------------------
 
   # SYMLINKS
   home = {
-    file.".config/autostart".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/users/${username}/config/autostart";
-    #file.".config/xfce".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/${username}/config/xfce";
-
     file.".config/syncthingtray.ini".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/users/${username}/config/syncthing/syncthingtray.ini";
   };
 }
