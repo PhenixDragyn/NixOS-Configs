@@ -34,7 +34,7 @@
       };
 
       sizes = {
-        terminal = 14;
+        terminal = 12;
       };
 
 			# serif = config.stylix.fonts.monospace;
