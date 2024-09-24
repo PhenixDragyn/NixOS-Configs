@@ -222,28 +222,29 @@
   # PROGRAM SETTINGS
   programs = {
 		dconf.enable = true;
-    # dconf.profiles.user.databases = [
-    #   {
-    #     settings = with lib.gvariant; {
-				#   "org/nemo/plugins" = {
-				# 	  disabled-actions = [ 
-				# 		  "set-as-background.nemo_action" 
-				# 			"change-background.nemo_action" 
-				# 		];
-				# 	};
-    #
-    #       "org/nemo/preferences" = {
-				# 	  thumbnail-limit = "uint64 1073741824";
-				# 	};
-    #
-				# 	"org/nemo/window-state" = {
-				# 	  maximized = true;
-				# 		sidebar-bookmark-breakpoint = "0";
-				# 		start-with-sidebar = true;
-				# 	};
-    #     };
-    #   }
-    # ];
+    dconf.profiles.user.databases = [
+      {
+        settings = with lib.gvariant; {
+				  "org/nemo/plugins" = {
+				 	  disabled-actions = [ 
+				 		  "set-as-background.nemo_action" 
+				 			"change-background.nemo_action" 
+				 		];
+				 	};
+   
+          "org/nemo/preferences" = {
+				 	  #thumbnail-limit = lib.gvariant.mkUint64 [1073741824];
+				 	  thumbnail-limit = mkUint64 [1073741824];
+				 	};
+   
+				 	"org/nemo/window-state" = {
+				 	  maximized = true;
+				 		sidebar-bookmark-breakpoint = "0";
+						start-with-sidebar = true;
+					};
+        };
+      }
+    ];
 
     nautilus-open-any-terminal = {
       enable = true;
@@ -306,7 +307,7 @@
 		hyprpaper
 		#hyprutils
  
-		swww
+		#swww
 		imv 	# image viewer
 		mpv   # video viewer
 
@@ -338,7 +339,7 @@
 		gimp-with-plugins
 		polkit_gnome
 
-    pkgs.unstalbe.nemo-with-extensions
+    pkgs-unstable.nemo-with-extensions
 
 		#themechanger
 		# shared-mime-info

@@ -179,6 +179,7 @@
         ''float, title:(.*)(KeePassXC), size: 1080 650''
         ''float, title:(.*)(Syncthing)(.*)''
         ''float, class:^(thunderbird)$, title:^(.*)(Reminder)(.*)''
+        ''float, class:(waypaper), title:(Waypaper)''
       ];
 
       bind = [
@@ -328,8 +329,8 @@
           dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
 
           # Set the wallpaper
-          swww init
-					swww-daemon --format xrgb
+          #swww init
+					#swww-daemon --format xrgb
 
           # Set a random wallpaper
           #DIR=/home/${username}/Wallpapers
