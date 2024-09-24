@@ -25,6 +25,10 @@
     # nixvim - neovim configuration management in nix
     nixvim.url = "github:nix-community/nixvim/nixos-24.05";
 
+		# Yazi plugins
+		# nix-yazi-plugins.url = "github:lordkekz/nix-yazi-plugins?ref=yazi-v0.2.5";
+		# nix-yazi-plugins.inputs.nixpkgs.follows = "nixpkgs";
+		
     # Nix colorizer / themer 
     stylix.url = "github:danth/stylix/release-24.05";
 

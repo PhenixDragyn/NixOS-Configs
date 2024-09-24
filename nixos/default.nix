@@ -10,8 +10,8 @@
 
     # Modules
     ./common/modules/nixvim.nix
-    ./common/modules/ranger.nix
-    ./common/modules/yazi.nix
+    #./common/modules/ranger.nix
+    #./common/modules/yazi.nix
     ./common/modules/zsh.nix
 
     # Stylix (Set in hosts default.nix) 
