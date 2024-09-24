@@ -47,10 +47,17 @@
 
 		theme = {
 		  status = {
-			  separator_open = "█";
-        separator_close = "█";
+			  #separator_open = "█";
+        #separator_close = "█";
+        separator_open = "";
+			  separator_close = "";
 				#separator_open = "";
 				#separator_close = "";
+
+			};
+
+      which = {
+			  separator = "  ";
 			};
 
 		  #input = {

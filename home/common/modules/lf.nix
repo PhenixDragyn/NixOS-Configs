@@ -15,60 +15,73 @@
 		};
 
 		commands = {
-      #dragan-out = ''%${pkgs.xdragon}/bin/xdragon -z- x "$fx"'';
-		 	editor-open = ''$$EDITOR $f'';
-
       mkdir = ''%mkdir "$@"'';
 			touch = ''%touch "$@"'';
 
-		# 	mkdir = ''
-  #       ''${{
-		# 		  printf "Directory Name: "
-		# 			read DIR
-		# 			mkdir $DIR
-		# 		}}
-		# 	'';
-		# 	remove = ''
-  #       ''${{
-  #         if [ -z $fs ]; then
-  #           rm -fr $f
-		# 			else
-		# 					IFS=':'; echo $fs | tr " " "\n"
-		# 					echo 'delete? [y/n]'
-		# 					read ans
-		#
-		# 					[ $ans = 'y' ] && (echo 'deleting files...' && rm -fr $fs) || (echo 'cancelled...')
-  #         fi
-		# 		}}
-		# 	'';
+      drag-out = ''%${pkgs.ripdrag}/bin/ripdrag -a -x "$fx"'';
+      editor-open = ''$$EDITOR "$f"'';
+      edit-dir = ''$$EDITOR .'';
+      mkdirfile = ''
+        ''${{
+            printf "File: "
+            read DIR
+            mk $DIR
+        }}
+      '';
+
+      #on-cd = ''
+      #  ''${{ }}
+      #'';
 		};
 		
 		keybindings = {
-		# 		"\\\"" = "";
-		 		#o = "";
-        #x = ''''$"$f"'';
-        #X = ''!"$f"'';
-        J = '':updir; set dironly true; down; set dironly false; open'';
-        K = '':updir; set dironly true; up; set dironly false; open'';
-        dD = "delete";
+	    "\\\"" = "";
+      o = "";
+      d = "";
+      e = "";
+      f = "";
+      c = "mkdirfile";
+      "." = "set hidden!";
+      D = "delete";
+      p = "paste";
+      dd = "cut";
+      y = "copy";
+      "`" = "mark-load";
+      "\\'" = "mark-load";
+      "<enter>" = "open";
+      a = "rename";
+      r = "reload";
+      C = "clear";
+      U = "unselect";
 
-        gW = ''cd ${config.home.homeDirectory}/Wallpapers'';
+      do = "drag-out";
 
-		 		"." = "set hidden!";
-		# 		"`" = "mark-load";
-		# 		"\\'" = "mark-load";
-		 		"<enter>" = "open";
-		# 		
-		# 		do = "dragon-out";
-		#
-		# 		#d = "remove";
-		# 		#dd = "remove";
-		# 		dD = "push :remove";
-		# 		
-		# 		"g~" = "cd";
-		# 		gh = "cd";
-		# 		"g/" = "/"; ee = "editor-open";
-		# 		V = ''$${pkgs.bat}/bin/bat --paging=always --theme=gruvbox "$f"'';
+      "g~" = "cd";
+      gh = "cd";
+      "g/" = "/";
+      gd = "cd ~/Downloads";
+      gt = "cd /tmp";
+      gv = "cd ~/Videos";
+      go = "cd ~/Documents";
+      gc = "cd ~/.config";
+      gn = "cd ~/nixconf";
+      gp = "cd ~/Projects";
+      gs = "cd ~/.local/share";
+      gm = "cd /run/media";
+      gw = ''cd ${config.home.homeDirectory}/Wallpapers'';
+
+      # go to impermanence dir
+      gH = "cd /persist/users/${config.home.homeDirectory}";
+
+      ee = "editor-open";
+      "e." = "edit-dir";
+      V = ''''$${pkgs.bat}/bin/bat --paging=always --theme=gruvbox "$f"'';
+
+      "<C-d>" = "5j";
+      "<C-u>" = "5k";	 		
+
+      J = '':updir; set dironly true; down; set dironly false; open'';
+      K = '':updir; set dironly true; up; set dironly false; open'';
 		};
 
 		extraConfig = 

@@ -5,8 +5,10 @@
   imports = [
     # Modules
     ../../modules/fastfetch.nix
-    ../../modules/ranger.nix
+    #../../modules/lf.nix
+    #../../modules/ranger.nix
     ../../modules/nixvim.nix 
+    ../../modules/yazi.nix
 
     ../../modules/firefox.nix
     ../../modules/kitty.nix
