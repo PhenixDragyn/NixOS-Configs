@@ -16,6 +16,18 @@
 					mkdir $DIR
 				}}
 			'';
+			remove = ''
+        ''${{
+          if [ -z $fs ]; then
+            rm -fr $f
+					else
+							IFS=':'; echo $fs | tr " " "\n"
+							echo 'delete? [y/n]'
+							read ans
+
+							[ $ans = 'y' ] && (echo 'deleting files...' && rm -fr $fs) || (echo 'cancelled...')
+          fi
+			'';
 		};
 
 		keybindings = {
@@ -28,6 +40,9 @@
 				"<enter>" = "open";
 				
 				do = "dragon-out";
+
+				d = "remove";
+				dd = "remove";
 				
 				"g~" = "cd";
 				gh = "cd";
