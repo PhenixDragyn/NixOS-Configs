@@ -3,9 +3,11 @@
 {
 	programs.yazi = {
 		enable = true;
+		enableZshIntegration = true;
+
 		settings = {
  			manager = {
- 				ratio = [ 1 3 4 ];
+ 				ratio = [ 2 3 5 ];
  				sort_by = "natural";
  				sort_sensitive = true;
  				sort_reverse = false;
@@ -14,6 +16,11 @@
  				show_hidden = false;
  				show_symlink = true;
  			};
+
+      input = {
+			  find_origin = "bottom-left";
+				find_offset = [0 2 50 3];
+			};
 
  			# preview = {
  			# 	image_filter = "lanczos3";
@@ -37,5 +44,16 @@
  			# 	bizarre_retry = 5;
  			# };
  		};
+
+		theme = {
+		  status = {
+			  separator_open = "█";
+        separator_close = "█";
+			};
+
+		  #input = {
+			#  border = { fg = "black"; };
+			#};
+		};
 	};
 }

@@ -80,6 +80,9 @@
       gl="git log --stat --graph --decorate --oneline";
 
       rr="ranger";
+			lf="lf";
+			yz="yazi";
+			fm="yazi";
 
       diff="diff --color=auto";
       grep="grep --color=auto";
