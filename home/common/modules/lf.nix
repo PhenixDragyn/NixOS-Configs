@@ -27,6 +27,7 @@
 
 							[ $ans = 'y' ] && (echo 'deleting files...' && rm -fr $fs) || (echo 'cancelled...')
           fi
+				}}
 			'';
 		};
 
