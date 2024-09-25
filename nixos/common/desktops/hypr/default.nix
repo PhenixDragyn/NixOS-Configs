@@ -130,15 +130,6 @@
 
   # ---------------------------------
 
-  # HYPERLAND SETTINGS
-  programs.hyprland = {
-	  enable = true;
-		xwayland.enable = true;
-    systemd.setPath.enable = true;
-	};
-
-  # ---------------------------------
-
   # SYSTEM SLEEP SETTINGS
   systemd.sleep.extraConfig = ''
     AllowSuspend = yes
@@ -219,6 +210,15 @@
 
   # ---------------------------------
 
+  # HYPERLAND SETTINGS
+  programs.hyprland = {
+	  enable = true;
+		xwayland.enable = true;
+    systemd.setPath.enable = true;
+	};
+
+  # ---------------------------------
+
   # PROGRAM SETTINGS
   programs = {
 		dconf.enable = true;
@@ -246,10 +246,10 @@
       }
     ];
 
-    nautilus-open-any-terminal = {
-      enable = true;
-      terminal = "kitty";
-    };
+    # nautilus-open-any-terminal = {
+    #   enable = true;
+    #   terminal = "kitty";
+    # };
 
     file-roller.enable = true;
     seahorse.enable = true;
@@ -282,7 +282,7 @@
     # slurp                # Screenshots
 
     glib                 # Set GTK theme settings
-    calcurse             # TUI Calendar app
+    #calcurse             # TUI Calendar app
 		udiskie
 		pulsemixer
 
