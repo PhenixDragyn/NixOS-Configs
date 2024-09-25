@@ -31,6 +31,14 @@
 
   # ---------------------------------
   
+  # CONSOLE
+  console = {
+    font = "ter-132n";
+    packages = [pkgs.terminus_font];
+    useXkbConfig = true;
+    earlySetup = false;
+  };
+
   # BOOT SETTINGS
   boot = {
     # kernelPackages = pkgs.linuxPackages_latest;
