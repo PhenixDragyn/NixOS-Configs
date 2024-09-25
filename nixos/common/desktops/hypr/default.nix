@@ -66,30 +66,30 @@
 	  enable = true;
 		settings = {
 			default_session = let
-			  #tuigreet = "${lib.getExe pkgs.greetd.tuigreet}";
+			  tuigreet = "${lib.getExe pkgs.greetd.tuigreet}";
 			  #gtkgreet = "${lib.getExe pkgs.greetd.gtkgreet}";
-			  regreet = "${lib.getExe pkgs.greetd.regreet}";
+			  #regreet = "${lib.getExe pkgs.greetd.regreet}";
 				
 
 				#baseSessionsDIr = "${config.services.xserver.displayManager.sessionData.desktops}";
 				#xSessions = "${baseSessionsDir}/share/xsessions";
 				#waylandSessions = "${baseSessionDir}/share/wayland-sessions";
 
-				# tuigreetOptions = [
-				#   # "--remember"
-				# 	# "--remember-session"
-				# 	# "--sessions ${waylandSessions}:${xSessions}";
-				#   "--time"
-				# 	"--theme 'border=lightblue;prompt=green;time=orange;button=yellow;container=black'"
-				# 	"--cmd Hyprland"
-				# 	"-g 'Authorized Personnel Only'"
-				# ];
+				tuigreetOptions = [
+				  # "--remember"
+					# "--remember-session"
+					# "--sessions ${waylandSessions}:${xSessions}";
+				  "--time"
+					"--theme 'border=lightblue;prompt=green;time=orange;button=yellow;container=black'"
+					"--cmd Hyprland"
+					"-g 'Authorized Personnel Only'"
+				];
 
-				#flags = lib.concatStringsSep " " tuigreetOptions;
+				flags = lib.concatStringsSep " " tuigreetOptions;
 		  in {
-			  #command = "${tuigreet} ${flags}";
+			  command = "${tuigreet} ${flags}";
 			  #command = "cage -s -- gtkgreet";
-			  command = "cage -s -- regreet";
+			  #command = "cage -s -- regreet";
 			  user = "greeter";
 	    };
 		};
