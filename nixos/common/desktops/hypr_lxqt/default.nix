@@ -251,7 +251,7 @@
     # slurp                # Screenshots
 
     glib                 # Set GTK theme settings
-    calcurse             # TUI Calendar app
+    #calcurse             # TUI Calendar app
 		udiskie
 		pulsemixer
 
