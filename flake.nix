@@ -52,7 +52,7 @@
     packages = libx.forAllSystems ( system: import ./packages nixpkgs.legacyPackages.${system} );
 
     # Your custom packages and modifications, exported as overlays
-    overlay = import ./overlays { inherit inputs; };
+    overlays = import ./overlays { inherit inputs; };
 
     # Function for NixOS system configuration
     nixosConfigurations = {

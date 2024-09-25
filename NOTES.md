@@ -167,3 +167,10 @@ kill $hyprshot_pid
 
 # Repair fonts 
 fc-cache -fr
+
+
+# Rollback home-manager
+> home-manager generations
+Select the generation path you want to reactivate.. ie
+> /nix/store/ilhmvvvialiljr2ybmasffid982s921c-home-manager-generation/activate
+
