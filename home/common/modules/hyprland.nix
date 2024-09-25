@@ -27,7 +27,7 @@
       submap = reset
       '';
     settings = {
-      #monitor = ",highrr,auto,1.175";
+      monitor = ",highrr,auto,1.25";
       #inherit (monitors) monitor workspace;
 			# workspace = 1, monitor:eDP-1, default:true;
 			# workspace = 2, monitor:eDP-1, default:true;
@@ -134,7 +134,7 @@
         blur = {
 				  enabled = true;
           size = 12;
-          passes = 3;
+          passes = 2;
           ignore_opacity = true;
 					new_optimizations = true;
 					xray = true;
@@ -162,9 +162,9 @@
       };
       windowrule = [
         "noblur,^(firefox)$" # disables blur for firefox
-        "opacity 1.0 override,^(firefox)$" # Sets opacity to 1
+        #"opacity 1.0 override,^(firefox)$" # Sets opacity to 1
         "noblur,^(thunderbird)$" # disables blur for firefox
-        "opacity 1.0 override,^(thunderbird)$" # Sets opacity to 1
+        #"opacity 1.0 override,^(thunderbird)$" # Sets opacity to 1
         "noblur,^(steam)$" # disables blur for steam
         "opacity 1.0 override,^(steam)$" # Sets opacity to 1
         "noblur,^(codium)$" # disables blur for codium
@@ -176,8 +176,8 @@
       windowrulev2 = [
         ''float, class:(rofi), title:(rofi)''
         ''float, class:(imv), title:(imv)''
-        ''float, title:(.*)(KeePassXC), size: 1080 650''
-        ''float, title:(.*)(Syncthing)(.*)''
+        ''float, title:^(.*)(KeePassXC), size: 1080 650''
+        ''float, title:^(.*)(Syncthing)(.*)''
         ''float, class:^(thunderbird)$, title:^(.*)(Reminder)(.*)''
         ''float, class:(waypaper), title:(Waypaper)''
       ];

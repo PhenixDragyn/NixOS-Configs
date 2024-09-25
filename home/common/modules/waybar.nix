@@ -8,8 +8,8 @@
     settings = {
         mainBar = {
 				    id = "main";
-				    #output = "eDP-1";
-				    output = ["!eDP-1" "*"];
+				    output = "eDP-1";
+				    #output = ["!eDP-1" "*"];
             layer = "top";
             position = "top";
 						margin-top = 0;
@@ -93,7 +93,7 @@
 						};
 
             "custom/wlogout" = {
-                format = "  ";
+                format = " ";
                 on-click = "wlogout";
 							  tooltip = false;
             };
@@ -107,17 +107,18 @@
             idle_inhibitor = {
                 format = "{icon}";
                 format-icons = {
-                    activated = "  ";
-                    deactivated = "  ";
+                    activated = " ";
+                    deactivated = " ";
                 };
 							  tooltip = false;
             };
 
             mpris = {
-                format = "{player_icon} {dynamic}";
-                format-paused = ''{status_icon} <i>{dynamic}</i>'';
-                player-icons = { default = " ▶ "; spotify = "  "; mpv = " 🎵 "; };
-                status-icons = { paused =  " ⏸ "; };
+                #format = "{player_icon}  {dynamic}";
+                format = ''<span color="#${config.lib.stylix.colors.base0B}">{player_icon}</span>  {dynamic}'';
+                format-paused = ''{status_icon}  <i>{dynamic}</i>'';
+                player-icons = { default = "▶ "; spotify = " "; mpv = "🎵 "; };
+                status-icons = { paused =  "⏸ "; };
                 max-length = 30;
             };
 
@@ -186,8 +187,8 @@
 							};						
 
 							clock = {
-									format = " 󰥔  {:%I:%M - %A}";
-									format-alt = " 󰃭  {:%A, %d %b, %Y}";
+									format = "󰥔   {:%I:%M - %A}";
+									format-alt = "󰃭   {:%A, %d %b, %Y}";
 									tooltip-format = "{tz_list}";
 									timezones = [
 										"America/Boise"
@@ -215,7 +216,7 @@
 
 							backlight = {
 								device = "intel_backlight";
-								format = "{icons} {percent}";
+								format = "{icons}  {percent}";
 								format-icons = ["  " "  "];
 							  tooltip = false;
 							};
@@ -223,17 +224,17 @@
 							pulseaudio = {
 									scroll-step = 1;
 									#format = "{icon}{format_source} {volume}";
-									format = "{icon} {volume}";
+									format = "{icon}  {volume}";
 									format-bluetooth = "{volume}% {icon} {format_source}";
 									format-bluetooth-muted = " ";
-									#format-muted = "  {format_source}";
-									format-muted = "  ";
-									format-source = "  ";
-									format-source-muted = "  ";
+									#format-muted = " {format_source}";
+									format-muted = " ";
+									format-source = " ";
+									format-source-muted = " ";
 									format-icons = {
-											headphone = "  ";
-											headset = "  ";
-											default = ["  " "  " "  "];
+											headphone = " ";
+											headset = " ";
+											default = [" " " " " "];
 									};
 									tooltip = false;
 									on-click = "kitty -e pulsemixer";
@@ -241,8 +242,8 @@
 
 							network = {
 									format = "{ifname}";
-									format-wifi = "   {ipaddr}";
-									format-ethernet = "   {ipaddr}";
+									format-wifi = "   {ipaddr} ";
+									format-ethernet = "   {ipaddr} ";
 									format-disconnected = ""; # Hides the module
 									tooltip-format = "{ifname} via {gwaddr}  ";
 									tooltip-format-wifi = "{essid} ({signalStrength}%)  ";
@@ -259,10 +260,10 @@
 											warning = 35;
 											critical = 20;
 									};
-									format = "{icon} {capacity}%";
-									format-charging = " 󰂄  {capacity}%";
-									format-plugged  = "   {capacity}%";
-									format-icons = [ "  " "  " "  " "  " "  " ];
+									format = "{icon}  {capacity}%";
+									format-charging = "󰂄  {capacity}%";
+									format-plugged  = "  {capacity}%";
+									format-icons = [ " " " " " " " " " " ];
                   /*"format": "<span color=\"#fff\">{}</span>"*/
 							};
 
@@ -274,8 +275,8 @@
 									return-type = "json";
 									format = "{} {icon}";
 									format-icons = {
-											"has-updates" = "  ";
-											"updated" = "  ";
+											"has-updates" = " ";
+											"updated" = " ";
 									};
 							};
 					};
