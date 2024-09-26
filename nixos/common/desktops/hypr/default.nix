@@ -203,8 +203,8 @@
 		  pkgs.xdg-desktop-portal-hyprland
 		];
     xdgOpenUsePortal = true;
-    #config.common.default = "*";
-    config.common.default = [ "hyprland" "gtk" ];
+    config.common.default = "*";
+    #config.common.default = [ "hyprland" "gtk" ];
 		config.common."org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
   };
 
@@ -367,6 +367,9 @@
     keepassxc
     keepass-charactercopy
     git-credential-keepassxc
+
+    # Development
+    (python3Full.withPackages(ps: with ps; [ pygobject3 ]))
   ] ++ (if (system == "x86_64-linux")
 	        then [ pkgs.freeoffice pkgs.spotify ]
 				else 

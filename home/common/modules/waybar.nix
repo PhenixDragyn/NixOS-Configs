@@ -41,7 +41,11 @@
 									"custom/seperator"
 									"user"
 									"custom/seperator"
-									"mpris"
+									#"mpris"
+									"custom/spotify"
+									"custom/spo-previous"
+									"custom/spo-pause"
+									"custom/spo-next"
 								];
 						};
 
@@ -123,20 +127,58 @@
             };
 
 						# "custom/spotify" = {
-						# 		format = "{icon} {}",
-						# 		escape = true,
-						# 		return-type = "json",
-						# 		max-length = 40,
-						# 		interval = 30, // Remove this if your script is endless and write in loop
-						# 		on-click = "playerctl -p spotify play-pause",
-						# 		on-click-right = "killall spotify",
-						# 		smooth-scrolling-threshold = 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
-						# 		on-scroll-up = "playerctl -p spotify next",
-						# 		on-scroll-down = "playerctl -p spotify previous",
-						# 		exec = "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources/custom_modules folder
-						# 		exec-if = "pgrep spotify"
-						# }
+						# 		format = "{icon} {}";
+						# 		escape = true;
+						# 		return-type = "json";
+						# 		max-length = 40;
+						# 		interval = 30;
+						# 		on-click = "playerctl -p spotify play-pause";
+						# 		on-click-right = "killall spotify";
+						# 		smooth-scrolling-threshold = 10;
+						# 		on-scroll-up = "playerctl -p spotify next";
+						# 		on-scroll-down = "playerctl -p spotify previous";
+						# 		exec = "$HOME/.config/waybar/mediaplayer.py 2> /dev/null";
+						# 		exec-if = "pgrep spotify";
+						# };
 						 
+        # "module/spo" = {
+        #   type = "custom/text";
+        #   content = " ";
+        #   content-font = 2;
+        #   content-foreground = "\${colors.green}";
+        #   content-margin = 0;
+        # };
+        
+        "custom/spotify" = {
+          format = ''<span color="#${config.lib.stylix.colors.base0B}"> </span> {}'';
+				  max-length = 50;
+          exec = "~/.config/waybar/scripts/spotify.sh";
+					interval = 30;
+				  tooltip = false;
+        };
+        
+        "custom/spo-previous" = {
+          format = " 󰒮 ";
+          #exec = "~/.config/waybar/scripts/spotify-previous.sh";
+          on-click = "~/.config/waybar/scripts/spotify-previous.sh";
+				  tooltip = false;
+        };
+        
+        "custom/spo-next" = {
+          format = " 󰒭 ";
+          #exec = "~/.config/waybar/scripts/spotify-next.sh";
+          on-click = "~/.config/waybar/scripts/spotify-next.sh";
+				  tooltip = false;
+        };
+        
+        "custom/spo-pause" = {
+          format = "{}";
+          exec = "~/.config/waybar/scripts/spotify-status.sh";
+          interval = 1;
+          on-click = "~/.config/waybar/scripts/spotify-pause.sh";
+				  tooltip = false;
+        };
+
 						"hyprland/workspaces" = {
 								 #format = " {icon}-{name} ";
 								 format = " {icon} ";
@@ -591,6 +633,22 @@ window#waybar.empty #window {
     margin: 2px 20px 2px 5px;
     opacity:0.8;
     border:2px solid @bordercolor;
+}
+
+#custom-spotify{
+    margin: 2px 0px 2px 0px;
+    padding:0px;
+    font-size:14px;
+    color: @iconcolor1;
+    opacity: 0.8;
+}
+
+#custom-spo-next,#custom-spo-pause,#custom-spo-previous {
+    margin: 2px 0px 2px 0px;
+    padding:0px;
+    font-size:14px;
+    color: @iconcolor1;
+    opacity: 0.8;
 }
 
 /* -----------------------------------------------------
