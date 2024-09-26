@@ -172,7 +172,7 @@
       windowrulev2 = [
         ''float, class:(rofi), title:(rofi)''
         ''float, class:(imv), title:(imv)''
-        ''float, title:^(KeePassXC)*, size: 1080 650''
+        ''float, class:(org.keepassxc.KeePassXC)''
         ''float, title:^(.*)(Syncthing)(.*)''
         ''float, class:^(thunderbird)$, title:^(.*)(Reminder)(.*)''
         ''float, class:(waypaper), title:(Waypaper)''
