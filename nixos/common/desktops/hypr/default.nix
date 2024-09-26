@@ -95,31 +95,31 @@
 		};
 	};
 
-	programs.regreet = {
-    enable = true;
-		#package = ${pkgs.greetd.regreet};
-		settings = {
-		  GTK = {
-			  application_prefer_dark_theme = true;
-				font_name = "DejaVu Sans 12";
-				cursor_theme_name = "volantes_cursors";
-				icon_theme_name = "Adwaita";
-				theme_name = "Adwaita";
-			};
-     
-		  background = {
-			  #path = "${config.stylix.image}";
-        path = ../../../../files/wallpaper/NixOS-Nineish-Dark.png;
-				fit = "Contain";
-			};
-
-			commands = {
-			  reboot = [ "systemctl" "reboot" ];
-				poweroff = [ "systemctl" "poweroff" ];
-			};
-		};
-	};
-
+	# programs.regreet = {
+ #    enable = true;
+	# 	#package = ${pkgs.greetd.regreet};
+	# 	settings = {
+	# 	  GTK = {
+	# 		  application_prefer_dark_theme = true;
+	# 			font_name = "DejaVu Sans 12";
+	# 			cursor_theme_name = "volantes_cursors";
+	# 			icon_theme_name = "Adwaita";
+	# 			theme_name = "Adwaita";
+	# 		};
+ #     
+	# 	  background = {
+	# 		  #path = "${config.stylix.image}";
+ #        path = ../../../../files/wallpaper/NixOS-Nineish-Dark.png;
+	# 			fit = "Contain";
+	# 		};
+	#
+	# 		commands = {
+	# 		  reboot = [ "systemctl" "reboot" ];
+	# 			poweroff = [ "systemctl" "poweroff" ];
+	# 		};
+	# 	};
+	# };
+	
   services.logind.extraConfig = ''
     IdleActionSec=900
     IdleAction=suspend-then-hibernate
@@ -169,6 +169,10 @@
     '';
   };
 
+  # Gnome-Keyring Setup
+	services.gnome.gnome-keyring.enable = true;
+	security.pam.services.greetd.enableGnomeKeyring = true;
+
   # GPG agent
   programs.gnupg.agent = {
 	  enable = true;
@@ -184,9 +188,6 @@
 
   # Call dbus-update-activation-environment on login
   services.xserver.updateDbusEnvironment = true;
-
-  # Gnome-Keyring Setup
-	services.gnome.gnome-keyring.enable = true;
 
   # ---------------------------------
  
