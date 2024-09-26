@@ -216,11 +216,21 @@
 
 							backlight = {
 								device = "intel_backlight";
-								format = "{icons}  {percent}";
+                #device = "acpi_video1";
+								format = "{icon}  {percent}";
 								#format-icons = [" " " "];
-								format-icons = [ "🔅", "🔆" ];
-							  tooltip = false;
-							};
+								format-icons = [ "🔅" "🔆" ];
+							  #tooltip = false;
+							};  
+
+							# backlight = {
+							# 	device = "amdgpu_bl0";
+							# 	format = "{icon}";
+							# 	format-alt = "{percent}% {icon}";
+							# 	format-icons = ["" "" "" "" "" "" "" "" ""];
+							# 	on-scroll-up = "exec light -A 2";
+							# 	on-scroll-down = "exec light -U 2";
+							# };
 
 							pulseaudio = {
 									scroll-step = 1;
@@ -237,7 +247,7 @@
 											headset = " ";
 											default = [" " " " " "];
 									};
-									tooltip = false;
+									#tooltip = false;
 									on-click = "kitty -e pulsemixer";
 							};
 
@@ -261,7 +271,7 @@
 											warning = 35;
 											critical = 20;
 									};
-									format = "{icon}  {capacity}%";
+									format = ''<span color="#${config.lib.stylix.colors.base0B}">{icon}</span>  {capacity}%'';
 									format-charging = "󰂄  {capacity}%";
 									format-plugged  = "  {capacity}%";
 									format-icons = [ " " " " " " " " " " ];
