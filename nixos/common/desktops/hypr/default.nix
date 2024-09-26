@@ -293,6 +293,7 @@
     #greetd.gtkgreet      # Greeter
     #greetd.tuigreet      # Greeter
 
+		brightnessctl
     #mako                 # Notification daemon
     dunst
     libnotify            # Notification libraries

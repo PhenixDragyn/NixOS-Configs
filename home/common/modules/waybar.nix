@@ -37,10 +37,10 @@
 						    orientation = "inherit";
 								modules = [
 									"idle_inhibitor"
+							    "custom/nix-updates"
 									"custom/seperator"
 									"user"
 									"custom/seperator"
-							    "custom/nix-updates"
 									"mpris"
 								];
 						};
@@ -87,7 +87,7 @@
 						};
 
 						"custom/nixos" = {
-								format = ''<span color="#${config.lib.stylix.colors.base0D}">   </span>'';
+								format = ''<span color="#${config.lib.stylix.colors.base0D}"> </span>'';
                 on-click = "wlogout";
 							  tooltip = false;
 						};
@@ -140,12 +140,12 @@
 						"hyprland/workspaces" = {
 								 format = "{icon}";
 								 format-icons = {
-								 	"1" = "   ";
-								 	"2" = "   ";
-								 	"3" = "   ";
-								 	"4" = "   ";
-								 	"5" = "   ";
-								 	"6" = "   ";
+								 	"1" = " ";
+								 	"2" = " ";
+								 	"3" = " ";
+								 	"4" = " ";
+								 	"5" = " ";
+								 	"6" = " ";
 								 	active = " ";
 								 	default = " ";
 								 };
@@ -354,7 +354,7 @@ window#waybar {
     color: @textcolor1; /* gray */
     background: @workspacesbackground1;
     border-radius: 2px;
-    min-width: 40px;
+    min-width: 30px;
     transition: all 0.3s ease-in-out;
     opacity:1.0;
 }
@@ -363,7 +363,7 @@ window#waybar {
     color: @textcolor2; /* blue */
     background: @workspacesbackground1;
     border-radius: 2px;
-    min-width: 40px;
+    min-width: 30px;
     transition: all 0.3s ease-in-out;
     opacity:1.0;
 }
@@ -372,7 +372,7 @@ window#waybar {
     color: @textcolor3; /* orange */
     background: @workspacesbackground1;
     border-radius: 2px;
-    min-width: 40px;
+    min-width: 30px;
     transition: all 0.3s ease-in-out;
     opacity:1.0;
 }
@@ -381,7 +381,7 @@ window#waybar {
     color: @textcolor1; /* gray */
     background: @workspacesbackground1;
     border-radius: 2px;
-    min-width: 40px;
+    min-width: 30px;
     transition: all 0.3s ease-in-out;
     opacity:1.0;
 }
