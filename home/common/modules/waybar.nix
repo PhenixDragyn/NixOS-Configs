@@ -8,6 +8,7 @@
       #source = ../${username}/config/waybar/scripts;
       recursive = true;
     };
+	};
 
   programs.waybar = {
     enable = true;
