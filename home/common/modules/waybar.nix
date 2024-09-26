@@ -16,7 +16,7 @@
         mainBar = {
 				    id = "main";
 				    #output = "eDP-1";
-				    output = ["!eDP-1" "*"];
+				    #output = ["!eDP-1" "*"];
             layer = "top";
             position = "top";
 						margin-top = 0;

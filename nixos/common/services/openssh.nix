@@ -15,7 +15,7 @@
 
   # May need to run as user...
   # systemctl --user enable --now ssh-agent.service
-  programs.ssh.startAgent = true;
+  #programs.ssh.startAgent = true;
 
   programs.ssh.extraConfig = ''
       AddKeysToAgent yes
