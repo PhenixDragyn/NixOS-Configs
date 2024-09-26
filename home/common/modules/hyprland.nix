@@ -32,10 +32,10 @@
       #   "DP-1,highrr,auto,1.33333"
 			# ];
 			
-			monitor = [
-        "eDP-1, 2560x1600, 450x1622, 1.25" 
-        "DP-1, 3840x2160, 0x0, 1.333333" 
-			];
+			# monitor = [
+   #      "eDP-1, 2560x1600, 450x1622, 1.25" 
+   #      "DP-1, 3840x2160, 0x0, 1.333333" 
+			# ];
 			
 			workspace = [ 
 			  "1, monitor:DP-1, default:true"
@@ -172,7 +172,7 @@
       windowrulev2 = [
         ''float, class:(rofi), title:(rofi)''
         ''float, class:(imv), title:(imv)''
-        ''float, title:^(.*)(KeePassXC), size: 1080 650''
+        ''float, title:^(KeePassXC)*, size: 1080 650''
         ''float, title:^(.*)(Syncthing)(.*)''
         ''float, class:^(thunderbird)$, title:^(.*)(Reminder)(.*)''
         ''float, class:(waypaper), title:(Waypaper)''
