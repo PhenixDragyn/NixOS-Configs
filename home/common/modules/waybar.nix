@@ -377,15 +377,6 @@ window#waybar {
     opacity:1.0;
 }
 
-#workspaces button.active {
-    color: @textcolor2; /* blue */
-    background: @workspacesbackground1;
-    border-radius: 2px;
-    min-width: 30px;
-    transition: all 0.3s ease-in-out;
-    opacity:1.0;
-}
-
 #workspaces button.visible {
     color: @textcolor3; /* orange */
     background: @workspacesbackground1;
@@ -397,6 +388,24 @@ window#waybar {
 
 #workspaces button.empty {
     color: @textcolor1; /* gray */
+    background: @workspacesbackground1;
+    border-radius: 2px;
+    min-width: 30px;
+    transition: all 0.3s ease-in-out;
+    opacity:1.0;
+}
+
+#workspaces button.active {
+    color: @textcolor2; /* blue */
+    background: @workspacesbackground1;
+    border-radius: 2px;
+    min-width: 30px;
+    transition: all 0.3s ease-in-out;
+    opacity:1.0;
+}
+
+#workspaces button.focused {
+    color: @textcolor2; /* blue */
     background: @workspacesbackground1;
     border-radius: 2px;
     min-width: 30px;

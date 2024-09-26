@@ -314,10 +314,11 @@
 		imv 	# image viewer
 		mpv   # video viewer
 
+		kanshi
 		waybar
 		pkgs-unstable.waypaper
 		wdisplays
-		wlr-randr
+		#wlr-randr
     wlogout              # Logout/shutdown/hibernate/lock screen modal UI
     wl-clipboard         # Clipboard
     rofi-wayland         # App Launcher
