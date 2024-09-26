@@ -367,9 +367,6 @@
     keepassxc
     keepass-charactercopy
     git-credential-keepassxc
-
-    # Development
-    (python3Full.withPackages(ps: with ps; [ pygobject3 ]))
   ] ++ (if (system == "x86_64-linux")
 	        then [ pkgs.freeoffice pkgs.spotify ]
 				else 
