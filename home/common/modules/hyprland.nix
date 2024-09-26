@@ -27,29 +27,25 @@
       submap = reset
       '';
     settings = {
-      monitor = ",highrr,auto,1.25";
-      #inherit (monitors) monitor workspace;
-			# workspace = 1, monitor:eDP-1, default:true;
-			# workspace = 2, monitor:eDP-1, default:true;
-			# workspace = 3, monitor:eDP-1, default:true;
-			# workspace = 4, monitor:DP-1, default:true;
-			# workspace = 5, monitor:DP-1, default:true;
-			# workspace = 6, monitor:DP-1, default:true;
-
-			# monitor = [
-   #      "eDP-1, 1920x1200, 0x0, 1" 
-   #      "DP-1, 2560x1440, 0x-1440, 1" 
+      # monitor = [
+			#   "eDP-1,highrr,auto,1.25"
+      #   "DP-1,highrr,auto,1.33333"
 			# ];
-			#
-			# workspace = [ 
-			#   "1, monitor:DP-1, default:true"
-			# 	"2, monitor:DP-1"
-			# 	"3, monitor:DP-1"
-			#
-			# 	"4, monitor:eDP-1, default:true"
-			# 	"5, monitor:eDP-1"
-			# 	"6, monitor:eDP-1"
-			# ];
+			
+			monitor = [
+        "eDP-1, 2560x1600, 0x0, 1.25" 
+        "DP-1, 3840x2160, 0x-1600, 1.333333" 
+			];
+			
+			workspace = [ 
+			  "1, monitor:DP-1, default:true"
+				"2, monitor:DP-1, default:true"
+				"3, monitor:DP-1, default:true"
+			 
+			 	"4, monitor:eDP-1, default:true"
+			 	"5, monitor:eDP-1, default:true"
+			 	"6, monitor:eDP-1, default:true"
+			];
 
       plugin = {
         hyprexpo = {
@@ -309,6 +305,7 @@
       ];
 
       exec-once = ''bash ~/.config/hypr/start.sh'';
+			#exec-once = ''hyprland-monitor-attached ~/.config/hypr/monitors.sh''
 
       # Autostart
 			# exec-once blueman-applet &

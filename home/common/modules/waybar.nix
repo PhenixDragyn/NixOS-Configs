@@ -8,8 +8,8 @@
     settings = {
         mainBar = {
 				    id = "main";
-				    output = "eDP-1";
-				    #output = ["!eDP-1" "*"];
+				    #output = "eDP-1";
+				    output = ["!eDP-1" "*"];
             layer = "top";
             position = "top";
 						margin-top = 0;
@@ -138,7 +138,8 @@
 						# }
 						 
 						"hyprland/workspaces" = {
-								 format = "{icon}";
+								 #format = " {icon}-{name} ";
+								 format = " {icon} ";
 								 format-icons = {
 								 	"1" = " ";
 								 	"2" = " ";
@@ -149,11 +150,17 @@
 								 	active = " ";
 								 	default = " ";
 								 };
-								# format = " {name} ";
+								 sort-by-number = true;
 
   							persistent-workspaces = {
-									 "*" = 3; # 6 workspaces by default on every monitor
-									 "DP-2" = 3; # but only three on external 
+									 #"*" = 3; # 3 workspaces by default on every monitor
+									 #"DP-1" = 3; # but only three on external 
+									 "1" = [];
+									 "2" = [];
+									 "3" = [];
+									 "4" = [];
+									 "5" = [];
+									 "6" = [];
 								};
 
 								on-click = "activate";

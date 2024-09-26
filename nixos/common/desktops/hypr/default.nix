@@ -307,6 +307,8 @@
 		hypridle
 		hyprpaper
 		#hyprutils
+		hyprlandPlugins.hyprexpo
+		#hyprland-monitor-attached
  
 		#swww
 		imv 	# image viewer
