@@ -217,7 +217,8 @@
 							backlight = {
 								device = "intel_backlight";
 								format = "{icons}  {percent}";
-								format-icons = ["  " "  "];
+								#format-icons = [" " " "];
+								format-icons = [ "🔅", "🔆" ];
 							  tooltip = false;
 							};
 
