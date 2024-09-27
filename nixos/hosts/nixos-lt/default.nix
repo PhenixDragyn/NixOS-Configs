@@ -44,7 +44,6 @@
     # kernelPackages = pkgs.linuxPackages_latest;
     consoleLogLevel = 0;
     kernelParams = ["quiet" "splash"];
-    kernelModules = [ "bcm2835-v4l2" ];
     extraModprobeConfig = ''
       options snd-hda-intel power_save=0 power_save_controller=N
     '';
@@ -67,6 +66,17 @@
   };
 
   # ---------------------------------
+
+  # SYSTEM PACKAGES 
+  environment.systemPackages = with pkgs; [
+    linuxKernel.packages.linux_6_6.ipu6-drivers
+  ];
+
+  # HARDWARE - WEBCAM
+  hardware.ipu6 = {
+	  enable = true;
+		platform = "ipu6ep";
+	};
 
   # Tailscale "aardwolf-alnilam.ts.net"
   # https://login.tailscale.com/admin/
