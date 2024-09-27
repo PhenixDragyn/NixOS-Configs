@@ -42,7 +42,7 @@
 
   # BOOT SETTINGS
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    #kernelPackages = pkgs.linuxPackages_latest;
     consoleLogLevel = 0;
     kernelParams = ["quiet" "splash"];
  
@@ -73,17 +73,18 @@
   # SYSTEM PACKAGES 
   environment.systemPackages = with pkgs; [
     linuxKernel.packages.linux_6_6.ipu6-drivers
-		linuxKernel.packages.linux_6_6.ivsc-driver
-		ipu6-camera-hal
+   	linuxKernel.packages.linux_6_6.ivsc-driver
+   	ipu6-camera-hal
   ];
-
+	
   # HARDWARE - WEBCAM
   hardware.ipu6 = {
-	  enable = true;
-		platform = "ipu6ep";
-		#platform = "ipu6epmtl";
-	};
+    enable = true;
+   	platform = "ipu6ep";
+  	#platform = "ipu6epmtl";
+ };
 
+	# TLP SETTINGS
   services.tlp.settings = {
     SOUND_POWER_SAVE_ON_AC=0;
 		SOUND_POWER_SAVE_ON_BAT=0;
