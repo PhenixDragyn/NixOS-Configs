@@ -44,6 +44,7 @@
     # kernelPackages = pkgs.linuxPackages_latest;
     consoleLogLevel = 0;
     kernelParams = ["quiet" "splash"];
+    kernelModules = [ "bcm2835-v4l2" ];
     extraModprobeConfig = ''
       options snd-hda-intel power_save=0 power_save_controller=N
     '';

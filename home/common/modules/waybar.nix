@@ -266,7 +266,7 @@
 							# };
 
 							pulseaudio = {
-									scroll-step = 1;
+									scroll-step = 5;
 									#format = "{icon}{format_source} {volume}";
 									format = "{icon}  {volume}";
 									format-bluetooth = "{volume}% {icon} {format_source}";

@@ -6,8 +6,7 @@
     # Import my host modules
     #../../modules/x11.nix
   ];
-
-  # ---------------------------------
+# ---------------------------------
 
   # NETWORKING
   # Enable network manager applet
@@ -279,7 +278,7 @@
       })
     )
 
-		# grimblast
+		grimblast
     # slurp                # Screenshots
 
     glib                 # Set GTK theme settings
@@ -319,6 +318,7 @@
 		waybar
 		pkgs-unstable.waypaper
 		wdisplays
+		#wf-recorder
 		#wlr-randr
     wlogout              # Logout/shutdown/hibernate/lock screen modal UI
     wl-clipboard         # Clipboard
@@ -336,7 +336,8 @@
     # wayland-packages
 		pkgs-unstable.wayprompt
 
-		gnome.cheese
+		guvcview
+		#gnome.cheese
 		gnome.eog
     gnome.nautilus
 		gnome.zenity

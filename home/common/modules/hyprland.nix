@@ -242,6 +242,7 @@
 
       # Take a screenshot with the Print key''
       #'', Print, exec, grim -g "$(slurp)" | wl-copy -t image/png''
+      '', Print, exec, grimblast copy area''
 
       # Move to the previous / next workspace with SUPER-LEFT and SUPER-RIGHT
       # ''SUPER      , right, workspace, e+1''
