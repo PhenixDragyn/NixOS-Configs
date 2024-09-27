@@ -9,6 +9,7 @@
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
+		inputs.nixos-hardware.nixosModules.dell-latitude-7430
 
     # Disk configurations
     inputs.disko.nixosModules.disko
@@ -41,9 +42,11 @@
 
   # BOOT SETTINGS
   boot = {
-    # kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_latest;
     consoleLogLevel = 0;
     kernelParams = ["quiet" "splash"];
+ 
+    # Ignored by tlp
     extraModprobeConfig = ''
       options snd-hda-intel power_save=0 power_save_controller=N
     '';
@@ -70,12 +73,21 @@
   # SYSTEM PACKAGES 
   environment.systemPackages = with pkgs; [
     linuxKernel.packages.linux_6_6.ipu6-drivers
+		linuxKernel.packages.linux_6_6.ivsc-driver
+		ipu6-camera-hal
   ];
 
   # HARDWARE - WEBCAM
   hardware.ipu6 = {
 	  enable = true;
 		platform = "ipu6ep";
+		#platform = "ipu6epmtl";
+	};
+
+  services.tlp.settings = {
+    SOUND_POWER_SAVE_ON_AC=0;
+		SOUND_POWER_SAVE_ON_BAT=0;
+		SOUND_POWER_SAVE_CONTROLLER="N";
 	};
 
   # Tailscale "aardwolf-alnilam.ts.net"

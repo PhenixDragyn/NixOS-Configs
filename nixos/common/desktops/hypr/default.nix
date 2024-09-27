@@ -337,7 +337,7 @@
 		pkgs-unstable.wayprompt
 
 		guvcview
-		#gnome.cheese
+		gnome.cheese
 		gnome.eog
     gnome.nautilus
 		gnome.zenity
