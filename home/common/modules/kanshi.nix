@@ -9,6 +9,7 @@ let
 					{
 						criteria = "eDP-1";
 						status = "enable";
+						position = "0,0";
 						mode = "2560x1600";
 						scale = 1.25;
 					}

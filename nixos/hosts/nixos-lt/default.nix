@@ -74,7 +74,9 @@
   environment.systemPackages = with pkgs; [
     linuxKernel.packages.linux_6_6.ipu6-drivers
    	linuxKernel.packages.linux_6_6.ivsc-driver
+		#ivsc-firmware
    	ipu6-camera-hal
+		ipu6-camera-bins
   ];
 	
   # HARDWARE - WEBCAM
