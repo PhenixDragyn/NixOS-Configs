@@ -167,6 +167,7 @@
         "opacity 0.9 override,^(codium)$" # Sets opacity to 0.9
         "stayfocused, title:^()$,class:^(steam)$"
         "minsize 1 1, title:^()$,class:^(steam)$"
+        "noblur,^(.gimp)(.*)" # disables blur for gimp
       ];
 
       windowrulev2 = [
@@ -176,6 +177,9 @@
         ''float, title:^(.*)(Syncthing)(.*)''
         ''float, class:^(thunderbird)$, title:^(.*)(Reminder)(.*)''
         ''float, class:(waypaper), title:(Waypaper)''
+		    ''float, class:(gedit)''
+		    ''float, class:(guvcview)''
+        ''float, title:(Camera)''
       ];
 
       bind = [

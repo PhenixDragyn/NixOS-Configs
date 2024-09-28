@@ -336,6 +336,7 @@
     # wayland-packages
 		pkgs-unstable.wayprompt
 
+    celluloid
 		guvcview
 		#gnome.cheese
     snapshot
@@ -344,7 +345,7 @@
 		# gst_all_1.gst-plugins-good
 		# gst_all_1.gst-plugins-ugly
 
-		gnome.eog
+		#gnome.eog
     gnome.nautilus
 		gnome.zenity
 		gedit
