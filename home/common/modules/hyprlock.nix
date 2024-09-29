@@ -81,13 +81,15 @@ in
             color = "#cdd6f4";
             font_size = 25;
             font_family = "Work Sans";
-            position = "0, 350";
+            position = "0, 150";
             halign = "center";
             valign = "center";
           }
           {
             # Time
-            text = "$TIME";
+            #text = "$TIME";
+						text = ''cmd[update:1000] echo "<b><big> $(date +"%I:%M %p") </big></b>"''; 
+            #text = ''cmd[update:1000] echo "<b><big> $(date +"%H:%M") </big></b>"''; 
             color = "#cdd6f4";
             font_size = 120;
             font_family = "Work Sans Bold";
@@ -107,7 +109,7 @@ in
           }
           {
             # Weather (30min)
-            text = ''cmd[update:1800000] ${lib.getExe pkgs.curl} -sLq "wttr.in/Odiham?format=%c+%t\n"'';
+            text = ''cmd[update:1800000] ${lib.getExe pkgs.curl} -sLq "wttr.in/Nampa?format=%c+%t\n"'';
             color = "#cdd6f4";
             font_size = 14;
             font_family = "Work Sans";

@@ -1,8 +1,5 @@
 { config, pkgs, inputs, username, ... }: 
 
-# let
-#   monitors = (import ./monitors.nix { }).${hostname};
-# in
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -183,7 +180,7 @@
       ];
 
       bind = [
-      ''SUPER,, hyprexpo:expo, toggle''
+      ''SUPER, grave, hyprexpo:expo, toggle''
       ''SUPER, RETURN, exec, kitty''
       ''SUPER, W, exec, firefox''
       ''SUPER, E, exec, thunderbird''
