@@ -204,6 +204,7 @@ in
 		    ''float, class:(gedit)''
 		    ''float, class:(guvcview)''
         ''float, title:(Camera)''
+				''float, class:(nemo)''
       ];
 
       bind = [

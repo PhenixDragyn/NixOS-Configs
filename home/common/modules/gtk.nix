@@ -10,12 +10,19 @@
 		# };
 
     iconTheme = {
-      #name = lib.mkForce "Pop";
-      #package = lib.mkForce pkgs.pop-icon-theme;
       name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
-      #package = pkgs.papirus-icon-theme.override {color = "indigo";};
-    };
+      #package = pkgs.papirus-icon-theme;
+      #package = pkgs.papirus-icon-theme.override {color = "adwaita";};
+      package = pkgs.catppuccin-papirus-folders.override {flavor = "mocha"; accent = "sapphire";};
+		};
+
+    # iconTheme = {
+    #   #name = lib.mkForce "Pop";
+    #   #package = lib.mkForce pkgs.pop-icon-theme;
+    #   name = "Papirus-Dark";
+    #   package = pkgs.papirus-icon-theme;
+    #   #package = pkgs.papirus-icon-theme.override {color = "indigo";};
+    # };
 
     theme = {
       #name = lib.mkForce "Pop-dark";

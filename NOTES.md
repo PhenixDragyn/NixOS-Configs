@@ -176,3 +176,8 @@ fc-cache -fr
 Select the generation path you want to reactivate.. ie
 > /nix/store/ilhmvvvialiljr2ybmasffid982s921c-home-manager-generation/activate
 
+# Papirus folder color changing 
+> papirus-folders -l --theme Papirus-Dark   #Show current color
+> papirus-folders -C brown --theme Papirus-Dark    # Change Color
+> papirus-folders -D --theme Papirus-Dark    # Rever to default color
+
