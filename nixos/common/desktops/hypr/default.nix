@@ -389,6 +389,8 @@
     keepassxc
     keepass-charactercopy
     git-credential-keepassxc
+
+		papirus-folders
   ] ++ (if (system == "x86_64-linux")
 	        then [ pkgs.freeoffice pkgs.spotify ]
 				else 
