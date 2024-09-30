@@ -50,10 +50,12 @@ nixos-rebuild switch. This error can be resolved by updating flake.lock using ni
 
 > sudo nixos-rebuild switch --flake '.'
 
+> sudo nix-env --switch-generation 12345 -p /nix/var/nix/profiles/system
+> sudo /nix/var/nix/profiles/system/bin/switch-to-configuration switch
 ------
 
 # to rollback to a working build
-> console /run/current-system/bin/switch-to-configuration boot
+> /run/current-system/bin/switch-to-configuration boot
 
 # To use a one-off utility
 > nix-shell nixpkgs#ffmpeg

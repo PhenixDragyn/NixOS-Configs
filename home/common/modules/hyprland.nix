@@ -1,5 +1,9 @@
-{ config, pkgs, inputs, username, ... }: 
+{ config, lib, pkgs, inputs, username, ... }: 
 
+let
+  rgb = color: "rgb(${color})";
+  rgba = color: alpha: "rgba(${color}${alpha})";
+in
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -20,7 +24,8 @@
       binde = , left, resizeactive,-50 0
       binde = , right, resizeactive,50 0
       binde = , up, resizeactive,0 -50
-      binde = , down, resizeactive,0 50 bind  = , escape, submap, reset
+      binde = , down, resizeactive,0 50 
+			bind  = , escape, submap, reset
       submap = reset
       '';
     settings = {
@@ -30,8 +35,8 @@
 			# ];
 			
 			# monitor = [
-   #      "eDP-1, 2560x1600, 450x1622, 1.25" 
-   #      "DP-1, 3840x2160, 0x0, 1.333333" 
+      #   "eDP-1, 2560x1600, 450x1622, 1.25" 
+      #   "DP-1, 3840x2160, 0x0, 1.333333" 
 			# ];
 			
 			workspace = [ 
@@ -44,26 +49,28 @@
 			 	"6, monitor:eDP-1, default:true"
 			];
 
-      plugin = {
-        hyprexpo = {
-          gap_size = 8;
-          workspace_method = "first 1";
-          enable_gesture = true;
-          gesture_fingers = 3;
-          gesture_positive = false;
-        };
-        hyprbars = {
-          bar_height = 25;
-          bar_part_of_window = true;
-          bar_color = config.lib.stylix.colors.base04;
-          # example buttons (R -> L)
-          # hyprbars-button = color, size, on-click
-          hyprbars-button = [
-            "rgb(ff4040), 10, 󰖭 , hyprctl dispatch killactive"
-            "rgb(eeee11), 10,  , hyprctl dispatch fullscreen 1"
-          ];
-        };
-      };
+      # plugin = {
+      #   hyprexpo = {
+			#     columns = 2;
+      #     gap_size = 8;
+      #     workspace_method = "first 1";
+      #     enable_gesture = true;
+      #     gesture_fingers = 3;
+      #     gesture_positive = false;
+      #   };
+      #   hyprbars = {
+      #     bar_height = 25;
+      #     bar_part_of_window = true;
+      #     bar_color = config.lib.stylix.colors.base04;
+      #     # example buttons (R -> L)
+      #     # hyprbars-button = color, size, on-click
+      #     hyprbars-button = [
+      #       "rgb(ff4040), 10, 󰖭 , hyprctl dispatch killactive"
+      #       "rgb(eeee11), 10,  , hyprctl dispatch fullscreen 1"
+      #     ];
+      #   };
+      # };
+
       layerrule = [
         #"blur, waybar"
         "blur, rofi"
@@ -78,8 +85,8 @@
           resize_on_border = "true";
           extend_border_grab_area = "15";
 
-          #col.active_border = conf.lib.stylix.colors.base04;
-          #col.inactive_border = conf.lib.stylix.colors.base04;
+          #col.active_border = config.lib.stylix.colors.base04;
+          #col.inactive_border = config.lib.stylix.colors.base04;
 
           layout = "dwindle";
       };
@@ -113,7 +120,7 @@
       };
       decoration = {
         rounding = 1;
-        active_opacity = 0.95;
+        active_opacity = 0.98;
         inactive_opacity = 0.8;
         fullscreen_opacity = 1.0;
 
@@ -121,8 +128,8 @@
         shadow_range = 30;
         shadow_render_power = 3;
 			
-        #col.shadow = conf.lib.stylix.colors.base04;
-        #col.shadow_inactive = 0xff$baseAlpha;
+        "col.shadow" = lib.mkForce (rgba config.lib.stylix.colors.base0D "99");
+        "col.shadow_inactive" = lib.mkForce (rgba config.lib.stylix.colors.base00 "99");
 
         blur = {
 				  enabled = true;
@@ -133,18 +140,37 @@
 					xray = true;
         };
       };
-      animations = {
-        enabled = true;
-        bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
-        animation = [
-          "windows,1,7,myBezier"
-          "windowsOut,1,7,default,popin 80%"
-          "border,1,10,default"
-          "borderangle,1,8,default"
-          "fade,1,7,default"
-          "workspaces,1,6,default"
-        ];
-      };
+      # animations = {
+      #   enabled = true;
+      #   bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+      #   animation = [
+      #     "windows,1,7,myBezier"
+      #     "windowsOut,1,7,default,popin 80%"
+      #     "border,1,10,default"
+      #     "borderangle,1,8,default"
+      #     "fade,1,7,default"
+      #     "workspaces,1,6,default"
+      #   ];
+      # };
+			animations = {
+				enabled = true; 
+				bezier = [
+				  "wind, 0.05, 0.9, 0.1, 1.05"
+					"winIn, 0.1, 1.1, 0.1, 1.1"
+					"winOut, 0.3, -0.3, 0, 1"
+					"liner, 1, 1, 1, 1"
+				];
+				animation = [
+					"windows, 1, 6, wind, slide"
+					"windowsIn, 1, 6, winIn, slide"
+					"windowsOut, 1, 5, winOut, slide"
+					"windowsMove, 1, 5, wind, slide"
+					"border, 1, 1, liner"
+					"borderangle, 1, 30, liner, loop"
+					"fade, 1, 10, default"
+				  "workspaces, 1, 5, wind"
+				];
+  		};
       dwindle = {
         # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
         pseudotile = false; # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
@@ -342,6 +368,12 @@
           # Start Waybar
           waybar &
 
+					# Clipboard history
+					wl-paste --watch cliphist store &
+					wl-paste --type text --watch cliphist store
+					wl-paste --type image --watch cliphist store
+					wl-clip-persist --clipboard regular
+
           # Autostart Programs
  				  blueman-applet &
 				  sleep 1
@@ -359,7 +391,8 @@
           #          before-sleep 'playerctl pause' &
 
           # Automatic device mounting 
-          udiskie &
+          #udiskie --no-automount --smart-tray &
+          udiskie --smart-tray &
 
           # Notification listener
 					dunst

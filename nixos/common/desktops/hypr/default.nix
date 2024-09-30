@@ -66,28 +66,25 @@
 		settings = {
 			default_session = let
 			  tuigreet = "${lib.getExe pkgs.greetd.tuigreet}";
-			  #gtkgreet = "${lib.getExe pkgs.greetd.gtkgreet}";
 			  #regreet = "${lib.getExe pkgs.greetd.regreet}";
 				
-
-				#baseSessionsDIr = "${config.services.xserver.displayManager.sessionData.desktops}";
+				#baseSessionsDir = "${config.services.xserver.displayManager.sessionData.desktops}";
 				#xSessions = "${baseSessionsDir}/share/xsessions";
 				#waylandSessions = "${baseSessionDir}/share/wayland-sessions";
 
 				tuigreetOptions = [
-				  # "--remember"
-					# "--remember-session"
-					# "--sessions ${waylandSessions}:${xSessions}";
-				  "--time"
-					"--theme 'border=lightblue;prompt=green;time=orange;button=yellow;container=black'"
-					"--cmd Hyprland"
-					"-g 'Authorized Personnel Only'"
-				];
-
+				 # "--remember"
+			   # "--remember-session"
+				 # "--sessions ${waylandSessions}:${xSessions}";
+				 "--time"
+				 "--theme 'border=lightblue;prompt=green;time=orange;button=yellow;container=black'"
+				 "--cmd Hyprland"
+				 "-g 'Authorized Personnel Only'"
+			  ];
+        
 				flags = lib.concatStringsSep " " tuigreetOptions;
 		  in {
 			  command = "${tuigreet} ${flags}";
-			  #command = "cage -s -- gtkgreet";
 			  #command = "cage -s -- regreet";
 			  user = "greeter";
 	    };
@@ -95,28 +92,28 @@
 	};
 
 	# programs.regreet = {
- #    enable = true;
-	# 	#package = ${pkgs.greetd.regreet};
-	# 	settings = {
-	# 	  GTK = {
-	# 		  application_prefer_dark_theme = true;
-	# 			font_name = "DejaVu Sans 12";
-	# 			cursor_theme_name = "volantes_cursors";
-	# 			icon_theme_name = "Adwaita";
-	# 			theme_name = "Adwaita";
-	# 		};
- #     
-	# 	  background = {
-	# 		  #path = "${config.stylix.image}";
- #        path = ../../../../files/wallpaper/NixOS-Nineish-Dark.png;
-	# 			fit = "Contain";
-	# 		};
-	#
-	# 		commands = {
-	# 		  reboot = [ "systemctl" "reboot" ];
-	# 			poweroff = [ "systemctl" "poweroff" ];
-	# 		};
-	# 	};
+  #  enable = true;
+	#  package = "${pkgs.greetd.regreet}";
+	#  settings = {
+	#  #   GTK = {
+	#  # 	  application_prefer_dark_theme = true;
+	#  # 		font_name = "DejaVu Sans 12";
+	#  # 		cursor_theme_name = "volantes_cursors";
+	#  # 		icon_theme_name = "Adwaita";
+	#  # 		theme_name = "Adwaita";
+	#  # 	};
+  #  #    
+	#  #   background = {
+	#  # 	  #path = "${config.stylix.image}";
+  #  #      path = ../../../../files/wallpaper/NixOS-Nineish-Dark.png;
+	#  # 		fit = "Contain";
+	#  # 	};
+	# 
+  #  	 commands = {
+	#  		 reboot = [ "systemctl" "reboot" ];
+	#  		 poweroff = [ "systemctl" "poweroff" ];
+	#  	 };
+	#  };
 	# };
 	
   services.logind.extraConfig = ''
@@ -195,13 +192,16 @@
 
   xdg.portal = {
     enable = true;
+		wlr.enable = true;
+
     extraPortals = [ 
-		  pkgs.xdg-desktop-portal
+		  #pkgs.xdg-desktop-portal
 		  pkgs.xdg-desktop-portal-gtk 
-		  pkgs.xdg-desktop-portal-gnome 
-		  pkgs.xdg-desktop-portal-wlr
+		  #pkgs.xdg-desktop-portal-gnome 
+		  #pkgs.xdg-desktop-portal-wlr
 		  pkgs.xdg-desktop-portal-hyprland
 		];
+
     xdgOpenUsePortal = true;
     config.common.default = "*";
     #config.common.default = [ "hyprland" "gtk" ];
@@ -289,7 +289,7 @@
 		cliphist
 
 		cage
-    greetd.regreet        # Greeter
+    #greetd.regreet       # Greeter
     #greetd.gtkgreet      # Greeter
     #greetd.tuigreet      # Greeter
 
@@ -307,7 +307,7 @@
 		hypridle
 		hyprpaper
 		#hyprutils
-		hyprlandPlugins.hyprexpo
+		#hyprlandPlugins.hyprexpo
 		#hyprland-monitor-attached
  
 		#swww
@@ -324,6 +324,7 @@
     wl-clipboard         # Clipboard
     rofi-wayland         # App Launcher
     #kanshi   # wayland autorndr
+	  wl-clip-persist	
 
     # swayidle             # Idle management daemon - Automatic lock screen
 		# swaylock
