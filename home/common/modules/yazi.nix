@@ -22,12 +22,12 @@
 				find_offset = [0 2 50 3];
 			};
 
- 			# preview = {
+ 			preview = {
  			# 	image_filter = "lanczos3";
- 			# 	image_quality = 90;
+ 			 	image_quality = 90;
  			# 	tab_size = 1;
- 			# 	max_width = 600;
- 			# 	max_height = 900;
+ 				max_width = 768;
+ 				max_height = 1024;
  			# 	cache_dir = "";
  			# 	ueberzug_scale = 1;
  			# 	ueberzug_offset = [
@@ -36,8 +36,8 @@
  			# 		0
  			# 		0
  			# 	];
- 			# };
-    #
+ 			};
+    
  			# tasks = {
  			# 	micro_workers = 5;
  			# 	macro_workers = 10;
