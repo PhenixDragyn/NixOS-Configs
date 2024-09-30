@@ -75,6 +75,7 @@ in
         #"blur, waybar"
         "blur, rofi"
         "blur, notifications"
+				"blur, logout_dialog"
         "ignorezero, notifications"
       ];
       xwayland.force_zero_scaling = false;
@@ -369,11 +370,11 @@ in
           waybar &
 
 					# Clipboard history
-					wl-paste --watch cliphist store &
-					wl-paste --type text --watch cliphist store
-					wl-paste --type image --watch cliphist store
-					wl-clip-persist --clipboard regular
-
+					# wl-paste --watch cliphist store &
+					# wl-paste --type text --watch cliphist store
+					# wl-paste --type image --watch cliphist store
+					# wl-clip-persist --clipboard regular
+					
           # Autostart Programs
  				  blueman-applet &
 				  sleep 1

@@ -51,6 +51,8 @@
       #   name = "JetBrainsMono Nerd Font";
       #};
     };
+
+    #targets.regreet.enable = true;
   };
 
   # Themes https://github.com/tinted-theming/base16-schemes
