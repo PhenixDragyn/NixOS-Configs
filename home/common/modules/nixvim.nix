@@ -13,11 +13,17 @@
     viAlias = true;
     vimAlias = true;
  
-    colorschemes = {
-      vscode = {
-        enable = true;
-      };
-    };
+		# colorschemes = {
+		#   onedark = {
+		# 	  enable = true;
+		# 	};
+		# };
+
+    # colorschemes = {
+    #   vscode = {
+    #     enable = true;
+    #   };
+    # };
 
     globals = {
       mapleader = " ";
