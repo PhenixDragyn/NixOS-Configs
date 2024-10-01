@@ -109,7 +109,7 @@
 	   GTK = {
 	 	  application_prefer_dark_theme = true;
 	 		font_name = "DejaVu Sans 12";
-	 		cursor_theme_name = "volantes_cursors";
+	 		cursor_theme_name = "${pkgs.volantes-cursors}";
 	 		icon_theme_name = "Adwaita";
 	 		theme_name = "Adwaita";
 	 	 };

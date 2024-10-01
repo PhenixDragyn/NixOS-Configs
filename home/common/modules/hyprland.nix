@@ -201,10 +201,19 @@ in
         ''float, title:^(.*)(Syncthing)(.*)''
         ''float, class:^(thunderbird)$, title:^(.*)(Reminder)(.*)''
         ''float, class:(waypaper), title:(Waypaper)''
+        ''float, class:(seahorse), title:(seahorse)''
 		    ''float, class:(gedit)''
 		    ''float, class:(guvcview)''
+		    ''float, title:(Celluloid)''
         ''float, title:(Camera)''
+        ''float, title:(File Roller)''
 				''float, class:(nemo)''
+				''float, class:(gnome-disks)''
+				''float, class:(wdisplays)''
+				''float, class:(nwg-displays)''
+				''float, class:(nwg-look)''
+				''float, class:(mpv)''
+				''float, class:(.blueman-manager-wrapped)''
       ];
 
       bind = [
