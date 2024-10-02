@@ -33,6 +33,7 @@
   
 	  sessionVariables = {
 		  EDITOR = "nvim";
+			HOSTNAME = "${hostname}";
 		};
 
     # User specific packages
