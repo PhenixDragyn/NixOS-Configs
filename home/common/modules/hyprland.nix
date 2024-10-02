@@ -311,7 +311,10 @@ in
 			'', XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%'' # Increase volume by 5%
 			'', XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%'' # Reduce volume by 5%
 			'', XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'' # Toggle mute
-			'', XF86AudioPlay, exec, playerctl play-pause'' # Audio play pause
+
+			#'', XF86AudioPlay, exec, playerctl play-pause'' # Audio play pause
+			'', XF86AudioPlay, exec, ~/.config/waybar/scripts/spotify-pause.sh'' # Audio play pause
+
 			'', XF86AudioPause, exec, playerctl pause'' # Audio pause
 			'', XF86AudioNext, exec, playerctl next'' # Audio next
 			'', XF86AudioPrev, exec, playerctl previous'' # Audio previous
@@ -330,15 +333,25 @@ in
         ''SUPER, mouse:273, resizewindow''
       ];
       binde = [
-        '', XF86AudioPlay, exec, playerctl play-pause''
-        '', XF86AudioNext, exec, playerctl next''
+     #    '', XF86AudioPlay, exec, playerctl play-pause''
+     #    '', XF86AudioNext, exec, playerctl next''
+     #    '', XF86AudioPrev, exec, playerctl previous''
+     #    '', XF86AudioMute, exec, swayosd-client --output-volume=mute-toggle''
+			  # '', XF86AudioMicMute, exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle'' # Toggle microphone
+
         '', XF86MonBrightnessDown, exec, swayosd-client --brightness=lower''
         '', XF86MonBrightnessUp,   exec, swayosd-client --brightness=raise''
-        '', XF86AudioMute,         exec, swayosd-client --output-volume=mute-toggle''
         '', XF86AudioLowerVolume,  exec, swayosd-client --output-volume=lower''
         '', XF86AudioRaiseVolume,  exec, swayosd-client --output-volume=raise''
       ];
       bindl = [
+			  # '', XF86AudioPause, exec, playerctl pause'' # Audio pause
+     #    '', XF86AudioPlay, exec, playerctl play-pause''
+     #    '', XF86AudioNext, exec, playerctl next''
+     #    '', XF86AudioPrev, exec, playerctl previous''
+     #    '', XF86AudioMute, exec, swayosd-client --output-volume=mute-toggle''
+			  # '', XF86AudioMicMute, exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle'' # Toggle microphone
+
         '',switch:on:1241ec0,exec,hyprctl keyword monitor "eDP-1, 2560x1600, 0x0, 1"''
         '',switch:off:1241ec0,exec,hyprctl keyword monitor "eDP-1, disable"''
       ];
