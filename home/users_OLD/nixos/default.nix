@@ -1,5 +1,0 @@
-{ ... }: 
-
-{
-  #Put configurations stuff here.
-} 
