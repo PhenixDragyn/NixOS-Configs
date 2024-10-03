@@ -1,0 +1,6 @@
+#!/bin/sh
+
+swww img $*
+
+notify-send "Setting Wallpaper"
+

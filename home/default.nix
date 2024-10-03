@@ -21,7 +21,7 @@
     # User configs
     ../users/${username}/home.nix
   ]
-  ++ lib.optional (builtins.isString desktop) ./common/desktops/${desktop}; 
+  ++ lib.optional (builtins.isString desktop) ../desktops/${desktop}/home.nix; 
 
   # ---------------------------------
 

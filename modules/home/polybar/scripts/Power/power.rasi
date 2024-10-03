@@ -1,0 +1,23 @@
+@import "/home/ejvend/.local/share/rofi/themes/custom.rasi"
+
+
+#window {
+  width: 300px;
+}
+
+#button {
+  padding: 0px 5px;
+}
+
+#mainbox {
+  padding: 10px;
+}
+
+#element {
+  padding: 0px 5px;
+}
+
+#listview {
+	columns: 1;
+  lines: 5;
+}

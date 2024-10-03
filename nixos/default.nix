@@ -3,27 +3,29 @@
 {
   imports = [ 
     # Services
-    ./common/services/openssh.nix
+    ../modules/nixos/openssh.nix
 
     # Scripts
-    ./common/modules/clean-hm.nix
+    ../modules/nixos/clean-hm.nix
 
     # Modules
-    ./common/modules/nixvim.nix
+    ../modules/nixos/nixvim.nix
     #./common/modules/ranger.nix
-    ./common/modules/yazi.nix
-    ./common/modules/zsh.nix
+    ../modules/nixos/yazi.nix
+    ../modules/nixos/zsh.nix
 
     # Stylix (Set in hosts default.nix) 
     # ISO can't have both Hosts and Home defined.
     #inputs.stylix.nixosModules.stylix 
 		#../stylix/stylix-nixos.nix
 
-    # Hosts and Users
-    ./hosts/${hostname}
+    # Hosts Configurations
+    ../hosts/${hostname}
+
+		# User Setup
     ../users/${username}/nixos.nix
   ]
-   ++ lib.optional (builtins.isString desktop) ./common/desktops/${desktop}
+   ++ lib.optional (builtins.isString desktop) ../desktops/${desktop}/nixos.nix
    ++ (if ( format != "iso")
        then [ 
          inputs.stylix.nixosModules.stylix
