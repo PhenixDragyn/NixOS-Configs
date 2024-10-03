@@ -170,6 +170,16 @@ kill $hyprshot_pid
 # Repair fonts 
 fc-cache -fr
 
+# Updating the System
+Update flakke.lock
+> nix flake update
+or replace only the specific input, such as home-manager
+> nix flake update home-manager
+
+Apply the updates
+> sudo nixos-rebuild switch --flake .
+or to update flake.lock and apply wiht one command
+> suduo nixos-rebuild switch --recreate-lock-file --flake .
 
 # Rollback home-manager
 > home-manager generations

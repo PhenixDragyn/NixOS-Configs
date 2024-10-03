@@ -181,17 +181,17 @@ in
         #no_gaps_when_only = 1; # If it's the only window int he layout, 1=don't show gaps
       };
       windowrule = [
-        "noblur,^(firefox)$" # disables blur for firefox
+        #"noblur,^(firefox)$" # disables blur for firefox
         #"opacity 1.0 override,^(firefox)$" # Sets opacity to 1
-        "noblur,^(thunderbird)$" # disables blur for firefox
+        #"noblur,^(thunderbird)$" # disables blur for firefox
         #"opacity 1.0 override,^(thunderbird)$" # Sets opacity to 1
-        "noblur,^(steam)$" # disables blur for steam
+        #"noblur,^(steam)$" # disables blur for steam
         "opacity 1.0 override,^(steam)$" # Sets opacity to 1
-        "noblur,^(codium)$" # disables blur for codium
+        #"noblur,^(codium)$" # disables blur for codium
         "opacity 0.9 override,^(codium)$" # Sets opacity to 0.9
         "stayfocused, title:^()$,class:^(steam)$"
         "minsize 1 1, title:^()$,class:^(steam)$"
-        "noblur,^(.gimp)(.*)" # disables blur for gimp
+        #"noblur,^(.gimp)(.*)" # disables blur for gimp
       ];
 
       windowrulev2 = [
