@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-unstable, username, system, ... }:
+{ config, lib, pkgs, pkgs-unstable, username, hostname, system, ... }:
 
 { 
 # You can import other NixOS modules here 
@@ -33,8 +33,8 @@
 
   # ---------------------------------
 
-  # SETUP ENVIRONMENT VARIABLES
-  environment.variables = {
+  # SETUP ENVIRONMENT VARIABLES 
+	environment.variables = {
 	  WLR_RENDERER_ALLOW_SOFTWARE = 1;
 		#WLR_NO_HARDWARE_CURSORS = 1;
 		
@@ -58,6 +58,8 @@
     #SWWW_TRANSITION,simple;
 
 		USE_GTK_PORTAL = 0;
+
+		HOSTNAME = "${hostname}";
   };
 
   # ---------------------------------
@@ -258,10 +260,10 @@
       }
     ];
 
-    # nautilus-open-any-terminal = {
-    #   enable = true;
-    #   terminal = "kitty";
-    # };
+    nautilus-open-any-terminal = {
+      enable = true;
+      terminal = "kitty";
+    };
 
     file-roller.enable = true;
     seahorse.enable = true;
@@ -277,7 +279,8 @@
     #   ];
     # };
   };
-  
+ 
+  # A quick previewer for Files (nautilus) file manager.
 	services.gnome.sushi.enable = true;
 
   # ---------------------------------
@@ -290,12 +293,12 @@
       })
     )
 
-		grimblast
+		grimblast     # Screenshots
     # slurp                # Screenshots
 
     glib                 # Set GTK theme settings
     #calcurse             # TUI Calendar app
-		udiskie
+		udiskie            # Automaounter
 		pulsemixer
 
 		cliphist
@@ -307,7 +310,7 @@
 
 		brightnessctl
     #mako                 # Notification daemon
-    dunst
+    dunst                # Notification daemon
     libnotify            # Notification libraries
     libinput-gestures    # Gesture Control
 
@@ -326,7 +329,7 @@
 		imv 	# image viewer
 		mpv   # video viewer
 
-		kanshi
+		kanshi   # Dynamic display configuration for wayland (equivalent to autorandr)
 		waybar
 		pkgs-unstable.waypaper
 		wdisplays
@@ -349,10 +352,10 @@
     # wayland-packages
 		pkgs-unstable.wayprompt
 
-    celluloid
-		guvcview
+    celluloid        # GTK+ frontend to mpv
+		guvcview          # Camera viewer
 		#gnome.cheese
-    snapshot
+    snapshot           # Screenshots
     # v4l2-relayd
 		# gst_all_1.gst-plugins-base
 		# gst_all_1.gst-plugins-good

@@ -19,7 +19,7 @@
     ../stylix/stylix.nix
 
     # User configs
-    ./users/${username}
+    #./users/${username}
   ]
   ++ lib.optional (builtins.isString desktop) ./common/desktops/${desktop}; 
 
@@ -33,7 +33,6 @@
   
 	  sessionVariables = {
 		  EDITOR = "nvim";
-			HOSTNAME = "${hostname}";
 		};
 
     # User specific packages

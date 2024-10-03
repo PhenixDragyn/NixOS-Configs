@@ -19,9 +19,9 @@
     #inputs.stylix.nixosModules.stylix 
 		#../stylix/stylix-nixos.nix
 
-    # NixOS and Home
+    # Hosts and Users
     ./hosts/${hostname}
-    ./users/${username}
+    ../users/${username}
   ]
    ++ lib.optional (builtins.isString desktop) ./common/desktops/${desktop}
    ++ (if ( format != "iso")
@@ -132,8 +132,8 @@
   # ---------------------------------
 
   # SOUND SETTINGS
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
+  hardware.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
