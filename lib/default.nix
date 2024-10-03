@@ -10,14 +10,11 @@
     theme     ? "default",
     type      ? "default",
     repo      ? "nixpkgs",
-    #deployment_type ? "hosts",
     unfree    ? false,
-		insecure  ? false,
     format    ? null,
   }: inputs.${repo}.lib.nixosSystem { 
     specialArgs = { 
       inherit inputs outputs desktop hostname username hmStateVersion stateVersion system theme format self;
-      #inherit inputs outputs desktop hostname username hmStateVersion stateVersion system theme self deployment_type;
       # Choose whether to pull from stable or unstable 
       pkgs          = let packages = (import ./packages.nix { inherit inputs repo system unfree; }); in packages.pkgs;
       pkgs-unstable = let packages = (import ./packages.nix { inherit inputs repo system unfree; }); in packages.pkgs-unstable;
@@ -56,12 +53,11 @@
     type      ? "default",
     repo      ? "nixpkgs",
     unfree    ? false,
-		insecure  ? false,
-    format    ? "iso",
+    format    ? null,
   }: inputs.${repo}.lib.nixosSystem {
     specialArgs = { 
       #inherit inputs outputs desktop hostname username stateVersion hmStateVersion system theme; 
-      inherit inputs outputs desktop hostname username stateVersion hmStateVersion system theme format; 
+      inherit inputs outputs desktop hostname username stateVersion hmStateVersion system theme format self; 
       # Choose whether to pull from stable or unstable 
       pkgs          = let packages = (import ./packages.nix { inherit inputs repo system unfree; }); in packages.pkgs;
       pkgs-unstable = let packages = (import ./packages.nix { inherit inputs repo system unfree; }); in packages.pkgs-unstable;
@@ -94,7 +90,6 @@
     type      ? "default",
     repo      ? "nixpkgs",
     unfree    ? false,
-		insecure  ? false,
     format    ? "iso",
   }: inputs.nixos-generators.nixosGenerate {
   #}: inputs.${repo}.lib.nixosSystem {
@@ -125,7 +120,6 @@
   };
 
   forAllSystems = inputs.nixpkgs.lib.genAttrs [
-    "aarch64-darwin"
     "aarch64-linux"
     "x86_64-linux"
   ];
