@@ -27,8 +27,7 @@
          ../stylix/stylix.nix
        ]
        else []);
-
-  # ---------------------------------
+# ---------------------------------
 
   # NIX SETTINGS
   nix = {
@@ -228,6 +227,7 @@
     nix-prefetch
     nix-prefetch-git
 		nvd
+		nix-output-monitor
 
     # Network
     curl

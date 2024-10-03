@@ -353,6 +353,7 @@
 		pkgs-unstable.wayprompt
 
     celluloid        # GTK+ frontend to mpv
+		evince            # pdf document viewer
 		guvcview          # Camera viewer
 		#gnome.cheese
     snapshot           # Screenshots
