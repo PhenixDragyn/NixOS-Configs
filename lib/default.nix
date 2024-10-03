@@ -73,11 +73,11 @@
       ../nixos/${type}.nix
 
       #inputs.sops-nix.nixosModules.sops
-      inputs.home-manager.nixosModules.home-manager = {
-        useGlobalPkgs = true;
-        useUserPackages = true;
-        extraSpecialArgs  = { inherit inputs outputs desktop hostname username hmStateVersion stateVersion system theme; };
-        users."${username}" = import ../home/${type}.nix;
+      inputs.home-manager.nixosModules.home-manager {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.extraSpecialArgs  = { inherit inputs outputs desktop hostname username hmStateVersion stateVersion system theme; };
+        home-manager.users."${username}" = import ../home/${type}.nix;
       }
     ];
   };
