@@ -30,8 +30,8 @@
 		# nix-yazi-plugins.inputs.nixpkgs.follows = "nixpkgs";
 		
     # Nix colorizer / themer 
-    #stylix.url = "github:danth/stylix/release-24.05";
-    stylix.url = "github:danth/stylix";
+    stylix.url = "github:danth/stylix/release-24.05";
+    #stylix.url = "github:danth/stylix";
 
     # nixos-generators - Automated Image / ISO Creation
     nixos-generators.url = "github:nix-community/nixos-generators";
