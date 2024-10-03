@@ -233,13 +233,32 @@
 
     # Network
     curl
-    inetutils
     rsync
     wget
     
     # Sound
     alsa-utils
-    playerctl
+
+    # networking tools
+    mtr # A network diagnostic tool
+    dnsutils  # `dig` + `nslookup`
+    inetutils
+    ldns # replacement of `dig`, it provide the command `drill`
+    socat # replacement of openbsd-netcat
+    nmap # A utility for network discovery and security auditing
+    ipcalc  # it is a calculator for the IPv4/v6 addresses
+ 
+    # system call monitoring
+    strace # system call monitoring
+    ltrace # library call monitoring
+    lsof # list open files
+
+    # system tools
+    sysstat
+    lm_sensors # for `sensors` command
+    ethtool
+    pciutils # lspci
+    usbutils # lsusb   playerctl
   ] ++ (if ( system == "x86_64-linux")
 	        then []
 				else 
