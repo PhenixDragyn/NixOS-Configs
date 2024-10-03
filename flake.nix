@@ -68,6 +68,11 @@
       "ejvend@nixos-mvm" = libx.mkHome { hostname = "nixos-mvm"; username = "ejvend"; system = "aarch64-linux"; desktop = "xfce_bspwm"; type = "default"; theme = "ia-dark"; };
     };
 
+    # Funtion for System configuration
+		systemConfigurations = {
+      nixos-lt = libx.mkSystem { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hypr"; type = "default"; theme = "classic-dark"; unfree = true; };
+		};
+
     # Function for Image configuration
     # nix build .#imageConfigurations.nixos-iso
     imageConfigurations = {

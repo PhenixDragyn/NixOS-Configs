@@ -4,7 +4,7 @@
   # Helper function for generating host configs
   mkNixOS = { 
     hostname, 
-    username  ? "ejvend",
+    username  ? "nixos",
     desktop   ? null, 
     system    ? "x86_64-linux", 
     theme     ? "default",
@@ -34,7 +34,7 @@
   # Helper function for generating home-manager configs
   mkHome = { 
     hostname, 
-    username ? "ejvend",
+    username ? "nixos",
     desktop  ? null, 
     system   ? "x86_64-linux", 
     theme    ? "default",
@@ -43,6 +43,43 @@
     pkgs = inputs.nixpkgs.legacyPackages.${system};
     extraSpecialArgs = { inherit inputs outputs desktop hostname system username hmStateVersion theme; };
     modules = [ ../home/${type}.nix ];
+  };
+
+  # Combines mkHost and mkHome for system building
+  # nix build .#systemConfigurations.nixos-iso
+  mkSystem = {
+    hostname  , 
+    username  ? "nixos",
+    desktop   ? null, 
+    system    ? "x86_64-linux",
+    theme     ? "default",
+    type      ? "default",
+    repo      ? "nixpkgs",
+    unfree    ? false,
+		insecure  ? false,
+    format    ? "iso",
+  }: inputs.${repo}.lib.nixosSystem {
+    specialArgs = { 
+      #inherit inputs outputs desktop hostname username stateVersion hmStateVersion system theme; 
+      inherit inputs outputs desktop hostname username stateVersion hmStateVersion system theme format; 
+      # Choose whether to pull from stable or unstable 
+      pkgs          = let packages = (import ./packages.nix { inherit inputs repo system unfree; }); in packages.pkgs;
+      pkgs-unstable = let packages = (import ./packages.nix { inherit inputs repo system unfree; }); in packages.pkgs-unstable;
+    };
+    system = system;
+    format = format;
+
+    modules = [
+      ../nixos/${type}.nix
+
+      #inputs.sops-nix.nixosModules.sops
+      inputs.home-manager.nixosModules.home-manager = {
+        useGlobalPkgs = true;
+        useUserPackages = true;
+        extraSpecialArgs  = { inherit inputs outputs desktop hostname username hmStateVersion stateVersion system theme; };
+        users."${username}" = import ../home/${type}.nix;
+      }
+    ];
   };
 
   # Combines mkHost and mkHome for image building
