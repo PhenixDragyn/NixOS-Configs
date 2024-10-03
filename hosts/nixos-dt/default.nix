@@ -17,8 +17,8 @@
     ./hardware-configuration.nix
 
     # Services
-    ../../common/services/samba.nix
-    ../../common/services/syncthing.nix
+    ../../modules/nixos/samba.nix
+    ../../modules/nixos/syncthing.nix
 
     # Stylix
     #inputs.stylix.nixosModules.stylix

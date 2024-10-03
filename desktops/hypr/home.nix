@@ -4,31 +4,31 @@
 {
   imports = [
     # Modules
-    ../../modules/fastfetch.nix
-    #../../modules/lf.nix
-    ../../modules/ranger.nix
-    ../../modules/nixvim.nix 
-    #../../modules/yazi.nix
+    ../../modules/home/fastfetch.nix
+    #../../modules/home/lf.nix
+    ../../modules/home/ranger.nix
+    ../../modules/home/nixvim.nix 
+    #../../modules/home/yazi.nix
 
-    ../../modules/firefox.nix
-    ../../modules/kitty.nix
-    ../../modules/nautilus.nix
+    ../../modules/home/firefox.nix
+    ../../modules/home/kitty.nix
+    ../../modules/home/nautilus.nix
 
-    ../../modules/gtk.nix
-    ../../modules/qt.nix
+    ../../modules/home/gtk.nix
+    ../../modules/home/qt.nix
 
-    ../../modules/dunst.nix
-    ../../modules/hyprland.nix
-    ../../modules/kanshi.nix
-    ../../modules/rofi-wayland.nix
-		#../../modules/swaylock.nix
-		#../../modules/swayosd.nix
-    ../../modules/waybar.nix
-    ../../modules/wlogout.nix
+    ../../modules/home/dunst.nix
+    ../../modules/home/hyprland.nix
+    ../../modules/home/kanshi.nix
+    ../../modules/home/rofi-wayland.nix
+		#../../modules/home/swaylock.nix
+		#../../modules/home/swayosd.nix
+    ../../modules/home/waybar.nix
+    ../../modules/home/wlogout.nix
 
-		../../modules/imv.nix
+		../../modules/home/imv.nix
 
-		../../modules/hyprlock.nix
+		../../modules/home/hyprlock.nix
   ];
 
   # ---------------------------------

@@ -5,7 +5,7 @@
   imports = [
     # Import my host modules
     #../../modules/x11.nix
-    ../../common/modules/autorandr.nix
+    ../../modules/nixos/autorandr.nix
   ];
 
   # ---------------------------------

@@ -4,27 +4,27 @@
 {
   imports = [
     # Modules
-    #../../modules/dconf.nix
+    #../../modules/home/dconf.nix
 
-    ../../modules/bspwm.nix
-    ../../modules/firefox.nix
-    ../../modules/kitty.nix
-    ##../../modules/picom.nix
-    ../../modules/picom-pijulius.nix
-    ../../modules/dunst.nix
-    ../../modules/polybar.nix
-    ../../modules/rofi.nix
-    ../../modules/sxhkd.nix
-    ../../modules/termite.nix
+    ../../modules/home/bspwm.nix
+    ../../modules/home/firefox.nix
+    ../../modules/home/kitty.nix
+    ##../../modules/home/picom.nix
+    ../../modules/home/picom-pijulius.nix
+    ../../modules/home/dunst.nix
+    ../../modules/home/polybar.nix
+    ../../modules/home/rofi.nix
+    ../../modules/home/sxhkd.nix
+    ../../modules/home/termite.nix
 
-    ../../modules/fastfetch.nix
-    ../../modules/feh.nix
-    #../../modules/lf.nix
-    #../../modules/ranger.nix
-    ../../modules/nixvim.nix 
-    ../../modules/yazi.nix
+    ../../modules/home/fastfetch.nix
+    ../../modules/home/feh.nix
+    #../../modules/home/lf.nix
+    #../../modules/home/ranger.nix
+    ../../modules/home/nixvim.nix 
+    ../../modules/home/yazi.nix
 
-    ../../modules/gtk.nix
+    ../../modules/home/gtk.nix
   ];
 
   # ---------------------------------

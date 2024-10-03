@@ -290,7 +290,7 @@ let
     };
 
   in {
-    home.file.".config/rofi/powermenu".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/home/common/modules/rofi/powermenu";
+    home.file.".config/rofi/powermenu".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/modules/home/rofi/powermenu";
 
     programs.rofi = {
       package = pkgs.rofi-wayland;
