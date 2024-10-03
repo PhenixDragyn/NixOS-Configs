@@ -56,16 +56,6 @@ in {
 
   # ---------------------------------
 
-  # GIT Settings
-  programs.git = {
-    enable = true;
-		lfs.enable = true;
-    userName = "PhenixDragyn";
-    userEmail = "ejvend.nielsen@gmail.com";
-	};
-
-  # ---------------------------------
-
   # USER SYMLINKS
   #system.userActivationScripts.linktosharedfolder.text = ''
   #  if [[ ! -h "${config.home.homeDirectory}/Sync/test.txt" ]]; then

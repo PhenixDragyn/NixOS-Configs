@@ -19,7 +19,7 @@
     ../stylix/stylix.nix
 
     # User configs
-    #./users/${username}
+    ../users/${username}/home.nix
   ]
   ++ lib.optional (builtins.isString desktop) ./common/desktops/${desktop}; 
 

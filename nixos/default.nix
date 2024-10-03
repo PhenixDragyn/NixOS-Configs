@@ -21,7 +21,7 @@
 
     # Hosts and Users
     ./hosts/${hostname}
-    ../users/${username}
+    ../users/${username}/nixos.nix
   ]
    ++ lib.optional (builtins.isString desktop) ./common/desktops/${desktop}
    ++ (if ( format != "iso")
