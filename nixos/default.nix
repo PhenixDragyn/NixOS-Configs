@@ -14,11 +14,6 @@
     ../modules/nixos/yazi.nix
     ../modules/nixos/zsh.nix
 
-    # Stylix (Set in hosts default.nix) 
-    # ISO can't have both Hosts and Home defined.
-    #inputs.stylix.nixosModules.stylix 
-		#../stylix/stylix-nixos.nix
-
     # Hosts Configurations
     ../hosts/${hostname}
 
