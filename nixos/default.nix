@@ -220,6 +220,7 @@
     #neofetch
     procps
     psmisc
+    viu # Terminal image viewer with native support for iTerm and Kitty
 
 		# yazi
   #   ffmpegthumbnailer
