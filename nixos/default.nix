@@ -269,7 +269,7 @@
         # Therefore, we need to add them manually.
         #
         # pkgs.appimageTools provides basic packages required by most software.
-        (base.targetPkgs pkgs) ++ with pkgs; [
+        (base.targetPkgs pkgs) ++ [
           pkg-config
           ncurses
           # Feel free to add more packages here if needed.
