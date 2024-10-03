@@ -10,8 +10,8 @@
 
     # Modules
     ../modules/nixos/nixvim.nix
-    #./common/modules/ranger.nix
-    ../modules/nixos/yazi.nix
+    ../modules/nixos/ranger.nix
+    #../modules/nixos/yazi.nix
     ../modules/nixos/zsh.nix
 
     # Hosts Configurations
