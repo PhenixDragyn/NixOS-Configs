@@ -33,6 +33,10 @@
     stylix.url = "github:danth/stylix/release-24.05";
     #stylix.url = "github:danth/stylix";
 
+    # Spicetify-Nix
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
+
     # nixos-generators - Automated Image / ISO Creation
     nixos-generators.url = "github:nix-community/nixos-generators";
     nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
