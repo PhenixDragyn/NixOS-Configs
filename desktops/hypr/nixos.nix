@@ -46,10 +46,10 @@
     XDG_SESSION_TYPE = "wayland";
 		XDG_SESSION_DESKTOP = "Hyprland";
 
+		#QT_STYLE_OVERRIDE = "qt6ct";
+    #QT_QPA_PLATFORMTHEME = "qt5ct";
+		#QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
     QT_QPA_PLATFORM = "wayland;xcb";
-    QT_QPA_PLATFORMTHEME = "qt5ct";
-    #QT_QPA_PLATFORMTHEME = "qt6ct";
-		QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
 		QT_AUTO_SCREEN_SCALE_FACTOR = 1;
 
 		GDK_SCALE = 1;
@@ -292,6 +292,10 @@
         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
       })
     )
+
+    #kdePackages.qt6ct
+    #libsForQt5.qt5ct 
+    adwaita-qt
 
 		grimblast     # Screenshots
     # slurp                # Screenshots
