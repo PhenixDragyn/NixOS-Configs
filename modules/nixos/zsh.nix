@@ -71,10 +71,6 @@
       export RANGER_DEVICONS_SEPARATOR="  "
     '';
     
-    envExtra = ''
-      path=(~/.local/bin ~/.local/lib $path[@])
-    '';
-
     #profileExtra = ''
     #'';
 
