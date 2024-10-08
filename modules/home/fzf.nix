@@ -11,7 +11,7 @@
 			"--no-scrollbar"
 			"--no-separator"
 		];
-		defautlCommand = "rg -L --files";
+		defaultCommand = "rg -L --files";
 		changeDirWidgetCommand = "fd --type d";
 	};
 
