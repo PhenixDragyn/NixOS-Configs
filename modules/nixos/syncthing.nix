@@ -35,9 +35,10 @@
 
     settings = {
       # options = {
-      #   urAccepted = -1;
+      #   urAccepted = 3;
       #   localAnnouncedEnabled = true;
-      #   relaysEnabled = false;
+			#   globalAnnouncedEnabled = true;
+      #   natEnabled = true;
       # };
       options.gui = {
         theme = "dark";
@@ -47,11 +48,14 @@
           autoAcceptFolders = true;
           id = "VEV77YU-ZL74KVJ-203R7IX-5IQNQIM-4ZBUBLX-FGQWD06-SZTEEVI-JYYTKQX"; 
         };
-        # "ArchLinux" = { 
-        #   autoAcceptFolders = true;
-        #   id = "T2KGAP2-3NUX7XQ-Q77CWIM-QJLB700-ZULQTH3-6JMYJR5-6EZUNKL-VRRCRAI"; 
-        # };
-      	#"NixOS-LT" = { id = "R376GRY-YR4MKG2-2UG3VFQ-5RJ7EEI-SZ2LQZX-TLPWXKS-KOPBIU4-SCSRQQO"; };
+        "Macbook-Air" = { 
+          autoAcceptFolders = true;
+          id = "A5CANTE-E3E4PYO-WHNZXKS-PZRBX32-EYKWMB5-GNCRUV5-WEL3SGO-JMBESAL";
+        };
+        "NixOS-LT" = { 
+          autoAcceptFolders = true;
+				  id = "TMYBKYP-CAAHX43-FF542D2-I53C5JX-XJWP6DT-U2LHOV3-AQO4MHB-3T5ZFAV";
+        };
       };
  
       folders = {
@@ -59,7 +63,7 @@
           id = "sync";
           path = "/home/${username}/Sync";
           #versioning.type = "trashcan";
-          devices = [ "Macbook" ];
+          devices = [ "Macbook-Air" ];
           #devices = [ "Macbook" "ArchLinux" ];
         };
       };

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 let
   inherit (config.lib.formats.rasi) mkLiteral;
@@ -290,10 +290,9 @@ let
     };
 
   in {
-    home.file.".config/rofi/powermenu".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/modules/home/rofi/powermenu";
+    home.file.".config/rofi/powermenu".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/modules/desktops/xfce_bspwm/rofi/powermenu";
 
     programs.rofi = {
-      package = pkgs.rofi-wayland;
       enable = true;
       theme = nixos-theme;
 
@@ -353,5 +352,4 @@ let
         kb-remove-char-back = "BackSpace";
       };
     };
-}
-
+  }

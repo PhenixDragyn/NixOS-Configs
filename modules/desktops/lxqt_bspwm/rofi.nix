@@ -290,7 +290,7 @@ let
     };
 
   in {
-    home.file.".config/rofi/powermenu".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/modules/home/rofi/powermenu";
+    home.file.".config/rofi/powermenu".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/modules/desktops/lxqt_bspwm/rofi/powermenu";
 
     programs.rofi = {
       enable = true;

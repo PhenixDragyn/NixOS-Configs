@@ -3,6 +3,16 @@
 
 {
   imports = [
+	  # Desktop
+    ../../modules/desktop/hyprland/hyprland.nix
+		../../modules/desktop/hyprland/hyprlock.nix
+    ../../modules/desktop/hyprland/waybar.nix
+    ../../modules/desktop/hyprland/wlogout.nix
+    ../../modules/desktop/hyprland/kanshi.nix
+    ../../modules/desktop/hyprland/dunst.nix
+    ../../modules/desktop/hyprland/rofi-wayland.nix
+
+
     # Modules
     ../../modules/home/fastfetch.nix
     #../../modules/home/lf.nix
@@ -18,18 +28,7 @@
     ../../modules/home/gtk.nix
     ../../modules/home/qt.nix
 
-    ../../modules/home/dunst.nix
-    ../../modules/home/hyprland.nix
-    ../../modules/home/kanshi.nix
-    ../../modules/home/rofi-wayland.nix
-		#../../modules/home/swaylock.nix
-		#../../modules/home/swayosd.nix
-    ../../modules/home/waybar.nix
-    ../../modules/home/wlogout.nix
-
 		../../modules/home/imv.nix
-
-		../../modules/home/hyprlock.nix
   ];
 
   # ---------------------------------
