@@ -15,11 +15,13 @@
 
     # Modules
     ../../modules/home/fastfetch.nix
+
     #../../modules/home/lf.nix
     ../../modules/home/ranger.nix
+    #../../modules/home/yazi.nix
+
     ../../modules/home/nixvim.nix 
 		../../modules/home/spicetify.nix
-    #../../modules/home/yazi.nix
 
     ../../modules/home/firefox.nix
     ../../modules/home/kitty.nix

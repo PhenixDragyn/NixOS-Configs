@@ -3,24 +3,27 @@
 
 {
   imports = [
+    # Desktop
+    ../../modules/desktops/lxqt_bspwm/bspwm.nix
+    ##../../modules/desktops/lxqt_bspwm/picom.nix
+    ../../modules/desktops/lxqt_bspwm/picom-pijulius.nix
+    ../../modules/desktops/lxqt_bspwm/dunst.nix
+    ../../modules/desktops/lxqt_bspwm/polybar.nix
+    ../../modules/desktops/lxqt_bspwm/rofi.nix
+    ../../modules/desktops/lxqt_bspwm/sxhkd.nix
+
     # Modules
-    ../../modules/home/bspwm.nix
     ../../modules/home/firefox.nix
     ../../modules/home/kitty.nix
-    ##../../modules/home/picom.nix
-    ../../modules/home/picom-pijulius.nix
-    ../../modules/home/dunst.nix
-    ../../modules/home/polybar.nix
-    ../../modules/home/rofi.nix
-    ../../modules/home/sxhkd.nix
     ../../modules/home/termite.nix
 
     ../../modules/home/fastfetch.nix
     ../../modules/home/feh.nix
     #../../modules/home/lf.nix
-    #../../modules/home/ranger.nix
+    ../../modules/home/ranger.nix
+    #../../modules/home/yazi.nix
+
     ../../modules/home/nixvim.nix 
-    ../../modules/home/yazi.nix
   ];
 
   # ---------------------------------
