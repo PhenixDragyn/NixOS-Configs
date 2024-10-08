@@ -103,13 +103,13 @@
     #profileExtra = ''
     #'';
 
-    # history = {
-    #   ignoreDups = true;
-    #   ignoreSpace = true;
-    #   save = 100000;
-    #   share = true;
-    #   size = 100000;
-    # };
+    history = {
+      ignoreDups = true;
+      ignoreSpace = true;
+      save = 100000;
+      share = true;
+      size = 100000;
+    };
   };
 
   # ---------------------------------
