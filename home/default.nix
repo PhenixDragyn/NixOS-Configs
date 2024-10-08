@@ -3,9 +3,9 @@
 {
   imports = [ 
 		# Modules
-    ../../modules/home/fastfetch.nix
-    ../../modules/home/nixvim.nix 
-    ../../modules/home/ranger.nix
+    ../modules/home/fastfetch.nix
+    ../modules/home/nixvim.nix 
+    ../modules/home/ranger.nix
     #../../modules/home/lf.nix
     #../../modules/home/yazi.nix
 
