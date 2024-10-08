@@ -8,6 +8,7 @@
 
     # Modules
     ../../modules/home/gtk.nix
+
     ../../modules/home/firefox.nix
     ../../modules/home/kitty.nix
     ../../modules/home/termite.nix
