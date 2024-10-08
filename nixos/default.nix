@@ -283,7 +283,7 @@
   ];
 
   # ---------------------------------
-  
+
   # AUTO UPGRADE
   system.autoUpgrade = {
     enable = true;

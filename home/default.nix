@@ -44,15 +44,17 @@
 
   # ---------------------------------
 
-  # USER PROGRAMS
+  # USER PROGRAMS ENABLED 
   programs = {
     btop.enable = true;
+		fzf.enable = true;
+
     home-manager.enable = true;
   };
 
   # ---------------------------------
 
-  # USER SERVICES
+  # USER SERVICES ENABLED
   services = {
     unclutter.enable = true;
   };
