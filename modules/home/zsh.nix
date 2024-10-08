@@ -5,13 +5,6 @@
     enable = true;
     #dotDir = ".config/zsh";
     shellAliases = {
-      nr="sudo nixos-rebuild switch --flake";
-      hm="home-manager switch --flake";
-      nb="nix-build --no-out-link"; 
-      nbm="nom-build --no-out-link"; 
-      nu="nix flake update";
-      nr-pkgs="nix-store --query --requisites /run/current-system | cut -d- -f2 | sort | uniq | fzf ";
-     
 			fm="ranger";
 
       fastfetch="fastfetch --config ~/.config/fastfetch/fastfetch.jsonc";
@@ -21,7 +14,7 @@
 		  # VI Mode
       set -o vi
    
-      WORDCHARS=''${WORDCHARS//[\/.$\~#=]} # Remove '/' '.' '$' '~' '#' '=' from WORDCHARS (makes jumping and deleting whole words easier)
+      #WORDCHARS=''${WORDCHARS//[\/.$\~#=]} # Remove '/' '.' '$' '~' '#' '=' from WORDCHARS (makes jumping and deleting whole words easier)
 
 	    # ZSH Options
       setopt hist_verify          # command by history expansion (e.g., !!) will first be shown

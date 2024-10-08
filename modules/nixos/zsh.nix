@@ -27,6 +27,13 @@
     }; 
 
     shellAliases = {
+      nr="sudo nixos-rebuild switch --flake";
+      hm="home-manager switch --flake";
+      nb="nix-build --no-out-link"; 
+      nbm="nom-build --no-out-link"; 
+      nu="nix flake update";
+      nr-pkgs="nix-store --query --requisites /run/current-system | cut -d- -f2 | sort | uniq | fzf ";
+
       q="exit";
       ls="lsd -F";
       la="lsd -F -a";
