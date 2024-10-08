@@ -210,6 +210,7 @@
     bc
     btop
     fastfetch
+		fd
     fzf
     lsd
     killall
@@ -218,12 +219,12 @@
     #neofetch
     procps
     psmisc
+		ripgrep
     viu # Terminal image viewer with native support for iTerm and Kitty
 
 		# yazi
   #   ffmpegthumbnailer
   #   poppler
-		# ripgrep
 		
     # NIX tools
     nix-prefetch
