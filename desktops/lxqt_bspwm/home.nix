@@ -5,24 +5,14 @@
   imports = [
     # Desktop
 		../../modules/desktops/lxqt_bspwm
-    # ../../modules/desktops/lxqt_bspwm/bspwm.nix
-    # ##../../modules/desktops/lxqt_bspwm/picom.nix
-    # ../../modules/desktops/lxqt_bspwm/picom-pijulius.nix
-    # ../../modules/desktops/lxqt_bspwm/dunst.nix
-    # ../../modules/desktops/lxqt_bspwm/polybar.nix
-    # ../../modules/desktops/lxqt_bspwm/rofi.nix
-    # ../../modules/desktops/lxqt_bspwm/sxhkd.nix
-    # ../../modules/desktops/lxqt_bspwm/feh.nix
     
     # Modules
-    ../../modules/home/fastfetch.nix
-    #../../modules/home/lf.nix
-    ../../modules/home/ranger.nix
-    #../../modules/home/yazi.nix
-    ../../modules/home/nixvim.nix 
     ../../modules/home/firefox.nix
     ../../modules/home/kitty.nix
     ../../modules/home/termite.nix
+
+    # Software
+    #../packages/qrsync/qrsync.nix
   ];
 
   # ---------------------------------

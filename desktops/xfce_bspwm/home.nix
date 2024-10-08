@@ -5,23 +5,8 @@
   imports = [
     # Desktop
 		../../modules/desktops/xfce_bspwm
-    # ../../modules/desktops/xfce_bspwm/bspwm.nix
-    # ##../../modules/desktops/xfce_bspwm/picom.nix
-    # ../../modules/desktops/xfce_bspwm/picom-pijulius.nix
-    # ../../modules/desktops/xfce_bspwm/dunst.nix
-    # ../../modules/desktops/xfce_bspwm/polybar.nix
-    # ../../modules/desktops/xfce_bspwm/rofi.nix
-    # ../../modules/desktops/xfce_bspwm/sxhkd.nix
-    # ../../modules/desktops/xfce_bspwm/feh.nix
 
     # Modules
-    ../../modules/home/gtk.nix
-		
-    ../../modules/home/fastfetch.nix
-    #../../modules/home/lf.nix
-    ../../modules/home/ranger.nix
-    #../../modules/home/yazi.nix
-    ../../modules/home/nixvim.nix 
     ../../modules/home/gtk.nix
     ../../modules/home/firefox.nix
     ../../modules/home/kitty.nix

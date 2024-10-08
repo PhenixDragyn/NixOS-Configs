@@ -16,13 +16,17 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
 
-    # Services
-    ../../modules/nixos/samba.nix
-    ../../modules/nixos/syncthing.nix
+    # ---------------------------------
 
     # Stylix
     #inputs.stylix.nixosModules.stylix
     #../../../stylix/stylix.nix
+
+    # ---------------------------------
+
+    # Services
+    ../../modules/nixos/samba.nix
+    ../../modules/nixos/syncthing.nix
   ];
 
   # ---------------------------------

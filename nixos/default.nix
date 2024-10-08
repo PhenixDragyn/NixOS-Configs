@@ -14,6 +14,8 @@
     #../modules/nixos/yazi.nix
     ../modules/nixos/zsh.nix
 
+    # ---------------------------------
+
     # Hosts Configurations
     ../hosts/${hostname}
 

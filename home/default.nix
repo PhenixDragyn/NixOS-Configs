@@ -4,12 +4,13 @@
   imports = [ 
     # Common configs
     #./common/software/cli
-
-    # Software
-    #../packages/qrsync/qrsync.nix
-
-    # NixVIM
-    #inputs.nixvim.homeManagerModules.nixvim
+		
+		# Modules
+    ../../modules/home/fastfetch.nix
+    #../../modules/home/lf.nix
+    ../../modules/home/ranger.nix
+    #../../modules/home/yazi.nix
+    ../../modules/home/nixvim.nix 
 
     # Secrets 
     #inputs.sops-nix.homeManagerModules.sops
