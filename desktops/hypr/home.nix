@@ -13,6 +13,7 @@
 		# ../../modules/desktops/hyprland/dunst.nix
 		# ../../modules/desktops/hyprland/rofi-wayland.nix
     # ../../modules/desktops/hyprland/imv.nix
+    # ../../modules/desktops/hyprland/nautilus.nix
 
 
     # Modules
@@ -27,7 +28,6 @@
 		../../modules/home/spicetify.nix
     ../../modules/home/firefox.nix
     ../../modules/home/kitty.nix
-    ../../modules/home/nautilus.nix
   ];
 
   # ---------------------------------
