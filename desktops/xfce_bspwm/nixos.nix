@@ -211,14 +211,14 @@
   # ---------------------------------
 
   # FONTS
-  fonts.fontconfig.enable = true;
-  fonts.fontDir.enable = true;
+  #fonts.fontconfig.enable = true;
+  #fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [
     dejavu_fonts
     fira-code-nerdfont
-    font-awesome
+    #font-awesome
     jetbrains-mono
-    nerdfonts
+    #nerdfonts
     noto-fonts
     noto-fonts-emoji
   ];

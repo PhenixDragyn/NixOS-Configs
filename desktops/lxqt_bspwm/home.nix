@@ -15,17 +15,14 @@
     # ../../modules/desktops/lxqt_bspwm/feh.nix
     
     # Modules
-    ../../modules/home/firefox.nix
-    ../../modules/home/kitty.nix
-    ../../modules/home/termite.nix
-
     ../../modules/home/fastfetch.nix
-    ../../modules/home/feh.nix
     #../../modules/home/lf.nix
     ../../modules/home/ranger.nix
     #../../modules/home/yazi.nix
-
     ../../modules/home/nixvim.nix 
+    ../../modules/home/firefox.nix
+    ../../modules/home/kitty.nix
+    ../../modules/home/termite.nix
   ];
 
   # ---------------------------------

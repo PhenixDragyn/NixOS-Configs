@@ -266,6 +266,21 @@
 				else []));
 
   # ---------------------------------
+
+  # FONTS
+  fonts.fontconfig.enable = true;
+  fonts.fontDir.enable = true;
+  fonts.packages = with pkgs; [
+    # dejavu_fonts
+    # fira-code-nerdfont
+    font-awesome
+    #jetbrains-mono
+    nerdfonts
+    #noto-fonts
+    #noto-fonts-emoji
+  ];
+
+  # ---------------------------------
   
   # AUTO UPGRADE
   system.autoUpgrade = {
