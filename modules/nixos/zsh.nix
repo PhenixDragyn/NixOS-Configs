@@ -27,6 +27,20 @@
     }; 
 
     shellAliases = {
+      q="exit";
+      ls="lsd -F";
+      la="lsd -F -a";
+      ll="lsd -F -l";
+      lla="lsd -F -la";
+
+      rm="rm -v";
+
+      rr="ranger";
+			lf="lf";
+			yz="yazi";
+
+      diff="diff --color=auto";
+      grep="grep --color=auto";
     };
 
     setOptions = [
