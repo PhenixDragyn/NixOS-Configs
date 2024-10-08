@@ -35,81 +35,34 @@
     earlySetup = false;
   };
 
+  # ---------------------------------
+
   # BOOT SETTINGS
   boot = {
+    #kernelPackages = pkgs.linuxPackages_latest;
     consoleLogLevel = 0;
-    initrd.verbose = false;
-
-    plymouth = {
-      enable = true;
-      #theme = "circle_hud";
-      #themePackages = [ pkgs.adi1090x-plymouth ];
-
-      # themePackages = with pkgs; [
-      #   # By default we would install all themes
-      #   (adi1090x-plymouth-themes.override {
-      #     selected_themes = [ "circle_hud" ];
-      #   })
-      # ];
-
-      #extraConfig = ''
-      #  ShowDelay=10
-      #'';
-    };
-
-    kernelParams = [
-      "quiet"
-      "splash"
-      "boot.shell_on_fail"
-      "i915.fastboot=1"
-      "loglevel=3"
-      "rd.systemd.show_status=false"
-      "rd.udev.log_level=3"
-      "udev.log_priority=3"
-    ];
-
+    kernelParams = ["quiet" "splash"];
+ 
+    # Ignored by tlp
     extraModprobeConfig = ''
       options snd-hda-intel power_save=0 power_save_controller=N
     '';
 
-    # Hide the OS choice for bootloaders.
-    # It's still possible to open the bootloader list by pressing any key
-    # It will just not appear on screen unless a key is pressed
+    initrd.verbose = false;
+    
     loader = {
-      timeout = lib.mkDefault 0;
       efi.canTouchEfiVariables = true;
+      #systemd-boot.enable = true;
+      #timeout = 0;
 
-      systemd-boot = {
+      grub = {
         enable = true;
-        editor = false;
+        devices = [ "nodev" ];
+        efiSupport = true;
+        useOSProber = true;
         configurationLimit = 10;
       };
     };
   };
-  
-  # BOOT SETTINGS
-  # boot = {
-  #   # kernelPackages = pkgs.linuxPackages_latest;
-  #   consoleLogLevel = 0;
-  #   kernelParams = ["quiet" "splash"];
-  #   extraModprobeConfig = ''
-  #     options snd-hda-intel power_save=0 power_save_controller=N
-  #   '';
-  #
-  #   initrd.verbose = false;
-  #   
-  #   loader = {
-  #     efi.canTouchEfiVariables = true;
-  #     #systemd-boot.enable = true;
-  #     #timeout = 0;
-  #
-  #     grub = {
-  #       enable = true;
-  #       devices = [ "nodev" ];
-  #       efiSupport = true;
-  #       useOSProber = true;
-  #       #configurationLimit = 10;
-  #     };
-  #   };
-  # };
+
 }
