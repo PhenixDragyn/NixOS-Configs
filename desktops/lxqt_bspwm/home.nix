@@ -12,6 +12,7 @@
     # ../../modules/desktops/lxqt_bspwm/polybar.nix
     # ../../modules/desktops/lxqt_bspwm/rofi.nix
     # ../../modules/desktops/lxqt_bspwm/sxhkd.nix
+    # ../../modules/desktops/lxqt_bspwm/feh.nix
     
     # Modules
     ../../modules/home/firefox.nix

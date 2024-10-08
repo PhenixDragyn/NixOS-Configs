@@ -12,6 +12,7 @@
   #   ../../modules/desktops/hyprland/kanshi.nix
   #   ../../modules/desktops/hyprland/dunst.nix
   #   ../../modules/desktops/hyprland/rofi-wayland.nix
+  #   ../../modules/desktops/hyprland/imv.nix
 
 
     # Modules
@@ -30,8 +31,6 @@
     ../../modules/home/firefox.nix
     ../../modules/home/kitty.nix
     ../../modules/home/nautilus.nix
-
-		../../modules/home/imv.nix
   ];
 
   # ---------------------------------

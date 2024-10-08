@@ -12,6 +12,7 @@
     # ../../modules/desktops/xfce_bspwm/polybar.nix
     # ../../modules/desktops/xfce_bspwm/rofi.nix
     # ../../modules/desktops/xfce_bspwm/sxhkd.nix
+    # ../../modules/desktops/xfce_bspwm/feh.nix
 
     # Modules
     #../../modules/home/dconf.nix
@@ -21,7 +22,6 @@
     ../../modules/home/termite.nix
 
     ../../modules/home/fastfetch.nix
-    ../../modules/home/feh.nix
     #../../modules/home/lf.nix
     ../../modules/home/ranger.nix
     #../../modules/home/yazi.nix
