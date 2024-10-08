@@ -62,14 +62,15 @@
     # Function for NixOS system configuration
     nixosConfigurations = {
       nixos-dt = libx.mkNixOS { hostname = "nixos-dt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hypr"; type = "default"; theme = "ia-dark"; unfree = true; };
-      nixos-lt = libx.mkNixOS { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hypr"; type = "default"; theme = "classic-dark"; unfree = true; };
+      #nixos-lt = libx.mkNixOS { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hypr"; type = "default"; theme = "danqing"; unfree = true; };
+      nixos-lt = libx.mkNixOS { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hypr"; type = "default"; theme = "vice"; unfree = true; };
       nixos-mvm = libx.mkNixOS { hostname = "nixos-mvm"; username = "ejvend"; system = "aarch64-linux"; desktop = "xfce_bspwm"; type = "default"; theme = "ia-dark"; };
     };
 
     # Function for Home-Manager configuration
     homeConfigurations = {
       "ejvend@nixos-dt" = libx.mkHome { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hypr"; type = "default"; theme = "ia-dark"; };
-      "ejvend@nixos-lt" = libx.mkHome { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hypr"; type = "default"; theme = "classic-dark"; };
+      "ejvend@nixos-lt" = libx.mkHome { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hypr"; type = "default"; theme = "vice"; };
       "ejvend@nixos-mvm" = libx.mkHome { hostname = "nixos-mvm"; username = "ejvend"; system = "aarch64-linux"; desktop = "xfce_bspwm"; type = "default"; theme = "ia-dark"; };
     };
 
