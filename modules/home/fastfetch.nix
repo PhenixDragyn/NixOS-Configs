@@ -2,6 +2,7 @@
 
 {
   programs.fastfetch.enable = true;
+
   home.file.".config/fastfetch/fastfetch.jsonc".text = # jsonc
     ''
       {
