@@ -74,6 +74,7 @@
     };
 
     # Funtion for System configuration
+    # nix build .#systemConfigurations.nixos-lt
 		systemConfigurations = {
       nixos-lt = libx.mkSystem { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hypr"; type = "default"; theme = "classic-dark"; unfree = true; };
 		};

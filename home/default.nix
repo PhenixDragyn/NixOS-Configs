@@ -89,6 +89,31 @@
       grep="grep --color=auto";
 
       fastfetch="fastfetch --config ~/.config/fastfetch/fastfetch.jsonc";
+
+      # Nix rebuilds
+      rbs = pkgs.writeShellScript "rebuild-switch.sh" ''
+        BLUE='\033[1;34m'
+        NC='\033[0m'
+        echo -e "$BLUE"
+      	echo -e "Committing..."
+        echo -e "$NC"
+        date=$(date)
+        git -C /home/${username}/NixOS add -A > /dev/null
+        git -C /home/${username}/NixOS commit
+        git -C /home/${username}/NixOS push -q
+        echo -e "$BLUE"
+        echo -e "Starting nixos-rebuild switch ..."
+        echo -e "$NC"
+        sudo nixos-rebuild switch --flake /home/${username}/NixOS#${name}
+       	echo -e "$BLUE"
+        echo -e "Finished $NC" 
+        echo -e "$BLUE"
+        echo -e "Starting home-manager build switch ..."
+        echo -e "$NC"
+        home-manager switch --flake /home/${username}/NixOS#${name}
+       	echo -e "$BLUE"
+        echo -e "Finished $NC" 
+      '';
     };
 
     initExtra = ''
