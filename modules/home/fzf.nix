@@ -31,4 +31,3 @@
   };
 }
 
-#background = mkLiteral "${base00}";
