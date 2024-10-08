@@ -6,6 +6,7 @@
     ../modules/home/fastfetch.nix
     ../modules/home/nixvim.nix 
     ../modules/home/ranger.nix
+		../modules/home/fzf.nix
 		../modules/home/zsh.nix
     #../modules/home/lf.nix
     #../modules/home/yazi.nix
@@ -47,7 +48,7 @@
   # USER PROGRAMS ENABLED 
   programs = {
     btop.enable = true;
-		fzf.enable = true;
+		#fzf.enable = true;
 
     home-manager.enable = true;
   };
