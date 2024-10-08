@@ -5,7 +5,7 @@
 		./hyprlock.nix
     ./kanshi.nix
     ./rofi-wayland.nix
-    ./waybar.nix
+    #./waybar.nix
     ./wlogout.nix
 	];
 }

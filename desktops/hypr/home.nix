@@ -7,7 +7,7 @@
 	  ../../modules/desktops/hyprland
   #   ../../modules/desktops/hyprland/hyprland.nix
 		# ../../modules/desktops/hyprland/hyprlock.nix
-  #   ../../modules/desktops/hyprland/waybar.nix
+    ../../modules/desktops/hyprland/waybar.nix
   #   ../../modules/desktops/hyprland/wlogout.nix
   #   ../../modules/desktops/hyprland/kanshi.nix
   #   ../../modules/desktops/hyprland/dunst.nix

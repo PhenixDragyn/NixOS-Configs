@@ -357,11 +357,10 @@ window#waybar {
     background-color: rgba(0,0,0,0.5);
     border-bottom: 0px solid #ffffff;
     color: #FFFFFF; 
-    background: transparent; 
+    background: transparent;
     transition-property: background-color; 
     transition-duration: .5s; 
 		margin: 2px;
-    /* background: shade(alpa(@backgrounddark, 0.1), 1); */
 }
 
 /* -----------------------------------------------------
