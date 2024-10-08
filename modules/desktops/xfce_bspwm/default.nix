@@ -8,5 +8,6 @@
     ./polybar.nix
     ./rofi.nix
     ./sxhkd.nix
+    ./termite.nix
 	];
 }
