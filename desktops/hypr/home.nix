@@ -15,6 +15,9 @@
 
 
     # Modules
+    ../../modules/home/gtk.nix
+    ../../modules/home/qt.nix
+
     ../../modules/home/fastfetch.nix
 
     #../../modules/home/lf.nix
@@ -27,9 +30,6 @@
     ../../modules/home/firefox.nix
     ../../modules/home/kitty.nix
     ../../modules/home/nautilus.nix
-
-    ../../modules/home/gtk.nix
-    ../../modules/home/qt.nix
 
 		../../modules/home/imv.nix
   ];
