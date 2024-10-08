@@ -45,6 +45,8 @@
       rr="ranger";
 			lf="lf";
 			yz="yazi";
+      
+			cat = "bat -p";
 
       diff="diff --color=auto";
       grep="grep --color=auto";

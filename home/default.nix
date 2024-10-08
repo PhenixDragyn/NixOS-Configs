@@ -47,6 +47,7 @@
 
   # USER PROGRAMS ENABLED 
   programs = {
+	  bat.enable = true;
     btop.enable = true;
 		#fzf.enable = true;
 
