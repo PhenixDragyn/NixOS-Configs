@@ -41,6 +41,8 @@
 
       diff="diff --color=auto";
       grep="grep --color=auto";
+
+      open="xdg-open";
     };
 
     setOptions = [

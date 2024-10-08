@@ -12,31 +12,7 @@
       nu="nix flake update";
       nr-pkgs="nix-store --query --requisites /run/current-system | cut -d- -f2 | sort | uniq | fzf ";
      
-      # q="exit";
-      # ls="lsd -F";
-      # la="lsd -F -a";
-      # ll="lsd -F -l";
-      # lla="lsd -F -la";
-      #
-      # rm="rm -v";
-      
-      open="xdg-open";
-
-      gs="git status";
-      ga="git add -A";
-      gc="git commit -m";
-      gpull="git pull origin";
-      gpush="git push -u origin";
-      gd="git diff * | bat";
-      gl="git log --stat --graph --decorate --oneline";
-
-   #    rr="ranger";
-			# lf="lf";
-			# yz="yazi";
 			fm="ranger";
-
-      diff="diff --color=auto";
-      grep="grep --color=auto";
 
       fastfetch="fastfetch --config ~/.config/fastfetch/fastfetch.jsonc";
     };
