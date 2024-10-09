@@ -1,4 +1,4 @@
-{ config, ... }: 
+{ config, lib, pkgs, username, ... }:
 
 {
   #imports = [ ./waybar/scripts.nix ];
@@ -360,7 +360,7 @@ window#waybar {
     background: transparent;
     transition-property: background-color; 
     transition-duration: .5s; 
-		margin: 2px;
+    margin: 2px;
 }
 
 /* -----------------------------------------------------
@@ -477,7 +477,7 @@ tooltip label {
 }
 
 window#waybar.empty #window {
-    background-color:transparent;
+    background-color: transparent;
 }
 
 /* -----------------------------------------------------
@@ -847,8 +847,6 @@ window#waybar.empty #window {
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
 }
-
-
     '';
   };
 }

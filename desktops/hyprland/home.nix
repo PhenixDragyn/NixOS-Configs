@@ -4,8 +4,16 @@
 {
   imports = [
 	  # Desktop
-	  ../../modules/desktops/hyprland
     ../../modules/desktops/hyprland/waybar.nix
+    ../../modules/desktops/hyprland/dunst.nix
+    ../../modules/desktops/hyprland/hyprland.nix
+		../../modules/desktops/hyprland/hyprlock.nix
+		../../modules/desktops/hyprland/imv.nix
+    ../../modules/desktops/hyprland/kanshi.nix
+		../../modules/desktops/hyprland/nautilus.nix
+    ../../modules/desktops/hyprland/rofi-wayland.nix
+    ../../modules/desktops/hyprland/waybar.nix
+    ../../modules/desktops/hyprland/wlogout.nix
 
     # Modules
     ../../modules/home/gtk.nix

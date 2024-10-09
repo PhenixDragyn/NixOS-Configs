@@ -189,6 +189,8 @@
 	  pinentryPackage = lib.mkForce pkgs.pinentry-gnome3;
 	};
 
+  # ---------------------------------
+
   # DBus Setup
   services.dbus = {
     enable = true;

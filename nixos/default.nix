@@ -12,6 +12,7 @@
     ../modules/nixos/nixvim.nix
     ../modules/nixos/ranger.nix
     #../modules/nixos/yazi.nix
+
     ../modules/nixos/zsh.nix
 
     # ---------------------------------
