@@ -15,6 +15,10 @@
 
     ../modules/nixos/zsh.nix
 
+    # Stylix
+    #inputs.stylix.homeManagerModules.stylix
+    ../stylix/stylix.nix
+
     # ---------------------------------
 
     # Hosts Configurations
@@ -23,13 +27,14 @@
 		# User Setup
     ../users/${username}/nixos.nix
   ]
-   ++ lib.optional (builtins.isString desktop) ../desktops/${desktop}/nixos.nix
-   ++ (if ( format != "iso")
-       then [ 
-         #inputs.stylix.nixosModules.stylix
-         ../stylix/stylix.nix
-       ]
-       else []);
+   ++ lib.optional (builtins.isString desktop) ../desktops/${desktop}/nixos.nix;
+   # ++ (if ( format != "iso")
+   #     then [ 
+   #       #inputs.stylix.nixosModules.stylix
+   #       ../stylix/stylix.nix
+   #     ]
+   #     else []);
+
 # ---------------------------------
 
   # NIX SETTINGS

@@ -58,6 +58,23 @@ let
 				];
 			}
 		];
+
+    nixos-dt = [];
+
+    nixos-iso = [
+			# {
+			# 	profile.name = "iso";
+			# 	profile.outputs = [
+			# 		{
+			# 			criteria = "Virtual-1";
+			# 			status = "enable";
+			# 			position = "0,0";
+			# 			mode = "1920x1200";
+			# 			scale = 1.00;
+			# 		}
+			# 	];
+			# }
+		];
   };
 in
 {

@@ -104,7 +104,6 @@
   }: inputs.nixos-generators.nixosGenerate {
   #}: inputs.${repo}.lib.nixosSystem {
     specialArgs = { 
-      #inherit inputs outputs desktop hostname username stateVersion hmStateVersion system theme; 
       inherit inputs outputs desktop hostname username stateVersion hmStateVersion system theme format; 
       # Choose whether to pull from stable or unstable 
       pkgs          = let packages = (import ./packages.nix { inherit inputs repo system unfree; }); in packages.pkgs;
@@ -118,7 +117,7 @@
       #inputs.sops-nix.nixosModules.sops
 
       ../nixos
-      ../nixos/common/modules/installer.nix
+      ../modules/nixos/installer.nix
       "${inputs.nixpkgs}/nixos/modules/profiles/all-hardware.nix"
       #"${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
 
