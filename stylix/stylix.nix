@@ -53,7 +53,8 @@
       #};
     };
 
-    #targets.regreet.enable = true;
+    # Disable stylix on modules
+		#targets.waybar.enable = false;
   };
 
   # Themes https://github.com/tinted-theming/base16-schemes
