@@ -21,10 +21,13 @@
     };
 
     modules = [
-      # Types are 'default', 'small', and 'minimal'
-      ../nixos/${type}.nix
+      inputs.stylix.nixosModules.stylix
+      inputs.disko.nixosModules.disko
       #inputs.sops-nix.nixosModules.sops
       #inputs.lanzaboote.nixosModules.lanzaboote
+
+      # Types are 'default', 'small', and 'minimal'
+      ../nixos/${type}.nix
     ];
   };
 
@@ -39,7 +42,11 @@
   }: inputs.home-manager.lib.homeManagerConfiguration {
     pkgs = inputs.nixpkgs.legacyPackages.${system};
     extraSpecialArgs = { inherit inputs outputs desktop hostname system username hmStateVersion theme; };
-    modules = [ ../home/${type}.nix ];
+    modules = [ 
+      inputs.stylix.homeManagerModules.stylix
+
+	  	../home/${type}.nix 
+		];
   };
 
   # Combines mkHost and mkHome for system building
@@ -66,9 +73,12 @@
     format = format;
 
     modules = [
+      inputs.stylix.nixosModules.stylix
+      inputs.disko.nixosModules.disko
+      #inputs.sops-nix.nixosModules.sops
+
       ../nixos/${type}.nix
 
-      #inputs.sops-nix.nixosModules.sops
       inputs.home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
@@ -104,12 +114,14 @@
     format = format;
 
     modules = [
+      inputs.stylix.nixosModules.stylix
+      #inputs.sops-nix.nixosModules.sops
+
       ../nixos
       ../nixos/common/modules/installer.nix
       "${inputs.nixpkgs}/nixos/modules/profiles/all-hardware.nix"
       #"${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
 
-      #inputs.sops-nix.nixosModules.sops
       inputs.home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;

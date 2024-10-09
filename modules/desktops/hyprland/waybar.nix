@@ -358,6 +358,7 @@ window#waybar {
     border-bottom: 0px solid #ffffff;
     color: #FFFFFF; 
     background: transparent;
+    color: @base05;
     transition-property: background-color; 
     transition-duration: .5s; 
     margin: 2px;

@@ -11,7 +11,7 @@
     # inputs.hardware.nixosModules.common-ssd
 
     # Disk configurations
-    inputs.disko.nixosModules.disko
+    #inputs.disko.nixosModules.disko
     ./disk-configuration.nix 
 
     # Import your generated (nixos-generate-config) hardware configuration

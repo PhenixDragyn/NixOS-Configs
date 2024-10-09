@@ -9,7 +9,8 @@
     base16Scheme = ./. + "/themes"+("/"+theme)+".yaml";
 
     opacity = {
-      terminal = 0.8;
+		  desktop = 0.0;
+      #terminal = 0.8;
       popups = 0.8;
     };
 

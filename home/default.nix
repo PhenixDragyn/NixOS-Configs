@@ -15,13 +15,13 @@
     #inputs.sops-nix.homeManagerModules.sops
 
     # Stylix
-    inputs.stylix.homeManagerModules.stylix
+    #inputs.stylix.homeManagerModules.stylix
     ../stylix/stylix.nix
 
     # User configs
     ../users/${username}/home.nix
   ]
-  ++ lib.optional (builtins.isString desktop) ../desktops/${desktop}/home.nix; 
+  ++ lib.optional (builtins.isString desktop) ../desktops/${desktop}/home.nix;
 
   # ---------------------------------
 

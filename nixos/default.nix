@@ -26,7 +26,7 @@
    ++ lib.optional (builtins.isString desktop) ../desktops/${desktop}/nixos.nix
    ++ (if ( format != "iso")
        then [ 
-         inputs.stylix.nixosModules.stylix
+         #inputs.stylix.nixosModules.stylix
          ../stylix/stylix.nix
        ]
        else []);

@@ -12,7 +12,7 @@
 		inputs.nixos-hardware.nixosModules.dell-latitude-7430
 
     # Disk configurations
-    inputs.disko.nixosModules.disko
+    #inputs.disko.nixosModules.disko
     ./disk-configuration.nix 
 
     # Import your generated (nixos-generate-config) hardware configuration
