@@ -54,7 +54,7 @@
 				recursive = true;
 			};
 
-			".config/wlogout/icons".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/modules/home/wlogout";
+			".config/wlogout/icons".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/modules/desktops/hyprland/wlogout";
 		};
 
     xdg.configFile."wlogout/style.css" = {
