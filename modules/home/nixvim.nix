@@ -32,8 +32,7 @@
       have_nerd_font = false;
     };
 
-    opts = {
-      clipboard="unnamedplus";
+    opts = { clipboard="unnamedplus";
       number = true;
       relativenumber = true;
 
@@ -50,6 +49,7 @@
 			nvim-autopairs.enable = true;
       ts-autotag.enable = true;
       #surround.enable = true;
+			trouble.enable = true;
 
       neo-tree = {
 				enable = true;
@@ -82,10 +82,10 @@
         enable = true;
         servers = {
 				  bashls.enable = true;
-					cssls.enable = true;
           gopls.enable = true;
-          html.enable = true;
-					jsonls.enable = true;
+					#cssls.enable = true;
+          #html.enable = true;
+					#jsonls.enable = true;
 					lua-ls.enable = true;
           pyright.enable = true;
           tsserver.enable = true;
@@ -213,31 +213,6 @@
              ];
           };
       };
-
-      obsidian = {
-        enable = false;
-        settings = {
-          workspaces = [
-            {
-              name = "SecondBrain";
-              path = "~/projects/personal/SecondBrain";
-            }
-          ];
-          templates = {
-            subdir = "templates";
-            dateFormat = "%Y-%m-%d";
-            timeFormat = "%H:%M";
-            substitutions = {};
-          };
-
-          dailyNotes = {
-            folder = "0_Daily_Notes";
-            dateFormat = "%Y-%m-%d";
-            aliasFormat = "%B %-d, %Y";
-          };
-        };
-      };
-
     };
 
     extraPlugins = with pkgs.vimPlugins; [
@@ -246,6 +221,8 @@
     ];
 
     # https://nix-community.github.io/nixvim/keymaps/index.html
+		# :split and :splitv
+		# :tabe, :tabc, tabn, and tabp
     keymaps = [  
       {
         key = "<leader>sw";
@@ -287,9 +264,11 @@
         key = "<C-k>";
 				action = "<C-w><C-k>";
 				options = {
-					desc = " Move focus to the upper window";
+					desc = "Move focus to the upper window";
 				};
       }
+
+			# File explorer
       {
         key = "\\";
         action = "<cmd>Neotree reveal<cr>";
@@ -304,6 +283,141 @@
 					desc = "NeoTree toggle";
 				};
       }
+			{
+        key = "<leader>nh";
+				action = ":nohl<CR>";
+				options = {
+				  desc = "Clear search highlights";
+				};
+			}
+
+			# Increment/Decrement numbers
+			{
+        key = "<leader>+";
+				action = "<C-a>";
+				options = {
+				  desc = "Increment number";
+				};
+			}
+			{
+        key = "<leader>-";
+				action = "<C-x>";
+				options = {
+				  desc = "Decrement number";
+				};
+			}
+
+			# Window management
+			{
+        key = "<leader>sv";
+				action = "<C-w>v";
+				options = {
+				  desc = "Split window vertically";
+				};
+			}
+			{
+        key = "<leader>sh";
+				action = "<C-w>s";
+				options = {
+				  desc = "Split window horizontal";
+				};
+			}
+			{
+        key = "<leader>se";
+				action = "<C-w>=";
+				options = {
+				  desc = "Make splits equal size";
+				};
+			}
+			{
+        key = "<leader>sx";
+				action = "<cmd>close<CR>";
+				options = {
+				  desc = "Close current split";
+				};
+			}
+
+      # Tab management
+			{
+        key = "<leader>to";
+				action = "<cmd>tabnew<CR>";
+				options = {
+				  desc = "Open new tab";
+				};
+			}
+			{
+        key = "<leader>tx";
+				action = "<cmd>tabclose<CR>";
+				options = {
+				  desc = "Close current tab";
+				};
+			}
+			{
+        key = "<leader>tn";
+				action = "<cmd>tabn<CR>";
+				options = {
+				  desc = "Go to next tab";
+				};
+			}
+			{
+        key = "<leader>tp";
+				action = "<cmd>tabp<CR>";
+				options = {
+				  desc = "Go to previous tab";
+				};
+			}
+			{
+        key = "<leader>tf";
+				action = "<cmd>tabnew %<CR>";
+				options = {
+				  desc = "Open current buffer in new tab";
+				};
+			}
+
+      #Trouble
+			{
+        key = "<leader>xx";
+				action = "<cmd>TroubleToggle<CR>";
+				options = {
+				  desc = "Open/Close trouble list";
+				};
+			}
+			{
+        key = "<leader>xw";
+				action = "<cmd>TroubleToggle workspace_diagnostics<CR>";
+				options = {
+				  desc = "Open trouble workspace diagnostics";
+				};
+			}
+			{
+        key = "<leader>xd";
+				action = "<cmd>TroubleToggle document_diagnostics<CR>";
+				options = {
+				  desc = "Open trouble document diagnostics";
+				};
+			}
+			{
+        key = "<leader>xq";
+				action = "<cmd>TroubleToggle quickfix<CR>";
+				options = {
+				  desc = "Open trouble quickfix list";
+				};
+			}
+			{
+        key = "<leader>xl";
+				action = "<cmd>TroubleToggle loclist<CR>";
+				options = {
+				  desc = "Open trouble location list";
+				};
+			}
+			{
+        key = "<leader>xt";
+				action = "<cmd>TodoTrouble<CR>";
+				options = {
+				  desc = "Open todos in trouble";
+				};
+			}
+
     ];
   };
 }

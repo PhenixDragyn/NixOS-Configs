@@ -5,11 +5,11 @@
 		# Modules
     ../modules/home/fastfetch.nix
     ../modules/home/nixvim.nix 
-    ../modules/home/ranger.nix
+    #../modules/home/ranger.nix
 		../modules/home/fzf.nix
 		../modules/home/zsh.nix
     #../modules/home/lf.nix
-    #../modules/home/yazi.nix
+    ../modules/home/yazi.nix
 
     # Secrets 
     #inputs.sops-nix.homeManagerModules.sops

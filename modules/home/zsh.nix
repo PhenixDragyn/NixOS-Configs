@@ -5,7 +5,8 @@
     enable = true;
     #dotDir = ".config/zsh";
     shellAliases = {
-			fm="ranger";
+			#fm="ranger";
+			fm="yazi";
 
       fastfetch="fastfetch --config ~/.config/fastfetch/fastfetch.jsonc";
     };

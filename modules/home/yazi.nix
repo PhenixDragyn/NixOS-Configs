@@ -26,7 +26,7 @@
  			# 	image_filter = "lanczos3";
  			 	image_quality = 90;
  			# 	tab_size = 1;
- 				max_width = 768;
+ 				max_width = 1200;
  				max_height = 1024;
  			# 	cache_dir = "";
  			# 	ueberzug_scale = 1;
@@ -38,14 +38,19 @@
  			# 	];
  			};
     
- 			# tasks = {
- 			# 	micro_workers = 5;
- 			# 	macro_workers = 10;
- 			# 	bizarre_retry = 5;
- 			# };
+ 			tasks = {
+ 				micro_workers = 5;
+ 			 	macro_workers = 10;
+ 			 	bizarre_retry = 5;
+ 			};
  		};
 
 		theme = {
+      manager = {
+				border_symbol = "│";
+        preview_hovered = { underline = true; };
+      };
+
 		  status = {
 			  #separator_open = "█";
         #separator_close = "█";
@@ -60,9 +65,11 @@
 			  separator = "  ";
 			};
 
-		  #input = {
-			#  border = { fg = "black"; };
-			#};
+		  input = {
+        title    = {};
+        value    = {};
+        selected = { reversed = true; };
+			};
 		};
 	};
 }

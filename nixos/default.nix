@@ -10,8 +10,8 @@
 
     # Modules
     ../modules/nixos/nixvim.nix
-    ../modules/nixos/ranger.nix
-    #../modules/nixos/yazi.nix
+    #../modules/nixos/ranger.nix
+    ../modules/nixos/yazi.nix
 
     ../modules/nixos/zsh.nix
 
@@ -222,6 +222,7 @@
     killall
 		git
 		neovim
+		neovide
     #neofetch
     procps
     psmisc
