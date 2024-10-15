@@ -8,6 +8,7 @@
 			#fm="ranger";
 			fm="yazi";
 
+      fetch="fastfetch --config ~/.config/fastfetch/fastfetch.jsonc";
       fastfetch="fastfetch --config ~/.config/fastfetch/fastfetch.jsonc";
     };
 
