@@ -54,6 +54,10 @@
       neo-tree = {
 				enable = true;
 
+        window = {
+				  width = 30;
+				};
+
 				filesystem = {
 					window = {
 						mappings = {
