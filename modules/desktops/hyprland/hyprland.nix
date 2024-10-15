@@ -122,7 +122,7 @@ in
       decoration = {
         rounding = 1;
         active_opacity = 0.98;
-        inactive_opacity = 0.8;
+        inactive_opacity = 0.7;
         fullscreen_opacity = 1.0;
 
         drop_shadow = true;
