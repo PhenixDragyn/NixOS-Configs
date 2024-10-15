@@ -380,7 +380,7 @@
 		# shared-mime-info
 		# gdk-pixbuf
 		# librsvg
-		# webp-pixbuf-loader
+		webp-pixbuf-loader
 		# libavif
 
 		#qimgv
