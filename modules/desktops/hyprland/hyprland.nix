@@ -214,6 +214,7 @@ in
 				''float, class:(nwg-look)''
 				''float, class:(mpv)''
 				''float, class:(.blueman-manager-wrapped)''
+				''float, class:(org.remmina.Remmina), title:^(.*)(Remmina)(.*)''
       ];
 
       bind = [

@@ -39,7 +39,7 @@
     packages = with pkgs; [
       #hello
       #unstable.hello
-      #hyprpaper
+      remmina
     ];
   };
 
