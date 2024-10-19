@@ -373,6 +373,7 @@
 		gedit
 		gimp-with-plugins
 		polkit_gnome
+		evince
 
     pkgs-unstable.nemo-with-extensions
 
