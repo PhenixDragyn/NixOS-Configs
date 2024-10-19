@@ -208,6 +208,7 @@ in
         ''float, title:(Camera)''
         ''float, title:(File Roller)''
 				''float, class:(nemo)''
+				''float, class:(evince)''
 				''float, class:(gnome-disks)''
 				''float, class:(wdisplays)''
 				''float, class:(nwg-displays)''
