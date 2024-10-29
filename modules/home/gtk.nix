@@ -13,7 +13,8 @@
       name = "Papirus-Dark";
       #package = pkgs.papirus-icon-theme;
       #package = pkgs.papirus-icon-theme.override {color = "adwaita";};
-      package = pkgs.catppuccin-papirus-folders.override {flavor = "mocha"; accent = "sapphire";};
+      package = pkgs.catppuccin-papirus-folders.override {flavor = "macchiato"; accent = "sapphire";};
+      #package = pkgs.catppuccin-papirus-folders.override {flavor = "mocha"; accent = "sapphire";};
 		};
 
     # iconTheme = {

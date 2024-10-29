@@ -1,8 +1,6 @@
 {
   description = "NixOS System Config";
-
-  inputs = {
-    # Stable Packages
+inputs = { # Stable Packages
     nixpkgs.url = "nixpkgs/nixos-24.05";
 
     # Unstable Packages
@@ -69,7 +67,8 @@
     # Function for Home-Manager configuration
     homeConfigurations = {
       "ejvend@nixos-dt" = libx.mkHome { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hyprland"; type = "default"; theme = "ia-dark"; };
-      "ejvend@nixos-lt" = libx.mkHome { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hyprland"; type = "default"; theme = "vice"; };
+      "ejvend@nixos-lt" = libx.mkHome { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hyprland"; type = "default"; theme = "classic-dark"; };
+      #"ejvend@nixos-lt" = libx.mkHome { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hyprland"; type = "default"; theme = "vice"; };
       #"ejvend@nixos-lt" = libx.mkHome { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hyprland"; type = "default"; theme = "kimber"; };
       "ejvend@nixos-mvm" = libx.mkHome { hostname = "nixos-mvm"; username = "ejvend"; system = "aarch64-linux"; desktop = "xfce_bspwm"; type = "default"; theme = "ia-dark"; };
     };

@@ -142,8 +142,8 @@ in
         shadow_range = 30;
         shadow_render_power = 3;
 			
-        "col.shadow" = lib.mkForce (rgba config.lib.stylix.colors.base0D "99");
-        "col.shadow_inactive" = lib.mkForce (rgba config.lib.stylix.colors.base00 "99");
+        #"col.shadow" = lib.mkForce (rgba config.lib.stylix.colors.base0D "99");
+        #"col.shadow_inactive" = lib.mkForce (rgba config.lib.stylix.colors.base00 "99");
 
         blur = {
 				  enabled = true;

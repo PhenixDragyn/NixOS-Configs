@@ -339,7 +339,7 @@
 @define-color backgrounddark #${config.lib.stylix.colors.base0C};
 @define-color workspacesbackground1 #${config.lib.stylix.colors.base01};
 @define-color workspacesbackground2 #${config.lib.stylix.colors.base0C};
-@define-color bordercolor #${config.lib.stylix.colors.base0C};
+@define-color bordercolor #${config.lib.stylix.colors.base0D};
 @define-color textcolor1 #FFFFFF;
 @define-color textcolor2 #${config.lib.stylix.colors.base0D};
 @define-color textcolor3 #${config.lib.stylix.colors.base0A};
