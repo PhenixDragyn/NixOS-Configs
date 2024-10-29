@@ -3,6 +3,8 @@
 let
   rgb = color: "rgb(${color})";
   rgba = color: alpha: "rgba(${color}${alpha})";
+	#mainMonitor = "monitor:desc:ViewSonic Corporation VG3456 WFN214700166";
+  #sideMonitor = "monitor:desc:AU Optronics 0x0BA4";
 in
 {
   wayland.windowManager.hyprland = {
@@ -48,8 +50,19 @@ in
 			 	"5, monitor:eDP-1, default:true"
 			 	"6, monitor:eDP-1, default:true"
 			];
-
-      # plugin = {
+			
+			# workspace = [ 
+			#   "1, border:false, rounding:false"
+			#   "1, ${mainMonitor}"
+			#   "2, ${mainMonitor}, persistent:true, default:true"
+			#   "3, ${mainMonitor}, persistent: true"
+			#  
+			#   "4, ${sideMonitor}, persistent:true, default:true"
+			#   "5, ${sideMonitor}, persistent: true"
+			#   "6, ${sideMonitor}, persistent: true"
+			# ];
+		
+   #    # plugin = {
       #   hyprexpo = {
 			#     columns = 2;
       #     gap_size = 8;
