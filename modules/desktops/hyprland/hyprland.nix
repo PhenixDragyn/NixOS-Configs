@@ -99,8 +99,9 @@ in
           resize_on_border = "true";
           extend_border_grab_area = "15";
 
-          #col.active_border = config.lib.stylix.colors.base04;
-          #col.inactive_border = config.lib.stylix.colors.base04;
+          # Comment out for colored borders
+          #col.active_border = config.lib.stylix.colors.base00;
+          #col.inactive_border = config.lib.stylix.colors.base00;
 
           layout = "dwindle";
       };
@@ -142,6 +143,7 @@ in
         shadow_range = 30;
         shadow_render_power = 3;
 			
+			  # Uncomment for colored matching border shadows (Glow effect)
         #"col.shadow" = lib.mkForce (rgba config.lib.stylix.colors.base0D "99");
         #"col.shadow_inactive" = lib.mkForce (rgba config.lib.stylix.colors.base00 "99");
 
