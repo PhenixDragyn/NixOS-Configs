@@ -99,7 +99,7 @@ in
           resize_on_border = "true";
           extend_border_grab_area = "15";
 
-          # Comment out for colored borders
+          # Comment out to remove colored borders
           #col.active_border = config.lib.stylix.colors.base00;
           #col.inactive_border = config.lib.stylix.colors.base01;
 
