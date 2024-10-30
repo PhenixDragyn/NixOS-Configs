@@ -101,7 +101,7 @@ in
 
           # Comment out for colored borders
           #col.active_border = config.lib.stylix.colors.base00;
-          #col.inactive_border = config.lib.stylix.colors.base00;
+          #col.inactive_border = config.lib.stylix.colors.base01;
 
           layout = "dwindle";
       };
