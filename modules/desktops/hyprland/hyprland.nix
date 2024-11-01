@@ -218,6 +218,7 @@ in
         ''float, class:(waypaper), title:(Waypaper)''
         ''float, class:(seahorse), title:(seahorse)''
 		    ''float, class:(gedit)''
+		    ''float, class:(org.gnome.TextEditor)''
 		    ''float, class:(guvcview)''
 		    ''float, title:(Celluloid)''
         ''float, title:(Camera)''

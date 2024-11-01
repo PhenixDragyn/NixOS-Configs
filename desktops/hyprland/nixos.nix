@@ -257,6 +257,11 @@
 				 		sidebar-bookmark-breakpoint = "0";
 						start-with-sidebar = true;
 					};
+
+					"org/gnome/TextEditor" = {
+					  keybindings = "vim";
+						style-scheme = "builder-dark";
+					};
         };
       }
     ];
@@ -370,7 +375,8 @@
 		#gnome.eog
     gnome.nautilus
 		gnome.zenity
-		gedit
+		gnome-text-editor
+		#gedit
 		gimp-with-plugins
 		polkit_gnome
 		evince
