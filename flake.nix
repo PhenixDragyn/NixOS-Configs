@@ -77,6 +77,7 @@ inputs = { # Stable Packages
     # Funtion for System configuration
     # nix build .#systemConfigurations.nixos-lt
 		systemConfigurations = {
+      nixos-dt = libx.mkSystem { hostname = "nixos-dt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hyprland"; type = "default"; theme = "ia-dark"; unfree = true; };
       nixos-lt = libx.mkSystem { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hyprland"; type = "default"; theme = "asami-dark"; unfree = true; };
 		};
 
