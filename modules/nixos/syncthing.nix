@@ -44,10 +44,10 @@
         theme = "dark";
       };
       devices = {
-        "Macbook" = { 
-          autoAcceptFolders = true;
-          id = "VEV77YU-ZL74KVJ-203R7IX-5IQNQIM-4ZBUBLX-FGQWD06-SZTEEVI-JYYTKQX"; 
-        };
+        # "Macbook" = { 
+        #   autoAcceptFolders = true;
+        #   id = "VEV77YU-ZL74KVJ-203R7IX-5IQNQIM-4ZBUBLX-FGQWD06-SZTEEVI-JYYTKQX"; 
+        # };
         "Macbook-Air" = { 
           autoAcceptFolders = true;
           id = "A5CANTE-E3E4PYO-WHNZXKS-PZRBX32-EYKWMB5-GNCRUV5-WEL3SGO-JMBESAL";
