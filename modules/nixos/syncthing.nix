@@ -48,12 +48,16 @@
         #   autoAcceptFolders = true;
         #   id = "VEV77YU-ZL74KVJ-203R7IX-5IQNQIM-4ZBUBLX-FGQWD06-SZTEEVI-JYYTKQX"; 
         # };
-        "Macbook-Air" = { 
-          autoAcceptFolders = true;
-          id = "A5CANTE-E3E4PYO-WHNZXKS-PZRBX32-EYKWMB5-GNCRUV5-WEL3SGO-JMBESAL";
+        #"Macbook-Air" = { 
+          #autoAcceptFolders = true;
+        #  id = "A5CANTE-E3E4PYO-WHNZXKS-PZRBX32-EYKWMB5-GNCRUV5-WEL3SGO-JMBESAL";
+        #};
+        "NixOS-DT" = { 
+          #autoAcceptFolders = true;
+				  id = "MTSRBBB-7TPZ2LL-RQXJREW-V7O4KKW-NM55SCK-E2IJTKX-74ZF235-GO4ZPQ5";
         };
         "NixOS-LT" = { 
-          autoAcceptFolders = true;
+          #autoAcceptFolders = true;
 				  id = "TMYBKYP-CAAHX43-FF542D2-I53C5JX-XJWP6DT-U2LHOV3-AQO4MHB-3T5ZFAV";
         };
       };
@@ -63,8 +67,10 @@
           id = "sync";
           path = "/home/${username}/Sync";
           #versioning.type = "trashcan";
-          devices = [ "Macbook-Air" ];
+          #devices = [ "Macbook-Air" ];
           #devices = [ "Macbook" "ArchLinux" ];
+					#devices = [ "NixOS-LT" ];
+					#devices = [ "NixOS-DT" ];
         };
       };
 
