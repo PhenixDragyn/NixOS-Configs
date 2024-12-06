@@ -50,6 +50,7 @@
       ts-autotag.enable = true;
       #surround.enable = true;
 			trouble.enable = true;
+      web-devicons.enable = true;
 
       neo-tree = {
 				enable = true;
@@ -90,9 +91,9 @@
 					#cssls.enable = true;
           #html.enable = true;
 					#jsonls.enable = true;
-					lua-ls.enable = true;
+					lua_ls.enable = true;
           pyright.enable = true;
-          tsserver.enable = true;
+          ts_ls.enable = true;
         };
       };
 
@@ -120,17 +121,21 @@
 
       lualine = {
           enable = true;
-          globalstatus = true;
           # theme = "catppuccin";
 
-          extensions = [
-            "fzf"
-            "neo-tree"
-          ];
+          settings = {
+            extensions = [
+              "fzf"
+              "neo-tree"
+            ];
 
-          disabledFiletypes = {
-            statusline = ["startup" "alpha"];
-          };
+						options = { 
+						  disabled_filetypes = {
+							  statusline = ["startup" "alpha"];
+						  };
+
+              globalstatus = true;
+						};
 
            sections = {
              lualine_a = [
@@ -215,13 +220,14 @@
                  name = "location";
                }
              ];
+					 };
           };
       };
     };
 
     extraPlugins = with pkgs.vimPlugins; [
       colorizer
-      nvim-web-devicons
+      #nvim-web-devicons
     ];
 
     # https://nix-community.github.io/nixvim/keymaps/index.html

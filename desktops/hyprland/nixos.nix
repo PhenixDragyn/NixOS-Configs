@@ -108,7 +108,7 @@
    enable = true;
 	 settings = {
 		 # Stylix not new enough to apply automatically
-	   GTK = {
+	   GTK = lib.mkForce {
 	 	  application_prefer_dark_theme = true;
 	 		font_name = "DejaVu Sans 12";
 	 		cursor_theme_name = "${pkgs.volantes-cursors}";
@@ -373,8 +373,8 @@
 		# gst_all_1.gst-plugins-ugly
 
 		#gnome.eog
-    gnome.nautilus
-		gnome.zenity
+    nautilus
+		zenity
 		gnome-text-editor
 		#gedit
 		gimp-with-plugins

@@ -48,10 +48,10 @@
         #   autoAcceptFolders = true;
         #   id = "VEV77YU-ZL74KVJ-203R7IX-5IQNQIM-4ZBUBLX-FGQWD06-SZTEEVI-JYYTKQX"; 
         # };
-        "Macbook-Air" = { 
+        #"Macbook-Air" = { 
           #autoAcceptFolders = true;
-          id = "A5CANTE-E3E4PYO-WHNZXKS-PZRBX32-EYKWMB5-GNCRUV5-WEL3SGO-JMBESAL";
-        };
+        #  id = "A5CANTE-E3E4PYO-WHNZXKS-PZRBX32-EYKWMB5-GNCRUV5-WEL3SGO-JMBESAL";
+        #};
         "NixOS-DT" = { 
           #autoAcceptFolders = true;
 				  id = "MTSRBBB-7TPZ2LL-RQXJREW-V7O4KKW-NM55SCK-E2IJTKX-74ZF235-GO4ZPQ5";
@@ -71,7 +71,6 @@
           #devices = [ "Macbook" "ArchLinux" ];
 					#devices = [ "NixOS-LT" ];
 					#devices = [ "NixOS-DT" ];
-          devices = [ "Macbook-Air" "NixOS-LT" "NixOS-DT" ];
         };
       };
 

@@ -18,8 +18,8 @@ in
       enable = true;
       #theme = spicePkgs.themes.catppuccin;
       #colorScheme = "mocha";
-      theme = spicePkgs.themes.dribbblish;
-      colorScheme = "lunar";
+      theme = lib.mkForce spicePkgs.themes.dribbblish;
+      colorScheme = lib.mkForce "lunar";
 
       enabledExtensions = with spicePkgs.extensions; [
 			  adblock

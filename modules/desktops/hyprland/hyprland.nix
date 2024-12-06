@@ -139,14 +139,16 @@ in
         inactive_opacity = 0.7;
         fullscreen_opacity = 1.0;
 
-        drop_shadow = true;
-        shadow_range = 30;
-        shadow_render_power = 3;
-			
-			  # Uncomment for colored matching border shadows (Glow effect)
-        #"col.shadow" = lib.mkForce (rgba config.lib.stylix.colors.base0D "99");
-        #"col.shadow_inactive" = lib.mkForce (rgba config.lib.stylix.colors.base00 "99");
+        shadow = {
+					enabled = true;
+					range = 30;
+          render_power = 3;
 
+			    # Uncomment for colored matching border shadows (Glow effect)
+          #"col.shadow" = lib.mkForce (rgba config.lib.stylix.colors.base0D "99");
+          #"col.shadow_inactive" = lib.mkForce (rgba config.lib.stylix.colors.base00 "99");
+				};
+			
         blur = {
 				  enabled = true;
           size = 12;
