@@ -232,6 +232,7 @@ in
 				''float, class:(nwg-displays)''
 				''float, class:(nwg-look)''
 				''float, class:(mpv)''
+				''float, class:(1Password)''
 				''float, class:(.blueman-manager-wrapped)''
 				''float, class:(org.remmina.Remmina), title:^(.*)(Remmina)(.*)''
       ];
