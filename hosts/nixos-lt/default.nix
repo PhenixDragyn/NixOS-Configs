@@ -73,7 +73,7 @@
 
   # SYSTEM PACKAGES 
   environment.systemPackages = with pkgs; [
-    linuxKernel.packages.linux_6_6.ipu6-drivers
+    #linuxKernel.packages.linux_6_6.ipu6-drivers
    	linuxKernel.packages.linux_6_6.ivsc-driver
    	ipu6-camera-hal
 		ipu6-camera-bins
@@ -81,11 +81,11 @@
   ];
 	
   # HARDWARE - WEBCAM
-  hardware.ipu6 = {
-    enable = true;
-   	platform = "ipu6ep";
-  	#platform = "ipu6epmtl";
- };
+  # hardware.ipu6 = {
+  #   enable = true;
+  #  	platform = "ipu6ep";
+  # 	#platform = "ipu6epmtl";
+  # };
 
 	# TLP SETTINGS
   services.tlp.settings = {

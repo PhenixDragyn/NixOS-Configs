@@ -402,6 +402,7 @@
     firefox
     thunderbird
     
+		_1password-gui
     keepassxc
     keepass-charactercopy
     git-credential-keepassxc
