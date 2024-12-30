@@ -116,7 +116,7 @@
 	 		theme_name = "Adwaita";
 	 	 };
       
-	   background = {
+	   background = lib.mkForce {
 	 	  #path = "${config.stylix.image}";
       path = ../../files/wallpaper/NixOS-Nineish-Dark.png;
 	 		fit = "Fill";

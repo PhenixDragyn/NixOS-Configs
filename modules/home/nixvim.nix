@@ -43,7 +43,8 @@
 
     plugins = {
       comment.enable = true;
-      nvim-colorizer.enable = true;
+      #nvim-colorizer.enable = true;
+      colorizer.enable = true;
       gitsigns.enable = true;
       indent-blankline.enable = true;
 			nvim-autopairs.enable = true;
