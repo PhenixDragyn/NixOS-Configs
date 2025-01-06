@@ -1,6 +1,7 @@
 {
   description = "NixOS System Config";
-inputs = { # Stable Packages
+inputs = { 
+    # Stable Packages
     nixpkgs.url = "nixpkgs/nixos-24.11";
 
     # Unstable Packages
