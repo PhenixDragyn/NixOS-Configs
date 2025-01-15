@@ -293,6 +293,8 @@
 
   # SYSTEM PACKAGES 
   environment.systemPackages = with pkgs; [
+    #wonderdraft 
+
     # waybar
     (waybar.overrideAttrs (oldAttrs: {
         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
