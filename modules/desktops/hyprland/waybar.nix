@@ -203,7 +203,7 @@
 
 							cpu = {
 									interval = 10;
-									format = ''<span color="#${config.lib.stylix.colors.base09}"> </span> {}%'';
+									format = ''<span color="#${config.lib.stylix.colors.base09}"> </span> {usage}%'';
 									max-length = 10;
 							};
 
