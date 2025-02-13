@@ -520,7 +520,7 @@ Deeply inspired in Cascade, SimpleFox & more...
   position: relative !important;
   margin-top: 0px !important;
   border-right: none;
-  transition: all 500ms !important;
+  transition: all 700ms !important;
 
   /* lock sidebar to specified width */
   min-width: var(--thin-tab-width) !important;
@@ -556,7 +556,7 @@ Deeply inspired in Cascade, SimpleFox & more...
   margin-right: calc(
     (var(--wide-tab-width) - var(--thin-tab-width)) * -1
   ) !important;
-  transition: all 500ms !important;
+  transition: all 700ms !important;
 }
 
 #sidebar-header {
@@ -617,7 +617,8 @@ Deeply inspired in Cascade, SimpleFox & more...
   /* Might need to adjust if the toolbar has other buttons */
   --uc-bm-padding: 6px;
   /* Vertical padding to be applied to bookmarks */
-  padding: 1px 30px !important;
+  /*padding: 1px 30px !important;*/
+  padding: 1px 5px !important;
   position: relative !important;
 }
 
@@ -625,13 +626,14 @@ Deeply inspired in Cascade, SimpleFox & more...
   --uc-bm-padding: 6px;
 }
 
+/*
 #PersonalToolbar:not([customizing]) {
   margin-bottom: calc(
     2px - var(--uc-bm-height) - 2 * var(--uc-bm-padding)
   ) !important;
   transform: rotateX(90deg) !important;
   transform-origin: top !important;
-  transition: transform 50ms linear 500ms !important;
+  transition: transform 50ms linear 700ms !important;
   z-index: 2 !important;
 }
 
@@ -652,7 +654,6 @@ Deeply inspired in Cascade, SimpleFox & more...
   opacity: 0 !important;
 }
 
-/* Show when cursor is over the toolbar area */
 #navigator-toolbox:hover > #PersonalToolbar {
   transition-delay: 200ms !important;
   transform: rotateX(0) !important;
@@ -678,6 +679,7 @@ Deeply inspired in Cascade, SimpleFox & more...
   transition-delay: 200ms !important;
   opacity: 1 !important;
 }
+*/
 
 /* Fix the white line above the bookmarks bar when it's empty */
 #personal-toolbar-empty {
