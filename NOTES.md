@@ -191,3 +191,6 @@ Select the generation path you want to reactivate.. ie
 > papirus-folders -C brown --theme Papirus-Dark    # Change Color
 > papirus-folders -D --theme Papirus-Dark    # Rever to default color
 
+# Spotify - Disable hardware acceleration
+> spotify --disable-gpu
+
