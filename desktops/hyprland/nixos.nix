@@ -403,6 +403,7 @@
 
     firefox
     thunderbird
+		libreoffice
     
 		_1password-gui
     keepassxc

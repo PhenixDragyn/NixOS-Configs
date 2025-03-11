@@ -273,6 +273,11 @@
 
   # FONTS
   fonts.fontconfig.enable = true;
+
+	fonts.fontconfig.antialias = true;
+	fonts.fontconfig.subpixel.rgba = "rgb";
+	fonts.fontconfig.hinting.enable = true;
+
   fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [
     # dejavu_fonts
