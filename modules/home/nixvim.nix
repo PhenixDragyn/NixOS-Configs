@@ -2,7 +2,8 @@
 
 {
   imports = [
-    inputs.nixvim.homeManagerModules.nixvim
+    #inputs.nixvim.homeManagerModules.nixvim
+    inputs.nixvim.homeModules.nixvim
   ];
   #] ++ lib.optional (builtins.isString theme) ../../../../../stylix/themes/${theme}/home-manager/nixvim.nix;
 
@@ -99,7 +100,8 @@
       };
 
       lspkind = {
-        enable = true;
+        enable = false;
+				cmp.enable = true;
         cmp.ellipsisChar = "...";
         cmp.menu = {
           buffer = "[Buffer]";

@@ -44,6 +44,7 @@
     extraSpecialArgs = { inherit inputs outputs desktop hostname system username hmStateVersion theme; };
     modules = [ 
       inputs.stylix.homeManagerModules.stylix
+      #inputs.stylix.homeManager.stylix
 
 	  	../home/${type}.nix 
 		];
