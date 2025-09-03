@@ -410,7 +410,8 @@
     keepass-charactercopy
     git-credential-keepassxc
   ] ++ (if (system == "x86_64-linux")
-	        then [ pkgs.freeoffice pkgs.spotify ]
+	        then [ pkgs.freeoffice pkgs-unstable.spotify ]
+	        #then [ pkgs.freeoffice ]
 				else 
 			  (if (system == "aarch64-linux" )
 			    then [] 
