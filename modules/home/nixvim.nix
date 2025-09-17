@@ -102,8 +102,8 @@
       lspkind = {
         enable = false;
 				cmp.enable = true;
-        cmp.ellipsisChar = "...";
-        cmp.menu = {
+        settings.cmp.ellipsisChar = "...";
+        settings.mp.menu = {
           buffer = "[Buffer]";
           nvim_lsp = "[LSP]";
           luasnip = "[LuaSnip]";
