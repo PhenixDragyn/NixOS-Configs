@@ -137,7 +137,7 @@
 
   # SOUND SETTINGS
   security.rtkit.enable = true;
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -191,7 +191,7 @@
   # LOCATE SETTINGS
   services.locate = {
     enable = true;
-    localuser = null;
+    #localuser = null;
   };
 
   # ---------------------------------
@@ -284,10 +284,10 @@
     # fira-code-nerdfont
     font-awesome
     #jetbrains-mono
-    nerdfonts
+    #nerdfonts
     #noto-fonts
     #noto-fonts-emoji
-  ];
+  ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
   # ---------------------------------
 

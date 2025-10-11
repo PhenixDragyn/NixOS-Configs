@@ -12,7 +12,8 @@
       fastfetch="fastfetch --config ~/.config/fastfetch/fastfetch.jsonc";
     };
 
-    initExtra = ''
+    #initExtra = ''
+    initContent = ''
 		  # VI Mode
       set -o vi
    

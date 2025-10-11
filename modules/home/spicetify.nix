@@ -10,8 +10,8 @@ in
   ];
 
   # import the flake's module for your system
-  imports = [ inputs.spicetify-nix.homeManagerModules.default ];
-  #imports = [ inputs.spicetify-nix.homeManager.default ];
+  #imports = [ inputs.spicetify-nix.homeManagerModules.default ];
+  imports = [ inputs.spicetify-nix.homeManager.default ];
 
   # configure spicetify :)
   programs.spicetify =

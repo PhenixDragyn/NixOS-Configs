@@ -2,13 +2,13 @@
   description = "NixOS System Config";
 inputs = { 
     # Stable Packages
-    nixpkgs.url = "nixpkgs/nixos-24.11";
+    nixpkgs.url = "nixpkgs/nixos-25.05";
 
     # Unstable Packages
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
 
     # home-manager - Dotfile mnagement - add /master at the end to pull from master 
-    home-manager.url = "github:nix-community/home-manager/release-24.11";
+    home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # disko - Declarative Disk Partitioning
@@ -31,7 +31,7 @@ inputs = {
 		
     # Nix colorizer / themer 
     #stylix.url = "github:danth/stylix/release-24.05";
-    stylix.url = "github:danth/stylix/release-24.11";
+    stylix.url = "github:danth/stylix/release-25.05";
 
     # Spicetify-Nix
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
@@ -46,8 +46,8 @@ inputs = {
   let
     inherit (self) outputs;
 
-    stateVersion = "24.11";
-    hmStateVersion = "24.11";
+    stateVersion = "25.05";
+    hmStateVersion = "25.05";
 
     libx = import ./lib/default.nix { inherit self inputs outputs stateVersion hmStateVersion; };
   in 
@@ -62,18 +62,17 @@ inputs = {
     # Function for NixOS system configuration
     nixosConfigurations = {
       nixos-dt = libx.mkNixOS { hostname = "nixos-dt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hyprland"; type = "default"; theme = "ia-dark"; unfree = true; };
-      #nixos-lt = libx.mkNixOS { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hyprland"; type = "default"; theme = "asami-dark"; unfree = true; };
+      nixos-lt = libx.mkNixOS { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hyprland"; type = "default"; theme = "asami-dark"; unfree = true; };
       #nixos-lt = libx.mkNixOS { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hyprland"; type = "default"; theme = "vice"; unfree = true; };
-      nixos-lt = libx.mkNixOS { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hyprland"; type = "default"; theme = "kimber"; unfree = true; };
       nixos-mvm = libx.mkNixOS { hostname = "nixos-mvm"; username = "ejvend"; system = "aarch64-linux"; desktop = "xfce_bspwm"; type = "default"; theme = "ia-dark"; };
     };
 
     # Function for Home-Manager configuration
     homeConfigurations = {
       "ejvend@nixos-dt" = libx.mkHome { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hyprland"; type = "default"; theme = "ia-dark"; };
-      #"ejvend@nixos-lt" = libx.mkHome { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hyprland"; type = "default"; theme = "asami-dark"; };
+      "ejvend@nixos-lt" = libx.mkHome { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hyprland"; type = "default"; theme = "asami-dark"; };
       #"ejvend@nixos-lt" = libx.mkHome { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hyprland"; type = "default"; theme = "vice"; };
-      "ejvend@nixos-lt" = libx.mkHome { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hyprland"; type = "default"; theme = "kimber"; };
+      #"ejvend@nixos-lt" = libx.mkHome { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hyprland"; type = "default"; theme = "kimber"; };
       "ejvend@nixos-mvm" = libx.mkHome { hostname = "nixos-mvm"; username = "ejvend"; system = "aarch64-linux"; desktop = "xfce_bspwm"; type = "default"; theme = "ia-dark"; };
     };
 
@@ -82,7 +81,6 @@ inputs = {
 		systemConfigurations = {
       nixos-dt = libx.mkSystem { hostname = "nixos-dt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hyprland"; type = "default"; theme = "ia-dark"; unfree = true; };
       nixos-lt = libx.mkSystem { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hyprland"; type = "default"; theme = "asami-dark"; unfree = true; };
-      #nixos-lt = libx.mkSystem { hostname = "nixos-lt"; username = "ejvend"; system = "x86_64-linux"; desktop = "hyprland"; type = "default"; theme = "asami-dark"; unfree = true; };
 		};
 
     # Function for Image configuration

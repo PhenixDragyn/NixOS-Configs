@@ -43,8 +43,8 @@
     pkgs = inputs.nixpkgs.legacyPackages.${system};
     extraSpecialArgs = { inherit inputs outputs desktop hostname system username hmStateVersion theme; };
     modules = [ 
-      inputs.stylix.homeManagerModules.stylix
-      #inputs.stylix.homeManager.stylix
+      inputs.stylix.homeModules.stylix
+      #inputs.stylix.homeManagerModules.stylix
 
 	  	../home/${type}.nix 
 		];

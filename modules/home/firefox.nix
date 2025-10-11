@@ -57,7 +57,8 @@
         };
         "NixOS Wiki" = {
           urls = [{template = "https://nixos.wiki/index.php?search={searchTerms}";}];
-          iconUpdateURL = "https://nixos.wiki/favicon.png";
+          #iconUpdateURL = "https://nixos.wiki/favicon.png";
+          icon = "https://nixos.wiki/favicon.png";
           updateInterval = 24 * 60 * 60 * 1000; # every day
           definedAliases = ["@nw"];
         };
@@ -81,9 +82,12 @@
           definedAliases = ["@gi"];
         };
         Bing.metaData.hidden = true;
-        "Amazon.com".metaData.hidden = true;
-        "Wikipedia (en)".metaData.hidden = true;
-        "Google".metaData.alias = "@g";
+        #"Amazon.com".metaData.hidden = true;
+        "amazondotcom-us".metaData.hidden = true;
+        #"Wikipedia (en)".metaData.hidden = true;
+        "wikipedia".metaData.hidden = true;
+        #"Google".metaData.alias = "@g";
+        "google".metaData.alias = "@g";
       };
       settings = {
         # GENERAL

@@ -1,8 +1,3 @@
-# SWAP WINDOWS AND ALT KEYS 
-Hold > Fn + A keys
-
-
-
 # Installation
 https://nixos.wiki/wiki/NixOS_Installation_Guide
 

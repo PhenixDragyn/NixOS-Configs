@@ -11,7 +11,7 @@ in
     enable = true;
     plugins = [
       # pkgs.hyprlandPlugins.hyprbars
-      pkgs.hyprlandPlugins.hyprexpo
+      #pkgs.hyprlandPlugins.hyprexpo
       # pkgs.hyprlandPlugins.hy3
     ];
     extraConfig = ''
@@ -203,9 +203,9 @@ in
         #"noblur,^(thunderbird)$" # disables blur for firefox
         #"opacity 1.0 override,^(thunderbird)$" # Sets opacity to 1
         #"noblur,^(steam)$" # disables blur for steam
-        "opacity 1.0 override,^(steam)$" # Sets opacity to 1
+        "opacity 1.0 override,class:^(steam)$" # Sets opacity to 1
         #"noblur,^(codium)$" # disables blur for codium
-        "opacity 0.9 override,^(codium)$" # Sets opacity to 0.9
+        "opacity 0.9 override,class:^(codium)$" # Sets opacity to 0.9
         "stayfocused, title:^()$,class:^(steam)$"
         "minsize 1 1, title:^()$,class:^(steam)$"
         #"noblur,^(.gimp)(.*)" # disables blur for gimp
@@ -238,10 +238,12 @@ in
       ];
 
       bind = [
-      ''SUPER, grave, hyprexpo:expo, toggle''
+      #''SUPER, grave, hyprexpo:expo, toggle''
       ''SUPER, RETURN, exec, kitty''
-      ''SUPER, W, exec, firefox''
-      ''SUPER, E, exec, thunderbird''
+      ''SUPER, W, exec, chromium''
+      ''SUPER, E, exec, evolution''
+      #''SUPER, W, exec, firefox''
+      #''SUPER, E, exec, thunderbird''
       ''SUPER, N, exec, nemo''
       ''SUPER, I, exec, waypaper --folder ~/Wallpapers''
 

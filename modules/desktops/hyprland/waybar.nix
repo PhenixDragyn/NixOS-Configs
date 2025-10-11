@@ -220,8 +220,8 @@
 							};						
 
 							clock = {
-									format = "󰥔   {:%I:%M - %A}";
-									format-alt = "󰃭   {:%A, %d %b, %Y}";
+									format = "󰥔  {:%I:%M - %A}";
+									format-alt = "󰃭  {:%A, %d %b, %Y}";
 									tooltip-format = "{tz_list}";
 									timezones = [
 										"America/Boise"
@@ -251,7 +251,7 @@
 								device = "intel_backlight";
                 #device = "acpi_video1";
 								#format = "{icon}  {percent}";
-								format = ''<span color="#${config.lib.stylix.colors.base0A}">{icon} </span> {percent}'';
+								format = ''<span color="#${config.lib.stylix.colors.base0A}">{icon}</span> {percent}% '';
 								#format-icons = [" " " "];
 								#format-icons = [ "🔅" "🔆" ];
 								format-icons = ["󰃞 " "󰃝 " "󰃟 " "󰃠 "];
@@ -270,8 +270,8 @@
 							pulseaudio = {
 									scroll-step = 5;
 									#format = "{icon}{format_source} {volume}";
-									format = "{icon}  {volume}";
-									format-bluetooth = "{volume}% {icon} {format_source}";
+									format = "{icon} {volume}% ";
+									format-bluetooth = "{icon} {format_source} {volume}%";
 									format-bluetooth-muted = " ";
 									#format-muted = " {format_source}";
 									format-muted = " ";
@@ -289,9 +289,9 @@
 							network = {
 									format = "{ifname}";
 									#format-wifi = "   {ipaddr} ";
-									format-wifi = "{icon}  {ipaddr} ";
+									format-wifi = "{icon} {ipaddr} ";
                   format-icons = ["󰤟 " "󰤢 " "󰤥 "];
-									format-ethernet = "   {ipaddr} ";
+									format-ethernet = "  {ipaddr} ";
 									format-disconnected = ""; # Hides the module
 									tooltip-format = "{ifname} via {gwaddr}  ";
 									tooltip-format-wifi = "{essid} ({signalStrength}%)  ";
@@ -303,15 +303,15 @@
 
 							battery = {
 									tooltip = true;
-									tooltip-format = "{time}";
+									tooltip-format = "{time} ";
 									states = {
 											warning = 35;
 											critical = 20;
 									};
-									format = ''<span color="#${config.lib.stylix.colors.base0B}">{icon}</span>  {capacity}%'';
-									format-charging = "  {capacity}%";
+									format = ''<span color="#${config.lib.stylix.colors.base0B}">{icon}</span> {capacity}% '';
+									format-charging = "  {capacity}% ";
 									#format-charging = "󰂄  {capacity}%";
-									format-plugged  = "  {capacity}%";
+									format-plugged  = "  {capacity}% ";
 									#format-icons = [ " " " " " " " " " " ];
 								  #format-icons = ["󰝦" "󰪞" "󰪟" "󰪠" "󰪡" "󰪢" "󰪣" "󰪤" "󰪥"];
 								  format-icons = [" " " " " " " " " " " " " " " "];  
