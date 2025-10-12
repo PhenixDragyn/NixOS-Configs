@@ -404,10 +404,13 @@
 	  chromium	
 		evolutionWithPlugins
 
-    firefox
-    thunderbird
+    #firefox
+    #thunderbird
 
 		libreoffice
+		
+		obsidian
+		vimPlugins.obsidian-nvim
     
 		_1password-gui
     keepassxc
