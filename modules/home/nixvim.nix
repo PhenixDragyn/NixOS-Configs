@@ -57,16 +57,18 @@
       neo-tree = {
 				enable = true;
 
-        window = {
-				  width = 30;
-				};
-
-				filesystem = {
-					window = {
-						mappings = {
-							"\\" = "close_window";
-						};
+        settings = {
+				  window = {
+				    width = 30;
 					};
+
+				  filesystem = {
+				  	window = {
+				  		mappings = {
+				  			"\\" = "close_window";
+				  		};
+				  	};
+				  };
 				};
       };
 
