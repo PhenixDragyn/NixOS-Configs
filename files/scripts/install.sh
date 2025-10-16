@@ -10,14 +10,14 @@ if [ "$(id -u)" -eq 0 ]; then
   exit 1
 fi
 
-if [ ! -d "$HOME/NixOS/.git" ]; then
-#if [ ! -d "/tmp/nixos/git/.git" ]; then
-  git clone --recursive https://github.com/PhenixDragyn/NixOS-Configs.git "$HOME/NixOS"
-  #git clone --recursive https://github.com/PhenixDragyn/NixOS-Configs.git "/tmp/nixos/git"
-else
-  git -C "$HOME/NixOS" pull
-  #git -C "/tmp/nixos/git" pull
-fi
+# if [ ! -d "$HOME/NixOS/.git" ]; then
+# #if [ ! -d "/tmp/nixos/git/.git" ]; then
+#   git clone --recursive https://github.com/PhenixDragyn/NixOS-Configs.git "$HOME/NixOS"
+#   #git clone --recursive https://github.com/PhenixDragyn/NixOS-Configs.git "/tmp/nixos/git"
+# else
+#   git -C "$HOME/NixOS" pull
+#   #git -C "/tmp/nixos/git" pull
+# fi
 
 pushd $HOME/NixOS
 #pushd /tmp/nixos/git
@@ -47,29 +47,29 @@ sudo mkdir -p /mnt-root/etc/
 sudo chmod 777 -R /mnt-root
 echo "$(head -c32 /dev/random | base64)" > /mnt-root/etc/swap.key
 
-echo "WARNING! The disks in $TARGET_HOST are about to get wiped"
-echo "         NixOS will be re-installed"
-echo "         This is a destructive operation"
-echo
-read -p "Are you sure? [y/N]" -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-  sudo true
-
-  sudo nix run github:nix-community/disko \
-    --extra-experimental-features "nix-command flakes" \
-    --no-write-lock-file \
-    -- \
-    --mode disko \
-    "nixos/hosts/$TARGET_HOST/disk-configuration.nix"
-
-  echo ""
-  echo " ---- "
-  echo " ---- Disk formatting complete "
-  echo " ---- "
-  echo ""
-  echo "Sleeping 5s before proceeding..."
-  sleep 5
+# echo "WARNING! The disks in $TARGET_HOST are about to get wiped"
+# echo "         NixOS will be re-installed"
+# echo "         This is a destructive operation"
+# echo
+# read -p "Are you sure? [y/N]" -n 1 -r
+# echo
+# if [[ $REPLY =~ ^[Yy]$ ]]; then
+#   sudo true
+#
+#   sudo nix run github:nix-community/disko \
+#     --extra-experimental-features "nix-command flakes" \
+#     --no-write-lock-file \
+#     -- \
+#     --mode disko \
+#     "nixos/hosts/$TARGET_HOST/disk-configuration.nix"
+#
+#   echo ""
+#   echo " ---- "
+#   echo " ---- Disk formatting complete "
+#   echo " ---- "
+#   echo ""
+#   echo "Sleeping 5s before proceeding..."
+#   sleep 5
 
   sudo nixos-install --no-root-password --flake ".#$TARGET_HOST"
 
