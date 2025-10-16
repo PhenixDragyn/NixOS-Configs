@@ -26,26 +26,26 @@ pushd $HOME/NixOS
 if [[ -z "$TARGET_HOST" ]]; then
   echo "ERROR! $(basename "$0") requires a hostname as the first argument"
   echo "       The following hosts are available"
-  ls -1 nixos/hosts/*/default.nix | cut -d'/' -f3 | grep -v -E "iso|rpi"
+  ls -1 hosts/*/default.nix | cut -d'/' -f3 | grep -v -E "iso|rpi"
   exit 1
 fi
 
 if [[ -z "$TARGET_USER" ]]; then
   echo "ERROR! $(basename "$0") requires a username as the second argument"
   echo "       The following users are available"
-  ls -1 nixos/users/ | grep -v -E "nixos|root"
+  ls -1 users/ | grep -v -E "nixos|root"
   exit 1
 fi
 
-if [ ! -e "nixos/hosts/$TARGET_HOST/disk-configuration.nix" ]; then
-  echo "ERROR! $(basename "$0") could not find the required nixos/$TARGET_HOST/disk-configuration.nix"
+if [ ! -e "hosts/$TARGET_HOST/disk-configuration.nix" ]; then
+  echo "ERROR! $(basename "$0") could not find the required hosts/$TARGET_HOST/disk-configuration.nix"
   exit 1
 fi
 
 # Create a key for encrypted swap, if needed
-sudo mkdir -p /mnt-root/etc/
-sudo chmod 777 -R /mnt-root
-echo "$(head -c32 /dev/random | base64)" > /mnt-root/etc/swap.key
+# sudo mkdir -p /mnt-root/etc/
+# sudo chmod 777 -R /mnt-root
+# echo "$(head -c32 /dev/random | base64)" > /mnt-root/etc/swap.key
 
 # echo "WARNING! The disks in $TARGET_HOST are about to get wiped"
 # echo "         NixOS will be re-installed"
@@ -102,8 +102,8 @@ echo "$(head -c32 /dev/random | base64)" > /mnt-root/etc/swap.key
 
   # If there is a keyfile for a data disk, put copy it to the root partition and
   # ensure the permissions are set appropriately.
-  if [[ -f "/mnt-root/etc/swap.key" ]]; then
-    sudo cp /mnt-root/etc/swap.key /mnt/etc/swap.key
-    sudo chmod 0400 /mnt/etc/swap.key
-  fi
-fi
+  # if [[ -f "/mnt-root/etc/swap.key" ]]; then
+  #   sudo cp /mnt-root/etc/swap.key /mnt/etc/swap.key
+  #   sudo chmod 0400 /mnt/etc/swap.key
+  # fi
+#fi

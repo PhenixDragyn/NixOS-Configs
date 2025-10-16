@@ -56,18 +56,18 @@
     
     loader = {
       efi.canTouchEfiVariables = true;
-      #systemd-boot.enable = true;
+      systemd-boot.enable = true;
       #timeout = 0;
 
-      grub = {
-        enable = true;
-        device = "nodev";
-        #devices = [ "nodev" ];
-        efiSupport = true;
-        useOSProber = true;
-        configurationLimit = 10;
-				#efiInstallAsRemovable = true;
-      };
+    #   grub = {
+    #     enable = true;
+    #     device = "nodev";
+    #     #devices = [ "nodev" ];
+    #     efiSupport = true;
+    #     useOSProber = true;
+    #     configurationLimit = 10;
+		# 		# #efiInstallAsRemovable = true;
+    #  };
     };
   };
 

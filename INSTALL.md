@@ -1,5 +1,9 @@
 INSTALLATION
 
+# BIOS Settings
+    Turn off RAID storage
+    Turn off Secure Boot
+
 # Connect to wifi
 
     wpa_passphrase ESSID | sudo tee /etc/wpa_supplicant.conf
