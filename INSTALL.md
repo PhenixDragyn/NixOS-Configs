@@ -44,6 +44,9 @@ INSTALLATION
     sudo mkswap /dev/nvme0n1p3 -L NIXSWAP
     sudo swapon /dev/disk/by-label/NIXSWAP
 
+-------------------------------------------------------
+
+NEW INSTALLATION WITH NO FLAKES
 
 # NixOS config
 
@@ -99,6 +102,15 @@ INSTALLATION WITH NIX FLAKES
     sudo nix-daemon --daemon &
     su - ejvend
     home-manager switch --flake '.#ejvend@nixos-lt'
+
+# SCP the following and recreate links.
+
+    Sync/Wallpapers, Sync/Notes, Sync/keepass Directorys (Make links in home as Wallpapers, Notes, .keepass)
+    copy Sync/'Chrome Passwords.csv' and Chromium-bookmarks.html
+    .ssh directory
+    Downloads directory
+    
+# Reboot
 
 -------------------------------------------------------
 
