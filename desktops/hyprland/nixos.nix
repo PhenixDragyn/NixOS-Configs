@@ -62,6 +62,8 @@
 		HOSTNAME = "${hostname}";
   };
 
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
   # ---------------------------------
 
   # LOGIN SETTINGS
@@ -70,7 +72,6 @@
 	# 	settings = {
 	# 		default_session = let
 	# 		  tuigreet = "${lib.getExe pkgs.greetd.tuigreet}";
-	# 			
 	# 			tuigreetOptions = [
   #        "--asterisks"
 	# 			 "--remember"
@@ -275,7 +276,16 @@
     seahorse.enable = true;
     udevil.enable = true;
     gnome-disks.enable = true;
-    
+   
+	  chromium = {
+    	enable = true;
+    	extensions = [
+	    	"dbepggeogbaibhgnhhndojpepiihcmeb" # Vimium
+				"eimadpbcbfnmbkopoojfekhnkhdbieeh" # Dark Reader
+				"oboonakemofpalcgghocfoadofidjkkk" # KeePassXC-Browser
+    	];
+		};
+
     # thunar = {
     #   enable = true;
     #   plugins = with pkgs.xfce; [
