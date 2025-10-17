@@ -10,8 +10,8 @@ let
 						criteria = "eDP-1";
 						status = "enable";
 						position = "0,0";
-						mode = "2560x1600";
-						scale = 1.25;
+						mode = "1920x1200";
+						scale = 1.0666667;
 					}
 				];
 			}
@@ -23,8 +23,8 @@ let
 						criteria = "eDP-1";
 						status = "enable";
 						position = "3440,0";
-						mode = "2560x1600";
-						scale = 1.25;
+						mode = "1920x1200";
+						scale = 1.0666667;
 					}
 					{
 						#criteria = "DP-1";
@@ -44,8 +44,8 @@ let
 						criteria = "eDP-1";
 						status = "enable";
 						position = "450,1622";
-						mode = "2560x1600";
-						scale = 1.25;
+						mode = "1920x1200";
+						scale = 1.0666667;
 					}
 					{
 						#criteria = "DP-1";
