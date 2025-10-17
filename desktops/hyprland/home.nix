@@ -11,6 +11,7 @@
     ../../modules/home/qt.nix
 
 		#../../modules/home/spicetify.nix
+    ../../modules/home/chromium.nix
     ../../modules/home/firefox.nix
     ../../modules/home/kitty.nix
   ];
