@@ -278,7 +278,8 @@
     gnome-disks.enable = true;
    
 	  chromium = {
-    	enable = pkgs.lib.mkForce false; # Turn on/off Stylix Control.
+    	enable = true;
+    	#enable = pkgs.lib.mkForce false; # Turn off Stylix Control.
     	extensions = [
 	    	"dbepggeogbaibhgnhhndojpepiihcmeb" # Vimium
 				"eimadpbcbfnmbkopoojfekhnkhdbieeh" # Dark Reader
