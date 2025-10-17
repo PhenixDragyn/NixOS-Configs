@@ -22,7 +22,7 @@ let
 					{
 						criteria = "eDP-1";
 						status = "enable";
-						position = "3440,0";
+						position = "3440,315";
 						mode = "1920x1200";
 						scale = 1.0666667;
 					}
