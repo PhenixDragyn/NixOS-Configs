@@ -89,8 +89,17 @@
       };
     };
 
-    #mime.enable = true;
-    #mimeApps.enable = true;
+    mime.enable = true;
+    # mimeApps.enable = true;
+		# mimeApps.defaultApplications = {
+		#   # Set default Browser
+		# 	"text/html" = "chromium-browser.desktop";
+		# 	"x-scheme-handler/http" = "chromium-browser.desktop";
+		# 	"x-scheme-handler/https" = "chromium-browser.desktop";
+		#
+		# 	# Set default PDF Viewer
+		# 	"application/pdf" = "org.gnome.Evince.desktop";
+		};
     #mimeApps.association.added = {
       #"application/octet-stream" = "flstudio.desktop;";
     #};
