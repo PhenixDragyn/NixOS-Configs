@@ -221,23 +221,23 @@
     xdgOpenUsePortal = true;
     #config.common.default = "*";
     #config.common.default = [ "gtk" ];
-    #config.common.default = [ "gtk" "hyprland" ];
-    # config.common.default = [ "hyprland" "gtk" ];
-		#config.common."org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
-		#config.common."org.freedesktop.portal.FileChooser" = [ "gtk" ];
-		#config.common."org.freedesktop.portal.OpenURI" = [ "gtk" ];
+    config.common.default = [ "gtk" "hyprland" ];
+    #config.common.default = [ "hyprland" ];
+		config.common."org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+		config.common."org.freedesktop.portal.FileChooser" = [ "gtk" ];
+		config.common."org.freedesktop.portal.OpenURI" = [ "gtk" ];
 
-		config = {
-		  common = {
-				default = [ "gtk" ];
-				"org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
-			};
-			hyprland = {
- 	  		default = [ "hyprland" "gtk" ];
-				"org.freedesktop.portal.FileChooser" = [ "gtk" ];
-		    "org.freedesktop.portal.OpenURI" = [ "gtk" ];
-	  	};
-		};
+		# config = {
+		#   common = {
+		# 		default = [ "gtk" ];
+		# 		"org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+		# 	};
+		# 	hyprland = {
+ 	#   		default = [ "hyprland" "gtk" ];
+		# 		"org.freedesktop.portal.FileChooser" = [ "gtk" ];
+		#     "org.freedesktop.portal.OpenURI" = [ "gtk" ];
+	 #  	};
+		# };
   };
 
   # ---------------------------------
