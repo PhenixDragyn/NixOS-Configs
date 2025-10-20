@@ -427,6 +427,9 @@
     keepassxc
     keepass-charactercopy
     git-credential-keepassxc
+
+		# Printer Configuration
+		system-config-printer
   ] ++ (if (system == "x86_64-linux")
 	        then [ pkgs.freeoffice pkgs.spotify ]
 				else 

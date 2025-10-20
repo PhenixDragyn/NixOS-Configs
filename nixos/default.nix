@@ -106,12 +106,12 @@
   # ---------------------------------
 
   # PRINTING SERVICES
-  #services.printing = {
-  #  enable = true;
-  #  drivers = with pkgs; [ brlaser ];
-  #};
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [ hplipWithPlugin ];
+  };
   #environment.systemPackages = with pkgs; [ cups-filters ];
-  services.printing.enable = true;
+  #services.printing.enable = true;
 
   # Use Avahi to setup Network/Printing Discovery
   services.avahi = {
