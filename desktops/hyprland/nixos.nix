@@ -435,6 +435,7 @@
     #thunderbird
 
 		libreoffice
+		masterpdfeditor
 		
 		obsidian
 		vimPlugins.obsidian-nvim
