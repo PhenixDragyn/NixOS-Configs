@@ -451,7 +451,8 @@
 		# Default App Editor
 		#appeditor
   ] ++ (if (system == "x86_64-linux")
-	        then [ pkgs.freeoffice pkgs.spotify ]
+	        #then [ pkgs.freeoffice pkgs.spotify ]
+	        then [ pkgs.spotify ]
 				else 
 			  (if (system == "aarch64-linux" )
 			    then [] 
