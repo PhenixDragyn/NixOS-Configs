@@ -296,11 +296,13 @@
 	  chromium = {
     	enable = true;
     	#enable = pkgs.lib.mkForce false; # Turn off Stylix Control.
-    	extensions = [
-	    	"dbepggeogbaibhgnhhndojpepiihcmeb" # Vimium
-				"eimadpbcbfnmbkopoojfekhnkhdbieeh" # Dark Reader
-				"oboonakemofpalcgghocfoadofidjkkk" # KeePassXC-Browser
-    	];
+
+    # 	extensions = [
+	   #  	"dbepggeogbaibhgnhhndojpepiihcmeb" # Vimium
+				# "eimadpbcbfnmbkopoojfekhnkhdbieeh" # Dark Reader
+				# "oboonakemofpalcgghocfoadofidjkkk" # KeePassXC-Browser
+    # 	];
+
 		};
 
     # thunar = {
