@@ -452,6 +452,8 @@
 
 		# Default App Editor
 		#appeditor
+
+		wireshark
   ] ++ (if (system == "x86_64-linux")
 	        #then [ pkgs.freeoffice pkgs.spotify ]
 	        then [ pkgs.spotify ]
