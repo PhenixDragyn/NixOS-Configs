@@ -250,6 +250,8 @@
     systemd.setPath.enable = true;
 	};
 
+	#services.swayosd.enable = true;
+
   # ---------------------------------
 
   # PROGRAM SETTINGS

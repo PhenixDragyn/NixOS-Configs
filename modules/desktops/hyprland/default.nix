@@ -10,6 +10,7 @@
 		./kanshi.nix
 		./nautilus.nix
 		./rofi-wayland.nix
+		./swayosd.nix
 		./waybar.nix
 		./wlogout.nix
 	];
