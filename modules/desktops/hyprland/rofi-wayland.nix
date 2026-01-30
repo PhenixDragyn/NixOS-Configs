@@ -293,7 +293,7 @@ let
     home.file.".config/rofi/powermenu".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/NixOS/modules/desktops/hyprland/rofi/powermenu";
 
     programs.rofi = {
-      package = pkgs.rofi-wayland;
+      #package = pkgs.rofi-wayland;
       enable = true;
       theme = nixos-theme;
 

@@ -21,7 +21,8 @@ inputs = {
     # sops-nix - Secret Management with SOPS using GPG Keys
     #sops-nix.url = "github:Mic92/sops-nix";
 
-    # nixvim - neovim configuration management in nix nixvim.url = "github:nix-community/nixvim/nixos-24.05"; nixvim.url = "github:nix-community/nixvim";
+    # nixvim - neovim configuration management in nix nixvim.url = "github:nix-community/nixvim/nixos-24.05"; 
+		nixvim.url = "github:nix-community/nixvim";
 
 		# Yazi plugins
 		# nix-yazi-plugins.url = "github:lordkekz/nix-yazi-plugins?ref=yazi-v0.2.5";

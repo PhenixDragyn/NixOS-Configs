@@ -5,8 +5,11 @@
 		git = {
 			enable = true;
 			lfs.enable = true;
-			userName = "PhenixDragyn";
-			userEmail = "ejvend.nielsen@gmail.com";
+		
+		  settings = {
+			  user.name = "PhenixDragyn";
+			  user.email = "ejvend.nielsen@gmail.com";
+			};
 
 			#extraConfig = {
 			#  # core.askPass = false;

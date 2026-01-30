@@ -130,14 +130,15 @@
 	 };
 	};
 	
-
-  services.logind.extraConfig = ''
-    IdleActionSec=900
-    IdleAction=suspend-then-hibernate
-    HandleLidSwitch=suspend-then-hibernate
-    HandleLidSwitchDocked=ignore
-    HandleLidSwitchExternalPower=suspend
-  '';
+  services.logind.settings = {
+	  Login = {
+      IdleActionSec = 900;
+      IdleAction = "suspend-then-hibernate";
+      HandleLidSwitch = "suspend-then-hibernate";
+      HandleLidSwitchDocked = "ignore";
+      HandleLidSwitchExternalPower = "suspend";
+		};
+  };
 
   # ---------------------------------
 
@@ -288,7 +289,6 @@
       terminal = "kitty";
     };
 
-    file-roller.enable = true;
     seahorse.enable = true;
     udevil.enable = true;
     gnome-disks.enable = true;
@@ -356,6 +356,8 @@
     libinput-gestures    # Gesture Control
 
 		#pyprland
+
+		file-roller
 		
 		hyprpicker
 		hyprcursor
@@ -378,7 +380,7 @@
 		#wlr-randr
     wlogout              # Logout/shutdown/hibernate/lock screen modal UI
     wl-clipboard         # Clipboard
-    rofi-wayland         # App Launcher
+    #rofi-wayland         # App Launcher
     #kanshi   # wayland autorndr
 	  wl-clip-persist	
 
