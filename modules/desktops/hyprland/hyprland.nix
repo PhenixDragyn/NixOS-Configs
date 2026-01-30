@@ -123,10 +123,10 @@ in
 			# master = {
 			#   new_status = master;
 			# }
-      gestures = {
-        workspace_swipe = true;
-        workspace_swipe_fingers = 3;
-      };
+      #gestures = {
+      #  workspace_swipe = true;
+      #  workspace_swipe_fingers = 3;
+      #};
       misc = {
         disable_hyprland_logo = true;
         mouse_move_enables_dpms = true;
