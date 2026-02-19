@@ -285,8 +285,8 @@
     # dejavu_fonts
     # fira-code-nerdfont
     font-awesome
-    #jetbrains-mono
-    #nerdfonts
+    jetbrains-mono
+    nerd-fonts.fira-code
     #noto-fonts
     #noto-fonts-emoji
   ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);

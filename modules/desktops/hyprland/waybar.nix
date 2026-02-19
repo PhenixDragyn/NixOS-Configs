@@ -325,7 +325,7 @@
 									interval = 3600; 
 									tooltip = true;
 									return-type = "json";
-									format = "{icon} {}";
+									format = "{icon}{text}";
 									format-icons = {
 											"has-updates" = " ";
 											"updated" = " ";
