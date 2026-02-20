@@ -49,6 +49,7 @@ in
 			 	"4, monitor:eDP-1, default:true"
 			 	"5, monitor:eDP-1, default:true"
 			 	"6, monitor:eDP-1, default:true"
+			 	"7, monitor:eDP-1, default:true"
 			];
 			
 			# workspace = [ 
@@ -60,6 +61,7 @@ in
 			#   "4, ${sideMonitor}, persistent:true, default:true"
 			#   "5, ${sideMonitor}, persistent: true"
 			#   "6, ${sideMonitor}, persistent: true"
+			#   "7, ${sideMonitor}, persistent: true"
 			# ];
 		
    #    # plugin = {
@@ -274,7 +276,7 @@ in
       ''SUPER, 4, workspace, 4''
       ''SUPER, 5, workspace, 5''
       ''SUPER, 6, workspace, 6''
-      # ''SUPER, 7, workspace, 7''
+      ''SUPER, 7, workspace, 7''
       # ''SUPER, 8, workspace, 8''
       # ''SUPER, 9, workspace, 9''
       # ''SUPER, 0, workspace, 10''
@@ -286,7 +288,7 @@ in
       ''SUPER_ALT, 4, movetoworkspace, 4''
       ''SUPER_ALT, 5, movetoworkspace, 5''
       ''SUPER_ALT, 6, movetoworkspace, 6''
-      # ''SUPER SHIFT, 7, movetoworkspace, 7''
+      ''SUPER ALT, 7, movetoworkspace, 7''
       # ''SUPER SHIFT, 8, movetoworkspace, 8''
       # ''SUPER SHIFT, 9, movetoworkspace, 9''
       # ''SUPER SHIFT, 0, movetoworkspace, 10''
