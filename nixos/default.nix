@@ -40,6 +40,8 @@
   # NIX SETTINGS
   nix = {
     settings = {
+		  max-jobs = 4;
+			cores = 2;
       auto-optimise-store = true;
       experimental-features = [ "nix-command"  "flakes" ];
     };
