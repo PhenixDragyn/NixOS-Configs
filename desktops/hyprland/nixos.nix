@@ -97,7 +97,8 @@
 			default_session = let
 			  regreet = "${lib.getExe pkgs.greetd.regreet}";
 		  in {
-				command = ("${pkgs.hyprland}/bin/Hyprland --config " + ./hyprland-regreet.conf);
+				command = ("${pkgs.hyprland}/bin/start-hyprland -- --config " + ./hyprland-regreet.conf);
+				#command = ("${pkgs.hyprland}/bin/Hyprland --config " + ./hyprland-regreet.conf);
         #command = "${pkgs.dbus}/bin/dbus-run-session cage -s -- regreet";
 			  #command = "cage -s -- regreet";
 			  user = "greeter";

@@ -81,17 +81,13 @@ in
         	#no_gaps_when_only = 1; # If it's the only window int he layout, 1=don't show gaps
       	};
 
-				"exec-once" = [
-					"bash ~/.config/hypr/start.sh"
-				];
 		 	};
 		};
 
 		extraConfig = ''
 		-- Workspaces
 		hl.workspace_rule({ workspace = "1", monitor = "DP-1" })
-		hl.workspace_rule({ workspace = "2", monitor = "DP-1" })
-		hl.workspace_rule({ workspace = "3", monitor = "DP-1" })
+		hl.workspace_rule({ workspace = "2", monitor = "DP-1" }) hl.workspace_rule({ workspace = "3", monitor = "DP-1" })
 	
 		hl.workspace_rule({ workspace = "4", monitor = "eDP-1" })
 		hl.workspace_rule({ workspace = "5", monitor = "eDP-1" })
@@ -186,6 +182,11 @@ in
 		hl.bind("SUPER + X", hl.dsp.exec_cmd("hyprlock"))
 
 		hl.bind("PRINT", hl.dsp.exec_cmd("grimblast copy area"))
+
+
+		hl.on("hyprland.start", function()
+			hl.exec_cmd("bash ~/.config/hypr/start.sh")
+		end)
 		'';
   };
 
