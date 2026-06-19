@@ -184,6 +184,117 @@ in
 		hl.bind("PRINT", hl.dsp.exec_cmd("grimblast copy area"))
 
 
+		hl.window_rule({
+			match = { class = "rofi", title = "rofi" },
+			float = true,
+		})
+
+		hl.window_rule({
+			match = { class = "imv", title = "imv" },
+			float = true,
+		})
+
+		hl.window_rule({
+			match = { class = "org.keepassxc.KeePassXC" },
+			float = true,
+		})
+
+		hl.window_rule({
+			match = { title = "^(.*)Syncthing(.*)" },
+			float = true,
+		})
+
+		hl.window_rule({
+			match = { class = "^thunderbird$", title = "^(.*)Reminder(.*)" },
+			float = true,
+		})
+
+		hl.window_rule({
+			match = { class = "waypaper", title = "waypaper" },
+			float = true,
+		})
+
+		hl.window_rule({
+			match = { class = "seahorse", title = "seahorse" },
+			float = true,
+		})
+
+		hl.window_rule({
+			match = { class = "gedit" },
+			float = true,
+		})
+
+		hl.window_rule({
+			match = { class = "org.gnome.TextEditor" },
+			float = true,
+		})
+
+		hl.window_rule({
+			match = { class = "guvcview" },
+			float = true,
+		})
+
+		hl.window_rule({
+			match = { class = "Celluloid" },
+			float = true,
+		})
+
+		hl.window_rule({
+			match = { class = "Camera" },
+			float = true,
+		})
+
+		hl.window_rule({
+			match = { class = "File Roller" },
+			float = true,
+		})
+
+		hl.window_rule({
+			match = { class = "nemo" },
+			float = true,
+		})
+
+		hl.window_rule({
+			match = { class = "evince" },
+			float = true,
+		})
+
+		hl.window_rule({
+			match = { class = "gnome-disks" },
+			float = true,
+		})
+
+		hl.window_rule({
+			match = { class = "wdisplays" },
+			float = true,
+		})
+
+		hl.window_rule({
+			match = { class = "nwg-displays" },
+			float = true,
+		})
+
+		hl.window_rule({
+			match = { class = "nwg-look"},
+			float = true,
+		})
+
+		hl.window_rule({
+			match = { class = "mpv" },
+			float = true,
+		})
+
+		hl.window_rule({
+			match = { class = "1Password" },
+			float = true,
+		})
+
+		hl.window_rule({
+			match = { class = ".blueman-manager-wrapped"},
+			float = true,
+		})
+
+
 		hl.on("hyprland.start", function()
 			hl.exec_cmd("bash ~/.config/hypr/start.sh")
 		end)
