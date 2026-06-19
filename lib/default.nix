@@ -85,6 +85,7 @@
         home-manager.useUserPackages = true;
         home-manager.extraSpecialArgs  = { inherit inputs outputs desktop hostname username hmStateVersion stateVersion system theme; };
         home-manager.users."${username}" = import ../home/${type}.nix;
+				backupFileExtension = "backup";
       }
     ];
   };
@@ -127,6 +128,7 @@
         home-manager.useUserPackages = true;
         home-manager.extraSpecialArgs  = { inherit inputs outputs desktop hostname username hmStateVersion stateVersion system theme; };
         home-manager.users."${username}" = import ../home;
+				backupFileExtension = "backup";
       }
     ];
   };

@@ -2,13 +2,15 @@
   description = "NixOS System Config";
   inputs = { 
     # Stable Packages
-    nixpkgs.url = "nixpkgs/nixos-25.11";
+    #nixpkgs.url = "nixpkgs/nixos-25.11";
+    nixpkgs.url = "nixpkgs/nixos-26.05";
 
     # Unstable Packages
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
 
     # home-manager - Dotfile mnagement - add /master at the end to pull from master 
-    home-manager.url = "github:nix-community/home-manager/release-25.11";
+    #home-manager.url = "github:nix-community/home-manager/release-25.11";
+    home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # disko - Declarative Disk Partitioning
@@ -22,15 +24,16 @@
     #sops-nix.url = "github:Mic92/sops-nix";
 
     # nixvim - neovim configuration management in nix nixvim.url = "github:nix-community/nixvim/nixos-24.05"; 
-		nixvim.url = "github:nix-community/nixvim";
+		#nixvim.url = "github:nix-community/nixvim";
+		nixvim.url = "github:nix-community/nixvim/nixos-26.05";
 
 		# Yazi plugins
 		# nix-yazi-plugins.url = "github:lordkekz/nix-yazi-plugins?ref=yazi-v0.2.5";
 		# nix-yazi-plugins.inputs.nixpkgs.follows = "nixpkgs";
 		
     # Nix colorizer / themer 
-    #stylix.url = "github:danth/stylix/release-24.05";
-    stylix.url = "github:danth/stylix/release-25.11";
+    #stylix.url = "github:danth/stylix/release-25.11";
+    stylix.url = "github:danth/stylix/release-26.05";
 
     # Spicetify-Nix
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
@@ -45,8 +48,10 @@
   let
     inherit (self) outputs;
 
-    stateVersion = "25.11";
-    hmStateVersion = "25.11";
+    #stateVersion = "25.11";
+    #hmStateVersion = "25.11";
+    stateVersion = "26.05";
+    hmStateVersion = "26.05";
 
     libx = import ./lib/default.nix { inherit self inputs outputs stateVersion hmStateVersion; };
   in 

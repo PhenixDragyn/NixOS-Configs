@@ -143,14 +143,23 @@
   # ---------------------------------
 
   # SYSTEM SLEEP SETTINGS
-  systemd.sleep.extraConfig = ''
-    AllowSuspend = yes
-    AllowHibernate = yes
-    AllowSuspendThenhibernate = yes
-    AllowHybridSleep = yes
+	systemd.sleep.settings.Sleep = {
+    AllowSuspend = "yes";
+    AllowHibernate = "yes";
+    AllowSuspendThenhibernate = "yes";
+    AllowHybridSleep = "yes";
+  
+    HibernateDelaySec = 600;
+  };
 
-    HibernateDelaySec = 600
-  '';
+  #systemd.sleep.extraConfig = ''
+  #  AllowSuspend = yes
+  #  AllowHibernate = yes
+  #  AllowSuspendThenhibernate = yes
+  #  AllowHybridSleep = yes
+  #
+  #  HibernateDelaySec = 600
+  #'';
 
   # ---------------------------------
 

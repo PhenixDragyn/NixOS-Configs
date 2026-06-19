@@ -9,386 +9,184 @@ in
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    plugins = [
-      # pkgs.hyprlandPlugins.hyprbars
-      #pkgs.hyprlandPlugins.hyprexpo
-      # pkgs.hyprlandPlugins.hy3
-    ];
-    extraConfig = ''
-      # Resize
-      bind = SUPER, R, exec, notify-send 'Entered resize mode.  Press ESC to quit.'
-      bind = SUPER, R, submap, resize
-      submap = resize
-      binde = , H, resizeactive,-50 0
-      binde = , L, resizeactive,50 0
-      binde = , K, resizeactive,0 -50
-      binde = , J, resizeactive,0 50
-      binde = , left, resizeactive,-50 0
-      binde = , right, resizeactive,50 0
-      binde = , up, resizeactive,0 -50
-      binde = , down, resizeactive,0 50 
-			bind  = , escape, submap, reset
-      submap = reset
-      '';
-    settings = {
-      # monitor = [
-			#   "eDP-1,highrr,auto,1.25"
-      #   "DP-1,highrr,auto,1.33333"
-			# ];
-			
-			# monitor = [
-      #   "eDP-1, 2560x1600, 450x1622, 1.25" 
-      #   "DP-1, 3840x2160, 0x0, 1.333333" 
-			# ];
-			
-			workspace = [ 
-			  "1, monitor:DP-1, default:true"
-				"2, monitor:DP-1, default:true"
-				"3, monitor:DP-1, default:true"
-			 
-			 	"4, monitor:eDP-1, default:true"
-			 	"5, monitor:eDP-1, default:true"
-			 	"6, monitor:eDP-1, default:true"
-			 	"7, monitor:eDP-1, default:true"
-			];
-			
-			# workspace = [ 
-			#   "1, border:false, rounding:false"
-			#   "1, ${mainMonitor}"
-			#   "2, ${mainMonitor}, persistent:true, default:true"
-			#   "3, ${mainMonitor}, persistent: true"
-			#  
-			#   "4, ${sideMonitor}, persistent:true, default:true"
-			#   "5, ${sideMonitor}, persistent: true"
-			#   "6, ${sideMonitor}, persistent: true"
-			#   "7, ${sideMonitor}, persistent: true"
-			# ];
-		
-   #    # plugin = {
-      #   hyprexpo = {
-			#     columns = 2;
-      #     gap_size = 8;
-      #     workspace_method = "first 1";
-      #     enable_gesture = true;
-      #     gesture_fingers = 3;
-      #     gesture_positive = false;
-      #   };
-      #   hyprbars = {
-      #     bar_height = 25;
-      #     bar_part_of_window = true;
-      #     bar_color = config.lib.stylix.colors.base04;
-      #     # example buttons (R -> L)
-      #     # hyprbars-button = color, size, on-click
-      #     hyprbars-button = [
-      #       "rgb(ff4040), 10, 󰖭 , hyprctl dispatch killactive"
-      #       "rgb(eeee11), 10,  , hyprctl dispatch fullscreen 1"
-      #     ];
-      #   };
-      # };
+    configType = "lua";
+    #configType = "hyprlang"; # Forces generation of hyprland.conf
 
-      layerrule = [
-        #"blur, waybar"
-        "blur, rofi"
-        "blur, notifications"
-				"blur, logout_dialog"
-        "ignorezero, notifications"
-      ];
-      xwayland.force_zero_scaling = false;
-      general = {
-          gaps_in = "5";
-          gaps_out = "10";
-          border_size = "2";
-          resize_on_border = "true";
-          extend_border_grab_area = "15";
+		settings = {
+			config = {
+				general = {
+		 	 		gaps_in = 5;
+		 	 		gaps_out = 10;
+		 	 		border_size = 2;
+		 	 		resize_on_border = true;
+		 	 		extend_border_grab_area = 15;
+		 	 		#layout = "dwindle";
+		 		};
 
-          # Comment out to remove colored borders
-          #col.active_border = config.lib.stylix.colors.base00;
-          #col.inactive_border = config.lib.stylix.colors.base01;
-
-          layout = "dwindle";
-      };
-      input = {
+      	input = {
           kb_layout = "us";
-          follow_mouse = "1";
+          follow_mouse = true;
           mouse_refocus = false;
 					natural_scroll = true;
 				
           touchpad = {
-              natural_scroll = true;
-              disable_while_typing = true;
-              tap-to-click = true;
-              clickfinger_behavior = true;
-              drag_lock = true;
+            natural_scroll = true;
+            disable_while_typing = true;
+            tap_to_click = true;
+            clickfinger_behavior = true;
+            drag_lock = true;
           };
           sensitivity = 0;
-      };
-			# master = {
-			#   new_status = master;
-			# }
-      #gestures = {
-      #  workspace_swipe = true;
-      #  workspace_swipe_fingers = 3;
-      #};
-      misc = {
-        disable_hyprland_logo = true;
-        mouse_move_enables_dpms = true;
-        key_press_enables_dpms = true;
-				#background_color = 0x24273a;
-      };
-      decoration = {
-        rounding = 1;
-        active_opacity = 0.98;
-        inactive_opacity = 0.7;
-        fullscreen_opacity = 1.0;
-
-        shadow = {
-					enabled = true;
-					range = 30;
-          render_power = 3;
-
-			    # Uncomment for colored matching border shadows (Glow effect)
-          #"col.shadow" = lib.mkForce (rgba config.lib.stylix.colors.base0D "99");
-          #"col.shadow_inactive" = lib.mkForce (rgba config.lib.stylix.colors.base00 "99");
 				};
-			
-        blur = {
-				  enabled = true;
-          size = 12;
-          passes = 2;
-          ignore_opacity = true;
-					new_optimizations = true;
-					xray = true;
-        };
-      };
-      # animations = {
-      #   enabled = true;
-      #   bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
-      #   animation = [
-      #     "windows,1,7,myBezier"
-      #     "windowsOut,1,7,default,popin 80%"
-      #     "border,1,10,default"
-      #     "borderangle,1,8,default"
-      #     "fade,1,7,default"
-      #     "workspaces,1,6,default"
-      #   ];
-      # };
-			animations = {
-				enabled = true; 
-				bezier = [
-				  "wind, 0.05, 0.9, 0.1, 1.05"
-					"winIn, 0.1, 1.1, 0.1, 1.1"
-					"winOut, 0.3, -0.3, 0, 1"
-					"liner, 1, 1, 1, 1"
+
+      	misc = {
+        	disable_hyprland_logo = true;
+        	mouse_move_enables_dpms = true;
+        	key_press_enables_dpms = true;
+					#background_color = 0x24273a;
+      	};
+
+      	decoration = {
+        	rounding = 1;
+        	active_opacity = 0.98;
+        	inactive_opacity = 0.7;
+        	fullscreen_opacity = 1.0;
+
+        	shadow = {
+						enabled = true;
+						range = 30;
+          	render_power = 3;
+
+			    	# Uncomment for colored matching border shadows (Glow effect)
+          	#"col.shadow" = lib.mkForce (rgba config.lib.stylix.colors.base0D "99");
+          	#"col.shadow_inactive" = lib.mkForce (rgba config.lib.stylix.colors.base00 "99");
+					};
+					
+        	blur = {
+				  	enabled = true;
+          	size = 12;
+          	passes = 2;
+          	ignore_opacity = true;
+						new_optimizations = true;
+						xray = true;
+        	};
+				};
+
+      	dwindle = {
+        	# See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
+        	#pseudotile = false; # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+					force_split = 2;
+        	preserve_split = true;# you probably want this
+					#smart_split = true;
+        	#no_gaps_when_only = 1; # If it's the only window int he layout, 1=don't show gaps
+      	};
+
+				"exec-once" = [
+					"bash ~/.config/hypr/start.sh"
 				];
-				animation = [
-					"windows, 1, 6, wind, slide"
-					"windowsIn, 1, 6, winIn, slide"
-					"windowsOut, 1, 5, winOut, slide"
-					"windowsMove, 1, 5, wind, slide"
-					"border, 1, 1, liner"
-					"borderangle, 1, 30, liner, loop"
-					"fade, 1, 10, default"
-				  "workspaces, 1, 5, wind"
-				];
-  		};
-      dwindle = {
-        # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
-        pseudotile = false; # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
-				force_split = 2;
-        preserve_split = true;# you probably want this
-				#smart_split = true;
-        #no_gaps_when_only = 1; # If it's the only window int he layout, 1=don't show gaps
-      };
-      windowrule = [
-        #"noblur,^(firefox)$" # disables blur for firefox
-        #"opacity 1.0 override,^(firefox)$" # Sets opacity to 1
-        #"noblur,^(thunderbird)$" # disables blur for firefox
-        #"opacity 1.0 override,^(thunderbird)$" # Sets opacity to 1
-        #"noblur,^(steam)$" # disables blur for steam
-        "opacity 1.0 override,class:^(steam)$" # Sets opacity to 1
-        #"noblur,^(codium)$" # disables blur for codium
-        "opacity 0.9 override,class:^(codium)$" # Sets opacity to 0.9
-        "stayfocused, title:^()$,class:^(steam)$"
-        "minsize 1 1, title:^()$,class:^(steam)$"
-        #"noblur,^(.gimp)(.*)" # disables blur for gimp
-      ];
+		 	};
+		};
 
-      windowrulev2 = [
-        ''float, class:(rofi), title:(rofi)''
-        ''float, class:(imv), title:(imv)''
-        ''float, class:(org.keepassxc.KeePassXC)''
-        ''float, title:^(.*)(Syncthing)(.*)''
-        ''float, class:^(thunderbird)$, title:^(.*)(Reminder)(.*)''
-        ''float, class:(waypaper), title:(Waypaper)''
-        ''float, class:(seahorse), title:(seahorse)''
-		    ''float, class:(gedit)''
-		    ''float, class:(org.gnome.TextEditor)''
-		    ''float, class:(guvcview)''
-		    ''float, title:(Celluloid)''
-        ''float, title:(Camera)''
-        ''float, title:(File Roller)''
-				''float, class:(nemo)''
-				''float, class:(evince)''
-				''float, class:(gnome-disks)''
-				''float, class:(wdisplays)''
-				''float, class:(nwg-displays)''
-				''float, class:(nwg-look)''
-				''float, class:(mpv)''
-				''float, class:(1Password)''
-				''float, class:(.blueman-manager-wrapped)''
-				''float, class:(org.remmina.Remmina), title:^(.*)(Remmina)(.*)''
-      ];
+		extraConfig = ''
+		-- Workspaces
+		hl.workspace_rule({ workspace = "1", monitor = "DP-1" })
+		hl.workspace_rule({ workspace = "2", monitor = "DP-1" })
+		hl.workspace_rule({ workspace = "3", monitor = "DP-1" })
+	
+		hl.workspace_rule({ workspace = "4", monitor = "eDP-1" })
+		hl.workspace_rule({ workspace = "5", monitor = "eDP-1" })
+		hl.workspace_rule({ workspace = "6", monitor = "eDP-1" })
+		hl.workspace_rule({ workspace = "7", monitor = "eDP-1" })
+		
+		-- Layer Rules
+		hl.layer_rule({ match = { namespace = "rofi" }, blur = true })
+		hl.layer_rule({ match = { namespace = "notifications" }, blur = true })
+		hl.layer_rule({ match = { namespace = "logout_dialog" }, blur = true })
+		
+		-- Key Bindings
+		hl.bind("SUPER + M", hl.dsp.exit())
+		hl.bind("SUPER + Q", hl.dsp.window.close())
+		hl.bind("SUPER + F", hl.dsp.window.float({ action = "toggle" }))
 
-      bind = [
-      #''SUPER, grave, hyprexpo:expo, toggle''
-      ''SUPER, RETURN, exec, kitty''
-      ''SUPER, W, exec, chromium''
-      ''SUPER, E, exec, evolution''
-      #''SUPER, W, exec, firefox''
-      #''SUPER, E, exec, thunderbird''
-      ''SUPER, N, exec, nemo''
-      ''SUPER, I, exec, waypaper --folder ~/Wallpapers''
+		hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("kitty"))
+    hl.bind("SUPER + W", hl.dsp.exec_cmd("chromium"))
+    hl.bind("SUPER + E", hl.dsp.exec_cmd("evolution"))
+    hl.bind("SUPER + W", hl.dsp.exec_cmd("firefox"))
+    hl.bind("SUPER + E", hl.dsp.exec_cmd("thunderbird"))
 
-      ''SUPER, Q, killactive,''
-      ''SUPER, M, exit,''
-      ''SUPER, F, togglefloating,''
-      ''SUPER, P, pseudo, # dwindle''
-      ''SUPER, J, togglesplit, # dwindle''
-      #''SUPER, S, exec, steam -vgui''
-      #''SUPER, B, exec, rofi-rbw --action copy --no-folder''
-      ''SUPER_SHIFT, L, exec, logseq''
+    hl.bind("SUPER + N", hl.dsp.exec_cmd("nemo"))
+    hl.bind("SUPER + I", hl.dsp.exec_cmd("waypaper --folder ~/Wallpapers"))
 
-      # Move focus with mainMod + arrow keys
-      # ''SUPER SHIFT, left, movefocus, l''
-      # ''SUPER SHIFT, right, movefocus, r''
-      # ''SUPER SHIFT, up, movefocus, u''
-      # ''SUPER SHIFT, down, movefocus, d''
-      #
-      # ''SUPER SHIFT, H, movefocus, l''
-      # ''SUPER SHIFT, L, movefocus, r''
-      # ''SUPER SHIFT, K, movefocus, u''
-      # ''SUPER SHIFT, J, movefocus, d''
+		hl.bind("SUPER + 1", hl.dsp.focus({ workspace = "1" }))
+		hl.bind("SUPER + 2", hl.dsp.focus({ workspace = "2" }))
+		hl.bind("SUPER + 3", hl.dsp.focus({ workspace = "3" }))
+		hl.bind("SUPER + 4", hl.dsp.focus({ workspace = "4" }))
+		hl.bind("SUPER + 5", hl.dsp.focus({ workspace = "5" }))
+		hl.bind("SUPER + 6", hl.dsp.focus({ workspace = "6" }))
+		hl.bind("SUPER + 7", hl.dsp.focus({ workspace = "7" }))
 
-      # Switch workspaces with mainMod + [0-9]
-      ''SUPER, 1, workspace, 1''
-      ''SUPER, 2, workspace, 2''
-      ''SUPER, 3, workspace, 3''
-      ''SUPER, 4, workspace, 4''
-      ''SUPER, 5, workspace, 5''
-      ''SUPER, 6, workspace, 6''
-      ''SUPER, 7, workspace, 7''
-      # ''SUPER, 8, workspace, 8''
-      # ''SUPER, 9, workspace, 9''
-      # ''SUPER, 0, workspace, 10''
+		hl.bind("SUPER + ALT + 1", hl.dsp.window.move({ workspace = "1" }))
+		hl.bind("SUPER + ALT + 2", hl.dsp.window.move({ workspace = "2" }))
+		hl.bind("SUPER + ALT + 3", hl.dsp.window.move({ workspace = "3" }))
+		hl.bind("SUPER + ALT + 4", hl.dsp.window.move({ workspace = "4" }))
+		hl.bind("SUPER + ALT + 5", hl.dsp.window.move({ workspace = "5" }))
+		hl.bind("SUPER + ALT + 6", hl.dsp.window.move({ workspace = "6" }))
+		hl.bind("SUPER + ALT + 7", hl.dsp.window.move({ workspace = "7" }))
 
-      # Move active window to a workspace with mainMod + SHIFT + [0-9]
-      ''SUPER_ALT, 1, movetoworkspace, 1''
-      ''SUPER_ALT, 2, movetoworkspace, 2''
-      ''SUPER_ALT, 3, movetoworkspace, 3''
-      ''SUPER_ALT, 4, movetoworkspace, 4''
-      ''SUPER_ALT, 5, movetoworkspace, 5''
-      ''SUPER_ALT, 6, movetoworkspace, 6''
-      ''SUPER ALT, 7, movetoworkspace, 7''
-      # ''SUPER SHIFT, 8, movetoworkspace, 8''
-      # ''SUPER SHIFT, 9, movetoworkspace, 9''
-      # ''SUPER SHIFT, 0, movetoworkspace, 10''
+		hl.bind("SUPER + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+		hl.bind("SUPER + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 
-      # Scroll through existing workspaces with mainMod + scroll
-      ''SUPER, mouse_down, workspace, e+1''
-      ''SUPER, mouse_up, workspace, e-1''
+		hl.bind("SUPER + TAB", function()
+			hl.dispatch(hl.dsp.window.cycle_next())
+			hl.dispatch(hl.dsp.window.bring_to_top())
+		end)
 
-      #############################################################################
-      # Custom keybinds
-      # Show Rofi on SUPER-SPACE
-      # ''SUPER, space, exec, fuzzel''
-      ''SUPER, space, exec, rofi -show drun -show-icons''
+		hl.bind("SUPER + SHIFT + TAB", function()
+			hl.dispatch(hl.dsp.window.cycle_prev())
+			hl.dispatch(hl.dsp.window.bring_to_top())
+		end)
 
-      # Take a screenshot with the Print key''
-      #'', Print, exec, grim -g "$(slurp)" | wl-copy -t image/png''
-      '', Print, exec, grimblast copy area''
+		hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -q s +10%"))
+		hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -q s 10%-"))
+		hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("pactl set-sink-volume @DEFAULT_SINK@ +5%"))
+		hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("pactl set-sink-volume @DEFAULT_SINK@ -5%"))
+		hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"))
 
-      # Move to the previous / next workspace with SUPER-LEFT and SUPER-RIGHT
-      # ''SUPER      , right, workspace, e+1''
-      # ''SUPER      , left , workspace, e-1''
-      # ''SUPER SHIFT, right, movetoworkspace, e+1''
-      # ''SUPER SHIFT, left , movetoworkspace, e-1''
-      # ''SHIFT ALT, L, workspace, e+1''
-      # ''SHIFT ALT, H, workspace, e-1''
+		hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("~/.config/waybar/scripts/spotify-pause.sh"))
 
-      # Lock the screen, send to swaylock and pause music
-			# Defined in hyprlock.nix
-      #''SUPER, X, exec, hyprlock''
-      #''SUPER, X, exec, playerctl pause''
+		hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl pause"))
+		hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"))
+		hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"))
+		hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("pactl set-source-mute @DEFAULT_SOURCE@ toggle"))
 
-      # to switch between windows in a floating workspace
-      ''SUPER ,Tab, cyclenext,          # change focus to another window''
-      ''SUPER ,Tab, bringactivetotop,   # bring it to the top''
+		hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("swayosd-client --brightness=lower"))
+		hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("swayosd-client --brightness=raise"))
+		hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("swayosd-client --output-volume=lower"))
+		hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("swayosd-client --output-volume=raise"))
 
-			# Audo controls
-      #'', XF86AudioMute, exec, swayosd --output-volume=mute-toggle''
-      # '', XF86AudioMute, exec, playerctl play-pause''
-      # '', XF86AudioPrev, exec, playerctl previous''
-      # '', XF86AudioNext, exec, playerctl next''
-      
-			# Fn keys
-			'', XF86MonBrightnessUp, exec, brightnessctl -q s +10%'' # Increase brightness by 10%
-			'', XF86MonBrightnessDown, exec, brightnessctl -q s 10%-'' # Reduce brightness by 10%
-			'', XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%'' # Increase volume by 5%
-			'', XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%'' # Reduce volume by 5%
-			'', XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'' # Toggle mute
+		-- hl.bind("switch:on:Lid Switch", function()
+		hl.bind("switch:on:1231ec0", function()
+			hl.monitor({ output = "eDP-1", disabled = true})
+		end, { locked = true })
 
-			#'', XF86AudioPlay, exec, playerctl play-pause'' # Audio play pause
-			'', XF86AudioPlay, exec, ~/.config/waybar/scripts/spotify-pause.sh'' # Audio play pause
+		-- hl.bind("switch:off:Lid Switch", function()
+		hl.bind("switch:off:1231ec0", function()
+			hl.monitor({ output = "eDP-1", disabled = false})
+		end, { locked = true })
 
-			'', XF86AudioPause, exec, playerctl pause'' # Audio pause
-			'', XF86AudioNext, exec, playerctl next'' # Audio next
-			'', XF86AudioPrev, exec, playerctl previous'' # Audio previous
-			'', XF86AudioMicMute, exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle'' # Toggle microphone
-			'', XF86Lock, exec, hyprlock # Open screenlock''
+		-- hl.bind("XF86Lock", hl.dsp.exec_cmd("hyprlock"))
 
-			'', code:238, exec, brightnessctl -d smc::kbd_backlight s +10''
-			'', code:237, exec, brightnessctl -d smc::kbd_backlight s 10-'' 
-      ];
+		hl.bind("code:238", hl.dsp.exec_cmd("brightnessctl -d smc::kbd_backlight s +10"))
+		hl.bind("code:237", hl.dsp.exec_cmd("brightnessctl -d smc::kbd_backlight s 10-"))
 
-      bindm = [
-        # Move/resize windows with mainMod + LMB/RMB and dragging
-        #''LCTRL SHIFT, mouse:272, movewindow''
-        #''LCTRL SHIFT, mouse:273, resizewindow''
-        ''SUPER, mouse:272, movewindow''
-        ''SUPER, mouse:273, resizewindow''
-      ];
-      binde = [
-     #    '', XF86AudioPlay, exec, playerctl play-pause''
-     #    '', XF86AudioNext, exec, playerctl next''
-     #    '', XF86AudioPrev, exec, playerctl previous''
-     #    '', XF86AudioMute, exec, swayosd-client --output-volume=mute-toggle''
-			  # '', XF86AudioMicMute, exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle'' # Toggle microphone
+		hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = "true" })
+		hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = "true" })
 
-        '', XF86MonBrightnessDown, exec, swayosd-client --brightness=lower''
-        '', XF86MonBrightnessUp,   exec, swayosd-client --brightness=raise''
-        '', XF86AudioLowerVolume,  exec, swayosd-client --output-volume=lower''
-        '', XF86AudioRaiseVolume,  exec, swayosd-client --output-volume=raise''
-      ];
-      bindl = [
-			  # '', XF86AudioPause, exec, playerctl pause'' # Audio pause
-     #    '', XF86AudioPlay, exec, playerctl play-pause''
-     #    '', XF86AudioNext, exec, playerctl next''
-     #    '', XF86AudioPrev, exec, playerctl previous''
-     #    '', XF86AudioMute, exec, swayosd-client --output-volume=mute-toggle''
-			  # '', XF86AudioMicMute, exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle'' # Toggle microphone
+		hl.bind("SUPER + SPACE", hl.dsp.exec_cmd("rofi -show drun -show-icons"))
+		hl.bind("SUPER + X", hl.dsp.exec_cmd("hyprlock"))
 
-        '',switch:on:1241ec0,exec,hyprctl keyword monitor "eDP-1, 2560x1600, 0x0, 1"''
-        '',switch:off:1241ec0,exec,hyprctl keyword monitor "eDP-1, disable"''
-      ];
-
-      exec-once = ''bash ~/.config/hypr/start.sh'';
-			#exec-once = ''hyprland-monitor-attached ~/.config/hypr/monitors.sh''
-
-      # Autostart
-			# exec-once blueman-applet &
-		 #  exec-once	syncthing --no-browser &
-		 #  exec-once	syncthingtray --wait &
-    };
+		hl.bind("PRINT", hl.dsp.exec_cmd("grimblast copy area"))
+		'';
   };
 
   home.file = {

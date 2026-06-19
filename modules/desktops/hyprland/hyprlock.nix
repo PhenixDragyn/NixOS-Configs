@@ -197,10 +197,10 @@ in
 
   wayland.windowManager.hyprland = {
     settings = {
-      bind = [
-        "SUPER, X, exec, ${lib.getExe pkgs.hyprlock} --immediate"
-        "SUPER, X, exec, playerctl pause"
-      ];
+      #bind = [
+        #"SUPER + X, exec, ${lib.getExe pkgs.hyprlock} --immediate"
+        #"SUPER + X, exec, playerctl pause"
+      #];
     };
   };
 }
