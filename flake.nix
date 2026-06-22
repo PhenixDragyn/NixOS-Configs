@@ -42,8 +42,12 @@
     # nixos-generators - Automated Image / ISO Creation
     nixos-generators.url = "github:nix-community/nixos-generators";
     nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
+
+		# Add the upstream waybar development branch
+		#waybar.url = "github:ALexays/Waybar";
   };
 
+  #outputs = { self, nixpkgs, sops-nix, waybar, ... } @inputs:
   outputs = { self, nixpkgs, sops-nix, ... } @inputs:
   let
     inherit (self) outputs;

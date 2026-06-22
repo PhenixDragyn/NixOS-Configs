@@ -12,6 +12,8 @@
 
   programs.waybar = {
     enable = true;
+		# package = inputs.waybar.packages.${pkgs.system}.waybar;
+
     settings = {
         mainBar = {
 				    id = "main";
