@@ -44,16 +44,14 @@
     nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
 
 		# Add the upstream waybar development branch
-		#waybar.url = "github:ALexays/Waybar";
+		waybar.url = "github:ALexays/Waybar";
   };
 
-  #outputs = { self, nixpkgs, sops-nix, waybar, ... } @inputs:
-  outputs = { self, nixpkgs, sops-nix, ... } @inputs:
+  #outputs = { self, nixpkgs, sops-nix, ... } @inputs:
+  outputs = { self, nixpkgs, sops-nix, waybar, ... } @inputs:
   let
     inherit (self) outputs;
 
-    #stateVersion = "25.11";
-    #hmStateVersion = "25.11";
     stateVersion = "26.05";
     hmStateVersion = "26.05";
 

@@ -352,6 +352,7 @@
     glib                 # Set GTK theme settings
     #calcurse             # TUI Calendar app
 		udiskie            # Automaounter
+		pulseaudio
 		pulsemixer
 
 		cliphist

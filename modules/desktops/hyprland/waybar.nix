@@ -1,4 +1,4 @@
-{ config, lib, pkgs, username, ... }:
+{ config, lib, inputs, pkgs, username, ... }:
 
 {
   #imports = [ ./waybar/scripts.nix ];
@@ -12,7 +12,7 @@
 
   programs.waybar = {
     enable = true;
-		# package = inputs.waybar.packages.${pkgs.system}.waybar;
+		package = inputs.waybar.packages.${pkgs.system}.waybar;
 
     settings = {
         mainBar = {
