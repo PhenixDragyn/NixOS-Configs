@@ -155,10 +155,10 @@ in
 		hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"))
 		hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("pactl set-source-mute @DEFAULT_SOURCE@ toggle"))
 
-		hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("swayosd-client --brightness=lower"))
-		hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("swayosd-client --brightness=raise"))
-		hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("swayosd-client --output-volume=lower"))
-		hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("swayosd-client --output-volume=raise"))
+		--hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("swayosd-client --brightness=lower"))
+		--hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("swayosd-client --brightness=raise"))
+		--hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("swayosd-client --output-volume=lower"))
+		--hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("swayosd-client --output-volume=raise"))
 
 		-- hl.bind("switch:on:Lid Switch", function()
 		hl.bind("switch:on:1231ec0", function()
