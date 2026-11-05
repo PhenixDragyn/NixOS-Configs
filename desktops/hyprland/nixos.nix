@@ -406,7 +406,8 @@
     nwg-displays			# Monitor display configuration
 
     # wayland-packages
-		pkgs-unstable.wayprompt
+		wayprompt
+		#pkgs-unstable.wayprompt
 
     celluloid        # GTK+ frontend to mpv
 		evince            # pdf document viewer
